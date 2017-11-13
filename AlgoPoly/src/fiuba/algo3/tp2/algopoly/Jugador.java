@@ -31,4 +31,8 @@ public class Jugador {
 		return capitalDelJugador;
 	}
 	
+	public BoletaQuini6 getBoletoQuini6(){
+		return boletaQuini6DelJugador;
+	}
+	
 }
