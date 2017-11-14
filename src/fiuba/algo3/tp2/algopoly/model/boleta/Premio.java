@@ -1,16 +1,16 @@
 package fiuba.algo3.tp2.algopoly.model.boleta;
 
-import fiuba.algo3.tp2.algopoly.model.Capital;
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 
 public abstract class Premio {
 
-    private final Capital valor;
+    private final Dinero valor;
 
-    public Premio(Capital valor) {
+    public Premio(Dinero valor) {
         this.valor = valor;
     }
 
-    public Capital getValor() {
+    public Dinero getValor() {
         return this.valor;
     }
 

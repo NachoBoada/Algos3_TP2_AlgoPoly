@@ -1,11 +1,11 @@
 package fiuba.algo3.tp2.algopoly.model.boleta;
 
-import fiuba.algo3.tp2.algopoly.model.Capital;
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 
 public class PremioSinValor extends Premio {
 
     public PremioSinValor() {
-        super(new Capital(0));
+        super(new Dinero(0));
     }
 
     @Override

@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.quini6;
 
 import fiuba.algo3.tp2.algopoly.model.boleta.Premio;
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
-import fiuba.algo3.tp2.algopoly.model.Capital;
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class BoletoTest {
         
         Premio premio = boleto.getPremio();
         
-        Assert.assertTrue(premio.getValor().equals(new Capital(50000)));
+        Assert.assertTrue(premio.getValor().equals(new Dinero(50000)));
     }
     
     @Test
@@ -24,9 +24,9 @@ public class BoletoTest {
         boleto.actualizarPremio();
         Premio segundoPremio = boleto.getPremio();
         
-        Capital valorSegundoPremio = segundoPremio.getValor();
+        Dinero valorSegundoPremio = segundoPremio.getValor();
         
-        Assert.assertTrue(valorSegundoPremio.equals(new Capital(30000)));
+        Assert.assertTrue(valorSegundoPremio.equals(new Dinero(30000)));
     }
     
     @Test
@@ -37,9 +37,9 @@ public class BoletoTest {
         boleto.actualizarPremio();
         Premio premioSinValor = boleto.getPremio();
         
-        Capital valorPremioSinValor = premioSinValor.getValor();
+        Dinero valorPremioSinValor = premioSinValor.getValor();
         
-        Assert.assertTrue(valorPremioSinValor.equals(new Capital(30000)));
+        Assert.assertTrue(valorPremioSinValor.equals(new Dinero(30000)));
     }
     
     @Test
@@ -51,9 +51,9 @@ public class BoletoTest {
         boleto.actualizarPremio();
         Premio premioSinValor = boleto.getPremio();
         
-        Capital valorPremioSinValor = premioSinValor.getValor();
+        Dinero valorPremioSinValor = premioSinValor.getValor();
         
-        Assert.assertTrue(valorPremioSinValor.equals(new Capital(30000)));
+        Assert.assertTrue(valorPremioSinValor.equals(new Dinero(30000)));
     }
 
 }

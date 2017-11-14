@@ -1,11 +1,11 @@
 package fiuba.algo3.tp2.algopoly.model.boleta;
 
-import fiuba.algo3.tp2.algopoly.model.Capital;
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 
 public class PrimerPremio extends Premio {
 
     public PrimerPremio() {
-        super(new Capital(50000));
+        super(new Dinero(50000));
     }
     
     @Override public Premio obtenerProximo() {

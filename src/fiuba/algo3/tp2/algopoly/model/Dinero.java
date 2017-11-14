@@ -1,10 +1,10 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-public class Capital {
+public class Dinero {
 
     private int cantidad;
 
-    public Capital(int cantidad) {
+    public Dinero(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -12,15 +12,15 @@ public class Capital {
         return this.cantidad;
     }
     
-    public boolean equals(Capital dinero) {
+    public boolean equals(Dinero dinero) {
         return this.cantidad == dinero.getCantidad();
     }
 
-    public void sumar(Capital dinero) {
+    public void sumar(Dinero dinero) {
         this.cantidad += dinero.getCantidad();
     }
 
-    public void restar(Capital dinero) {
+    public void restar(Dinero dinero) {
         this.cantidad -= dinero.getCantidad();
     }
 
