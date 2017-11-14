@@ -1,5 +1,5 @@
-/AlgoPoly/build/
-/AlgoPoly/dist/
+build/
+dist/
 .DS_Store
-AlgoPoly/nbproject/
-AlgoPoly/manifest.mf
+nbproject/
+manifest.mf
