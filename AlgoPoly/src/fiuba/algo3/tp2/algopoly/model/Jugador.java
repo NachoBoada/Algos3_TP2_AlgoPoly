@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class Jugador {
 	
-	private Capital capitalDelJugador;
+	private Dinero capitalDelJugador;
 	private ArrayList<Barrio> propiedadesDelJugador;
 	private BoletaQuini6 boletaQuini6DelJugador;
 	
-	public Jugador(Capital capitalInicial){
+	public Jugador(Dinero capitalInicial){
 		capitalDelJugador = new Capital(capitalInicial);
 		propiedadesDelJugador = new ArrayList<Barrio>();
 		boletaQuini6DelJugador = new BoletaQuini6();
@@ -19,7 +19,7 @@ public class Jugador {
 		casillero.actuarSobre(this);
 	}
 	
-	public void incrementarCapitalEn(Capital incrementoDeCapital){
+	public void incrementarCapitalEn(Dinero incrementoDeCapital){
 		capitalDelJugador.sumar(incrementoDeCapital);
 	}
 	
