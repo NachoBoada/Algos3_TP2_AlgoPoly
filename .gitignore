@@ -3,3 +3,7 @@ dist/
 .DS_Store
 nbproject/
 manifest.mf
+/bin/
+
+.classpath
+.project
