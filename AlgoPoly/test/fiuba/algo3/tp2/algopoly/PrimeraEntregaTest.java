@@ -1,4 +1,4 @@
-package fiuba.algos3.tp2.algopoly;
+package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Capital;
 import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
