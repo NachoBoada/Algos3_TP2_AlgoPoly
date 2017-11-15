@@ -1,6 +1,9 @@
-package fiuba.algos3.tp2.algopoly;
+package fiuba.algo3.tp2.algopoly.model;
 
 import java.util.ArrayList;
+import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
+import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 
 
 public class Jugador {
@@ -10,7 +13,7 @@ public class Jugador {
 	private BoletaQuini6 boletaQuini6DelJugador;
 	
 	public Jugador(Dinero capitalInicial){
-		capitalDelJugador = new Capital(capitalInicial);
+		capitalDelJugador = new Dinero(capitalInicial);
 		propiedadesDelJugador = new ArrayList<Barrio>();
 		boletaQuini6DelJugador = new BoletaQuini6();
 	}
@@ -27,7 +30,7 @@ public class Jugador {
 		propiedadesDelJugador.add(barrioAComprar);
 	}
 	
-	public Capital getCapital(){
+	public Dinero getCapital(){
 		return capitalDelJugador;
 	}
 	
