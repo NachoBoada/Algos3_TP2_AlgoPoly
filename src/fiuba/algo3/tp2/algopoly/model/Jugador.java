@@ -32,13 +32,9 @@ public class Jugador {
 		capitalDelJugador.sumar(incrementoDeCapital);
 	}
 	
-	public void derementarCapitalEn(Dinero decrementoDeCapital){
+	public void derementarCapitalEn(Dinero decrementoDeCapital) throws CapitalDelJugadorInsuficiente {
 		
-		if (capitalDelJugador.esMenorA (decrementoDeCapital)){
-			throw new CapitalDelJugadorInsuficiente();
-		}
-		
-		capitalDelJugador.restar(decrementoDeCapital);
+			capitalDelJugador.restar(decrementoDeCapital);
 	}
 	
 	public void comprarBarrio(Barrio barrioAComprar){

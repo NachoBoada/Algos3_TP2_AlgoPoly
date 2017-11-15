@@ -21,14 +21,11 @@ public class Dinero {
     }
 
     public void restar(Dinero dinero) {
+    	
+    	if ( this.cantidad < dinero.getCantidad() ) throw new CapitalDelJugadorInsuficiente();
+    	
         this.cantidad -= dinero.getCantidad();
     }
 
-	public boolean esMenorA(Dinero decrementoDeCapital) {
-
-		if (this.cantidad < decrementoDeCapital.getCantidad() ) return true;
-		
-		return false;
-	}
 
 }
