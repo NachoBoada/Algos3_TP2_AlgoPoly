@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
 import org.junit.Assert;
@@ -49,8 +50,9 @@ public class PrimeraEntregaTest {
     @Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
         Dinero capitalInicial = new Dinero(0);
+        Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
-        Barrio barrio = new Barrio();
+        Barrio barrio = new Barrio("test", precioBarrio);
         
         jugador.caerEn(barrio);
         
