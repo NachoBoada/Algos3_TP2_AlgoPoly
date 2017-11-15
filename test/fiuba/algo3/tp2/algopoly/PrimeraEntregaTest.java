@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
+import fiuba.algos3.tp2.algopoly.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,6 +43,17 @@ public class PrimeraEntregaTest {
         jugador.caeEn(quini6);
 
         Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad());
+    }
+    
+    @Test
+    public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
+        Dinero capitalInicial = new Dinero(0);
+        Jugador jugador = new Jugador(capitalInicial);
+        Barrio barrio = new Barrio()''
+        
+        jugador.caerEn(barrio);
+        
+        Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }
 
 }
