@@ -69,11 +69,7 @@ public class PrimeraEntregaTest {
 
         jugador.caerEn(carcel);
 
-        Casillero casilleroActual = jugador.casilleroActual();
-        jugador.caerEn(new Quini6());
-        Casillero nuevoCasillero = jugador.casilleroActual();
-
-        Assert.assertFalse(casilleroActual.equals(nuevoCasillero));
+        Assert.assertFalse(jugador.mover(1));
     }
 
     @Test
@@ -83,13 +79,11 @@ public class PrimeraEntregaTest {
         Carcel carcel = new Carcel();
 
         jugador.caerEn(carcel);
+        jugador.caerEn(carcel);
+        jugador.caerEn(carcel);
         jugador.pagarFianza();
 
-        Casillero casilleroActual = jugador.casilleroActual();
-        jugador.caerEn(new Quini6());
-        Casillero nuevoCasillero = jugador.casilleroActual();
-
-        Assert.assertTrue(casilleroActual.equals(nuevoCasillero));
+        Assert.assertTrue(jugador.mover(2));
     }
 
     @Test
@@ -102,6 +96,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertFalse(jugador.mover(5));
     }
+    
     @Test
     public void test08testCaerEnAvanceDinamicoConCuatroYSoloAvanzaDos(){
         Dinero capitalInicial = new Dinero(100000);
@@ -113,6 +108,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 2);
     }
+    
     @Test
     public void test09CaerEnAvanceDinamicoCon7YUnCapitalDeMilEntoncesAvanzaSeis() {
 
@@ -124,5 +120,35 @@ public class PrimeraEntregaTest {
         jugador.caerEn(casillero);
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 6);
+    }
+    
+    @Test
+    public void test101CaerEnAvanceDinamicoConOnceYSinPropiedadesEntoncesAvanzaOnce() {
+
+        Dinero capitalInicial = new Dinero(1000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.mover(11);
+        AvanceDinamico casillero = new AvanceDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 11);
+    }
+    
+    @Test
+    public void test102CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
+
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.comprarBarrio( new Barrio ("SantaFe", new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio ("Mendoza", new Dinero (20000) ) );
+        jugador.comprarBarrio( new Barrio ("Salta", new Dinero (9000) ) );
+               
+        jugador.mover(12);
+        AvanceDinamico casillero = new AvanceDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 9);
     }
 }
