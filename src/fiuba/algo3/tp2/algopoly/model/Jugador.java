@@ -53,6 +53,10 @@ public class Jugador {
 		return posicionActual;
 	}
 	
+	public int obtenerUltimaSumaDados () {
+		return this.ultimaSumaDados;
+	}
+	
 	public void actualizarCasillero (Casillero casillero, int posicion) {
 		casilleroActual = casillero;
 		posicionActual = posicion;
@@ -99,8 +103,8 @@ public class Jugador {
 		estado.cambiarProximoEstadoPreso(this, carcel);
 	}
 	
-	public void pagarFianza() {
-		estado.pagarFianza(this);
+	public boolean pagarFianza() {
+		return (estado.pagarFianza(this));
 	}
 	
 }

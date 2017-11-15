@@ -6,14 +6,19 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class Carcel extends Casillero {
 	
+	private int posicion;
 	private Dinero costoFianza;
 	
 	public Carcel () {
 		
-		Dinero costoFianza = new Dinero(45000);
+		this.posicion = 5;
+		
+		this.costoFianza = new Dinero(45000);
 	}
 	
 	 public void actuarSobre(Jugador jugador) {
+		 
+		 jugador.actualizarCasillero (this, this.posicion);
 		 
 		 jugador.irPreso (this);
 		 

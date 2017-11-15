@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.algopoly.model;
+package fiuba.algo3.tp2.algopoly.model.estado;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -97,7 +97,7 @@ public class EstadoTest {
 		Assert.assertTrue( jugador.mover(5) );
 	}
 
-	public void testJugadorPresoNoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
+	public void testJugadorPresoEnTurno2NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
 		
 		Dinero capitalJugador = new Dinero (0);
 		Jugador jugador = new Jugador(capitalJugador);
@@ -141,7 +141,7 @@ public class EstadoTest {
 		Assert.assertTrue( jugador.mover(5) );
 	}
 
-	public void testJugadorPresoNoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
+	public void testJugadorPresoEnTurno3NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
 		
 		Dinero capitalJugador = new Dinero (0);
 		Jugador jugador = new Jugador(capitalJugador);
