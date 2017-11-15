@@ -27,6 +27,10 @@ public class Jugador {
 		casilleroActual = new Salida();
 	}
 	
+	public void mover () {
+		estado.mover(this);
+	}
+	
 	public void caerEn(Casillero casillero){
 		casillero.actuarSobre(this);
 	}
@@ -44,7 +48,7 @@ public class Jugador {
 		try{
 			this.derementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
 		}
-		catch (CapitalDelJugadorEsNegativo e){
+		catch (CapitalDelJugadorInsuficiente e) {
 			throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
 		}
 		propiedades.add(barrioAComprar);

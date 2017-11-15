@@ -9,6 +9,6 @@ public abstract class Estado {
 	
 	public abstract boolean pagarFianza (Jugador jugador);
 	
-	public abstract void mover ();
+	public abstract void mover (Jugador jugador);
 	
 }
