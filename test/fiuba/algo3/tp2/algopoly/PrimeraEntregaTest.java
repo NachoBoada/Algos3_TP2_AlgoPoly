@@ -101,7 +101,17 @@ public class PrimeraEntregaTest {
 
         Assert.assertFalse(jugador.mover(5));
     }
+    @Test
+    public void test08testCaerEnAvanceDinamicoConCuatroYSoloAvanzaDos(){
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
 
+        jugador.mover(4);
+        AvanceDinamico casillero = new AvanceDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion -2);
+    }
     @Test
     public void testAvanceDinamico() {
 
