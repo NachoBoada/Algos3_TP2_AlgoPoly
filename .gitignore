@@ -10,3 +10,5 @@ manifest.mf
 .idea/
 libs/
 .settings/
+out/
+Algos3_TP2_AlgoPoly.iml

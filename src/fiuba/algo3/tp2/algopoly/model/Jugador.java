@@ -106,5 +106,9 @@ public class Jugador {
 	public boolean pagarFianza() {
 		return (estado.pagarFianza(this));
 	}
-	
+
+	public int getCantidadDePropiedades() {
+
+		return this.propiedades.size();
+	}
 }

@@ -4,7 +4,7 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public  abstract class Casillero {
 	
-	private int posicion;
+	protected int posicion;
 
     public abstract void actuarSobre(Jugador jugador);
     

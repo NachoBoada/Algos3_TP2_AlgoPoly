@@ -110,7 +110,7 @@ public class PrimeraEntregaTest {
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion -2);
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() -2);
     }
     @Test
     public void testAvanceDinamico() {
@@ -122,6 +122,6 @@ public class PrimeraEntregaTest {
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion + 1);
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 1);
     }
 }
