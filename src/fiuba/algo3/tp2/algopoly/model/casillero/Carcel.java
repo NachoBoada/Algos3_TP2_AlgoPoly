@@ -6,11 +6,11 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class Carcel extends Casillero {
 	
-	private Dinero fianza;
+	private Dinero costoFianza;
 	
-	public Carcel (Dinero costoFianza) {
+	public Carcel () {
 		
-		fianza = costoFianza;
+		Dinero costoFianza = new Dinero(45000);
 	}
 	
 	 public void actuarSobre(Jugador jugador) {
@@ -22,7 +22,7 @@ public class Carcel extends Casillero {
 	 public void pagarFianza (Jugador jugador) {
 		 
 		try {
-			jugador.derementarCapitalEn(fianza);
+			jugador.derementarCapitalEn(costoFianza);
 		}catch ( CapitalDelJugadorInsuficiente e) { throw new ElJugadorNoTieneCapitalSuficienteParaPagarFianza(); }
 		
 	 }

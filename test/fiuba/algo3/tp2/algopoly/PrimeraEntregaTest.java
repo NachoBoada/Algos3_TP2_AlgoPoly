@@ -64,9 +64,7 @@ public class PrimeraEntregaTest {
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
-        
-        Dinero fianza = new Dinero(45000);
-        Carcel carcel = new Carcel(fianza);
+        Carcel carcel = new Carcel();
         
         jugador.caerEn(carcel);
         
@@ -81,9 +79,7 @@ public class PrimeraEntregaTest {
     public void test06JugadorPuedeMoverseLuegoDePagarFianzaDeCarcel() {
     	Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
-        
-        Dinero fianza = new Dinero(45000);
-        Carcel carcel = new Carcel(fianza);
+        Carcel carcel = new Carcel();
         
         jugador.caerEn(carcel);
         jugador.pagarFianza();
