@@ -6,6 +6,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
 import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Casillero;
+import fiuba.algo3.tp2.algopoly.model.casillero.Policia;
 import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
 import org.junit.Assert;
 import org.junit.Test;
@@ -123,7 +124,7 @@ public class PrimeraEntregaTest {
     }
     
     @Test
-    public void test101CaerEnAvanceDinamicoConOnceYSinPropiedadesEntoncesAvanzaOnce() {
+    public void test10CaerEnAvanceDinamicoConOnceYSinPropiedadesEntoncesAvanzaOnce() {
 
         Dinero capitalInicial = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -136,7 +137,7 @@ public class PrimeraEntregaTest {
     }
     
     @Test
-    public void test102CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
+    public void test11CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -150,5 +151,21 @@ public class PrimeraEntregaTest {
         jugador.caerEn(casillero);
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 9);
+    }
+    
+    
+    
+    @Test
+    public void test12UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
+    	
+    	Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+        Carcel carcel = new Carcel();
+        Policia policia = new Policia(carcel);
+        
+        jugador.caerEn(policia);
+        
+        Assert.assertFalse(jugador.mover(2));
+        Assert.assertEquals(carcel, jugador.casilleroActual());
     }
 }
