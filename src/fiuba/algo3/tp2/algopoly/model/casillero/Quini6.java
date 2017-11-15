@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class Quini6 extends Casillero {
 
+    @Override
     public void actuarSobre(Jugador jugador) {
         BoletaQuini6 boleto = jugador.getBoletoQuini6();
         Premio premio = boleto.getPremio();
