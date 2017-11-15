@@ -1,11 +1,14 @@
 package fiuba.algo3.tp2.algopoly.model.estado;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public abstract class Estado {
 	
-	abstract void cambiarProximoEstadoPreso (Jugador jugador);
+	public abstract void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel);
 	
-	abstract boolean pagarFianza (Jugador jugador);
+	public abstract boolean pagarFianza (Jugador jugador);
+	
+	public abstract void mover ();
 	
 }

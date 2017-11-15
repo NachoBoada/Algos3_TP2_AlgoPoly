@@ -1,23 +1,21 @@
 package fiuba.algo3.tp2.algopoly.model.estado;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class Libre extends Estado {
 	
-	private Preso proximoEstadoPreso;
 	
-	void Libre () {
-		proximoEstadoPreso = new PresoTurno0 ();
-	}
-	
-	void cambiarProximoEstadoPreso (Jugador jugador) {
+	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
 		
-		jugador.cambiarEstado (proximoEstadoPreso);
+		jugador.cambiarEstado ( new PresoTurno0 () );
 	}
 	
-	boolean pagarFianza (Jugador jugador) {
+	public boolean pagarFianza (Jugador jugador) {
 		
 		return false;
 	}
+	
+	public void mover () {}
 
 }

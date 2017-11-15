@@ -24,4 +24,11 @@ public class Dinero {
         this.cantidad -= dinero.getCantidad();
     }
 
+	public boolean esMenorA(Dinero decrementoDeCapital) {
+
+		if (this.cantidad < decrementoDeCapital.getCantidad() ) return true;
+		
+		return false;
+	}
+
 }

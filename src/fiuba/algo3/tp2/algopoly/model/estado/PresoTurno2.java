@@ -1,24 +1,27 @@
 package fiuba.algo3.tp2.algopoly.model.estado;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
+import fiuba.algo3.tp2.algopoly.model.casillero.ElJugadorNoTieneCapitalSuficienteParaPagarFianza;
 
 public class PresoTurno2 extends Preso {
+
+	private Carcel carcel;
 	
-	private Preso proximoEstadoPreso;
-	
-	void PresoTurno0 () {
-		proximoEstadoPreso = new PresoTurno3 ();
-	}
-	
-	void cambiarProximoEstadoPreso (Jugador jugador) {
+	public PresoTurno2 (Carcel carcel) {
 		
-		jugador.cambiarEstado (proximoEstadoPreso);
+		this.carcel = carcel;
 	}
 	
-	boolean pagarFianza (Jugador jugaror) {
+	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
+		
+		jugador.cambiarEstado ( new PresoTurno3 (carcel) );
+	}
+	
+	public boolean pagarFianza (Jugador jugador) {
 		try {
-			jugador.decrementarCapitalEn (carcel.getFianza);
-		}catch (capitalInsuficienteError) { return false; }
+			carcel.pagarFianza (jugador);
+		}catch ( ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) { return false; }
 		
 		jugador.cambiarEstado ( new Libre() );
 		return true;
