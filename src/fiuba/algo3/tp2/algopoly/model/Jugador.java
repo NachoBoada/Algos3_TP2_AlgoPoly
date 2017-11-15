@@ -11,9 +11,10 @@ public class Jugador {
 	private Dinero capitalDelJugador;
 	private ArrayList<Barrio> propiedadesDelJugador;
 	private BoletaQuini6 boletaQuini6DelJugador;
+	private Casillero casilleroActualDelJugador; //se deberia inicializar en el casillero Salida???
 	
-	public Jugador(int capitalInicial){
-		capitalDelJugador = new Dinero(capitalInicial);
+	public Jugador(Dinero capitalInicial){
+		capitalDelJugador = capitalInicial;
 		propiedadesDelJugador = new ArrayList<Barrio>();
 		boletaQuini6DelJugador = new BoletaQuini6();
 	}
@@ -34,13 +35,13 @@ public class Jugador {
 	}
 	
 	public void comprarBarrio(Barrio barrioAComprar){
-		propiedadesDelJugador.add(barrioAComprar);
 		try{
 			this.derementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
 		}
 		catch (CapitalDelJugadorEsNegativo e){
 			throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
 		}
+		propiedadesDelJugador.add(barrioAComprar);
 	}
 	
 	public Dinero getCapital(){
@@ -51,8 +52,21 @@ public class Jugador {
 		return boletaQuini6DelJugador;
 	}
 	
-	boolean esPropietarioDe(Barrio barrio){
-		
+	public boolean esPropietarioDe(Barrio barrio){
+		return propiedadesDelJugador.contains(barrio);
+	}
+	
+	public Casillero casilleroActual(){
+		return casilleroActualDelJugador;
+	}
+	
+	public void pagarFianza(){
+	}
+	
+	public void cambiarEstado (Estado estado){
+	}
+	
+	public void irPreso (){
 	}
 	
 }

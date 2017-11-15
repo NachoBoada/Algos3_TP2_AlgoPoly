@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.algopoly.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CapitalTest {
+public class DineroTest {
 
     @Test
     public void testEqualsDevuelveTrueAlCompararMismasCantidades() {
