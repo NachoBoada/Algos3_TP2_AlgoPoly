@@ -5,7 +5,6 @@ import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
 import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 
-
 public class Jugador {
 	
 	private Dinero capitalDelJugador;
@@ -28,12 +27,19 @@ public class Jugador {
 	
 	public void derementarCapitalEn(Dinero decrementoDeCapital){
 		capitalDelJugador.restar(decrementoDeCapital);
-		if (capitalDelJugador < 0){
-			lanzar excepcion.
+		if (capitalDelJugador.getCantidad() < 0){
+			throw new CapitalDelJugadorEsNegativo();
+		}
 	}
 	
 	public void comprarBarrio(Barrio barrioAComprar){
 		propiedadesDelJugador.add(barrioAComprar);
+		try{
+			this.derementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
+		}
+		catch (CapitalDelJugadorEsNegativo e){
+			throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
+		}
 	}
 	
 	public Dinero getCapital(){
@@ -42,6 +48,10 @@ public class Jugador {
 	
 	public BoletaQuini6 getBoletoQuini6(){
 		return boletaQuini6DelJugador;
+	}
+	
+	boolean esPropietarioDe(Barrio barrio){
+		
 	}
 	
 }

@@ -22,7 +22,7 @@ public class Barrio extends Casillero{
     }
 
     public void modificarPropietario(Jugador unJugador){
-        this.propietario= unJugador;
+        this.propietario = unJugador;
     }
     @Override
     public void actuarSobre( Jugador jugador) {
