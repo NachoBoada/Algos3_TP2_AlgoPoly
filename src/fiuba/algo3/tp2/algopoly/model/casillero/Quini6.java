@@ -16,7 +16,7 @@ public class Quini6 extends Casillero {
     @Override
     public void actuarSobre(Jugador jugador) {
     	
-    	jugador.actualizarCasillero (this, this.posicion);
+    	jugador.actualizarCasillero(this, this.posicion);
     	
         BoletaQuini6 boleto = jugador.getBoletoQuini6();
         Premio premio = boleto.getPremio();

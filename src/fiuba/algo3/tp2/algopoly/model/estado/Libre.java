@@ -14,7 +14,8 @@ public class Libre extends Estado {
 		return false;
 	}
 	
-	public boolean mover(int cantidadCasillero) {
+	public boolean mover(Jugador jugador, int cantidadCasillero) {
+		jugador.sumarAPosicion(cantidadCasillero);
 		return true;
 	}
 

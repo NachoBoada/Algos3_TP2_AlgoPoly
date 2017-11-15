@@ -13,7 +13,7 @@ public class Salida extends Casillero {
 	
 	 public void actuarSobre(Jugador jugador) {
 		 
-		 jugador.actualizarCasillero (this, this.posicion);
+		jugador.actualizarCasillero(this, this.posicion);
 	 }
 	
 }

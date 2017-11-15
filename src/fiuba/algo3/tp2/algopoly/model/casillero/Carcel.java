@@ -18,9 +18,9 @@ public class Carcel extends Casillero {
 	
 	 public void actuarSobre(Jugador jugador) {
 		 
-		 jugador.actualizarCasillero (this, this.posicion);
+		jugador.actualizarCasillero(this, this.posicion);
 		 
-		 jugador.irPreso (this);
+		jugador.irPreso (this);
 		 
 	 }
 	 

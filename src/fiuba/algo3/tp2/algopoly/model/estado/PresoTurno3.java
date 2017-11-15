@@ -27,8 +27,4 @@ public class PresoTurno3 extends Preso {
 		return true;
 	}
 	
-	public boolean mover (int cantidadCasillero) {
-		
-		return false;
-	}
 }

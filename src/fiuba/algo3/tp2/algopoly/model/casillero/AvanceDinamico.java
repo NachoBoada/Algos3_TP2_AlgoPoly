@@ -15,7 +15,7 @@ public class AvanceDinamico extends Casillero {
     @Override
     public void actuarSobre(Jugador jugador) {
     	
-    	jugador.actualizarCasillero(this, posicion);
+    	jugador.actualizarCasillero(this, this.posicion);
 
         int sumaDados = jugador.obtenerUltimaSumaDados();
 

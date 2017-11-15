@@ -14,8 +14,5 @@ public class PresoTurno0 extends Preso {
 	public boolean pagarFianza(Jugador jugador) {
 		return false;
 	}
-	
-	public boolean mover(int cantidadCasillero) {
-		return false;
-	}
+
 }

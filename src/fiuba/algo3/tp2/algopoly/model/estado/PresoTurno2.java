@@ -25,8 +25,4 @@ public class PresoTurno2 extends Preso {
 		jugador.cambiarEstado( new Libre() );
 		return true;
 	}
-	
-	public boolean mover(int cantidadCasillero) {
-		return false;
-	}
 }

@@ -38,7 +38,7 @@ public class Jugador {
 	
 	public boolean mover(int cantidadCasilleros) {
 		ultimaSumaDados = cantidadCasilleros;
-		return ( estado.mover( cantidadCasilleros ) );
+		return ( estado.mover(this, cantidadCasilleros) );
 	}
 	
 	public void caerEn(Casillero casillero) {
@@ -60,6 +60,10 @@ public class Jugador {
 	public void actualizarCasillero (Casillero casillero, int posicion) {
 		casilleroActual = casillero;
 		posicionActual = posicion;
+	}
+		
+	public void sumarAPosicion(int cantidad) {
+		this.posicionActual += cantidad;
 	}
 	
 	public void incrementarCapitalEn(Dinero incrementoDeCapital) {
@@ -111,4 +115,5 @@ public class Jugador {
 
 		return this.propiedades.size();
 	}
+
 }
