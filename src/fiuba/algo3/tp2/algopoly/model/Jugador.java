@@ -12,7 +12,7 @@ public class Jugador {
 	private ArrayList<Barrio> propiedadesDelJugador;
 	private BoletaQuini6 boletaQuini6DelJugador;
 	
-	public Jugador(Dinero capitalInicial){
+	public Jugador(int capitalInicial){
 		capitalDelJugador = new Dinero(capitalInicial);
 		propiedadesDelJugador = new ArrayList<Barrio>();
 		boletaQuini6DelJugador = new BoletaQuini6();
