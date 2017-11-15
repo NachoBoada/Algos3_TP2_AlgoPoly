@@ -1,7 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
 import fiuba.algo3.tp2.algopoly.model.CapitalDelJugadorInsuficiente;
-import fiuba.algo3.tp2.algopoly.model.Casillero;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 

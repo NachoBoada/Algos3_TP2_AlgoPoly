@@ -1,10 +1,10 @@
 package fiuba.algo3.tp2.algopoly;
 
-import fiuba.algo3.tp2.algopoly.model.Casillero;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
+import fiuba.algo3.tp2.algopoly.model.casillero.Casillero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
 import org.junit.Assert;
 import org.junit.Test;
@@ -62,9 +62,11 @@ public class PrimeraEntregaTest {
     
     @Test
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
-        Dinero capitalInicial = new Dinero(0);
+        Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
-        Carcel carcel = new Carcel();
+        
+        Dinero fianza = new Dinero(45000);
+        Carcel carcel = new Carcel(fianza);
         
         jugador.caerEn(carcel);
         
@@ -77,9 +79,11 @@ public class PrimeraEntregaTest {
     
     @Test
     public void test06JugadorPuedeMoverseLuegoDePagarFianzaDeCarcel() {
-        Dinero capitalInicial = new Dinero(0);
+    	Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
-        Carcel carcel = new Carcel();
+        
+        Dinero fianza = new Dinero(45000);
+        Carcel carcel = new Carcel(fianza);
         
         jugador.caerEn(carcel);
         jugador.pagarFianza();
