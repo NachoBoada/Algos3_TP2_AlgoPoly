@@ -39,7 +39,9 @@ public class BoletoTest {
         
         Dinero valorPremioSinValor = premioSinValor.getValor();
         
-        Assert.assertTrue(valorPremioSinValor.equals(new Dinero(30000)));
+        System.out.println("Valor premio sin valor: " + String.valueOf(valorPremioSinValor.getCantidad()));
+        
+        Assert.assertTrue(valorPremioSinValor.equals(new Dinero(0)));
     }
     
     @Test
@@ -53,7 +55,7 @@ public class BoletoTest {
         
         Dinero valorPremioSinValor = premioSinValor.getValor();
         
-        Assert.assertTrue(valorPremioSinValor.equals(new Dinero(30000)));
+        Assert.assertTrue(valorPremioSinValor.equals(new Dinero(0)));
     }
 
 }
