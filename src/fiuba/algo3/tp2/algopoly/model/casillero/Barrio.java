@@ -17,6 +17,13 @@ public class Barrio extends Casillero{
         return this.precio;
     }
 
+    public Jugador getPropietario() {
+        return propietario;
+    }
+
+    public void modificarPropietario(Jugador unJugador){
+        this.propietario= unJugador;
+    }
     @Override
     public void actuarSobre( Jugador jugador) {
         jugador.comprarBarrio(this);
