@@ -22,6 +22,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 0
 	
+	@Test
 	public void testJugadorQueCaePresoNoPuedeMoverse() {
 
 		Dinero capitalJugador = new Dinero (100000);
@@ -32,6 +33,7 @@ public class EstadoTest {
 		Assert.assertFalse( jugador.mover(5) );
 	}
 	
+	@Test
 	public void testJugadorQueCaePresoNoPuedePagarFianza() {
 		
 		Dinero capitalJugador = new Dinero (100000);
@@ -44,6 +46,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 1
 	
+	@Test
 	public void testJugadorPresoEnPrimerTurnoNoPuedeMoverse() {
 
 		Dinero capitalJugador = new Dinero (100000);
@@ -53,7 +56,8 @@ public class EstadoTest {
 				
 		Assert.assertFalse( jugador.mover(5) );
 	}
-
+	
+	@Test
 	public void testJugadorPresoEnPrimerTurnoNoPuedePagarFianza() {
 		
 		Dinero capitalJugador = new Dinero (100000);
@@ -66,6 +70,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 2
 	
+	@Test
 	public void testJugadorPresoEnSegundoTurnoNoPuedeMoverse() {
 
 		Dinero capitalJugador = new Dinero (100000);
@@ -76,6 +81,7 @@ public class EstadoTest {
 		Assert.assertFalse( jugador.mover(5) );
 	}
 
+	@Test
 	public void testJugadorPresoEnSegundoTurnoPuedePagarFianza() {
 		
 		Dinero capitalJugador = new Dinero (100000);
@@ -86,6 +92,7 @@ public class EstadoTest {
 		Assert.assertTrue( jugador.pagarFianza() );
 	}
 	
+	@Test
 	public void testJugadorPresoEnSegundoTurnoPagaFianzaYPuedeMoverse() {
 
 		Dinero capitalJugador = new Dinero (100000);
@@ -97,6 +104,7 @@ public class EstadoTest {
 		Assert.assertTrue( jugador.mover(5) );
 	}
 
+	@Test
 	public void testJugadorPresoEnTurno2NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
 		
 		Dinero capitalJugador = new Dinero (0);
@@ -110,6 +118,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 3
 	
+	@Test
 	public void testJugadorPresoEnTercerTurnoNoPuedeMoverse() {
 
 		Dinero capitalJugador = new Dinero (100000);
@@ -120,6 +129,7 @@ public class EstadoTest {
 		Assert.assertFalse( jugador.mover(5) );
 	}
 
+	@Test
 	public void testJugadorPresoEnTercerTurnoPuedePagarFianza() {
 		
 		Dinero capitalJugador = new Dinero (100000);
@@ -130,6 +140,7 @@ public class EstadoTest {
 		Assert.assertTrue( jugador.pagarFianza() );
 	}
 	
+	@Test
 	public void testJugadorPresoEnTercerTurnoPagaFianzaYPuedeMoverse() {
 
 		Dinero capitalJugador = new Dinero (100000);
@@ -141,6 +152,7 @@ public class EstadoTest {
 		Assert.assertTrue( jugador.mover(5) );
 	}
 
+	@Test
 	public void testJugadorPresoEnTurno3NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
 		
 		Dinero capitalJugador = new Dinero (0);
@@ -154,6 +166,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 4
 	
+	@Test
 	public void testJugadorPresoEnCuartoTurnoPasaASerLibreYPuedeMoverse() {
 		
 		Dinero capitalJugador = new Dinero (0);
