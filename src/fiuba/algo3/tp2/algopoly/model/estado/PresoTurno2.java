@@ -9,21 +9,24 @@ public class PresoTurno2 extends Preso {
 	private Carcel carcel;
 	
 	public PresoTurno2 (Carcel carcel) {
-		
 		this.carcel = carcel;
 	}
 	
-	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
-		
+	public void cambiarProximoEstadoPreso(Jugador jugador, Carcel carcel) {
 		jugador.cambiarEstado ( new PresoTurno3 (carcel) );
 	}
 	
-	public boolean pagarFianza (Jugador jugador) {
+	public boolean pagarFianza(Jugador jugador) {
+		
 		try {
 			carcel.pagarFianza (jugador);
 		}catch ( ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) { return false; }
 		
-		jugador.cambiarEstado ( new Libre() );
+		jugador.cambiarEstado( new Libre() );
 		return true;
+	}
+	
+	public boolean mover(int cantidadCasillero) {
+		return false;
 	}
 }

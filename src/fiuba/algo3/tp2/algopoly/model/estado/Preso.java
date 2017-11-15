@@ -9,5 +9,5 @@ public abstract class Preso extends Estado {
 	
 	public abstract boolean pagarFianza (Jugador jugador);
 	
-	public void mover () {}
+	public abstract boolean mover (int cantidadCasillero);
 }

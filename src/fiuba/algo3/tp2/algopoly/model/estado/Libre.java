@@ -6,16 +6,16 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 public class Libre extends Estado {
 	
 	
-	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
-		
-		jugador.cambiarEstado ( new PresoTurno0 () );
+	public void cambiarProximoEstadoPreso(Jugador jugador, Carcel carcel) {
+		jugador.cambiarEstado( new PresoTurno0 () );
 	}
 	
-	public boolean pagarFianza (Jugador jugador) {
-		
+	public boolean pagarFianza(Jugador jugador) {
 		return false;
 	}
 	
-	public void mover () {}
+	public boolean mover(int cantidadCasillero) {
+		return true;
+	}
 
 }
