@@ -17,7 +17,10 @@ public class Jugador {
 	private ArrayList<Barrio> propiedades;
 	private BoletaQuini6 boletaQuini6;
 	private Casillero casilleroActual;
+	private int posicionActual;
 	private Estado estado;
+	
+	private int ultimaSumaDados; //Temporal hasta tener clase Dados
 	
 	public Jugador(Dinero capitalInicial) {
 		
@@ -28,11 +31,13 @@ public class Jugador {
 		boletaQuini6 = new BoletaQuini6();
 		
 		casilleroActual = new Salida();
+		posicionActual = 0;
 		
 		estado = new Libre();
 	}
 	
 	public boolean mover(int cantidadCasilleros) {
+		ultimaSumaDados = cantidadCasilleros;
 		return ( estado.mover( cantidadCasilleros ) );
 	}
 	
@@ -42,6 +47,15 @@ public class Jugador {
 	
 	public Casillero casilleroActual() {
 		return casilleroActual;
+	}
+	
+	public int posicionActual() {
+		return posicionActual;
+	}
+	
+	public void actualizarCasillero (Casillero casillero, int posicion) {
+		casilleroActual = casillero;
+		posicionActual = posicion;
 	}
 	
 	public void incrementarCapitalEn(Dinero incrementoDeCapital) {

@@ -90,5 +90,21 @@ public class PrimeraEntregaTest {
         
         Assert.assertTrue(casilleroActual.equals(nuevoCasillero));
     }
+    
+    @Test
+    public void testAvanceDinamico () {
+    	
+    	Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+        
+        jugador.mover(3);
+        AvanceDinamico casillero = new AvanceDinamico ();
+        jugador.caerEn(casillero);
+        
+        Assert.assertEquals (jugador.posicionActual(), casillero.getPosicion+1);
+        
+    	
+    	
+    }
 
 }
