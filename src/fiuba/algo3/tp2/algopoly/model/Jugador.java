@@ -26,6 +26,12 @@ public class Jugador {
 		capitalDelJugador.sumar(incrementoDeCapital);
 	}
 	
+	public void derementarCapitalEn(Dinero decrementoDeCapital){
+		capitalDelJugador.restar(decrementoDeCapital);
+		if (capitalDelJugador < 0){
+			lanzar excepcion.
+	}
+	
 	public void comprarBarrio(Barrio barrioAComprar){
 		propiedadesDelJugador.add(barrioAComprar);
 	}
