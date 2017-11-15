@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly;
 
+import fiuba.algo3.tp2.algopoly.model.Casillero;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
@@ -67,11 +68,15 @@ public class PrimeraEntregaTest {
         
         jugador.caerEn(carcel);
         
-        Assert.assertTrue(jugador.esPropietarioDe(barrio));
+        Casillero casilleroActual = jugador.casilleroActual();
+        jugador.caerEn(new Quini6());
+        Casillero nuevoCasillero = jugador.casilleroActual();
+        
+        Assert.assertFalse(casilleroActual.equals(nuevoCasillero));
     }
     
     @Test
-    public void test06JugadorPuedeMoverseLuegoDePagarFianzDeCarcel() {
+    public void test06JugadorPuedeMoverseLuegoDePagarFianzaDeCarcel() {
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial);
         Carcel carcel = new Carcel();
@@ -79,7 +84,11 @@ public class PrimeraEntregaTest {
         jugador.caerEn(carcel);
         jugador.pagarFianza();
         
-        Assert.assertTrue(jugador.esPropietarioDe(barrio));
+        Casillero casilleroActual = jugador.casilleroActual();
+        jugador.caerEn(new Quini6());
+        Casillero nuevoCasillero = jugador.casilleroActual();
+        
+        Assert.assertTrue(casilleroActual.equals(nuevoCasillero));
     }
 
 }
