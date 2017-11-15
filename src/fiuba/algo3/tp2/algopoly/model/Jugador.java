@@ -12,13 +12,11 @@ public class Jugador {
 	private Dinero capitalDelJugador;
 	private ArrayList<Barrio> propiedadesDelJugador;
 	private BoletaQuini6 boletaQuini6DelJugador;
-	private Estado estado;
 	
 	public Jugador(Dinero capitalInicial){
 		capitalDelJugador = new Dinero(capitalInicial);
 		propiedadesDelJugador = new ArrayList<Barrio>();
 		boletaQuini6DelJugador = new BoletaQuini6();
-		estado = new Libre();
 	}
 	
 	public void caerEn(Casillero casillero){
