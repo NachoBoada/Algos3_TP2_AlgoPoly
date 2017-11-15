@@ -47,64 +47,71 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad());
     }
-    
+
     @Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
         Dinero capitalInicial = new Dinero(0);
         Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
         Barrio barrio = new Barrio("test", precioBarrio);
-        
+
         jugador.caerEn(barrio);
-        
+
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }
-    
+
     @Test
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
         Carcel carcel = new Carcel();
-        
+
         jugador.caerEn(carcel);
-        
+
         Casillero casilleroActual = jugador.casilleroActual();
         jugador.caerEn(new Quini6());
         Casillero nuevoCasillero = jugador.casilleroActual();
-        
+
         Assert.assertFalse(casilleroActual.equals(nuevoCasillero));
     }
-    
+
     @Test
     public void test06JugadorPuedeMoverseLuegoDePagarFianzaDeCarcel() {
-    	Dinero capitalInicial = new Dinero(100000);
+        Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
         Carcel carcel = new Carcel();
-        
+
         jugador.caerEn(carcel);
         jugador.pagarFianza();
-        
+
         Casillero casilleroActual = jugador.casilleroActual();
         jugador.caerEn(new Quini6());
         Casillero nuevoCasillero = jugador.casilleroActual();
-        
+
         Assert.assertTrue(casilleroActual.equals(nuevoCasillero));
     }
-    
+
     @Test
-    public void testAvanceDinamico () {
-    	
-    	Dinero capitalInicial = new Dinero(100000);
+    public void test07JugadorNoPuedeMoverseAlNoPagarLaFianza() {
+        Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
-        
-        jugador.mover(3);
-        AvanceDinamico casillero = new AvanceDinamico ();
-        jugador.caerEn(casillero);
-        
-        Assert.assertEquals (jugador.posicionActual(), casillero.getPosicion+1);
-        
-    	
-    	
+        Carcel carcel = new Carcel();
+
+        jugador.caerEn(carcel);
+
+        Assert.assertFalse(jugador.mover(5));
     }
 
+    @Test
+    public void testAvanceDinamico() {
+
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.mover(3);
+        AvanceDinamico casillero = new AvanceDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion + 1);
+    }
 }
