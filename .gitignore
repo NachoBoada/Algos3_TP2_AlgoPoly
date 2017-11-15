@@ -7,3 +7,5 @@ manifest.mf
 
 .classpath
 .project
+.idea/
+libs/
