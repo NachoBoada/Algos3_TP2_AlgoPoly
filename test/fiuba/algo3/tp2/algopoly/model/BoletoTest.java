@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.algopoly.model.quini6;
+package fiuba.algo3.tp2.algopoly.model;
 
 import fiuba.algo3.tp2.algopoly.model.boleta.Premio;
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
