@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
 import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Casillero;

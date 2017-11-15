@@ -1,7 +1,6 @@
-package fiuba.algo3.tp2.algopoly;
+package fiuba.algo3.tp2.algopoly.model.casillero;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.Casillero;
 
 public class AvanceDinamico extends Casillero {
 
@@ -15,6 +14,8 @@ public class AvanceDinamico extends Casillero {
 
     @Override
     public void actuarSobre(Jugador jugador) {
+    	
+    	jugador.actualizarCasillero(this, posicion);
 
         int sumaDados = jugador.obtenerUltimaSumaDados();
 
