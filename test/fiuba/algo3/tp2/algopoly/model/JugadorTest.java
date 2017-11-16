@@ -36,4 +36,19 @@ public class JugadorTest {
 
         Assert.assertTrue(dinero200.equals(jugador.getCapital()));
     }
+    
+    @Test
+    public void testJugadorDerementarCapitalLanzarCapitalDelJugadorInsuficienteYAtraparlo() {
+        Dinero dinero100 = new Dinero(100);
+        Jugador jugador = new Jugador(dinero100);
+        Dinero dinero200 = new Dinero(200);
+        
+        try{
+        	jugador.derementarCapitalEn(dinero200);
+        	Assert.fail();
+        }
+        catch (CapitalDelJugadorInsuficiente e){
+        	Assert.assertTrue(true);
+        }
+    }
 }
