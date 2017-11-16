@@ -2,7 +2,16 @@ package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+
 import fiuba.algo3.tp2.algopoly.model.casillero.*;
+
+import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
+import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
+import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
+import fiuba.algo3.tp2.algopoly.model.casillero.Casillero;
+import fiuba.algo3.tp2.algopoly.model.casillero.Policia;
+import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -47,7 +56,8 @@ public class PrimeraEntregaTest {
 
     @Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
-        Dinero capitalInicial = new Dinero(2000);
+
+        Dinero capitalInicial = new Dinero(50000);
         Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
         Barrio barrio = new Barrio("test", precioBarrio);
@@ -119,7 +129,7 @@ public class PrimeraEntregaTest {
     }
     
     @Test
-    public void test101CaerEnAvanceDinamicoConOnceYSinPropiedadesEntoncesAvanzaOnce() {
+    public void test10CaerEnAvanceDinamicoConOnceYSinPropiedadesEntoncesAvanzaOnce() {
 
         Dinero capitalInicial = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -132,7 +142,7 @@ public class PrimeraEntregaTest {
     }
     
     @Test
-    public void test102CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
+    public void test11CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -209,5 +219,21 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 9);
 
+    }
+
+
+
+    @Test
+    public void test12UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
+    	
+    	Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+        Carcel carcel = new Carcel();
+        Policia policia = new Policia(carcel);
+        
+        jugador.caerEn(policia);
+        
+        Assert.assertFalse(jugador.mover(2));
+        Assert.assertEquals(carcel, jugador.casilleroActual());
     }
 }

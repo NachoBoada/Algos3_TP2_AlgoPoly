@@ -21,7 +21,7 @@ public class JugadorTest {
         
         jugador.incrementarCapitalEn(dinero1000000);
 
-        Assert.assertEquals(dinero1000000, jugador.getCapital());
+        Assert.assertTrue(dinero1000000.equals(jugador.getCapital()));
     }
     
     @Test
@@ -34,6 +34,6 @@ public class JugadorTest {
         
         jugador.derementarCapitalEn(dinero100);
 
-        Assert.assertEquals(dinero200, jugador.getCapital());
+        Assert.assertTrue(dinero200.equals(jugador.getCapital()));
     }
 }
