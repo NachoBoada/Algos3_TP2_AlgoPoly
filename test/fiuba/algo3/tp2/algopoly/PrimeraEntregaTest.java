@@ -159,7 +159,7 @@ public class PrimeraEntregaTest {
     }
 
     @Test
-    public void testJugadorCaeEnRetrocesoDinamicoConCuatroYUnaPropiedadEntoncesRetrocedeTres() {
+    public void test12JugadorCaeEnRetrocesoDinamicoConCuatroYUnaPropiedadEntoncesRetrocedeTres() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -175,7 +175,7 @@ public class PrimeraEntregaTest {
     }
 
     @Test
-    public void testJugadorCaeEnRetrocesoDinamicoConDosYTresPropiedadEntoncesNoRetrocede() {
+    public void test13JugadorCaeEnRetrocesoDinamicoConDosYTresPropiedadEntoncesNoRetrocede() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -193,7 +193,7 @@ public class PrimeraEntregaTest {
     }
 
     @Test
-    public void testJugadorCaeEnRetrocesoDinamicoConSieteYCapitalDeMilEntoncesRetrocedeSeis() {
+    public void test14JugadorCaeEnRetrocesoDinamicoConSieteYCapitalDeMilEntoncesRetrocedeSeis() {
 
         Dinero capitalInicial = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -208,7 +208,7 @@ public class PrimeraEntregaTest {
     }
 
     @Test
-    public void testJugadorCaeEnRetrocesoDinamicoConOnceEntoncesRetrocede9() {
+    public void test15JugadorCaeEnRetrocesoDinamicoConOnceEntoncesRetrocede9() {
 
         Dinero capitalInicial = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
@@ -221,10 +221,8 @@ public class PrimeraEntregaTest {
 
     }
 
-
-
     @Test
-    public void test12UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
+    public void test16UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
     	
     	Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
