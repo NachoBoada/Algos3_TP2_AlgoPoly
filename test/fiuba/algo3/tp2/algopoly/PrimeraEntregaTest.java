@@ -2,11 +2,7 @@ package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
-import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
-import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
-import fiuba.algo3.tp2.algopoly.model.casillero.Casillero;
-import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
+import fiuba.algo3.tp2.algopoly.model.casillero.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -51,7 +47,7 @@ public class PrimeraEntregaTest {
 
     @Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
-        Dinero capitalInicial = new Dinero(0);
+        Dinero capitalInicial = new Dinero(2000);
         Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
         Barrio barrio = new Barrio("test", precioBarrio);
@@ -150,5 +146,68 @@ public class PrimeraEntregaTest {
         jugador.caerEn(casillero);
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 9);
+    }
+
+    @Test
+    public void testJugadorCaeEnRetrocesoDinamicoConCuatroYUnaPropiedadEntoncesRetrocedeTres() {
+
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.comprarBarrio( new Barrio ("SantaFe", new Dinero (10000) ) );
+
+        jugador.mover(4);
+        RetrocesoDinamico casillero = new RetrocesoDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 3);
+
+    }
+
+    @Test
+    public void testJugadorCaeEnRetrocesoDinamicoConDosYTresPropiedadEntoncesNoRetrocede() {
+
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.comprarBarrio( new Barrio ("SantaFe", new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio ("Mendoza", new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio ("Salta", new Dinero (10000) ) );
+
+        jugador.mover(2);
+        RetrocesoDinamico casillero = new RetrocesoDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion());
+
+    }
+
+    @Test
+    public void testJugadorCaeEnRetrocesoDinamicoConSieteYCapitalDeMilEntoncesRetrocedeSeis() {
+
+        Dinero capitalInicial = new Dinero(1000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.mover(7);
+        RetrocesoDinamico casillero = new RetrocesoDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 6);
+
+
+    }
+
+    @Test
+    public void testJugadorCaeEnRetrocesoDinamicoConOnceEntoncesRetrocede9() {
+
+        Dinero capitalInicial = new Dinero(1000);
+        Jugador jugador = new Jugador(capitalInicial);
+
+        jugador.mover(11);
+        RetrocesoDinamico casillero = new RetrocesoDinamico();
+        jugador.caerEn(casillero);
+
+        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 9);
+
     }
 }
