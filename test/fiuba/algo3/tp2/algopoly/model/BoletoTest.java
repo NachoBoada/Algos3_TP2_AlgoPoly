@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.algopoly.model;
 
 import fiuba.algo3.tp2.algopoly.model.boleta.Premio;
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
-import fiuba.algo3.tp2.algopoly.model.Dinero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,8 +37,6 @@ public class BoletoTest {
         Premio premioSinValor = boleto.getPremio();
         
         Dinero valorPremioSinValor = premioSinValor.getValor();
-        
-        System.out.println("Valor premio sin valor: " + String.valueOf(valorPremioSinValor.getCantidad()));
         
         Assert.assertTrue(valorPremioSinValor.equals(new Dinero(0)));
     }

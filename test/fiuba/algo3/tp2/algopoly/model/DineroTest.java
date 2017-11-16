@@ -26,11 +26,7 @@ public class DineroTest {
     public void testSumaDecrementaEn10LaCantidad() {
         Dinero dineroInicial = new Dinero(10);
         
-        System.out.println("Antes de restar: " + String.valueOf(dineroInicial.getCantidad()));
-        
         dineroInicial.restar(new Dinero(10));
-        
-        System.out.println(String.valueOf(dineroInicial.getCantidad()));
         
         Assert.assertTrue(dineroInicial.equals(new Dinero(0)));
     }
