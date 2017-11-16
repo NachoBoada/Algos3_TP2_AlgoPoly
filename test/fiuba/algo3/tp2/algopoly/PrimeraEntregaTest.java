@@ -52,7 +52,7 @@ public class PrimeraEntregaTest {
 
     @Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
-        Dinero capitalInicial = new Dinero(0);
+        Dinero capitalInicial = new Dinero(50000);
         Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
         Barrio barrio = new Barrio("test", precioBarrio);
