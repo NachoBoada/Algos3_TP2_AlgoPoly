@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
-import fiuba.algo3.tp2.algopoly.model.CapitalDelJugadorInsuficiente;
+import fiuba.algo3.tp2.algopoly.model.ElDineroNoPuedeSerNegativo;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
@@ -28,7 +28,7 @@ public class Carcel extends Casillero {
 		 
 		try {
 			jugador.derementarCapitalEn(costoFianza);
-		}catch ( CapitalDelJugadorInsuficiente e) { throw new ElJugadorNoTieneCapitalSuficienteParaPagarFianza(); }
+		}catch ( ElDineroNoPuedeSerNegativo e) { throw new ElJugadorNoTieneCapitalSuficienteParaPagarFianza(); }
 		
 	 }
 

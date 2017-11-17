@@ -70,7 +70,7 @@ public class Jugador {
 		capitalDelJugador.sumar(incrementoDeCapital);
 	}
 	
-	public void derementarCapitalEn(Dinero decrementoDeCapital) throws CapitalDelJugadorInsuficiente {
+	public void derementarCapitalEn(Dinero decrementoDeCapital) throws ElDineroNoPuedeSerNegativo {
 			capitalDelJugador.restar(decrementoDeCapital);
 	}
 	
@@ -88,7 +88,7 @@ public class Jugador {
 		try{
 			this.derementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
 		}
-		catch (CapitalDelJugadorInsuficiente e) {
+		catch (ElDineroNoPuedeSerNegativo e) {
 			throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
 		}
 		
@@ -112,7 +112,6 @@ public class Jugador {
 	}
 
 	public int getCantidadDePropiedades() {
-
 		return this.propiedades.size();
 	}
 

@@ -22,7 +22,7 @@ public class Dinero {
 
     public void restar(Dinero dinero) {
     	
-    	if ( this.cantidad < dinero.getCantidad() ) throw new CapitalDelJugadorInsuficiente();
+    	if ( this.cantidad < dinero.getCantidad() ) throw new ElDineroNoPuedeSerNegativo();
     	
         this.cantidad -= dinero.getCantidad();
     }
