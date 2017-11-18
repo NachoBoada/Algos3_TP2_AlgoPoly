@@ -27,8 +27,6 @@ public class Barrio implements Encasillable {
     }
 
     @Override
-    public void actuarSobre(Jugador jugador) {
+    public void actuarSobre(Jugador jugador) {}
 
-        jugador.comprarBarrio(this);
-    }
 }

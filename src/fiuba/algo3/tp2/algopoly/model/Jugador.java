@@ -87,7 +87,7 @@ public class Jugador {
         } catch (ElDineroNoPuedeSerNegativo e) {
             throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
         }
-
+        barrioAComprar.modificarPropietario(this);
         propiedades.add(barrioAComprar);
     }
 

@@ -62,6 +62,8 @@ public class PrimeraEntregaTest {
         Barrio barrio = new Barrio("test", precioBarrio);
 
         jugador.caerEn(barrio);
+        jugador.comprarBarrio(barrio);
+        
 
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }
