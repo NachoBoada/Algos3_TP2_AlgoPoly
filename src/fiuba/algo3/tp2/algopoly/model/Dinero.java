@@ -8,10 +8,10 @@ public class Dinero {
         this.cantidad = cantidad;
     }
 
-    public int getCantidad() {
+    public int getCantidad() {  //TODO private
         return this.cantidad;
     }
-    
+
     public boolean equals(Dinero dinero) {
         return this.cantidad == dinero.getCantidad();
     }
@@ -21,11 +21,19 @@ public class Dinero {
     }
 
     public void restar(Dinero dinero) {
-    	
-    	if ( this.cantidad < dinero.getCantidad() ) throw new ElDineroNoPuedeSerNegativo();
-    	
+        if (this.cantidad < dinero.getCantidad()) {
+            throw new ElDineroNoPuedeSerNegativo();
+        }
+
         this.cantidad -= dinero.getCantidad();
     }
 
+    public void restarEntero(int factor) {
+        if (this.cantidad < factor) {
+            throw new ElDineroNoPuedeSerNegativo();
+        }
+
+        this.cantidad -= factor;
+    }
 
 }
