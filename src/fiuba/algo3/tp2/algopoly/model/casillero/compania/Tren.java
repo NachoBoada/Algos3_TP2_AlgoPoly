@@ -4,16 +4,23 @@ import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class Tren extends Compania {
-    
+
     private static final Dinero PRECIO = new Dinero(38000);
+    private final int posicion;
 
     public Tren() {
         super(PRECIO);
+        this.posicion = 18;
+    }
+
+    @Override
+    public int getPosicion() {
+        return this.posicion;
     }
 
     @Override
     public void actuarSobre(Jugador jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
-    
+
 }

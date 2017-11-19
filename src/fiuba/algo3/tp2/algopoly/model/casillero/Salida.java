@@ -17,4 +17,9 @@ public class Salida implements Encasillable {
         jugador.actualizarCasillero(this, this.posicion);
     }
 
+    @Override
+    public int getPosicion() {
+        return this.posicion;
+    }
+
 }
