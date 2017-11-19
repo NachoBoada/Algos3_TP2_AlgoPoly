@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
+import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
 import fiuba.algo3.tp2.algopoly.model.estado.Libre;
 
@@ -124,6 +125,10 @@ public class Jugador {
 
         compania.modificarDueno(this);
         companias.add(compania);
+    }
+
+    public int tirarDados() {
+        return Dados.getInstance().tirar();
     }
 
 }
