@@ -2,10 +2,10 @@ package fiuba.algo3.tp2.algopoly.model;
 
 import java.util.ArrayList;
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
-import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
 import fiuba.algo3.tp2.algopoly.model.estado.Libre;
 
@@ -55,8 +55,8 @@ public class Jugador {
         return this.ultimaSumaDados;
     }
 
-    public void actualizarCasillero(Encasillable encasillable, int posicion) {
-        casilleroActual = encasillable;
+    public void actualizarCasillero(Encasillable casillero, int posicion) {
+        casilleroActual = casillero;
         posicionActual = posicion;
     }
 
@@ -69,6 +69,7 @@ public class Jugador {
     }
 
     public void derementarCapitalEn(Dinero decrementoDeCapital) {
+    	
         try {
         	capitalDelJugador.restar(decrementoDeCapital);
         }catch (ElDineroNoPuedeSerNegativo e) { throw new CapitalInsuficiente();}
@@ -89,6 +90,7 @@ public class Jugador {
         } catch (CapitalInsuficiente e) {
             throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
         }
+        
         barrioAComprar.modificarPropietario(this);
         propiedades.add(barrioAComprar);
     }

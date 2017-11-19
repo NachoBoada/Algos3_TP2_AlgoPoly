@@ -1,6 +1,7 @@
-package fiuba.algo3.tp2.algopoly.model.casillero;
+package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 
 public class Barrio implements Encasillable {

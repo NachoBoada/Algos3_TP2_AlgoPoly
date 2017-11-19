@@ -4,9 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.ElJugadorNoTieneCapitalSuficienteParaPagarFianza;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
-import fiuba.algo3.tp2.algopoly.model.casillero.ElJugadorNoTieneCapitalSuficienteParaPagarFianza;
 
 public class EstadoTest {
 

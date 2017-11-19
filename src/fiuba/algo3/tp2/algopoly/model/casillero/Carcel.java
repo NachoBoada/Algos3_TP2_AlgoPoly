@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
-import fiuba.algo3.tp2.algopoly.model.ElDineroNoPuedeSerNegativo;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 

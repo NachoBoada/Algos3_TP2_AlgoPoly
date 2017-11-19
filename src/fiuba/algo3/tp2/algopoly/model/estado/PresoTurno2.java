@@ -1,10 +1,9 @@
 package fiuba.algo3.tp2.algopoly.model.estado;
 
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficiente;
-import fiuba.algo3.tp2.algopoly.model.ElDineroNoPuedeSerNegativo;
+import fiuba.algo3.tp2.algopoly.model.ElJugadorNoTieneCapitalSuficienteParaPagarFianza;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
-import fiuba.algo3.tp2.algopoly.model.casillero.ElJugadorNoTieneCapitalSuficienteParaPagarFianza;
 
 public class PresoTurno2 extends Preso {
 

@@ -2,7 +2,8 @@ package fiuba.algo3.tp2.algopoly.model;
 
 import org.junit.Assert;
 import org.junit.Test;
-import fiuba.algo3.tp2.algopoly.model.casillero.Barrio;
+
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 
 public class BarrioTest {
     @Test
