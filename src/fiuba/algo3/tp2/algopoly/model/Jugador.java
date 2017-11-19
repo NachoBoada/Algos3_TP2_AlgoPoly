@@ -131,4 +131,8 @@ public class Jugador {
         return Dados.getInstance().tirar();
     }
 
+    public boolean esDuenoDe(Compania compania) {
+        return companias.contains(compania);
+    }
+
 }
