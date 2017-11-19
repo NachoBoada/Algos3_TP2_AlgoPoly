@@ -35,5 +35,9 @@ public class Dinero {
 
         this.cantidad -= factor;
     }
+    
+    public void multiplicar(double factor){
+    	this.cantidad *= factor;
+    }
 
 }

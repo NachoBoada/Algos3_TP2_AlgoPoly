@@ -63,20 +63,19 @@ public class Jugador {
     public void sumarAPosicion(int cantidad) {
         this.posicionActual += cantidad;
     }
+    
+    public Dinero getCapital() {
+        return capitalDelJugador;
+    }
 
     public void incrementarCapitalEn(Dinero incrementoDeCapital) {
         capitalDelJugador.sumar(incrementoDeCapital);
     }
 
-    public void derementarCapitalEn(Dinero decrementoDeCapital) {
-    	
+    public void decrementarCapitalEn(Dinero decrementoDeCapital) {
         try {
         	capitalDelJugador.restar(decrementoDeCapital);
         }catch (ElDineroNoPuedeSerNegativo e) { throw new CapitalInsuficiente();}
-    }
-
-    public Dinero getCapital() {
-        return capitalDelJugador;
     }
 
     public BoletaQuini6 getBoletoQuini6() {
@@ -86,7 +85,7 @@ public class Jugador {
     public void comprarBarrio(Barrio barrioAComprar) {
 
         try {
-            this.derementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
+            this.decrementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
         } catch (CapitalInsuficiente e) {
             throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
         }
