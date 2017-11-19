@@ -5,14 +5,14 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ImpuestoDeLujoTest {
+public class ImpuestoAlLujoTest {
 	
     @Test
     public void testImpuestoAlLujoDe10PorcientoSobre100Quedan90() {
     	Dinero dinero = new Dinero(100);
     	Dinero dineroRestante = new Dinero(90);
         Jugador jugador = new Jugador(dinero);
-        ImpuestoDeLujo impuesto = new ImpuestoDeLujo();
+        ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
         
         jugador.caerEn(impuesto);
 
