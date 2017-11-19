@@ -38,7 +38,7 @@ public class RetrocesoDinamico implements Encasillable {
 
         if (sumaDados == 7 || sumaDados == 8 || sumaDados == 9 || sumaDados == 10) {
 
-            jugador.mover((jugador.getCapital().getCantidad() % sumaDados) * -1);
+            jugador.mover(( (int) jugador.getCapital().getCantidad() % sumaDados) * -1);
 
         }
 

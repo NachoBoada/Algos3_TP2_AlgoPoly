@@ -7,8 +7,10 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class CarcelTest {
 	
+	private static final double DELTA = 1e-15;
+	
 	int CAPITALINICIAL = 100000;
-
+	
 	
 	@Test
 	public void testJugadorCaeEnCarcelEntoncesNoPuedeMoverseHastaTurno4() {
@@ -44,11 +46,11 @@ public class CarcelTest {
 		//caigo en carcel
 		jugador.caerEn(carcel);	
 		jugador.pagarFianza();
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
+		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
 		//primer turno
 		jugador.caerEn(carcel);	
 		jugador.pagarFianza();
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
+		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
 		//segundo turno
 		jugador.caerEn(carcel);	
 		jugador.pagarFianza();

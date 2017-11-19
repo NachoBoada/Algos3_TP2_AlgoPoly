@@ -2,13 +2,13 @@ package fiuba.algo3.tp2.algopoly.model;
 
 public class Dinero {
 
-    private int cantidad;
+    private double cantidad;
 
     public Dinero(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getCantidad() {  //TODO private
+    public double getCantidad() {  //TODO private
         return this.cantidad;
     }
 

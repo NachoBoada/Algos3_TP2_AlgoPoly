@@ -9,6 +9,8 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class EstadoTest {
+	
+	private static final double DELTA = 1e-15;
 
 	int CAPITALINICIAL = 100000;
 	
@@ -45,7 +47,7 @@ public class EstadoTest {
 		jugador.cambiarEstado( new PresoTurno0 () );
 		jugador.pagarFianza();
 		
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
+		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
 	}
 	
 	//PRESO TURNO 1
@@ -70,7 +72,7 @@ public class EstadoTest {
 		jugador.cambiarEstado( new PresoTurno1 () );
 		jugador.pagarFianza();
 		
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
+		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
 	}
 	
 	//PRESO TURNO 2

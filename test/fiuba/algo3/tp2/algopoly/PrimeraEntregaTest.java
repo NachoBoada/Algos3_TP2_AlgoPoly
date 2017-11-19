@@ -10,6 +10,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class PrimeraEntregaTest {
+	
+	private static final double DELTA = 1e-15;
 
     @Test
     public void test01JugadorCaeEnQuini6PorPrimeraVezSuCapitalSeIncrementaEn50000() {
@@ -19,7 +21,7 @@ public class PrimeraEntregaTest {
 
         jugador.caerEn(quini6);
 
-        Assert.assertEquals(50000, jugador.getCapital().getCantidad());
+        Assert.assertEquals(50000, jugador.getCapital().getCantidad(), DELTA);
     }
 
     @Test
@@ -31,7 +33,7 @@ public class PrimeraEntregaTest {
         jugador.caerEn(quini6);
         jugador.caerEn(quini6);
 
-        Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad());
+        Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad(), DELTA);
     }
 
     @Test
@@ -45,7 +47,7 @@ public class PrimeraEntregaTest {
         jugador.caerEn(quini6);
         jugador.caerEn(quini6);
 
-        Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad());
+        Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad(), DELTA);
     }
 
     @Test
