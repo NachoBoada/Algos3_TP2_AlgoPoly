@@ -32,7 +32,7 @@ public class JugadorTest {
         Jugador jugador = new Jugador(dinero300);
         
         
-        jugador.derementarCapitalEn(dinero100);
+        jugador.decrementarCapitalEn(dinero100);
 
         Assert.assertTrue(dinero200.equals(jugador.getCapital()));
     }
@@ -44,7 +44,7 @@ public class JugadorTest {
         Dinero dinero200 = new Dinero(200);
         
         try{
-        	jugador.derementarCapitalEn(dinero200);
+        	jugador.decrementarCapitalEn(dinero200);
         	Assert.fail();
         }
         catch (CapitalInsuficiente e){

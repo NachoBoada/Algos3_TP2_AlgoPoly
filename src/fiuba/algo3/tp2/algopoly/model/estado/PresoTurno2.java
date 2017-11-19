@@ -20,7 +20,7 @@ public class PresoTurno2 extends Preso {
 	public void pagarFianza(Jugador jugador) {
 		
 		 try {
-	            jugador.derementarCapitalEn(carcel.getCostoFianza());
+	            jugador.decrementarCapitalEn(carcel.getCostoFianza());
 	        } catch (CapitalInsuficiente e) {throw new ElJugadorNoTieneCapitalSuficienteParaPagarFianza();}
 		 
 		jugador.cambiarEstado( new Libre() );
