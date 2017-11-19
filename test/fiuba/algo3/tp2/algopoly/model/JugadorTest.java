@@ -52,6 +52,9 @@ public class JugadorTest {
         }
     }
     
-
+    @Test
+    public void testprobarCI() {
+    	Assert.fail();
+    }
 
 }
