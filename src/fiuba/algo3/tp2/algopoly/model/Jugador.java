@@ -6,6 +6,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
 import fiuba.algo3.tp2.algopoly.model.estado.Libre;
 
@@ -13,6 +14,7 @@ public class Jugador {
 
     private final Dinero capitalDelJugador;
     private final ArrayList<Barrio> propiedades;
+    private final ArrayList<Compania> companias;
     private final BoletaQuini6 boletaQuini6;
     private Encasillable casilleroActual;
     private int posicionActual;
@@ -25,6 +27,7 @@ public class Jugador {
         capitalDelJugador = capitalInicial;
 
         propiedades = new ArrayList<>();
+        companias = new ArrayList<>();
 
         boletaQuini6 = new BoletaQuini6();
 
@@ -63,7 +66,7 @@ public class Jugador {
     public void sumarAPosicion(int cantidad) {
         this.posicionActual += cantidad;
     }
-    
+
     public Dinero getCapital() {
         return capitalDelJugador;
     }
@@ -74,8 +77,10 @@ public class Jugador {
 
     public void decrementarCapitalEn(Dinero decrementoDeCapital) {
         try {
-        	capitalDelJugador.restar(decrementoDeCapital);
-        }catch (ElDineroNoPuedeSerNegativo e) { throw new CapitalInsuficiente();}
+            capitalDelJugador.restar(decrementoDeCapital);
+        } catch (ElDineroNoPuedeSerNegativo e) {
+            throw new CapitalInsuficiente();
+        }
     }
 
     public BoletaQuini6 getBoletoQuini6() {
@@ -89,7 +94,7 @@ public class Jugador {
         } catch (CapitalInsuficiente e) {
             throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
         }
-        
+
         barrioAComprar.modificarPropietario(this);
         propiedades.add(barrioAComprar);
     }
@@ -112,6 +117,13 @@ public class Jugador {
 
     public int getCantidadDePropiedades() {
         return this.propiedades.size();
+    }
+
+    public void comprarCompania(Compania compania) {
+        this.decrementarCapitalEn(compania.getPrecio());
+
+        compania.modificarDueno(this);
+        companias.add(compania);
     }
 
 }
