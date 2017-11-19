@@ -9,7 +9,7 @@ public class BarrioTest {
     @Test
     public void getPrecioDelBarrioDevuelveElPrecioCorrectamente() {
         Dinero precioBarrio = new Dinero(10000);
-        Barrio SantaFe = new Barrio("Santa Fe", precioBarrio);
+        Barrio SantaFe = new Barrio(precioBarrio);
 
         Assert.assertEquals(precioBarrio, SantaFe.getPrecioDelBarrio());
     }
@@ -19,7 +19,7 @@ public class BarrioTest {
         Dinero capitalInicial = new Dinero(100000);
         Dinero precioBarrio = new Dinero(10000);
         Jugador unJugador = new Jugador(capitalInicial);
-        Barrio Cordoba = new Barrio("Cordoba", precioBarrio);
+        Barrio Cordoba = new Barrio(precioBarrio);
 
         Cordoba.modificarPropietario(unJugador);
 

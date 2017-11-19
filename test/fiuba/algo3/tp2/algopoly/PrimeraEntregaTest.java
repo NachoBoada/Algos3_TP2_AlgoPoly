@@ -54,7 +54,7 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(50000);
         Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
-        Barrio barrio = new Barrio("test", precioBarrio);
+        Barrio barrio = new Barrio(precioBarrio);
 
         jugador.caerEn(barrio);
         jugador.comprarBarrio(barrio);
@@ -143,9 +143,9 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
 
-        jugador.comprarBarrio( new Barrio ("SantaFe", new Dinero (10000) ) );
-        jugador.comprarBarrio( new Barrio ("Mendoza", new Dinero (20000) ) );
-        jugador.comprarBarrio( new Barrio ("Salta", new Dinero (9000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (20000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (9000) ) );
                
         jugador.mover(12);
         AvanceDinamico casillero = new AvanceDinamico();
@@ -160,7 +160,7 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
 
-        jugador.comprarBarrio( new Barrio ("SantaFe", new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
 
         jugador.mover(4);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
@@ -176,9 +176,9 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
 
-        jugador.comprarBarrio( new Barrio ("SantaFe", new Dinero (10000) ) );
-        jugador.comprarBarrio( new Barrio ("Mendoza", new Dinero (10000) ) );
-        jugador.comprarBarrio( new Barrio ("Salta", new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
+        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
 
         jugador.mover(2);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
