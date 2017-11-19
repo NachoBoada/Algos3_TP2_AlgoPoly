@@ -7,7 +7,7 @@ public abstract class Estado {
 	
 	public abstract void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel);
 	
-	public abstract boolean pagarFianza (Jugador jugador);
+	public abstract void pagarFianza (Jugador jugador);
 	
 	public abstract boolean mover (Jugador jugador, int cantidadCasilleros);
 	

@@ -6,12 +6,14 @@ import org.junit.Test;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class CarcelTest {
+	
+	int CAPITALINICIAL = 100000;
 
 	
 	@Test
 	public void testJugadorCaeEnCarcelEntoncesNoPuedeMoverseHastaTurno4() {
 		
-		Dinero capitalJugador = new Dinero (100000);
+		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador);
 		Carcel carcel = new Carcel();
 		
@@ -34,26 +36,29 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorCaeEnCarcelNoPuedePagarFianzaHastaTurno2() {
-		
-		Dinero capitalJugador = new Dinero (100000);
+
+		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador);
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
 		jugador.caerEn(carcel);	
-		Assert.assertFalse( jugador.pagarFianza() );
+		jugador.pagarFianza();
+		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
 		//primer turno
 		jugador.caerEn(carcel);	
-		Assert.assertFalse( jugador.pagarFianza() );
+		jugador.pagarFianza();
+		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
 		//segundo turno
 		jugador.caerEn(carcel);	
-		Assert.assertTrue( jugador.pagarFianza() );
+		jugador.pagarFianza();
+		Assert.assertNotEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
 	}
 	
 	@Test
 	public void testJugadorEnCarcelPuedePagarFianzaEnTurno3() {
 		
-		Dinero capitalJugador = new Dinero (100000);
+		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador);
 		Carcel carcel = new Carcel();
 		
@@ -65,14 +70,15 @@ public class CarcelTest {
 		jugador.caerEn(carcel);	
 		//tercer turno
 		jugador.caerEn(carcel);
-			
-		Assert.assertTrue( jugador.pagarFianza() );
+		jugador.pagarFianza();
+		
+		Assert.assertNotEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
 	}
 	
 	@Test
 	public void testJugadorEnCarcelPagaFianzaEntoncesPuedeMoverse() {
 		
-		Dinero capitalJugador = new Dinero (100000);
+		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador);
 		Carcel carcel = new Carcel();
 		

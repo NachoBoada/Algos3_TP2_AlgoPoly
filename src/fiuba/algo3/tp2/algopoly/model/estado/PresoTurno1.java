@@ -11,8 +11,6 @@ public class PresoTurno1 extends Preso {
 		jugador.cambiarEstado ( new PresoTurno2 (carcel) );
 	}
 	
-	public boolean pagarFianza (Jugador jugador) {
-		
-		return false;
-	}
+	public void pagarFianza(Jugador jugador) {}
+
 }

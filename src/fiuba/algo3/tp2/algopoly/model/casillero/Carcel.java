@@ -29,14 +29,8 @@ public class Carcel implements Encasillable {
 
     }
 
-    public void pagarFianza(Jugador jugador) {
-
-        try {
-            jugador.derementarCapitalEn(costoFianza);
-        } catch (ElDineroNoPuedeSerNegativo e) {
-            throw new ElJugadorNoTieneCapitalSuficienteParaPagarFianza();
-        }
-
-    }
+	public Dinero getCostoFianza() {
+		return costoFianza;
+	}
 
 }

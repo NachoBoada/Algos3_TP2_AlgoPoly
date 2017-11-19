@@ -47,7 +47,7 @@ public class JugadorTest {
         	jugador.derementarCapitalEn(dinero200);
         	Assert.fail();
         }
-        catch (ElDineroNoPuedeSerNegativo e){
+        catch (CapitalInsuficiente e){
         	Assert.assertTrue(true);
         }
     }

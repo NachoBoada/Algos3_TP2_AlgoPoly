@@ -68,8 +68,10 @@ public class Jugador {
         capitalDelJugador.sumar(incrementoDeCapital);
     }
 
-    public void derementarCapitalEn(Dinero decrementoDeCapital) throws ElDineroNoPuedeSerNegativo {
-        capitalDelJugador.restar(decrementoDeCapital);
+    public void derementarCapitalEn(Dinero decrementoDeCapital) {
+        try {
+        	capitalDelJugador.restar(decrementoDeCapital);
+        }catch (ElDineroNoPuedeSerNegativo e) { throw new CapitalInsuficiente();}
     }
 
     public Dinero getCapital() {
@@ -84,7 +86,7 @@ public class Jugador {
 
         try {
             this.derementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
-        } catch (ElDineroNoPuedeSerNegativo e) {
+        } catch (CapitalInsuficiente e) {
             throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
         }
         barrioAComprar.modificarPropietario(this);
@@ -103,8 +105,8 @@ public class Jugador {
         estado.cambiarProximoEstadoPreso(this, carcel);
     }
 
-    public boolean pagarFianza() {
-        return (estado.pagarFianza(this));
+    public void pagarFianza() {
+        estado.pagarFianza(this);
     }
 
     public int getCantidadDePropiedades() {

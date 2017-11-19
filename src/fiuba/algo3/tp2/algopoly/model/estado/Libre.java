@@ -10,9 +10,7 @@ public class Libre extends Estado {
 		jugador.cambiarEstado( new PresoTurno0 () );
 	}
 	
-	public boolean pagarFianza(Jugador jugador) {
-		return false;
-	}
+	public void pagarFianza(Jugador jugador) {}
 	
 	public boolean mover(Jugador jugador, int cantidadCasillero) {
 		jugador.sumarAPosicion(cantidadCasillero);
