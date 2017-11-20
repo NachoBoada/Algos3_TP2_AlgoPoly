@@ -123,7 +123,7 @@ public class Jugador {
     public void comprarCompania(Compania compania) {
         this.decrementarCapitalEn(compania.getPrecio());
 
-        compania.modificarDueno(this);
+        compania.modificarDuenio(this);
         companias.add(compania);
     }
 

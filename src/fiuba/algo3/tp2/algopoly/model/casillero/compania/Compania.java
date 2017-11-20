@@ -6,7 +6,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 
 public abstract class Compania implements Encasillable{
 
-    private Jugador dueno;
+    private Jugador duenio;
     private final Dinero precio;
     
     public Compania(Dinero precio) {
@@ -17,12 +17,18 @@ public abstract class Compania implements Encasillable{
         return precio;
     }
 
-	public Jugador getDueno() {
-		return dueno;
+	public Jugador getDuenio() {
+		return duenio;
 	}
 
-	public void modificarDueno(Jugador jugador) {
-		this.dueno = jugador;
+	public void modificarDuenio(Jugador jugador) {
+		this.duenio = jugador;
 	}
+	
+	@Override
+	public abstract void actuarSobre(Jugador jugador);
+	
+	@Override
+	public abstract int getPosicion();
 
 }
