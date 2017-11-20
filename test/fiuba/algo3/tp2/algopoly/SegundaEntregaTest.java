@@ -15,20 +15,43 @@ public class SegundaEntregaTest {
 
     @Test
     public void test11JugadorCaeEnTrenSiendoPropiedadDeOtroJugadorEntoncesSuCapitalSeReduceEn450VecesSuTiroDeDados() {
-        Dinero capitalInicial = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicial);
-        Jugador jugadorPagador = new Jugador(capitalInicial);
+        Dinero capitalInicialCobrador = new Dinero(100000);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+        
+        Dinero capitalInicialPagador = new Dinero(100000);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+        
         Tren tren = new Transportes().getTren();
         jugadorCobrador.comprarCompania(tren);
 
-        Dinero capitalInicialJugadorPagador = jugadorPagador.getCapital();
         jugadorPagador.tirarDados();
         jugadorPagador.caerEn(tren);
 
-        capitalInicialJugadorPagador.restar(new Dinero(jugadorPagador.getUltimaSumaDados() * 450));
-
-        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalInicialJugadorPagador));
+        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (jugadorPagador.getUltimaSumaDados() * 450));
+        
+        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
     }
+    
+    /*Un jugador cae en TRENES adquirida previamente por otro jugador que además es el dueño de SUBTES. 
+    Verificar que su dinero se reduzca por 800 veces lo que dice los dados arrojados previamente*/
+//    @Test
+//    public void test12JugadorCaeEnTrenSiendoPropiedadDelPropietarioDelSubteEntoncesSuCapitalSeReduceEn800VecesSuTiroDeDados() {
+//        Dinero capitalInicialCobrador = new Dinero(100000);
+//        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+//        
+//        Dinero capitalInicialPagador = new Dinero(100000);
+//        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+//        
+//        Tren tren = new Transportes().getTren();
+//        jugadorCobrador.comprarCompania(tren);
+//
+//        jugadorPagador.tirarDados();
+//        jugadorPagador.caerEn(tren);
+//
+//        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (jugadorPagador.getUltimaSumaDados() * 800));
+//        
+//        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
+//    }    
 
     @Test
     public void test15JugadorCaeEnImpuestoAlLujoCon80Pierde10PorcientoSaleCon72() {
