@@ -6,41 +6,59 @@ import org.junit.Test;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.ImpuestoAlLujo;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Aysa;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Edesur;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.Tren;
 
 public class SegundaEntregaTest {
 
     @Test
+    public void test11JugadorCaeEnTrenSiendoPropiedadDeOtroJugadorEntoncesSuCapitalSeReduceEn450VecesSuTiroDeDados() {
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugadorCobrador = new Jugador(capitalInicial);
+        Jugador jugadorPagador = new Jugador(capitalInicial);
+        Tren tren = new Transportes().getTren();
+        jugadorCobrador.comprarCompania(tren);
+
+        Dinero capitalInicialJugadorPagador = jugadorPagador.getCapital();
+        jugadorPagador.tirarDados();
+        jugadorPagador.caerEn(tren);
+
+        capitalInicialJugadorPagador.restar(new Dinero(jugadorPagador.getUltimaSumaDados() * 450));
+
+        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalInicialJugadorPagador));
+    }
+
+    @Test
     public void test15JugadorCaeEnImpuestoAlLujoCon80Pierde10PorcientoSaleCon72() {
-    	Dinero dineroJugador = new Dinero(80);
+        Dinero dineroJugador = new Dinero(80);
         Jugador jugador = new Jugador(dineroJugador);
         ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
-        
+
         jugador.caerEn(impuesto);
         Dinero dineroRestante = new Dinero(72);
-        
+
         Assert.assertTrue(jugador.getCapital().equals(dineroRestante));
     }
-    
+
     @Test
     public void test16JugadorCaeEnEdesurYPaga500VecesLoQueSaleEnLosDados() {
-    	Dinero dineroJugadorQuePaga = new Dinero(100000);
+        Dinero dineroJugadorQuePaga = new Dinero(100000);
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
         Dinero dineroJugadorDuenioDeEdesur = new Dinero(100000);
         Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur);
         Servicios servicios = new Servicios();
-        
+
         Edesur edesur = servicios.getEdesur();
         jugadorDuenioDeEdesur.comprarCompania(edesur);
         jugadorQuePaga.tirarDados();
         jugadorQuePaga.caerEn(edesur);
         Dinero dineroRestante = new Dinero(100000 - 500 * jugadorQuePaga.getUltimaSumaDados());
-        
+
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
     }
-    
+
     /* --El test funcionara cuando este implementado lo de que una persona sea duenia de AYSAyEDESUR.
     @Test
     public void test17JugadorCaeEnEdesurDeUnDuenioDeEdesurYAysaYPaga1000VecesLoQueSaleEnLosDados() {
@@ -60,5 +78,4 @@ public class SegundaEntregaTest {
         
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
     } */
-	
 }
