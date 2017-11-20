@@ -8,6 +8,7 @@ public class Barrio implements Encasillable {
 	
     private Jugador propietario;
     private final Dinero precio;
+    private int posicion;
     
     public Barrio (Dinero precio) {
     	this.precio = precio;
@@ -27,4 +28,11 @@ public class Barrio implements Encasillable {
 
 	@Override
 	public void actuarSobre(Jugador jugador) {}
+
+	@Override
+	public int getPosicion(){
+
+    	return this.posicion;
+
+	}
 }
