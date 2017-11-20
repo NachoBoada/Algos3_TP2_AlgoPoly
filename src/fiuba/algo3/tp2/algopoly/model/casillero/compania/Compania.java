@@ -6,8 +6,8 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 
 public abstract class Compania implements Encasillable{
 
-    private Jugador duenio;
-    private final Dinero precio;
+    protected Jugador duenio;
+    protected final Dinero precio;
     
     public Compania(Dinero precio) {
         this.precio = precio;
