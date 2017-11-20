@@ -7,7 +7,7 @@ public class SantaFe extends BarrioSimple {
 
     public SantaFe() {
 
-        this.precio = new Dinero(5000);
+        this.precio = new Dinero(15000);
 
     }
 
