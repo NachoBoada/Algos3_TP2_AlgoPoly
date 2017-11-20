@@ -122,7 +122,7 @@ public class EstadoTest {
 		
 		try {
 			jugador.pagarFianza();
-		}catch (ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) {};
+		}catch (ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) {}
 		
 		Assert.assertFalse( jugador.mover(5) );
 	}
@@ -175,7 +175,7 @@ public class EstadoTest {
 		
 		try {
 			jugador.pagarFianza();
-		}catch (ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) {};
+		}catch (ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) {}
 		
 		Assert.assertFalse( jugador.mover(5) );
 	}

@@ -4,8 +4,8 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public interface Encasillable {
 
-    public abstract void actuarSobre(Jugador jugador);
+   void actuarSobre(Jugador jugador);
     
-    public abstract int getPosicion();
+    int getPosicion();
 
 }

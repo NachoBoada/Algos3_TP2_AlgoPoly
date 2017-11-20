@@ -52,20 +52,19 @@ public class PrimeraEntregaTest {
         Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad(), DELTA);
     }
 
-    /*@Test
+    @Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
 
         Dinero capitalInicial = new Dinero(50000);
-        Dinero precioBarrio = new Dinero(1000);
         Jugador jugador = new Jugador(capitalInicial);
-        Barrio barrio = new Barrio(precioBarrio);
+        SantaFe barrio = new SantaFe();
 
         jugador.caerEn(barrio);
         jugador.comprarBarrio(barrio);
 
 
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
-    }*/
+    }
 
     @Test
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
