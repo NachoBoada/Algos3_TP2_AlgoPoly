@@ -4,13 +4,15 @@ import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 import fiuba.algo3.tp2.algopoly.model.casillero.*;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class PrimeraEntregaTest {
-	
+
 	private static final double DELTA = 1e-15;
 
     @Test
@@ -60,7 +62,7 @@ public class PrimeraEntregaTest {
 
         jugador.caerEn(barrio);
         jugador.comprarBarrio(barrio);
-        
+
 
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }*/
@@ -100,7 +102,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertFalse(jugador.mover(5));
     }
-    
+
     @Test
     public void test08testCaerEnAvanceDinamicoConCuatroYSoloAvanzaDos(){
         Dinero capitalInicial = new Dinero(100000);
@@ -112,7 +114,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 2);
     }
-    
+
     @Test
     public void test09CaerEnAvanceDinamicoCon7YUnCapitalDeMilEntoncesAvanzaSeis() {
 
@@ -125,7 +127,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 6);
     }
-    
+
     @Test
     public void test10CaerEnAvanceDinamicoConOnceYSinPropiedadesEntoncesAvanzaOnce() {
 
@@ -138,31 +140,31 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 11);
     }
-    
-    /*@Test
+
+    @Test
     public void test11CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
 
-        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
-        jugador.comprarBarrio( new Barrio (new Dinero (20000) ) );
-        jugador.comprarBarrio( new Barrio (new Dinero (9000) ) );
-               
+        jugador.comprarBarrio( new SantaFe());
+        jugador.comprarBarrio( new Tucuman());
+        jugador.comprarBarrio( new Neuquen());
+
         jugador.mover(12);
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 9);
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void test12JugadorCaeEnRetrocesoDinamicoConCuatroYUnaPropiedadEntoncesRetrocedeTres() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
 
-        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
+        jugador.comprarBarrio( new SantaFe() );
 
         jugador.mover(4);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
@@ -170,17 +172,17 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 3);
 
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void test13JugadorCaeEnRetrocesoDinamicoConDosYTresPropiedadEntoncesNoRetrocede() {
 
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
 
-        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
-        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
-        jugador.comprarBarrio( new Barrio (new Dinero (10000) ) );
+        jugador.comprarBarrio( new SantaFe() );
+        jugador.comprarBarrio( new Tucuman() );
+        jugador.comprarBarrio( new Neuquen() );
 
         jugador.mover(2);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
@@ -188,7 +190,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion());
 
-    }*/
+    }
 
     @Test
     public void test14JugadorCaeEnRetrocesoDinamicoConSieteYCapitalDeMilEntoncesRetrocedeSeis() {
@@ -221,14 +223,14 @@ public class PrimeraEntregaTest {
 
     @Test
     public void test16UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
-    	
+
     	Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial);
         Carcel carcel = new Carcel();
         Policia policia = new Policia(carcel);
-        
+
         jugador.caerEn(policia);
-        
+
         Assert.assertFalse(jugador.mover(2));
         Assert.assertEquals(carcel, jugador.casilleroActual());
     }
