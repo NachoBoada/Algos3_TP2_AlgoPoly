@@ -1,11 +1,10 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.Jugador;
 
-public class BarrioSimple extends Barrio {
+public abstract class BarrioSimple extends Barrio {
 
-	public BarrioSimple(Dinero precio) {
-		super(precio);
-	}
+	public void actuarSobre(Jugador jugador){};
 
 }

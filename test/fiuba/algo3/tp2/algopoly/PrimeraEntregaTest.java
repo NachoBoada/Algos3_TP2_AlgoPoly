@@ -50,7 +50,7 @@ public class PrimeraEntregaTest {
         Assert.assertEquals(50000 + 30000, jugador.getCapital().getCantidad(), DELTA);
     }
 
-    @Test
+    /*@Test
     public void test04JugadorEsPropietarioDeUnBarrioLuegoDeCaerYcomprarlo() {
 
         Dinero capitalInicial = new Dinero(50000);
@@ -63,7 +63,7 @@ public class PrimeraEntregaTest {
         
 
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
-    }
+    }*/
 
     @Test
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
@@ -139,7 +139,7 @@ public class PrimeraEntregaTest {
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 11);
     }
     
-    @Test
+    /*@Test
     public void test11CaerEnAvanceDinamicoConDoceYConTresPropiedadesEntoncesAvanzaNueve() {
 
         Dinero capitalInicial = new Dinero(100000);
@@ -154,9 +154,9 @@ public class PrimeraEntregaTest {
         jugador.caerEn(casillero);
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 9);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void test12JugadorCaeEnRetrocesoDinamicoConCuatroYUnaPropiedadEntoncesRetrocedeTres() {
 
         Dinero capitalInicial = new Dinero(100000);
@@ -170,9 +170,9 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 3);
 
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void test13JugadorCaeEnRetrocesoDinamicoConDosYTresPropiedadEntoncesNoRetrocede() {
 
         Dinero capitalInicial = new Dinero(100000);
@@ -188,7 +188,7 @@ public class PrimeraEntregaTest {
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion());
 
-    }
+    }*/
 
     @Test
     public void test14JugadorCaeEnRetrocesoDinamicoConSieteYCapitalDeMilEntoncesRetrocedeSeis() {

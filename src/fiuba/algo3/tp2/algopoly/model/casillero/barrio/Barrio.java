@@ -4,15 +4,11 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 
-public class Barrio implements Encasillable {
+public abstract class Barrio implements Encasillable {
 	
-    private Jugador propietario;
-    private final Dinero precio;
-    private int posicion;
-    
-    public Barrio (Dinero precio) {
-    	this.precio = precio;
-    }    
+    protected Jugador propietario;
+    protected Dinero precio;
+    protected int posicion;
 
 	public void modificarPropietario(Jugador unJugador) {
 		this.propietario = unJugador;
@@ -27,7 +23,7 @@ public class Barrio implements Encasillable {
 	}
 
 	@Override
-	public void actuarSobre(Jugador jugador) {}
+	public abstract void actuarSobre(Jugador jugador);
 
 	@Override
 	public int getPosicion(){

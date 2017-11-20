@@ -1,28 +1,34 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioSimple;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 
 public class BarrioTest {
+
+    private static final double DELTA = 1e-15;
+
     @Test
     public void getPrecioDelBarrioDevuelveElPrecioCorrectamente() {
-        Dinero precioBarrio = new Dinero(10000);
-        Barrio SantaFe = new Barrio(precioBarrio);
 
-        Assert.assertEquals(precioBarrio, SantaFe.getPrecioDelBarrio());
+        SantaFe santaFe = new SantaFe();
+        Dinero precioBarrio = new Dinero(5000);
+
+        Assert.assertEquals(precioBarrio.getCantidad(), santaFe.getPrecioDelBarrio().getCantidad(),DELTA);
     }
 
     @Test
     public void modificarPropietarioCambiaElPropietarioDelBarrio() {
+
         Dinero capitalInicial = new Dinero(100000);
-        Dinero precioBarrio = new Dinero(10000);
         Jugador unJugador = new Jugador(capitalInicial);
-        Barrio Cordoba = new Barrio(precioBarrio);
+        Barrio santaFe = new SantaFe();
 
-        Cordoba.modificarPropietario(unJugador);
+        santaFe.modificarPropietario(unJugador);
 
-        Assert.assertEquals(unJugador, Cordoba.getPropietario());
+        Assert.assertEquals(unJugador, santaFe.getPropietario());
     }
 }
