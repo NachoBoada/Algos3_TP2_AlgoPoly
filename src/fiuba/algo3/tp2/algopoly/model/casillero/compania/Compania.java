@@ -17,8 +17,12 @@ public abstract class Compania implements Encasillable{
         return precio;
     }
 
-    public void modificarDueno(Jugador jugador) {
-        dueno = jugador;
-    }
+	public Jugador getDueno() {
+		return dueno;
+	}
+
+	public void modificarDueno(Jugador jugador) {
+		this.dueno = jugador;
+	}
 
 }
