@@ -20,7 +20,9 @@ public class Tren extends Compania {
 
     @Override
     public void actuarSobre(Jugador jugador) {
-
+        int indiceDeMultiplicidadEdesur = 450;
+        Dinero dineroADecrementar = new Dinero(jugador.getUltimaSumaDados() * indiceDeMultiplicidadEdesur);
+        jugador.decrementarCapitalEn(dineroADecrementar);
     }
 
 }
