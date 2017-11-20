@@ -127,11 +127,15 @@ public class Jugador {
         companias.add(compania);
     }
 
-    public int tirarDados() {
-        return Dados.getInstance().tirar();
+    public void tirarDados() {
+    	this.ultimaSumaDados = Dados.getInstance().tirar();
+    }
+    
+    public int getUltimaSumaDados(){
+    	return this.ultimaSumaDados;
     }
 
-    public boolean esDuenoDe(Compania compania) {
+    public boolean esDuenioDe(Compania compania) {
         return companias.contains(compania);
     }
 
