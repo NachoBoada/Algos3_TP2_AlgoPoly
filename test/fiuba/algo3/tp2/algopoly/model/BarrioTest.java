@@ -15,7 +15,7 @@ public class BarrioTest {
     public void getPrecioDelBarrioDevuelveElPrecioCorrectamente() {
 
         SantaFe santaFe = new SantaFe();
-        Dinero precioBarrio = new Dinero(5000);
+        Dinero precioBarrio = new Dinero(15000);
 
         Assert.assertEquals(precioBarrio.getCantidad(), santaFe.getPrecioDelBarrio().getCantidad(),DELTA);
     }
