@@ -7,10 +7,12 @@ public class Subte extends Compania {
     
     private static final Dinero PRECIO = new Dinero(40000);
     private final int posicion;
+    private final Transportes transportes;
 
-    public Subte() {
+    public Subte(Transportes transportes) {
         super(PRECIO);
-        posicion = 8;
+        this.posicion = 8;
+        this.transportes = transportes;
     }
 
     @Override
@@ -22,5 +24,15 @@ public class Subte extends Compania {
     public int getPosicion() {
         return this.posicion;
     }
-    
+
+    @Override
+    public void cobrarDoble(Jugador jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cobrarSimple(Jugador jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

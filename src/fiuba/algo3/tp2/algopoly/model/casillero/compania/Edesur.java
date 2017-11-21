@@ -14,8 +14,6 @@ public class Edesur extends Compania {
         super(PRECIO);
         posicion = 3;
     }
-    
-    
 
     @Override
     public void actuarSobre(Jugador jugador) {
@@ -29,5 +27,14 @@ public class Edesur extends Compania {
     public int getPosicion() {
         return this.posicion;
     }
-    
+
+    @Override
+    public void cobrarDoble(Jugador jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cobrarSimple(Jugador jugador) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
