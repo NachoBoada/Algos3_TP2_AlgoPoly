@@ -9,7 +9,7 @@ public class Servicios {
 
     public Servicios() {
         aysa = new Aysa();
-        edesur = new Edesur();
+        edesur = new Edesur(this);
     }
 
     public Edesur getEdesur() {
@@ -22,7 +22,7 @@ public class Servicios {
 
     public void cobrar(Compania compania, Jugador jugador) {
         Jugador duenio = compania.getDuenio();
-        if (duenio.esDuenioDe(compania) && duenio.esDuenioDe(aysa)) {
+        if (duenio.esDuenioDe(edesur) && duenio.esDuenioDe(aysa)) {
             compania.cobrarDoble(jugador);
         } else {
             compania.cobrarSimple(jugador);
