@@ -7,6 +7,6 @@ public class Neuquen extends BarrioSimple {
     public Neuquen (){
 
         this.precio = new Dinero(17000);
-
+        this.casa=0;
     }
 }
