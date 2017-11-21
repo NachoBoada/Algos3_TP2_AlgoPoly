@@ -129,9 +129,4 @@ public class Jugador {
     public boolean esDuenioDe(Compania compania) {
         return companias.contains(compania);
     }
-    
-    public boolean esPropietarioDe(Barrio barrio) {
-        return propiedades.contains(barrio);
-    }
-
 }

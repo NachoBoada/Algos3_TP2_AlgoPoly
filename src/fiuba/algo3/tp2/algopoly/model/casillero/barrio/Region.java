@@ -25,8 +25,7 @@ public abstract class Region {
     }
     
     public void agregarHotel (BarrioDividido barrio, Jugador jugador, Dinero costoCasa) {
-    	if ((jugador.esPropietarioDe(barrio)) && 
-    		(barrioSur.getCantidadCasas() == 2) && ( barrioNorte.getCantidadCasas() == 2 )) {
+    	if ((barrioSur.getCantidadCasas() == 2) && ( barrioNorte.getCantidadCasas() == 2 )) {
     		
     		barrio.sumarHotel();
     		jugador.decrementarCapitalEn(costoCasa);
