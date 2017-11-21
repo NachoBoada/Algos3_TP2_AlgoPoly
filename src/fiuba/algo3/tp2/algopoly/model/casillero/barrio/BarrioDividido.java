@@ -12,8 +12,27 @@ public abstract class BarrioDividido extends Barrio{
 	protected Dinero precioCasa;
 	protected Dinero precioHotel;
 	
+	protected int cantidadCasas;
+	
+	
 
 	@Override
-	public void actuarSobre(Jugador jugador){};
+	public void actuarSobre(Jugador jugador){}
+
+
+	public void sumarCasa() {
+		// TODO Auto-generated method stub
+		
+	};
+	
+	public int getCantidadCasas () {
+		return cantidadCasas;
+	}
+
+
+	public void sumarHotel() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
