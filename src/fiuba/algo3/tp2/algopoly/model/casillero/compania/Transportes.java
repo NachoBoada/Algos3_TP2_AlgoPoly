@@ -22,7 +22,7 @@ public class Transportes {
 
     public void cobrarBoleto(Compania compania, Jugador jugador) {
         Jugador duenio = compania.getDuenio();
-        if (duenio.esDuenioDe(compania) && duenio.esDuenioDe(subte)) {
+        if (duenio.esDuenioDe(tren) && duenio.esDuenioDe(subte)) {
             compania.cobrarDoble(jugador);
         } else {
             compania.cobrarSimple(jugador);
