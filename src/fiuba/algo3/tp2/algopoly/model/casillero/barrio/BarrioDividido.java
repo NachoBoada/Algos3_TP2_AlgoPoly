@@ -9,7 +9,6 @@ public abstract class BarrioDividido extends Barrio{
 	protected Dinero precioAlquilerConUnaCasa;
 	protected Dinero precioAlquilerConDosCasas;
 	protected Dinero precioAlquilerConHotel;
-	
 	protected Dinero precioCasa;
 	protected Dinero precioHotel;
 	

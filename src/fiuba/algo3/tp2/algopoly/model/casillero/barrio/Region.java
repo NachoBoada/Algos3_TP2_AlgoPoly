@@ -12,5 +12,14 @@ public abstract class Region {
     public BarrioDividido getBarrioSur() {
         return barrioSur;
     }
+    
+    public void agregarCasa (BarrioDividido barrio) {    
 
+    }
+    
+    public void agregarHotel (BarrioDividido barrio) {
+    	
+    }
+
+    
 }
