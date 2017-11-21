@@ -24,10 +24,10 @@ public class SegundaEntregaTest {
         Tren tren = new Transportes().getTren();
         jugadorCobrador.comprarCompania(tren);
 
-        jugadorPagador.tirarDados();
+        jugadorPagador.mover(5);
         jugadorPagador.caerEn(tren);
 
-        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (jugadorPagador.getUltimaSumaDados() * 450));
+        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 450));
         
         Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
     }
@@ -75,9 +75,9 @@ public class SegundaEntregaTest {
 
         Edesur edesur = servicios.getEdesur();
         jugadorDuenioDeEdesur.comprarCompania(edesur);
-        jugadorQuePaga.tirarDados();
+        jugadorQuePaga.mover(3);
         jugadorQuePaga.caerEn(edesur);
-        Dinero dineroRestante = new Dinero(100000 - 500 * jugadorQuePaga.getUltimaSumaDados());
+        Dinero dineroRestante = new Dinero(100000 - 500 * 3);
 
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
     }

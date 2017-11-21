@@ -21,8 +21,6 @@ public class Jugador {
     private int posicionActual;
     private Estado estado;
 
-    private int ultimaSumaDados; //Temporal hasta tener clase Dados
-
     public Jugador(Dinero capitalInicial) {
 
         capitalDelJugador = capitalInicial;
@@ -37,9 +35,14 @@ public class Jugador {
 
         estado = new Libre();
     }
-
+    
+    public void jugar () {
+    	estado.mover( this, Dados.getInstance().tirar() );
+    }
+    
+    //Metodo mover para probar tests
     public boolean mover(int cantidadCasilleros) {
-        ultimaSumaDados = cantidadCasilleros;
+    	Dados.getInstance().manipularSuma(cantidadCasilleros);
         return (estado.mover(this, cantidadCasilleros));
     }
 
@@ -53,10 +56,6 @@ public class Jugador {
 
     public int posicionActual() {
         return posicionActual;
-    }
-
-    public int obtenerUltimaSumaDados() {
-        return this.ultimaSumaDados;
     }
 
     public void actualizarCasillero(Encasillable casillero, int posicion) {
@@ -125,14 +124,6 @@ public class Jugador {
 
         compania.modificarDuenio(this);
         companias.add(compania);
-    }
-
-    public void tirarDados() {
-    	this.ultimaSumaDados = Dados.getInstance().tirar();
-    }
-    
-    public int getUltimaSumaDados(){
-    	return this.ultimaSumaDados;
     }
 
     public boolean esDuenioDe(Compania compania) {

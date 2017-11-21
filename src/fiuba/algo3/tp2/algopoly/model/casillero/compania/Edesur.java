@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Edesur extends Compania {
     
@@ -19,7 +20,8 @@ public class Edesur extends Compania {
     @Override
     public void actuarSobre(Jugador jugador) {
     	int indiceDeMultiplicidadEdesur = 500;
-    	Dinero dineroADecrementar = new Dinero(jugador.getUltimaSumaDados() * indiceDeMultiplicidadEdesur);
+    	int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
+    	Dinero dineroADecrementar = new Dinero(ultimaSumaDados * indiceDeMultiplicidadEdesur);
     	jugador.decrementarCapitalEn(dineroADecrementar);
     }
 

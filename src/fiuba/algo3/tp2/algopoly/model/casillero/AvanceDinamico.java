@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class AvanceDinamico implements Encasillable {
 
@@ -19,7 +20,7 @@ public class AvanceDinamico implements Encasillable {
 
         jugador.actualizarCasillero(this, this.posicion);
 
-        int sumaDados = jugador.obtenerUltimaSumaDados();
+        int sumaDados = (Dados.getInstance()).obtenerUltimaSuma();
 
         if (sumaDados == 2 || sumaDados == 3 || sumaDados == 4 || sumaDados == 5 || sumaDados == 6) {
 
