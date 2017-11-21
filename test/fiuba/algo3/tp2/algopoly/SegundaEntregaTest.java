@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.ImpuestoAlLujo;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Edesur;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.Subte;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Tren;
 
@@ -34,24 +35,28 @@ public class SegundaEntregaTest {
     
     /*Un jugador cae en TRENES adquirida previamente por otro jugador que además es el dueño de SUBTES. 
     Verificar que su dinero se reduzca por 800 veces lo que dice los dados arrojados previamente*/
-//    @Test
-//    public void test12JugadorCaeEnTrenSiendoPropiedadDelPropietarioDelSubteEntoncesSuCapitalSeReduceEn800VecesSuTiroDeDados() {
-//        Dinero capitalInicialCobrador = new Dinero(100000);
-//        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
-//        
-//        Dinero capitalInicialPagador = new Dinero(100000);
-//        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
-//        
-//        Tren tren = new Transportes().getTren();
-//        jugadorCobrador.comprarCompania(tren);
-//
-//        jugadorPagador.tirarDados();
-//        jugadorPagador.caerEn(tren);
-//
-//        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (jugadorPagador.getUltimaSumaDados() * 800));
-//        
-//        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
-//    }    
+    @Test
+    public void test12JugadorCaeEnTrenSiendoPropiedadDelPropietarioDelSubteEntoncesSuCapitalSeReduceEn800VecesSuTiroDeDados() {
+        Dinero capitalInicialCobrador = new Dinero(100000);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+        
+        Dinero capitalInicialPagador = new Dinero(100000);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+        
+        Transportes transportes = new Transportes();
+        Tren tren = transportes.getTren();
+        Subte subte = transportes.getSubte();
+        
+        jugadorCobrador.comprarCompania(tren);
+        jugadorCobrador.comprarCompania(subte);
+
+        jugadorPagador.mover(5);
+        jugadorPagador.caerEn(tren);
+
+        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 800));
+        
+        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
+    }    
 
     @Test
     public void test15JugadorCaeEnImpuestoAlLujoCon80Pierde10PorcientoSaleCon72() {
