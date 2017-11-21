@@ -33,6 +33,29 @@ public class SegundaEntregaTest {
         Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
     }
     
+    @Test
+    public void test11_1JugadorCaeEnSubteSiendoPropiedadDeOtroJugadorEntoncesSuCapitalSeReduceEn600VecesSuTiroDeDados() {
+        Dinero capitalInicialCobrador = new Dinero(100000);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+        
+        Dinero capitalInicialPagador = new Dinero(100000);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+        
+        Transportes transportes = new Transportes();
+        Subte subte = transportes.getSubte();
+        jugadorCobrador.comprarCompania(subte);
+
+        jugadorPagador.mover(5);
+        jugadorPagador.caerEn(subte);
+
+        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 600));
+        
+        System.out.println(capitalFinalJugadorPagador.getCantidad());
+        System.out.println(jugadorPagador.getCapital().getCantidad());
+        
+        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
+    }
+    
     /*Un jugador cae en TRENES adquirida previamente por otro jugador que además es el dueño de SUBTES. 
     Verificar que su dinero se reduzca por 800 veces lo que dice los dados arrojados previamente*/
     @Test
@@ -54,6 +77,29 @@ public class SegundaEntregaTest {
         jugadorPagador.caerEn(tren);
 
         Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 800));
+        
+        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
+    }    
+    
+    @Test
+    public void test12_1JugadorCaeEnSubteSiendoPropiedadDelPropietarioDelTrenEntoncesSuCapitalSeReduceEn1100VecesSuTiroDeDados() {
+        Dinero capitalInicialCobrador = new Dinero(100000);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+        
+        Dinero capitalInicialPagador = new Dinero(100000);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+        
+        Transportes transportes = new Transportes();
+        Tren tren = transportes.getTren();
+        Subte subte = transportes.getSubte();
+        
+        jugadorCobrador.comprarCompania(tren);
+        jugadorCobrador.comprarCompania(subte);
+
+        jugadorPagador.mover(5);
+        jugadorPagador.caerEn(subte);
+
+        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 1100));
         
         Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
     }    
@@ -87,23 +133,22 @@ public class SegundaEntregaTest {
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
     }
 
-    /* --El test funcionara cuando este implementado lo de que una persona sea duenia de AYSAyEDESUR.
-    @Test
-    public void test17JugadorCaeEnEdesurDeUnDuenioDeEdesurYAysaYPaga1000VecesLoQueSaleEnLosDados() {
-    	Dinero dineroJugadorQuePaga = new Dinero(100000);
-        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
-        Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
-        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa);
-        Servicios servicios = new Servicios();
-        
-        Edesur edesur = servicios.getEdesur();
-        Aysa aysa = servicios.getAysa();
-        JugadorDuenioDeEdesurYAysa.comprarCompania(edesur);
-        JugadorDuenioDeEdesurYAysa.comprarCompania(aysa);
-        jugadorQuePaga.tirarDados();
-        jugadorQuePaga.caerEn(edesur);
-        Dinero dineroRestante = new Dinero(100000 - 1000 * jugadorQuePaga.getUltimaSumaDados());
-        
-        Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
-    } */
+//    @Test
+//    public void test17JugadorCaeEnEdesurDeUnDuenioDeEdesurYAysaYPaga1000VecesLoQueSaleEnLosDados() {
+//    	Dinero dineroJugadorQuePaga = new Dinero(100000);
+//        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
+//        Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
+//        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa);
+//        Servicios servicios = new Servicios();
+//        
+//        Edesur edesur = servicios.getEdesur();
+//        Aysa aysa = servicios.getAysa();
+//        JugadorDuenioDeEdesurYAysa.comprarCompania(edesur);
+//        JugadorDuenioDeEdesurYAysa.comprarCompania(aysa);
+//        jugadorQuePaga.mover(3);
+//        jugadorQuePaga.caerEn(edesur);
+//        Dinero dineroRestante = new Dinero(100000 - 1000 * 3);
+//        
+//        Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
+//    }
 }

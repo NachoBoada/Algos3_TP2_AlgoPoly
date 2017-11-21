@@ -2,10 +2,14 @@ package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Subte extends Compania {
-    
+
     private static final Dinero PRECIO = new Dinero(40000);
+    private static final int FACTOR_SIMPLE = 600;
+    private static final int FACTOR_DOBLE = 1100;
+    
     private final int posicion;
     private final Transportes transportes;
 
@@ -17,7 +21,7 @@ public class Subte extends Compania {
 
     @Override
     public void actuarSobre(Jugador jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.transportes.cobrarBoleto(this, jugador);
     }
 
     @Override
@@ -25,14 +29,21 @@ public class Subte extends Compania {
         return this.posicion;
     }
 
+    private void cobrarBoleto(Jugador jugador, int factor) {
+        int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
+        Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
+
+        jugador.decrementarCapitalEn(dineroADecrementar);
+    }
+
     @Override
     public void cobrarDoble(Jugador jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cobrarBoleto(jugador, FACTOR_DOBLE);
     }
 
     @Override
     public void cobrarSimple(Jugador jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cobrarBoleto(jugador, FACTOR_SIMPLE);
     }
 
 }
