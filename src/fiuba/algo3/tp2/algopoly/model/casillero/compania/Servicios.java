@@ -8,7 +8,7 @@ public class Servicios {
     private final Edesur edesur;
 
     public Servicios() {
-        aysa = new Aysa();
+        aysa = new Aysa(this);
         edesur = new Edesur(this);
     }
 
