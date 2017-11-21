@@ -31,4 +31,6 @@ public abstract class Barrio implements Encasillable {
     	return this.posicion;
 
 	}
+	
+	public abstract void comprarCasa (Jugador jugador);
 }
