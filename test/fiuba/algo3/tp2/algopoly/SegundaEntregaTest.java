@@ -51,9 +51,6 @@ public class SegundaEntregaTest {
 
         Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 600));
         
-        System.out.println(capitalFinalJugadorPagador.getCantidad());
-        System.out.println(jugadorPagador.getCapital().getCantidad());
-        
         Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
     }
     
@@ -133,6 +130,23 @@ public class SegundaEntregaTest {
 
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
     }
+    
+    @Test
+    public void test16_1JugadorCaeEnAysaYPaga300VecesLoQueSaleEnLosDados() {
+        Dinero dineroJugadorQuePaga = new Dinero(100000);
+        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
+        Dinero dineroJugadorDuenioDeEdesur = new Dinero(100000);
+        Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur);
+        Servicios servicios = new Servicios();
+
+        Aysa aysa = servicios.getAysa();
+        jugadorDuenioDeEdesur.comprarCompania(aysa);
+        jugadorQuePaga.mover(3);
+        jugadorQuePaga.caerEn(aysa);
+        Dinero dineroRestante = new Dinero(100000 - 300 * 3);
+
+        Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
+    }
 
     @Test
     public void test17JugadorCaeEnEdesurDeUnDuenioDeEdesurYAysaYPaga1000VecesLoQueSaleEnLosDados() {
@@ -149,6 +163,25 @@ public class SegundaEntregaTest {
         jugadorQuePaga.mover(3);
         jugadorQuePaga.caerEn(edesur);
         Dinero dineroRestante = new Dinero(100000 - 1000 * 3);
+        
+        Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
+    }
+    
+    @Test
+    public void test17_1JugadorCaeEnAysaDeUnDuenioDeEdesurYAysaYPaga500VecesLoQueSaleEnLosDados() {
+    	Dinero dineroJugadorQuePaga = new Dinero(100000);
+        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
+        Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
+        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa);
+        Servicios servicios = new Servicios();
+        
+        Edesur edesur = servicios.getEdesur();
+        Aysa aysa = servicios.getAysa();
+        JugadorDuenioDeEdesurYAysa.comprarCompania(edesur);
+        JugadorDuenioDeEdesurYAysa.comprarCompania(aysa);
+        jugadorQuePaga.mover(3);
+        jugadorQuePaga.caerEn(aysa);
+        Dinero dineroRestante = new Dinero(100000 - 500 * 3);
         
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
     }
