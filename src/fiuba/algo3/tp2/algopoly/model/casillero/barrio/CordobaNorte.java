@@ -18,13 +18,5 @@ public class CordobaNorte extends BarrioDividido {
     	this.precioHotel = new Dinero(3500);
 
 	}
-	
-	public void comprarCasa (Jugador jugador) {
-		region.agregarCasa(this, jugador, precioCasa);
-	}
-	
-	public void comprarHotel (Jugador jugador) {
-		region.agregarHotel(this, jugador, precioHotel);
-	}
 
 }

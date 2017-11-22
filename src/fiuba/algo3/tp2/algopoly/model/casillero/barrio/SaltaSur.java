@@ -18,11 +18,4 @@ public class SaltaSur extends BarrioDividido {
     	this.precioHotel = new Dinero(7500);
 	}
 
-	public void comprarCasa (Jugador jugador) {
-		region.agregarCasa(this, jugador, precioCasa);
-	}
-	
-	public void comprarHotel (Jugador jugador) {
-		region.agregarHotel(this, jugador, precioHotel);
-	}
 }

@@ -29,6 +29,16 @@ public abstract class BarrioDividido extends Barrio {
 	public void actuarSobre(Jugador jugador){
 
 	}
+	
+	public void comprarCasa (Jugador jugador) {
+		if (cantidadCasas == 2) throw new NoSePermiteConstruirMasDeDosCasasEnBarrioDivididoException();
+		region.agregarCasa(this, jugador, precioCasa);
+	}
+	
+	public void comprarHotel (Jugador jugador) {
+		if (cantidadHoteles == 1) throw new NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException();
+		region.agregarHotel(this, jugador, precioHotel);
+	}
 
 
 	public void sumarCasa() {
@@ -43,7 +53,7 @@ public abstract class BarrioDividido extends Barrio {
 
 	public void sumarHotel() {
 		cantidadCasas = 0;
-		cantidadHoteles += 1;	
+		cantidadHoteles = 1;	
 	}
 
 	public Dinero getPrecioAlquiler() { return precioAlquiler; }

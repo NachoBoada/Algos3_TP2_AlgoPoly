@@ -19,13 +19,5 @@ public class BuenosAiresSur extends BarrioDividido {
     	this.precioHotel = new Dinero(8000);
 
 	}
-	
-	public void comprarCasa (Jugador jugador) {
-		region.agregarCasa(this, jugador, precioCasa);
-	}
-	
-	public void comprarHotel (Jugador jugador) {
-		region.agregarHotel(this, jugador, precioHotel);
-	}
 
 }

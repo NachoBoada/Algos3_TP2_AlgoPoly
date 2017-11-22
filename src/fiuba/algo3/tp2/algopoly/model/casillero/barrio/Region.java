@@ -16,7 +16,8 @@ public abstract class Region {
         return barrioSur;
     }
     
-    public void agregarCasa (BarrioDividido barrio, Jugador jugador, Dinero costoCasa) {    
+    public void agregarCasa (BarrioDividido barrio, Jugador jugador, Dinero costoCasa) {   
+    	
     	if (jugador.esPropietarioDe(barrioSur) && jugador.esPropietarioDe(barrioNorte)) {
     		jugador.decrementarCapitalEn(costoCasa);
     		barrio.sumarCasa();

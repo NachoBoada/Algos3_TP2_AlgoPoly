@@ -18,13 +18,5 @@ public class CordobaSur extends BarrioDividido {
     	this.precioHotel = new Dinero(3000);
 
 	}
-	
-	public void comprarCasa (Jugador jugador) {
-		region.agregarCasa(this, jugador, precioCasa);
-	}
-	
-	public void comprarHotel (Jugador jugador) {
-		region.agregarHotel(this, jugador, precioHotel);
-	}
 
 }

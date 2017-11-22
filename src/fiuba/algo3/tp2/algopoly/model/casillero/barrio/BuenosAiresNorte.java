@@ -20,13 +20,5 @@ public class BuenosAiresNorte extends BarrioDividido {
 
 	}
 	
-	public void comprarCasa (Jugador jugador) {
-		region.agregarCasa(this, jugador, precioCasa);
-	}
-	
-	public void comprarHotel (Jugador jugador) {
-		region.agregarHotel(this, jugador, precioHotel);
-	}
-	
 	
 }
