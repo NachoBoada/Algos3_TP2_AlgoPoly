@@ -9,8 +9,12 @@ public abstract class Barrio implements Encasillable {
     protected Jugador propietario;
     protected Dinero precio;
     protected int posicion;
+	protected AlquilerBarrioDividido alquiler;
+	
 
-
+	public void cambiarProximoAlquiler (AlquilerBarrioDividido alquiler) {
+		this.alquiler = alquiler;
+	}
 
 	public void modificarPropietario(Jugador unJugador) {
 		this.propietario = unJugador;
