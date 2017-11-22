@@ -11,7 +11,9 @@ public class AlquilerConDosCasas extends AlquilerBarrioDividido {
 
    @Override
    public void cobrarAlquiler( Jugador jugador){
-       jugador.decrementarCapitalEn( this.precio);
+	   try {
+   		jugador.decrementarCapitalEn( this.precio);
+   	}catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenerPropiedadesPorCapitalInsuficienteException();}
    }
 
     @Override

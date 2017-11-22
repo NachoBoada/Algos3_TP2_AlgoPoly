@@ -1,6 +1,8 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
+import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenerPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrioDividido;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerSinConstruccionBarrioDividido;
@@ -28,23 +30,20 @@ public abstract class BarrioDividido extends Barrio {
 	
 
 	@Override
-	public void actuarSobre(Jugador jugador){
+	public void actuarSobre(Jugador jugador) throws ElJugadorDebeVenerPropiedadesPorCapitalInsuficienteException {
 
-		if (!jugador.esPropietarioDe(this) && this.tieneDuenio){
-
-			this.alquiler.cobrarAlquiler(jugador);
-
+		if (!jugador.esPropietarioDe(this) && this.tieneDuenio) {
+				this.alquiler.cobrarAlquiler(jugador);
 		}
-
 	}
 	
-	public void comprarCasa (Jugador jugador) {
+	public void comprarCasa (Jugador jugador) throws CapitalInsuficienteException {
 		if (cantidadCasas == 2) throw new NoSePermiteConstruirMasDeDosCasasEnBarrioDivididoException();
 		region.agregarCasa(this, jugador, precioCasa);
 		this.alquiler.cambiarProximoAlquiler(this);
 	}
 	
-	public void comprarHotel (Jugador jugador) {
+	public void comprarHotel (Jugador jugador) throws CapitalInsuficienteException {
 		if (cantidadHoteles == 1) throw new NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException();
 		region.agregarHotel(this, jugador, precioHotel);
 		this.alquiler.cambiarProximoAlquiler(this);
