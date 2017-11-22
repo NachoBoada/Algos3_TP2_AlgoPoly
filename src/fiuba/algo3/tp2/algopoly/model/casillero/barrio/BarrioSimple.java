@@ -16,7 +16,8 @@ public abstract class BarrioSimple extends Barrio {
 	protected AlquilerBarrioSimple alquiler;
 
 	BarrioSimple(){
-		this.alquiler= new AlquilerSinConstruccionBarrioSimple( this.precioAlquiler );
+
+		this.tieneDuenio = false;
 	}
 
 
@@ -35,7 +36,7 @@ public abstract class BarrioSimple extends Barrio {
 		jugador.decrementarCapitalEn( this.costoCasa);
 		
 		this.casa=1;
-		this.alquiler.cambiarProximoAlquiler(this);
+		this.alquiler.cambiarProximoAlquiler();
 	}
 	
 	public Dinero getPrecioAlquiler() { return precioAlquiler; }
@@ -45,6 +46,17 @@ public abstract class BarrioSimple extends Barrio {
 	public void setAlquiler(AlquilerBarrioSimple alquiler) {
 
 		this.alquiler = alquiler;
+
+	}
+
+	@Override
+	public void dejarSinPropietario() {
+
+		this.casa = 0;
+
+		this.propietario = null;
+
+		this.alquiler = new AlquilerSinConstruccionBarrioSimple(this);
 
 	}
 }

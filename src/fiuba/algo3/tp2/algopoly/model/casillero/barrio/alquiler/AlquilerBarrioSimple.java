@@ -6,9 +6,9 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioSimple;
 
 public abstract class AlquilerBarrioSimple {
 
-        protected Dinero precio;
+        protected BarrioSimple barrioSimple;
 
         public abstract void cobrarAlquiler( Jugador jugador);
 
-        public abstract void cambiarProximoAlquiler ( BarrioSimple barrio);
+        public abstract void cambiarProximoAlquiler ();
     }

@@ -6,6 +6,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
@@ -91,7 +92,7 @@ public class Jugador {
         this.decrementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
         
         barrioAComprar.modificarPropietario(this);
-        propiedades.add(barrioAComprar);
+        this.agregarPropiedad(barrioAComprar);
     }
 
     public boolean esPropietarioDe(Barrio barrio) {
@@ -121,7 +122,44 @@ public class Jugador {
         companias.add(compania);
     }
 
+    public void agregarPropiedad(Barrio unaPropiedad){
+
+        this.propiedades.add(unaPropiedad);
+
+    }
+
+    public void quitarPropiedad(Barrio unaPropiedad){
+
+
+        unaPropiedad.dejarSinPropietario();
+
+        this.propiedades.remove(unaPropiedad);
+
+
+    }
+
     public boolean esDuenioDe(Compania compania) {
         return companias.contains(compania);
+    }
+
+    public void intercambiarPropiedadPor(Barrio miPropiedad,Barrio otraPropiedad){
+
+        Jugador otroJugador = otraPropiedad.getPropietario();
+
+        otroJugador.quitarPropiedad(otraPropiedad);
+
+        this.quitarPropiedad(miPropiedad);
+
+        otroJugador.agregarPropiedad(miPropiedad);
+        miPropiedad.modificarPropietario(otroJugador);
+
+        this.agregarPropiedad(otraPropiedad);
+        otraPropiedad.modificarPropietario(this);
+
+    }
+
+    public void construirCasaEn(Barrio unBarrio) {
+
+        unBarrio.comprarCasa(this);
     }
 }

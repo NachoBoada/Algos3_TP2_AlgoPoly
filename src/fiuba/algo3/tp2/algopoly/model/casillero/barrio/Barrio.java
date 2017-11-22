@@ -38,4 +38,8 @@ public abstract class Barrio implements Encasillable {
 	}
 	
 	public abstract void comprarCasa (Jugador jugador);
+
+    public abstract void dejarSinPropietario();
+
+
 }

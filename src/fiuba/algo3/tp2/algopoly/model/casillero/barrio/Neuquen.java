@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerSinConstruccionBarrioSimple;
 
 public class Neuquen extends BarrioSimple {
 
@@ -12,5 +13,6 @@ public class Neuquen extends BarrioSimple {
         this.precioAlquiler= new Dinero (1500);
         this.precioAlquilerConUnaCasa= new Dinero(3500);
         this.casa=0;
+        this.alquiler= new AlquilerSinConstruccionBarrioSimple( this );
     }
 }

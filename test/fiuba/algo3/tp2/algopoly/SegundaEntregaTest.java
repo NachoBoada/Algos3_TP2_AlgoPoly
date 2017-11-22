@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.algopoly;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,6 +16,8 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Tren;
 
 public class SegundaEntregaTest {
+
+    private static final double DELTA = 1e-15;
 
     @Test
     public void test11JugadorCaeEnTrenSiendoPropiedadDeOtroJugadorEntoncesSuCapitalSeReduceEn450VecesSuTiroDeDados() {
@@ -107,6 +111,53 @@ public class SegundaEntregaTest {
         Dinero dineroRestante = new Dinero(100000 - 1000 * 3);
         
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
+    }
+
+    @Test
+    public void test13JugadorIntercambiaPropiedadConOtroYTercerJugadorAlCaerLePagaAlNuevoPropietarioDeUnaDeLasPropiedadaes(){
+
+        SantaFe santaFe = new SantaFe();
+        Neuquen neuquen = new Neuquen();
+        Dinero dinero1 = new Dinero(100000);
+        Dinero dinero2 = new Dinero(100000);
+        Dinero dinero3 = new Dinero(100000);
+        Jugador jugador1 = new Jugador(dinero1);
+        Jugador jugador2 = new Jugador(dinero2);
+        Jugador jugador3 = new Jugador(dinero3);
+        jugador1.comprarBarrio(santaFe);
+        jugador2.comprarBarrio(neuquen);
+
+        jugador1.intercambiarPropiedadPor(santaFe,neuquen);
+        jugador3.caerEn(neuquen);
+
+        Assert.assertEquals(100000 - 1500, jugador3.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(100000 - 15000 + 1500, jugador1.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(100000 - 17000, jugador2.getCapital().getCantidad(),DELTA);
+
+    }
+
+    @Test
+    public void test13JugadorIntercambiaPropiedadConCasaConOtroYTercerJugadorAlCaerLePagaAlNuevoPropietarioDeUnaDeLasPropiedadaesAlquilerSinCasa(){
+
+        SantaFe santaFe = new SantaFe();
+        Neuquen neuquen = new Neuquen();
+        Dinero dinero1 = new Dinero(100000);
+        Dinero dinero2 = new Dinero(100000);
+        Dinero dinero3 = new Dinero(100000);
+        Jugador jugador1 = new Jugador(dinero1);
+        Jugador jugador2 = new Jugador(dinero2);
+        Jugador jugador3 = new Jugador(dinero3);
+        jugador1.comprarBarrio(neuquen);
+        jugador1.construirCasaEn(neuquen);
+        jugador2.comprarBarrio(santaFe);
+
+        jugador1.intercambiarPropiedadPor(neuquen,santaFe);
+        jugador3.caerEn(neuquen);
+
+        Assert.assertEquals(100000 - 1500, jugador3.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(100000 - 17000 - 4800, jugador1.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(100000 - 15000 + 1500, jugador2.getCapital().getCantidad(),DELTA);
+
     }
     
 

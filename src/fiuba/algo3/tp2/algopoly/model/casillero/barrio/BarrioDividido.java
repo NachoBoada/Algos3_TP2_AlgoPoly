@@ -24,7 +24,8 @@ public abstract class BarrioDividido extends Barrio {
 	
 	public BarrioDividido (Region region) {
 		this.region = region;
-		this.alquiler= new AlquilerSinConstruccionBarrioDividido( this.precioAlquiler );
+		this.alquiler= new AlquilerSinConstruccionBarrioDividido( this );
+		this.tieneDuenio = false;
 	}
 	
 	
@@ -40,13 +41,13 @@ public abstract class BarrioDividido extends Barrio {
 	public void comprarCasa (Jugador jugador) throws CapitalInsuficienteException {
 		if (cantidadCasas == 2) throw new NoSePermiteConstruirMasDeDosCasasEnBarrioDivididoException();
 		region.agregarCasa(this, jugador, precioCasa);
-		this.alquiler.cambiarProximoAlquiler(this);
+		this.alquiler.cambiarProximoAlquiler();
 	}
 	
 	public void comprarHotel (Jugador jugador) throws CapitalInsuficienteException {
 		if (cantidadHoteles == 1) throw new NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException();
 		region.agregarHotel(this, jugador, precioHotel);
-		this.alquiler.cambiarProximoAlquiler(this);
+		this.alquiler.cambiarProximoAlquiler();
 	}
 
 
@@ -80,6 +81,19 @@ public abstract class BarrioDividido extends Barrio {
 	public void setAlquiler(AlquilerBarrioDividido alquiler) {
 
 		this.alquiler = alquiler;
+
+	}
+
+	@Override
+	public void dejarSinPropietario() {
+
+		this.cantidadCasas = 0;
+
+		this.cantidadHoteles = 0;
+
+		this.propietario = null;
+
+		//SETEAR ALQUILER SIN CONSTRUCCION
 
 	}
 }

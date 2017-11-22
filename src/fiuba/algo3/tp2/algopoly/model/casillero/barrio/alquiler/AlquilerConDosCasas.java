@@ -5,21 +5,23 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
 
 public class AlquilerConDosCasas extends AlquilerBarrioDividido {
 
-   AlquilerConDosCasas( Dinero dinero){
-       this.precio = dinero;
+   AlquilerConDosCasas( BarrioDividido barrioDividido){
+       this.barrioDividido = barrioDividido;
    }
 
    @Override
    public void cobrarAlquiler( Jugador jugador){
 	   try {
-   		jugador.decrementarCapitalEn( this.precio);
+   		jugador.decrementarCapitalEn( this.barrioDividido.getPrecioAlquilerConDosCasas());
    	}catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
+
+       this.barrioDividido.getPropietario().incrementarCapitalEn(this.barrioDividido.getPrecioAlquilerConDosCasas());
    }
 
     @Override
-    public void cambiarProximoAlquiler(BarrioDividido barrio) {
+    public void cambiarProximoAlquiler() {
 
-        barrio.setAlquiler(new AlquilerConHotel( barrio.getPrecioAlquilerConHotel()));
+        this.barrioDividido.setAlquiler(new AlquilerConHotel( this.barrioDividido));
 
     }
 }
