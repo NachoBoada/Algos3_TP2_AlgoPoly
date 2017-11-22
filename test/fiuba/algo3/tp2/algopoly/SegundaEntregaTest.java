@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.algopoly;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BuenosAires;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import org.junit.Assert;
@@ -18,6 +20,58 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.Tren;
 public class SegundaEntregaTest {
 
     private static final double DELTA = 1e-15;
+    
+	@Test
+	public void test0101JugadorCaeEnSantaFeSinPropietarioLoCompraYSuCapitalSeDecrementaEn15mil() {
+		
+		SantaFe barrioSantaFe = new SantaFe();
+		Jugador jugador = new Jugador (new Dinero (100000));
+		
+		jugador.caerEn(barrioSantaFe);
+		jugador.comprarBarrio(barrioSantaFe);
+		
+		Assert.assertEquals(100000 - 15000, jugador.getCapital().getCantidad(), DELTA);
+	}
+	
+	@Test
+	public void test0102JugadorCaeEnNeuquenSinPropietarioLoCompraYSuCapitalSeDecrementaEn17mil() {
+		
+		Neuquen barrioNeuquen = new Neuquen();
+		Jugador jugador = new Jugador (new Dinero (100000));
+		
+		jugador.caerEn(barrioNeuquen);
+		jugador.comprarBarrio(barrioNeuquen);
+		
+		Assert.assertEquals(100000 - 17000, jugador.getCapital().getCantidad(), DELTA);
+	}
+	
+	@Test
+	public void test0103JugadorCaeEnBsAsSurSinPropietarioLoCompraYSuCapitalSeDecrementaEn20mil() {
+		
+		BuenosAires regionBsAs = new BuenosAires();
+		BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
+		Jugador jugador = new Jugador (new Dinero (100000));
+		
+		jugador.caerEn(barrioBsAsSur);
+		jugador.comprarBarrio(barrioBsAsSur);
+		
+		Assert.assertEquals(100000 - 20000, jugador.getCapital().getCantidad(), DELTA);
+	}
+	
+	@Test
+	public void test02UnJugadorDuenioDeBsAsSurYNorteCompraUnaCasaEnElSurYSuCapitalSeDecrementaEn5mil() {
+		
+		BuenosAires regionBsAs = new BuenosAires();
+		BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
+		BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
+		Jugador jugador = new Jugador (new Dinero (100000));
+		jugador.comprarBarrio(barrioBsAsSur);
+		jugador.comprarBarrio(barrioBsAsNorte);
+		
+		jugador.construirCasaEn(barrioBsAsSur);
+		
+		Assert.assertEquals(100000 - 20000 - 25000 - 5000, jugador.getCapital().getCantidad(), DELTA);
+	}
 
     @Test
     public void test11JugadorCaeEnTrenSiendoPropiedadDeOtroJugadorEntoncesSuCapitalSeReduceEn450VecesSuTiroDeDados() {
