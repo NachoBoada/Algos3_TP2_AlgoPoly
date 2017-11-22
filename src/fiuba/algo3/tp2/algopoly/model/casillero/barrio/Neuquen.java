@@ -8,9 +8,8 @@ public class Neuquen extends BarrioSimple {
 
         this.precio = new Dinero(17000);
         this.costoCasa= new Dinero(4800);
-        this.alquiler= new Dinero (1500);
-        this.alquilerConCasa= new Dinero(3500);
+        this.precioAlquiler= new Dinero (1500);
+        this.precioAlquilerConUnaCasa= new Dinero(3500);
         this.casa=0;
-
     }
 }

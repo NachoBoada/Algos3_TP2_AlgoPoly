@@ -10,6 +10,8 @@ public abstract class Barrio implements Encasillable {
     protected Dinero precio;
     protected int posicion;
 
+
+
 	public void modificarPropietario(Jugador unJugador) {
 		this.propietario = unJugador;
 	}

@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioSimple;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import org.junit.Assert;
 import org.junit.Test;

@@ -3,7 +3,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
-public abstract class BarrioDividido extends Barrio{
+public abstract class BarrioDividido extends Barrio {
 	
 	protected Region region;
 	
@@ -13,18 +13,22 @@ public abstract class BarrioDividido extends Barrio{
 	protected Dinero precioAlquilerConHotel;
 	protected Dinero precioCasa;
 	protected Dinero precioHotel;
+	protected AlquilerBarrioDividido alquiler;
 	
 	protected int cantidadCasas = 0;
 	protected int cantidadHoteles = 0;
 	
 	public BarrioDividido (Region region) {
 		this.region = region;
+		this.alquiler= new AlquilerSimpleBarrioDividido( this.precioAlquiler );
 	}
 	
 	
 
 	@Override
-	public void actuarSobre(Jugador jugador){}
+	public void actuarSobre(Jugador jugador){
+
+	}
 
 
 	public void sumarCasa() {
@@ -41,7 +45,15 @@ public abstract class BarrioDividido extends Barrio{
 		cantidadCasas = 0;
 		cantidadHoteles += 1;	
 	}
-	
+
+	public Dinero getPrecioAlquiler() { return precioAlquiler; }
+
+	public Dinero getPrecioAlquilerConUnaCasa(){ return precioAlquilerConUnaCasa; }
+
+	public Dinero getPrecioAlquilerConDosCasas(){ return precioAlquilerConDosCasas; }
+
+	public Dinero getPrecioAlquilerConHotel(){ return precioAlquilerConHotel; }
+
 	public int getCantidadEdificaciones () {
 		return (cantidadCasas + cantidadHoteles);
 	}
