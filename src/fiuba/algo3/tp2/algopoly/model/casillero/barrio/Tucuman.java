@@ -6,6 +6,7 @@ public class Tucuman extends BarrioSimple {
 
     public Tucuman (){
 
+        super();
         this.precio = new Dinero(25000);
         this.costoCasa= new Dinero(7000);
         this.precioAlquiler= new Dinero (2500);
