@@ -14,8 +14,8 @@ public abstract class BarrioDividido extends Barrio{
 	protected Dinero precioCasa;
 	protected Dinero precioHotel;
 	
-	protected int cantidadCasas;
-	protected int cantidadHoteles;
+	protected int cantidadCasas = 0;
+	protected int cantidadHoteles = 0;
 	
 	public BarrioDividido (Region region) {
 		this.region = region;
@@ -38,6 +38,7 @@ public abstract class BarrioDividido extends Barrio{
 
 
 	public void sumarHotel() {
+		cantidadCasas = 0;
 		cantidadHoteles += 1;	
 	}
 	

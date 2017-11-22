@@ -11,9 +11,12 @@ public abstract class BarrioSimple extends Barrio {
 
 	public void actuarSobre(Jugador jugador){}
 
-	public void comprarCasa(Jugador jugador ){
+	public void comprarCasa(Jugador jugador ) {
+		try {
+			jugador.decrementarCapitalEn( this.costoCasa);
+		}catch (CapitalInsuficiente e) {throw new ElJugadorNoTieneCapitalSuficienteParaEdificar();}
+		
 		this.casa=1;
-		jugador.decrementarCapitalEn( this.costoCasa);
 	}
 
 }
