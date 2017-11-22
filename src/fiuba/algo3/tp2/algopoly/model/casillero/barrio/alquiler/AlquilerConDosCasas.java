@@ -1,6 +1,7 @@
-package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
+package fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler;
 
 import fiuba.algo3.tp2.algopoly.model.*;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
 
 public class AlquilerConDosCasas extends AlquilerBarrioDividido {
 
@@ -15,6 +16,8 @@ public class AlquilerConDosCasas extends AlquilerBarrioDividido {
 
     @Override
     public void cambiarProximoAlquiler(BarrioDividido barrio) {
-        barrio.alquiler = new AlquilerConHotel( barrio.getPrecioAlquilerConHotel());
+
+        barrio.setAlquiler(new AlquilerConHotel( barrio.getPrecioAlquilerConHotel()));
+
     }
 }

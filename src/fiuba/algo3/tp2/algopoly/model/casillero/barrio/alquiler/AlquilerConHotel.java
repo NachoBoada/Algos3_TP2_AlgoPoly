@@ -1,7 +1,8 @@
-package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
+package fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
 
 public class AlquilerConHotel extends AlquilerBarrioDividido {
 
@@ -17,6 +18,8 @@ public class AlquilerConHotel extends AlquilerBarrioDividido {
 
     @Override
     public void cambiarProximoAlquiler(BarrioDividido barrio) {
+
+        //ACA SE PODRIA LANZAR EXCEPCION DE QUE NO SE PUEDEN CONSTRUIR MAS HOTELES
 
     }
 }

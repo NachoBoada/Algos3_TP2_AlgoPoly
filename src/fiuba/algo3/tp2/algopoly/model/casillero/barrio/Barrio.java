@@ -3,21 +3,20 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrioDividido;
 
 public abstract class Barrio implements Encasillable {
 	
     protected Jugador propietario;
     protected Dinero precio;
     protected int posicion;
-	protected AlquilerBarrioDividido alquiler;
-	
+    protected boolean tieneDuenio;
 
-	public void cambiarProximoAlquiler (AlquilerBarrioDividido alquiler) {
-		this.alquiler = alquiler;
-	}
 
 	public void modificarPropietario(Jugador unJugador) {
 		this.propietario = unJugador;
+
+		this.tieneDuenio = true;
 	}
 
 	public Dinero getPrecioDelBarrio() {
