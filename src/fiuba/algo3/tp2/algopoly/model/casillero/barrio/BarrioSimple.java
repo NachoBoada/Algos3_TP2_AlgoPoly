@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenerPropiedadesPorCapitalInsuficienteException;
+import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrioSimple;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerSinConstruccionBarrioSimple;
@@ -20,7 +20,7 @@ public abstract class BarrioSimple extends Barrio {
 	}
 
 
-	public void actuarSobre(Jugador jugador) throws ElJugadorDebeVenerPropiedadesPorCapitalInsuficienteException {
+	public void actuarSobre(Jugador jugador) throws ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException {
 
 		if (!jugador.esPropietarioDe(this) && this.tieneDuenio){
 			this.alquiler.cobrarAlquiler(jugador);

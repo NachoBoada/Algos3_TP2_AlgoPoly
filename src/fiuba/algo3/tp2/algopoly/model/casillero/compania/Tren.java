@@ -1,6 +1,8 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
+import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
@@ -26,14 +28,16 @@ public class Tren extends Compania {
 
     @Override
     public void actuarSobre(Jugador jugador) {
-        this.transaportes.cobrarBoleto(this, jugador);
+    	if (! jugador.esDuenioDe(this))	this.transaportes.cobrarBoleto(this, jugador);
     }
 
     private void cobrarBoleto(Jugador jugador, int factor) {
         int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
 
-        jugador.decrementarCapitalEn(dineroADecrementar);
+        try {
+        	jugador.decrementarCapitalEn(dineroADecrementar);
+        }catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
     }
 
     @Override

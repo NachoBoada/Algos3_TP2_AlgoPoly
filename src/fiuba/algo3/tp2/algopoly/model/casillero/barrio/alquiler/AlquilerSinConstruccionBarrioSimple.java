@@ -13,7 +13,7 @@ public class AlquilerSinConstruccionBarrioSimple extends AlquilerBarrioSimple {
     public void cobrarAlquiler( Jugador jugador){
     	try {
     		jugador.decrementarCapitalEn( this.precio);
-    	}catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenerPropiedadesPorCapitalInsuficienteException();}
+    	}catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
     }
 
 
