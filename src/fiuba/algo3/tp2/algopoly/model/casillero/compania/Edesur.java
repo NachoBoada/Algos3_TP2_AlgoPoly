@@ -15,7 +15,7 @@ public class Edesur extends Compania {
 
     public Edesur(Servicios servicios) {
         super(PRECIO);
-        posicion = 3;
+        this.posicion = 3;
         this.servicios = servicios;
     }
 
