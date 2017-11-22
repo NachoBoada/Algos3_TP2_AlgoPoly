@@ -33,11 +33,13 @@ public abstract class BarrioDividido extends Barrio {
 	public void comprarCasa (Jugador jugador) {
 		if (cantidadCasas == 2) throw new NoSePermiteConstruirMasDeDosCasasEnBarrioDivididoException();
 		region.agregarCasa(this, jugador, precioCasa);
+		this.alquiler.cambiarProximoAlquiler(this);
 	}
 	
 	public void comprarHotel (Jugador jugador) {
 		if (cantidadHoteles == 1) throw new NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException();
 		region.agregarHotel(this, jugador, precioHotel);
+		this.alquiler.cambiarProximoAlquiler(this);
 	}
 
 

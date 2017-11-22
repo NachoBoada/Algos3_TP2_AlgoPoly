@@ -28,6 +28,7 @@ public abstract class BarrioSimple extends Barrio {
 		}catch (CapitalInsuficienteException e) {throw new CapitalInsuficienteException();}
 		
 		this.casa=1;
+		this.alquiler.cambiarProximoAlquiler(this);
 	}
 	public Dinero getPrecioAlquiler() { return precioAlquiler; }
 
