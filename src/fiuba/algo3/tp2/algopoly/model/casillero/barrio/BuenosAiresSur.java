@@ -17,7 +17,7 @@ public class BuenosAiresSur extends BarrioDividido {
     	
     	this.precioCasa = new Dinero(5000);
     	this.precioHotel = new Dinero(8000);
-		this.alquiler= new AlquilerSimpleBarrioSimple( this.precioAlquiler);
+
 	}
 	
 	public void comprarCasa (Jugador jugador) {

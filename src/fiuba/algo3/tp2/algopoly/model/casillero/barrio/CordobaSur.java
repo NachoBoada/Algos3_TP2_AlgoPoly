@@ -16,7 +16,7 @@ public class CordobaSur extends BarrioDividido {
     	this.precioAlquilerConHotel = new Dinero(3000);
     	this.precioCasa = new Dinero(2000);
     	this.precioHotel = new Dinero(3000);
-		this.alquiler= new AlquilerSimpleBarrioSimple( this.precioAlquiler);
+
 	}
 	
 	public void comprarCasa (Jugador jugador) {

@@ -16,7 +16,6 @@ public class SaltaNorte extends BarrioDividido {
     	this.precioAlquilerConHotel = new Dinero(5500);
     	this.precioCasa = new Dinero(4500);
     	this.precioHotel = new Dinero(7500);
-		this.alquiler= new AlquilerSimpleBarrioSimple( this.precioAlquiler);
 	}
 	
 	public void comprarCasa (Jugador jugador) {
