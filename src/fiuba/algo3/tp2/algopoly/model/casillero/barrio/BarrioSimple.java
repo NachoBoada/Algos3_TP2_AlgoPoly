@@ -14,7 +14,7 @@ public abstract class BarrioSimple extends Barrio {
 	public void comprarCasa(Jugador jugador ) {
 		try {
 			jugador.decrementarCapitalEn( this.costoCasa);
-		}catch (CapitalInsuficiente e) {throw new ElJugadorNoTieneCapitalSuficienteParaEdificar();}
+		}catch (CapitalInsuficienteException e) {throw new CapitalInsuficienteException();}
 		
 		this.casa=1;
 	}

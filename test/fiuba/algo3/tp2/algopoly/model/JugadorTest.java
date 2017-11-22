@@ -3,6 +3,8 @@ package fiuba.algo3.tp2.algopoly.model;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
+
 public class JugadorTest {
 	
     @Test
@@ -47,7 +49,22 @@ public class JugadorTest {
         	jugador.decrementarCapitalEn(dinero200);
         	Assert.fail();
         }
-        catch (CapitalInsuficiente e){
+        catch (CapitalInsuficienteException e){
+        	Assert.assertTrue(true);
+        }
+    }
+    
+    @Test
+    public void testJugadorCompraBarrioYElJugadorTieneCapitalInsuficienteAtrapada() {
+        Dinero dineroSeraInsuficiente = new Dinero(0);
+        Jugador jugador = new Jugador(dineroSeraInsuficiente);
+        SantaFe santafe = new SantaFe();
+
+        try{
+        	jugador.comprarBarrio(santafe);
+        	Assert.fail();
+        }
+        catch (CapitalInsuficienteException e){
         	Assert.assertTrue(true);
         }
     }

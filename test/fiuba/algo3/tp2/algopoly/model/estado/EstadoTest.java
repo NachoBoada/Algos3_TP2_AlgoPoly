@@ -3,8 +3,8 @@ package fiuba.algo3.tp2.algopoly.model.estado;
 import org.junit.Assert;
 import org.junit.Test;
 
+import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.ElJugadorNoTieneCapitalSuficienteParaPagarFianza;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
@@ -120,10 +120,13 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		
-		try {
+		try{
 			jugador.pagarFianza();
-		}catch (ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) {}
-		
+			Assert.fail();
+		} catch (CapitalInsuficienteException e){
+			Assert.assertTrue(true);
+		}
+
 		Assert.assertFalse( jugador.mover(5) );
 	}
 	
@@ -173,9 +176,12 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		
-		try {
+		try{
 			jugador.pagarFianza();
-		}catch (ElJugadorNoTieneCapitalSuficienteParaPagarFianza e) {}
+			Assert.fail();
+		} catch (CapitalInsuficienteException e){
+			Assert.assertTrue(true);
+		}
 		
 		Assert.assertFalse( jugador.mover(5) );
 	}

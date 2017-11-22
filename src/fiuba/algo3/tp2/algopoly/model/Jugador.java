@@ -79,7 +79,7 @@ public class Jugador {
         try {
             capitalDelJugador.restar(decrementoDeCapital);
         } catch (ElDineroNoPuedeSerNegativo e) {
-            throw new CapitalInsuficiente();
+            throw new CapitalInsuficienteException();
         }
     }
 
@@ -88,13 +88,8 @@ public class Jugador {
     }
 
     public void comprarBarrio(Barrio barrioAComprar) {
-
-        try {
-            this.decrementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
-        } catch (CapitalInsuficiente e) {
-            throw new ElJugadorNoTieneCapitalSuficienteParaComprarEsteBarrio();
-        }
-
+        this.decrementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
+        
         barrioAComprar.modificarPropietario(this);
         propiedades.add(barrioAComprar);
     }
