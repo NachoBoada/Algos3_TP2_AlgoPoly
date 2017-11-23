@@ -4,6 +4,7 @@ import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
 public abstract class BarrioDividido extends Barrio {
 	
@@ -58,7 +59,7 @@ public abstract class BarrioDividido extends Barrio {
 
 		this.cantidadHoteles = 0;
 
-		this.estadoActual = estadoNoComprado;
+		this.estadoActual = new NoComprado();
 
 		this.estadoComprado.resetear();
 

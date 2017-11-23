@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
 
 public class BuenosAiresSur extends BarrioDividido {

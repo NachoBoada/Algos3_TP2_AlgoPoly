@@ -12,7 +12,6 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 public abstract class Barrio implements Encasillable {
 
 	protected EstadoBarrio estadoActual;
-	protected NoComprado estadoNoComprado;
 	protected Comprado estadoComprado;
     protected Dinero precio;
     protected int posicion;
@@ -20,8 +19,7 @@ public abstract class Barrio implements Encasillable {
 
     Barrio(){
 
-    	this.estadoNoComprado = new NoComprado();
-    	this.estadoActual = estadoNoComprado;
+    	this.estadoActual = new NoComprado();
 
 	}
 
