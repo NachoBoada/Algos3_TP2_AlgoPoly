@@ -1,24 +1,23 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler;
 
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
-import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
 
-public class AlquilerConHotel extends AlquilerBarrioDividido {
+public class AlquilerConHotel extends AlquilerBarrio {
 
-    AlquilerConHotel( BarrioDividido barrioDividido){
-        this.barrioDividido = barrioDividido;
+    AlquilerConHotel( Comprado estadoBarrioComprado){
+        super(estadoBarrioComprado);
     }
 
     @Override
     public void cobrarAlquiler( Jugador jugador ){
     	try {
-    		jugador.decrementarCapitalEn( this.barrioDividido.getPrecioAlquilerConHotel());
+    		jugador.decrementarCapitalEn( this.estadoBarrioComprado.getPrecioAlquilerConHotel());
     	}catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
 
-        this.barrioDividido.getPropietario().incrementarCapitalEn(this.barrioDividido.getPrecioAlquilerConHotel());
+        this.estadoBarrioComprado.getPropietario().incrementarCapitalEn(this.estadoBarrioComprado.getPrecioAlquilerConHotel());
     }
 
     @Override

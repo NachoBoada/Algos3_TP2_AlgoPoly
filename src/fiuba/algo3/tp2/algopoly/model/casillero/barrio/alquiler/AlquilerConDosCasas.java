@@ -1,27 +1,27 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler;
 
 import fiuba.algo3.tp2.algopoly.model.*;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
 
-public class AlquilerConDosCasas extends AlquilerBarrioDividido {
+public class AlquilerConDosCasas extends AlquilerBarrio {
 
-   AlquilerConDosCasas( BarrioDividido barrioDividido){
-       this.barrioDividido = barrioDividido;
+   AlquilerConDosCasas( Comprado estadoBarrioComprado){
+       super(estadoBarrioComprado);
    }
 
    @Override
    public void cobrarAlquiler( Jugador jugador){
 	   try {
-   		jugador.decrementarCapitalEn( this.barrioDividido.getPrecioAlquilerConDosCasas());
+   		jugador.decrementarCapitalEn( this.estadoBarrioComprado.getPrecioAlquilerConDosCasas());
    	}catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
 
-       this.barrioDividido.getPropietario().incrementarCapitalEn(this.barrioDividido.getPrecioAlquilerConDosCasas());
+       this.estadoBarrioComprado.getPropietario().incrementarCapitalEn(this.estadoBarrioComprado.getPrecioAlquilerConDosCasas());
    }
 
     @Override
     public void cambiarProximoAlquiler() {
 
-        this.barrioDividido.setAlquiler(new AlquilerConHotel( this.barrioDividido));
+        this.estadoBarrioComprado.cambiarTipoAlquiler(new AlquilerConHotel( this.estadoBarrioComprado));
 
     }
 }

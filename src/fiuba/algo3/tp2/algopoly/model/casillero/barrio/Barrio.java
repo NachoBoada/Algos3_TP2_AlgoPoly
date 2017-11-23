@@ -1,34 +1,48 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
+import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerConCasa;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.EstadoBarrio;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
 public abstract class Barrio implements Encasillable {
-	
-    protected Jugador propietario;
+
+	protected EstadoBarrio estadoActual;
+	protected NoComprado estadoNoComprado;
+	protected Comprado estadoComprado;
     protected Dinero precio;
     protected int posicion;
-    protected boolean tieneDuenio;
 
+
+    Barrio(){
+
+    	this.estadoNoComprado = new NoComprado();
+    	this.estadoActual = estadoNoComprado;
+
+	}
 
 	public void modificarPropietario(Jugador unJugador) {
-		this.propietario = unJugador;
 
-		this.tieneDuenio = true;
+    	this.estadoActual = estadoComprado;
+
+		this.estadoComprado.modificarPropietario(unJugador);
+
 	}
 
 	public Dinero getPrecioDelBarrio() {
 		return this.precio;
 	}
 
-	public Jugador getPropietario() {
-		return propietario;
-	}
 
-	@Override
-	public abstract void actuarSobre(Jugador jugador);
+	public void actuarSobre(Jugador jugador) throws ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException {
+
+		this.estadoActual.actuarSobre(jugador,this);
+
+	}
 
 	@Override
 	public int getPosicion(){
@@ -41,5 +55,9 @@ public abstract class Barrio implements Encasillable {
 
     public abstract void dejarSinPropietario();
 
+	public Jugador getPropietario(){
 
+		return this.estadoComprado.getPropietario();
+
+	}
 }
