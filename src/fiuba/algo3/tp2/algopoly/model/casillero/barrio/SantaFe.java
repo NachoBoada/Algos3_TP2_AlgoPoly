@@ -13,7 +13,6 @@ public class SantaFe extends BarrioSimple {
         this.precioAlquiler= new Dinero (1500);
         this.precioAlquilerConUnaCasa= new Dinero(3500);
         this.casa=0;
-        this.alquiler= new AlquilerSinConstruccionBarrioSimple(this);
 
     }
 

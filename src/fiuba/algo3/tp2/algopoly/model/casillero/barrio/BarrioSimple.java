@@ -16,7 +16,7 @@ public abstract class BarrioSimple extends Barrio {
 	protected AlquilerBarrioSimple alquiler;
 
 	BarrioSimple(){
-
+        this.alquiler= new AlquilerSinConstruccionBarrioSimple(this);
 		this.tieneDuenio = false;
 	}
 
