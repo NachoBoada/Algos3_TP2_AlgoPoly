@@ -6,7 +6,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerSinConstruccion;
 
-public class Comprado extends EstadoBarrio {
+public class Comprado implements EstadoBarrio {
 
     protected Jugador propietario;
     protected AlquilerBarrio alquiler;
