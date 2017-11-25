@@ -10,6 +10,7 @@ public class CordobaSur extends BarrioDividido {
 		
 		super(region);
 		
+		this.posicion = 6;
         this.precio = new Dinero(18000);
     	this.precioCasa = new Dinero(2000);
     	this.precioHotel = new Dinero(3000);

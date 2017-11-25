@@ -58,7 +58,7 @@ public class Tablero {
 		casilleros.add(new Tucuman());		
 	}
 	
-	public Tablero getInstance() {
+	public static Tablero getInstance() {
 		return INSTANCE;
 	}
 	

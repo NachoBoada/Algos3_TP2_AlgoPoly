@@ -10,6 +10,7 @@ public class BuenosAiresNorte extends BarrioDividido {
 
 		super(region);
 		
+		this.posicion = 4;
 		this.precio = new Dinero(25000);
     	this.precioCasa = new Dinero(5500);
     	this.precioHotel = new Dinero(9000);

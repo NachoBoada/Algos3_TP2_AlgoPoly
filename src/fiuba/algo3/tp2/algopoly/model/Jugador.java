@@ -39,13 +39,12 @@ public class Jugador {
     }
     
     public void jugar () {
-    	estado.mover( this, Dados.getInstance().tirar() );
+    	estado.mover( this, this.posicionActual, Dados.getInstance().tirar() );
     }
     
-    //Metodo mover para probar tests
+
     public boolean mover(int cantidadCasilleros) {
-    	Dados.getInstance().manipularSuma(cantidadCasilleros);
-        return (estado.mover(this, cantidadCasilleros));
+        return (estado.mover(this, this.posicionActual, cantidadCasilleros));
     }
 
     public void caerEn(Encasillable casillero) {

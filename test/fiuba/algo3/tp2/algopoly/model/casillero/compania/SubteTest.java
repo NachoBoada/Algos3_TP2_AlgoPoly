@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class SubteTest {
 
@@ -43,7 +44,7 @@ public class SubteTest {
         jugadorCobrador.comprarCompania(tren);
         jugadorCobrador.comprarCompania(subte);
 
-        jugadorPagador.mover(5);
+        Dados.getInstance().manipularSuma(5);
         jugadorPagador.caerEn(subte);
 
         Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 1100));

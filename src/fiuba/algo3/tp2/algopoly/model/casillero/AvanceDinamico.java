@@ -22,21 +22,26 @@ public class AvanceDinamico implements Encasillable {
 
         int sumaDados = (Dados.getInstance()).obtenerUltimaSuma();
 
-        if (sumaDados == 2 || sumaDados == 3 || sumaDados == 4 || sumaDados == 5 || sumaDados == 6) {
+        //si los dados suman 2, moveria 0 casilleros.
+        if (sumaDados == 3 || sumaDados == 4 || sumaDados == 5 || sumaDados == 6) {
 
             jugador.mover(sumaDados - 2);
 
         }
 
         if (sumaDados == 7 || sumaDados == 8 || sumaDados == 9 || sumaDados == 10) {
+        	
+        	int cantidadCasilleros = (int) jugador.getCapital().getCantidad() % sumaDados;
 
-            jugador.mover( (int) jugador.getCapital().getCantidad() % sumaDados);
+            if (cantidadCasilleros > 0)	jugador.mover(cantidadCasilleros);
 
         }
 
         if (sumaDados == 11 || sumaDados == 12) {
 
-            jugador.mover(sumaDados - jugador.getCantidadDePropiedades());
+        	int cantidadCasilleros = sumaDados - jugador.getCantidadDePropiedades();
+        	
+        	if (cantidadCasilleros > 0)	jugador.mover(cantidadCasilleros);
 
         }
 

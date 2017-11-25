@@ -10,6 +10,7 @@ public class SaltaSur extends BarrioDividido {
 
 		super(region);
 		
+		this.posicion = 14;
         this.precio = new Dinero(23000);
     	this.precioCasa = new Dinero(4500);
     	this.precioHotel = new Dinero(7500);

@@ -37,6 +37,8 @@ public abstract class Barrio implements Encasillable {
 
 
 	public void actuarSobre(Jugador jugador) throws ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException {
+		
+		jugador.actualizarCasillero(this, this.posicion);
 
 		this.estadoActual.actuarSobre(jugador,this);
 
