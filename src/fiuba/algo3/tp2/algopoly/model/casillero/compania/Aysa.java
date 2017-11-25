@@ -11,7 +11,7 @@ public class Aysa extends Compania {
     private static final Dinero PRECIO = new Dinero(30000);
     private static final int FACTOR_SIMPLE = 300;
     private static final int FACTOR_DOBLE = 500;
-    
+
     private final int posicion;
     private final Servicios servicios;
 
@@ -19,11 +19,6 @@ public class Aysa extends Compania {
         super(PRECIO);
         posicion = 12;
         this.servicios = servicios;
-    }
-
-    @Override
-    public void actuarSobre(Jugador jugador) {
-    	if (! jugador.esDuenioDe(this))	this.servicios.cobrar(this, jugador);
     }
 
     @Override
@@ -35,8 +30,10 @@ public class Aysa extends Compania {
         int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
         try {
-        	jugador.decrementarCapitalEn(dineroADecrementar);
-        }catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
+            jugador.decrementarCapitalEn(dineroADecrementar);
+        } catch (CapitalInsuficienteException e) {
+            throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();
+        }
     }
 
     @Override
@@ -47,6 +44,11 @@ public class Aysa extends Compania {
     @Override
     public void cobrarSimple(Jugador jugador) {
         cobrar(jugador, FACTOR_SIMPLE);
+    }
+
+    @Override
+    public void doSomething(Jugador jugador) {
+        this.servicios.cobrar(this, jugador);
     }
 
 }

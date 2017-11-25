@@ -129,7 +129,7 @@ public class Jugador {
     public void comprarCompania(Compania compania) {
         this.decrementarCapitalEn(compania.getPrecio());
 
-        compania.modificarDuenio(this);
+        compania.modificarEstado(this);
         companias.add(compania);
     }
 

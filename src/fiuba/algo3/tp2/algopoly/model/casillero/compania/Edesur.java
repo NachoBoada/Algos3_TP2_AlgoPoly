@@ -22,11 +22,6 @@ public class Edesur extends Compania {
     }
 
     @Override
-    public void actuarSobre(Jugador jugador) {
-    	if (! jugador.esDuenioDe(this))	this.servicios.cobrar(this, jugador);
-    }
-
-    @Override
     public int getPosicion() {
         return this.posicion;
     }
@@ -36,8 +31,10 @@ public class Edesur extends Compania {
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
 
         try {
-        	jugador.decrementarCapitalEn(dineroADecrementar);
-        }catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
+            jugador.decrementarCapitalEn(dineroADecrementar);
+        } catch (CapitalInsuficienteException e) {
+            throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();
+        }
     }
 
     @Override
@@ -48,5 +45,10 @@ public class Edesur extends Compania {
     @Override
     public void cobrarSimple(Jugador jugador) {
         cobrar(jugador, FACTOR_SIMPLE);
+    }
+
+    @Override
+    public void doSomething(Jugador jugador) {
+        this.servicios.cobrar(this, jugador);
     }
 }

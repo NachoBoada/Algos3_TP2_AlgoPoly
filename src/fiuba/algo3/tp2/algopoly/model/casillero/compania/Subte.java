@@ -11,7 +11,7 @@ public class Subte extends Compania {
     private static final Dinero PRECIO = new Dinero(40000);
     private static final int FACTOR_SIMPLE = 600;
     private static final int FACTOR_DOBLE = 1100;
-    
+
     private final int posicion;
     private final Transportes transportes;
 
@@ -19,11 +19,6 @@ public class Subte extends Compania {
         super(PRECIO);
         this.posicion = 8;
         this.transportes = transportes;
-    }
-
-    @Override
-    public void actuarSobre(Jugador jugador) {
-    	if (! jugador.esDuenioDe(this))	this.transportes.cobrarBoleto(this, jugador);
     }
 
     @Override
@@ -36,8 +31,10 @@ public class Subte extends Compania {
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
 
         try {
-        	jugador.decrementarCapitalEn(dineroADecrementar);
-        }catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
+            jugador.decrementarCapitalEn(dineroADecrementar);
+        } catch (CapitalInsuficienteException e) {
+            throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();
+        }
     }
 
     @Override
@@ -48,6 +45,11 @@ public class Subte extends Compania {
     @Override
     public void cobrarSimple(Jugador jugador) {
         cobrarBoleto(jugador, FACTOR_SIMPLE);
+    }
+
+    @Override
+    public void doSomething(Jugador jugador) {
+        this.transportes.cobrarBoleto(this, jugador);
     }
 
 }

@@ -11,7 +11,7 @@ public class Tren extends Compania {
     private static final Dinero PRECIO = new Dinero(38000);
     private static final int FACTOR_SIMPLE = 450;
     private static final int FACTOR_DOBLE = 800;
-    
+
     private final int posicion;
     private final Transportes transaportes;
 
@@ -25,10 +25,10 @@ public class Tren extends Compania {
     public int getPosicion() {
         return this.posicion;
     }
-
+    
     @Override
-    public void actuarSobre(Jugador jugador) {
-    	if (! jugador.esDuenioDe(this))	this.transaportes.cobrarBoleto(this, jugador);
+    public void doSomething(Jugador jugador) {
+        this.transaportes.cobrarBoleto(this, jugador);
     }
 
     private void cobrarBoleto(Jugador jugador, int factor) {
@@ -36,8 +36,10 @@ public class Tren extends Compania {
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
 
         try {
-        	jugador.decrementarCapitalEn(dineroADecrementar);
-        }catch (CapitalInsuficienteException e) {throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();}
+            jugador.decrementarCapitalEn(dineroADecrementar);
+        } catch (CapitalInsuficienteException e) {
+            throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();
+        }
     }
 
     @Override
