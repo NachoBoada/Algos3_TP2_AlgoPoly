@@ -9,7 +9,7 @@ import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class AysaTest {
 	
-/*    @Test
+    @Test
     public void test01JugadorCaeEnAysaYPaga300VecesLoQueSaleEnLosDados() {
         Dinero dineroJugadorQuePaga = new Dinero(100000);
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
@@ -24,7 +24,7 @@ public class AysaTest {
         Dinero dineroRestante = new Dinero(100000 - 300 * 3);
 
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
-    }*/
+    }
     
     @Test
     public void test02JugadorCaeEnAysaDeUnDuenioDeEdesurYAysaYPaga500VecesLoQueSaleEnLosDados() {

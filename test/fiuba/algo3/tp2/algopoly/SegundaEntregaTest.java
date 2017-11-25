@@ -502,7 +502,7 @@ public class SegundaEntregaTest {
     }
     
 
-/*    @Test
+    @Test
     public void test16JugadorCaeEnEdesurYPaga500VecesLoQueSaleEnLosDados() {
         Dinero dineroJugadorQuePaga = new Dinero(100000);
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
@@ -517,7 +517,7 @@ public class SegundaEntregaTest {
         Dinero dineroRestante = new Dinero(100000 - 500 * 3);
 
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));
-    }*/
+    }
 
     
     @Test
