@@ -23,6 +23,7 @@ import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 public class Tablero {
 	
 	private static final Tablero INSTANCE = new Tablero();
+	private static final int TotalCasilleros = 20;
 	private LinkedList<Encasillable> casilleros;
 
 	private Tablero(){
@@ -59,6 +60,11 @@ public class Tablero {
 	
 	public Tablero getInstance() {
 		return INSTANCE;
+	}
+	
+	public void moverJugador (Jugador jugador, int posicionActual, int cantidadCasilleros) {
+		
+		jugador.caerEn( casilleros.get( (posicionActual + cantidadCasilleros) % TotalCasilleros ) );
 	}
 	
 
