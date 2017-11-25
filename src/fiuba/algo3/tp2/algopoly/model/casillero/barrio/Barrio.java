@@ -4,7 +4,6 @@ import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalIn
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerConCasa;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.EstadoBarrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
@@ -60,4 +59,6 @@ public abstract class Barrio implements Encasillable {
 		return this.estadoComprado.getPropietario();
 
 	}
+
+	public abstract int obtenerCantidadEdiicaciones();
 }

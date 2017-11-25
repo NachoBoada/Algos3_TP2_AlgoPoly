@@ -4,7 +4,8 @@ import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 import fiuba.algo3.tp2.algopoly.model.casillero.*;
-
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BuenosAires;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
@@ -174,6 +175,28 @@ public class PrimeraEntregaTest {
         
         //AL RETROCEDER 3 CAE EN POLICIA (15) Y DE AHI LO MANDA A CARCEL (5)
         Assert.assertEquals(5, jugador.posicionActual());
+
+    }
+    
+    @Test
+    public void test12JugadorCaeEnRetrocesoDinamicoConCincoYDosPropiedadesConDosCasasEntoncesRetrocedeUno() {
+
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial);
+        
+        BuenosAires bsas = new BuenosAires();
+        BarrioDividido bsasSur = bsas.getBarrioSur();
+        BarrioDividido bsasNorte = bsas.getBarrioNorte();
+        jugador.comprarBarrio(bsasNorte);
+        jugador.comprarBarrio(bsasSur);
+        jugador.construirCasaEn(bsasSur);
+        jugador.construirCasaEn(bsasSur);
+
+        Dados.getInstance().manipularSuma(5);
+        RetrocesoDinamico casillero = new RetrocesoDinamico();
+        jugador.caerEn(casillero);
+        
+        Assert.assertEquals(casillero.getPosicion() - 1, jugador.posicionActual());
 
     }
 

@@ -1,13 +1,14 @@
 package fiuba.algo3.tp2.algopoly.model;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
+
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
@@ -112,7 +113,17 @@ public class Jugador {
     }
 
     public int getCantidadDePropiedades() {
-        return this.propiedades.size();
+    	
+    	int cantidadPropiedades = this.propiedades.size();
+    	
+    	ListIterator<Barrio> iterador = propiedades.listIterator();
+    	int cantidadEdificaciones = 0;
+    	
+    	for (int i = 0; i < cantidadPropiedades; i++) {
+    		cantidadEdificaciones += iterador.next().obtenerCantidadEdiicaciones();
+    	}
+
+    	return cantidadPropiedades + cantidadEdificaciones;
     }
 
     public void comprarCompania(Compania compania) {

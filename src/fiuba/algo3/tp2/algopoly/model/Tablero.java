@@ -18,7 +18,6 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Tablero {
 	

@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
@@ -64,4 +63,9 @@ public abstract class BarrioDividido extends Barrio {
 		this.estadoComprado.resetear();
 
 	}
+	
+	public int obtenerCantidadEdiicaciones() {
+		return cantidadCasas + cantidadHoteles;
+	}
+
 }
