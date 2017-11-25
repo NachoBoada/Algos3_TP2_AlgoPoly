@@ -18,12 +18,14 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
+import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Tablero {
 	
+	private static final Tablero INSTANCE = new Tablero();
 	private LinkedList<Encasillable> casilleros;
 
-	public Tablero(){
+	private Tablero(){
 		BuenosAires buenosaires = new BuenosAires();
 		Servicios servicios = new Servicios();
 		Cordoba cordoba = new Cordoba();
@@ -53,6 +55,10 @@ public class Tablero {
 		casilleros.add(new Neuquen());
 		casilleros.add(new RetrocesoDinamico());
 		casilleros.add(new Tucuman());		
+	}
+	
+	public Tablero getInstance() {
+		return INSTANCE;
 	}
 	
 
