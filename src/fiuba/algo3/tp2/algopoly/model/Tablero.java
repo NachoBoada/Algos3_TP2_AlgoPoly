@@ -21,42 +21,35 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
 
 public class Tablero {
 	
-	private final BuenosAires buenosaires;
-	private final Servicios servicios;
-	private final Cordoba cordoba;
-	private final Transportes transportes;
-	private final Salta salta;
-	private final Carcel carcel;
-	
 	private LinkedList<Encasillable> casilleros;
 
 	public Tablero(){
-		buenosaires = new BuenosAires();
-		servicios = new Servicios();
-		cordoba = new Cordoba();
-		transportes = new Transportes();
-		salta = new Salta();
-		carcel = new Carcel();
+		BuenosAires buenosaires = new BuenosAires();
+		Servicios servicios = new Servicios();
+		Cordoba cordoba = new Cordoba();
+		Transportes transportes = new Transportes();
+		Salta salta = new Salta();
+		Carcel carcel = new Carcel();
 		
 		casilleros = new LinkedList<Encasillable>();
 		
 		casilleros.add(new Salida());
 		casilleros.add(new Quini6());
 		casilleros.add(buenosaires.getBarrioSur());
-		casilleros.add(buenosaires.getBarrioNorte());
 		casilleros.add(servicios.getEdesur());
-		casilleros.add(servicios.getAysa());
+		casilleros.add(buenosaires.getBarrioNorte());
 		casilleros.add(carcel);
 		casilleros.add(cordoba.getBarrioSur());
-		casilleros.add(cordoba.getBarrioNorte());
 		casilleros.add(new AvanceDinamico());
 		casilleros.add(transportes.getSubte());
-		casilleros.add(transportes.getTren());
+		casilleros.add(cordoba.getBarrioNorte());
 		casilleros.add(new ImpuestoAlLujo());
 		casilleros.add(new SantaFe());
+		casilleros.add(servicios.getAysa());
 		casilleros.add(salta.getBarrioNorte());
 		casilleros.add(salta.getBarrioSur());
 		casilleros.add(new Policia(carcel));
+		casilleros.add(transportes.getTren());
 		casilleros.add(new Neuquen());
 		casilleros.add(new RetrocesoDinamico());
 		casilleros.add(new Tucuman());		
