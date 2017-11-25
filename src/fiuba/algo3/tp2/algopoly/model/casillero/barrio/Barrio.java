@@ -60,5 +60,6 @@ public abstract class Barrio implements Encasillable {
 
 	}
 
-	public abstract int obtenerCantidadEdiicaciones();
+	public abstract int obtenerCantidadEdificaciones();
+	
 }

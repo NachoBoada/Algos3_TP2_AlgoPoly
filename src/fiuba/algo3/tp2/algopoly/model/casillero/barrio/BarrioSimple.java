@@ -32,7 +32,7 @@ public abstract class BarrioSimple extends Barrio {
 
 	}
 	
-	public int obtenerCantidadEdiicaciones() {
+	public int obtenerCantidadEdificaciones() {
 		return cantidadCasas;
 	}
 }

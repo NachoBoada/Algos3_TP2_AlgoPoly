@@ -47,25 +47,26 @@ public abstract class BarrioDividido extends Barrio {
 		cantidadHoteles = 1;	
 	}
 
-	public int getCantidadEdificaciones () {
+	public int obtenerCantidadEdificaciones () {
 		return (cantidadCasas + cantidadHoteles);
 	}
 
 	@Override
 	public void dejarSinPropietario() {
 
-		this.cantidadCasas = 0;
-
-		this.cantidadHoteles = 0;
+		region.demolerEdificaciones();
 
 		this.estadoActual = new NoComprado();
 
 		this.estadoComprado.resetear();
 
 	}
-	
-	public int obtenerCantidadEdiicaciones() {
-		return cantidadCasas + cantidadHoteles;
+
+	public void demolerEdificaciones() {
+		cantidadCasas = 0;
+		cantidadHoteles = 0;		
 	}
+	
+	
 
 }

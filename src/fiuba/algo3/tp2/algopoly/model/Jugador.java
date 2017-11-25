@@ -120,7 +120,7 @@ public class Jugador {
     	int cantidadEdificaciones = 0;
     	
     	for (int i = 0; i < cantidadPropiedades; i++) {
-    		cantidadEdificaciones += iterador.next().obtenerCantidadEdiicaciones();
+    		cantidadEdificaciones += iterador.next().obtenerCantidadEdificaciones();
     	}
 
     	return cantidadPropiedades + cantidadEdificaciones;

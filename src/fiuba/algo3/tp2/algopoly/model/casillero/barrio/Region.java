@@ -33,8 +33,9 @@ public abstract class Region {
     		barrio.sumarHotel();
     	}
     }
-    
- 
 
-    
+	public void demolerEdificaciones() {
+		barrioSur.demolerEdificaciones();
+		barrioNorte.demolerEdificaciones();
+	}    
 }
