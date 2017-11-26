@@ -31,6 +31,6 @@ public class Aplicacion extends Application {
         stage.setFullScreen(true);
 
         stage.show();
-        
+
     }
 }
