@@ -30,8 +30,8 @@ public class Jugadores {
         return jugadores.getFirst();
     }
 
-    public void eliminar(Jugador jugador) {
-        jugadores.remove(jugador);
+    public boolean eliminar(Jugador jugador) {
+        return jugadores.isEmpty() ? false : jugadores.remove(jugador);
     }
 
     public boolean quedaUno() {
