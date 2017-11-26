@@ -52,6 +52,8 @@ public abstract class Barrio implements Encasillable {
 	
 	public abstract void comprarCasa (Jugador jugador);
 
+	public abstract void comprarHotel(Jugador jugador);
+
     public abstract void dejarSinPropietario();
 
 	public Jugador getPropietario(){
@@ -61,5 +63,5 @@ public abstract class Barrio implements Encasillable {
 	}
 
 	public abstract int obtenerCantidadEdificaciones();
-	
+
 }

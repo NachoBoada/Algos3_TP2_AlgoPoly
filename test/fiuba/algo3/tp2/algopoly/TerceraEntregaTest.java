@@ -38,4 +38,17 @@ public class TerceraEntregaTest {
 
         Assert.assertEquals(100000 - 15000 - 20000 + 1300, jugador2.getCapital().getCantidad(),DELTA);
     }
+
+    @Test
+    (expected = NoSePuedeConstruirUnHotelEnUnBarrioSimpleException.class)
+    public void testPunto5(){
+
+        Tablero tablero = new Tablero();
+        Jugador jugador = new Jugador(new Dinero(100000),tablero);
+        Barrio barrioSimple = new SantaFe();
+
+        jugador.comprarBarrio(barrioSimple);
+        jugador.construirHotelEn(barrioSimple);
+
+    }
 }

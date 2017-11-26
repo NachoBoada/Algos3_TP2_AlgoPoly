@@ -35,4 +35,11 @@ public abstract class BarrioSimple extends Barrio {
 	public int obtenerCantidadEdificaciones() {
 		return cantidadCasas;
 	}
+
+	@Override
+	public void comprarHotel(Jugador unJugador) {
+
+		throw new NoSePuedeConstruirUnHotelEnUnBarrioSimpleException();
+
+	}
 }

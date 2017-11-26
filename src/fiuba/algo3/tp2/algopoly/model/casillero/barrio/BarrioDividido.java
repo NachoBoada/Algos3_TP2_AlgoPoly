@@ -24,7 +24,8 @@ public abstract class BarrioDividido extends Barrio {
 		region.agregarCasa(this, jugador, precioCasa);
 		this.estadoComprado.agregarConstruccion();
 	}
-	
+
+	@Override
 	public void comprarHotel (Jugador jugador) throws CapitalInsuficienteException {
 		if (cantidadHoteles == 1) throw new NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException();
 		region.agregarHotel(this, jugador, precioHotel);

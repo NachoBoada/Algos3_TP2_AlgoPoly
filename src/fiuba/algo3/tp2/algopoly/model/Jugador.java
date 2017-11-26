@@ -9,6 +9,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePuedeConstruirUnHotelEnUnBarrioSimpleException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
@@ -173,8 +174,10 @@ public class Jugador {
         unBarrio.comprarCasa(this);
     }
     
-    public void construirHotelEn(BarrioDividido barrio) {
+    public void construirHotelEn(Barrio barrio){
+
         barrio.comprarHotel(this);
+
     }
 
     public void venderBarrio(Barrio unBarrio) {
