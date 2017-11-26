@@ -25,8 +25,9 @@ public class Jugador {
     private Estado estado;
     private final Tablero tablero;
     private TiroDeDados ultimoTiro;
+    private int contadorTirosDuplicados;
 
-    public Jugador(Dinero capitalInicial,Tablero tablero) {
+    public Jugador(Dinero capitalInicial, Tablero tablero) {
 
         capitalDelJugador = capitalInicial;
 
@@ -41,11 +42,12 @@ public class Jugador {
         estado = new Libre();
 
         this.tablero = tablero;
+
+        contadorTirosDuplicados = 0;
     }
-    
 
     public void mover(int cantidadCasilleros) {
-        estado.mover(this, this.posicionActual, cantidadCasilleros,this.tablero);
+        estado.mover(this, this.posicionActual, cantidadCasilleros, this.tablero);
     }
 
     public void caerEn(Encasillable casillero) {
@@ -91,7 +93,7 @@ public class Jugador {
 
     public void comprarBarrio(Barrio barrioAComprar) {
         this.decrementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
-        
+
         barrioAComprar.modificarPropietario(this);
         this.agregarPropiedad(barrioAComprar);
     }
@@ -113,17 +115,17 @@ public class Jugador {
     }
 
     public int getCantidadDePropiedades() {
-    	
-    	int cantidadPropiedades = this.propiedades.size();
-    	
-    	ListIterator<Barrio> iterador = propiedades.listIterator();
-    	int cantidadEdificaciones = 0;
-    	
-    	for (int i = 0; i < cantidadPropiedades; i++) {
-    		cantidadEdificaciones += iterador.next().obtenerCantidadEdificaciones();
-    	}
 
-    	return cantidadPropiedades + cantidadEdificaciones;
+        int cantidadPropiedades = this.propiedades.size();
+
+        ListIterator<Barrio> iterador = propiedades.listIterator();
+        int cantidadEdificaciones = 0;
+
+        for (int i = 0; i < cantidadPropiedades; i++) {
+            cantidadEdificaciones += iterador.next().obtenerCantidadEdificaciones();
+        }
+
+        return cantidadPropiedades + cantidadEdificaciones;
     }
 
     public void comprarCompania(Compania compania) {
@@ -133,19 +135,17 @@ public class Jugador {
         companias.add(compania);
     }
 
-    public void agregarPropiedad(Barrio unaPropiedad){
+    public void agregarPropiedad(Barrio unaPropiedad) {
 
         this.propiedades.add(unaPropiedad);
 
     }
 
-    public void quitarPropiedad(Barrio unaPropiedad){
-
+    public void quitarPropiedad(Barrio unaPropiedad) {
 
         unaPropiedad.dejarSinPropietario();
 
         this.propiedades.remove(unaPropiedad);
-
 
     }
 
@@ -153,7 +153,7 @@ public class Jugador {
         return companias.contains(compania);
     }
 
-    public void intercambiarPropiedadPor(Barrio miPropiedad,Barrio otraPropiedad){
+    public void intercambiarPropiedadPor(Barrio miPropiedad, Barrio otraPropiedad) {
 
         Jugador otroJugador = otraPropiedad.getPropietario();
 
@@ -172,8 +172,8 @@ public class Jugador {
     public void construirCasaEn(Barrio unBarrio) {
         unBarrio.comprarCasa(this);
     }
-    
-    public void construirHotelEn(Barrio barrio){
+
+    public void construirHotelEn(Barrio barrio) {
 
         barrio.comprarHotel(this);
 
@@ -190,18 +190,29 @@ public class Jugador {
         this.propiedades.remove(unBarrio);
 
     }
-    
+
+    public boolean saltearTurno() {
+        return this.ultimoTiro.esDuplicado() && contadorTirosDuplicados == 2;
+    }
+
     public TiroDeDados tirarDados() {
         this.ultimoTiro = Dados.getInstance().tirar();
+        if (this.ultimoTiro.esDuplicado()) {
+            contadorTirosDuplicados++;
+        }
         return this.ultimoTiro;
     }
 
     public TiroDeDados getUltimoTiroDeDados() {
         return this.ultimoTiro;
     }
-    
+
     //Metodo para probar test
-    public void tirarDadosParaTests(int tiroUno, int tiroDos) {
+    public TiroDeDados tirarDadosParaTests(int tiroUno, int tiroDos) {
         this.ultimoTiro = Dados.getInstance().tirar(tiroUno, tiroDos);
+        if (this.ultimoTiro.esDuplicado()) {
+            contadorTirosDuplicados++;
+        }
+        return this.ultimoTiro;
     }
 }

@@ -1,69 +1,38 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import java.util.LinkedList;
-import java.util.ListIterator;
-
 public class Juego {
-	
-	private LinkedList<Jugador> jugadores;
-	//private ListIterator<Jugador> iterador;
-	private Tablero tablero;
-	private Jugador jugadorActual;
-	private static Juego INSTANCE = new Juego();
-	
-	private Juego () {}
 
-	public static Juego getINSTANCE() {
-		return INSTANCE;
-	}
+    private Jugadores jugadores;
+    private Jugador jugadorActual;
+    private static final Juego INSTANCE = new Juego();
 
-	public void comenzarJuego() {
+    private Juego() {
+    }
 
-		this.tablero = new Tablero();
+    public static Juego getInstance() {
+        return INSTANCE;
+    }
 
-		this.crearJugadores();
+    public void comenzarJuego() {
+        jugadores = new Jugadores(new Tablero());
+        this.jugadorActual = this.jugadores.primero();
+    }
 
-		this.jugadorActual = this.jugadores.getFirst();
+    public void turnoProximojugador() {
+        if (this.jugadorActual.saltearTurno()) {
+            this.jugadorActual = this.jugadores.proximo();
+        }
+    }
 
-	}
+    public Jugador getJugadorActual() {
+        return jugadorActual;
+    }
 
-	private void crearJugadores(){
+    public void jugadorPierdeElJuego(Jugador jugador) {
+        jugadores.eliminar(jugador);
 
-		jugadores = new LinkedList<Jugador>();
-
-		jugadores.add(new Jugador( new Dinero(100000), this.tablero ) ) ;
-		jugadores.add(new Jugador( new Dinero(100000), this.tablero ) );
-		jugadores.add(new Jugador( new Dinero(100000), this.tablero  ) );
-
-		//iterador = jugadores.listIterator();
-
-	}
-	
-	public void turnoProximojugador () {
-		
-		try {
-		
-			this.jugadorActual = this.jugadores.listIterator().next();
-		
-		}catch (IndexOutOfBoundsException e) { 
-		
-			//iterador = jugadores.listIterator();
-		
-			this.turnoProximojugador();
-		}
-	}
-
-	public Jugador getJugadorActual() {
-		return jugadorActual;
-	}
-
-	public void jugadorPierdeElJuego (Jugador jugador) {
-		
-		jugadores.remove(jugador);
-		
-		if ( jugadores.size() == 1) {
-
-			//this.finalizarJuego();
-		}
-	}
+        if (jugadores.quedaUno()) {
+            //this.finalizarJuego();
+        }
+    }
 }
