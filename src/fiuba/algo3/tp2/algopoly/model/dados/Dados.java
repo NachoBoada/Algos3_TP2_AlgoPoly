@@ -16,10 +16,14 @@ public class Dados {
         return INSTANCE;
     }
     
-    public int tirar() {
-    	ultimaSuma = dadoUno.tirar() + dadoDos.tirar();
-        return ultimaSuma;
+    public TiroDeDados tirar() {
+        return new TiroDeDados(dadoUno.tirar(), dadoDos.tirar());
     }
+    
+//    public int tirar() {
+//    	ultimaSuma = dadoUno.tirar() + dadoDos.tirar();
+//        return ultimaSuma;
+//    }
     
     public int obtenerUltimaSuma () {
     	return ultimaSuma;

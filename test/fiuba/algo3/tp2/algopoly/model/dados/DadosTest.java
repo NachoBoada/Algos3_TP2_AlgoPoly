@@ -13,8 +13,8 @@ public class DadosTest {
     @Test
     public void testDadosTirarDevuelveValorEntreUnoYdoce() {
         final Dados dados = Dados.getInstance();
-        final int valorTiro = dados.tirar();
-        Assert.assertTrue(valorTiro >= 1 && valorTiro <= 12);
+        final TiroDeDados tiroDeDados = dados.tirar();
+        Assert.assertTrue(tiroDeDados.esValido());
     }
-
+    
 }
