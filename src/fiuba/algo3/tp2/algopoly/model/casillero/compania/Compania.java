@@ -25,7 +25,7 @@ public abstract class Compania implements Encasillable {
         return estado.getDuenio();
     }
 
-    public void modificarEstado(Jugador jugador) {
+    public void modificarPropietario(Jugador jugador) {
         this.estado = new CompaniaComprada(jugador);
     }
     
@@ -41,5 +41,10 @@ public abstract class Compania implements Encasillable {
     public abstract void cobrarSimple(Jugador jugador);
     
     public abstract void doSomething(Jugador jugador);
-    
+
+    public void dejarSinPropietario(){
+
+        this.estado = new CompaniaNoComprada();
+
+    }
 }

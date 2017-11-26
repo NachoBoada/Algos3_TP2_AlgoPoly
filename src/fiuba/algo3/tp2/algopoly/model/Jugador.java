@@ -131,7 +131,7 @@ public class Jugador {
     public void comprarCompania(Compania compania) {
         this.decrementarCapitalEn(compania.getPrecio());
 
-        compania.modificarEstado(this);
+        compania.modificarPropietario(this);
         companias.add(compania);
     }
 
@@ -188,6 +188,18 @@ public class Jugador {
         unBarrio.dejarSinPropietario();
 
         this.propiedades.remove(unBarrio);
+
+    }
+
+    public void venderCompania(Compania unaCompania){
+
+        Dinero dineroVenta = new Dinero(unaCompania.getPrecio().getCantidad() * 0.75);
+
+        this.incrementarCapitalEn(dineroVenta);
+
+        unaCompania.dejarSinPropietario();
+
+        this.companias.remove(unaCompania);
 
     }
 
