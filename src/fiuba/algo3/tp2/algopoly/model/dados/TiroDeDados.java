@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.dados;
 
-class TiroDeDados {
+class public TiroDeDados {
 
     private final int _tiroUno;
     private final int _tiroDos;
