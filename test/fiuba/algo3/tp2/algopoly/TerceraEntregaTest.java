@@ -43,7 +43,12 @@ public class TerceraEntregaTest {
     }
 
     @Test
-    public void test01Punto3() {
+    public void testPunto3() {
+
+        /* Un jugador no cuenta con efectivo y cae en un área que genera gasto.
+        Se verifica que un tercer jugador cae en el área que entregó el primer jugador
+         y el cobro del dinero se acredita en la cuenta del jugador que ostenta la titularidad por un monto igual al área sin construcción.
+        */
 
         Tablero tablero = new Tablero();
         Jugador jugador1 = new Jugador(new Dinero(20000), tablero);
