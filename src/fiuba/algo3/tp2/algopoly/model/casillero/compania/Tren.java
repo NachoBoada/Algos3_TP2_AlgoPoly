@@ -32,7 +32,7 @@ public class Tren extends Compania {
     }
 
     private void cobrarBoleto(Jugador jugador, int factor) {
-        int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
+        int ultimaSumaDados = jugador.getUltimoTiroDeDados().resultado();
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
 
         try {

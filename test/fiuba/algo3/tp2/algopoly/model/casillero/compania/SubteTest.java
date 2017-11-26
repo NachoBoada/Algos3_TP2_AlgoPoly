@@ -24,7 +24,7 @@ public class SubteTest {
         Subte subte = transportes.getSubte();
         jugadorCobrador.comprarCompania(subte);
 
-        jugadorPagador.mover(5);
+        jugadorPagador.tirarDadosParaTests(2, 3);
         jugadorPagador.caerEn(subte);
 
         Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 600));
@@ -49,7 +49,7 @@ public class SubteTest {
         jugadorCobrador.comprarCompania(tren);
         jugadorCobrador.comprarCompania(subte);
 
-        Dados.getInstance().manipularSuma(5);
+        jugadorPagador.tirarDadosParaTests(2, 3);
         jugadorPagador.caerEn(subte);
 
         Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 1100));

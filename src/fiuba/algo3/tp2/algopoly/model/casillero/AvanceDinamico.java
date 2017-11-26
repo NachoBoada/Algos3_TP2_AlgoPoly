@@ -11,6 +11,7 @@ public class AvanceDinamico implements Encasillable {
         this.posicion = 7;
     }
 
+    @Override
     public int getPosicion() {
         return this.posicion;
     }
@@ -20,7 +21,8 @@ public class AvanceDinamico implements Encasillable {
 
         jugador.actualizarCasillero(this, this.posicion);
 
-        int sumaDados = (Dados.getInstance()).obtenerUltimaSuma();
+//        int sumaDados = (Dados.getInstance()).obtenerUltimaSuma();
+        int sumaDados = jugador.getUltimoTiroDeDados().resultado();
 
         //si los dados suman 2, moveria 0 casilleros.
         if (sumaDados == 3 || sumaDados == 4 || sumaDados == 5 || sumaDados == 6) {

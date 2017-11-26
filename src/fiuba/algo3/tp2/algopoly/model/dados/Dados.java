@@ -5,7 +5,6 @@ public class Dados {
     private static final Dados INSTANCE = new Dados();
     private final Dado dadoUno;
     private final Dado dadoDos;
-    private int ultimaSuma;
 
     private Dados() {
         dadoUno = new Dado();
@@ -15,23 +14,13 @@ public class Dados {
     public static Dados getInstance() {
         return INSTANCE;
     }
-    
+
     public TiroDeDados tirar() {
         return new TiroDeDados(dadoUno.tirar(), dadoDos.tirar());
     }
-    
-//    public int tirar() {
-//    	ultimaSuma = dadoUno.tirar() + dadoDos.tirar();
-//        return ultimaSuma;
-//    }
-    
-    public int obtenerUltimaSuma () {
-    	return ultimaSuma;
+
+    public TiroDeDados tirar(int tiroUno, int tiroDos) {
+        return new TiroDeDados(tiroUno, tiroDos);
     }
-    
-    //Metodo para probar test
-	public void manipularSuma(int cantidadCasilleros) {
-		ultimaSuma = cantidadCasilleros;		
-	}
 
 }

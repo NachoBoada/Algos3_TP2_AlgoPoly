@@ -27,7 +27,7 @@ public class Edesur extends Compania {
     }
 
     private void cobrar(Jugador jugador, int factor) {
-        int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
+        int ultimaSumaDados = jugador.getUltimoTiroDeDados().resultado();
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
 
         try {

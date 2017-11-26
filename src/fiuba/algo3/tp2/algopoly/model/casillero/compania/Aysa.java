@@ -4,7 +4,6 @@ import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Aysa extends Compania {
 
@@ -27,7 +26,7 @@ public class Aysa extends Compania {
     }
 
     private void cobrar(Jugador jugador, int factor) {
-        int ultimaSumaDados = Dados.getInstance().obtenerUltimaSuma();
+        int ultimaSumaDados = jugador.getUltimoTiroDeDados().resultado();
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
         try {
             jugador.decrementarCapitalEn(dineroADecrementar);

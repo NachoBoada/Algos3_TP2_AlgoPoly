@@ -8,11 +8,9 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePuedeConstruirUnHotelEnUnBarrioSimpleException;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
+import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
 import fiuba.algo3.tp2.algopoly.model.estado.Libre;
 
@@ -25,7 +23,8 @@ public class Jugador {
     private Encasillable casilleroActual;
     private int posicionActual;
     private Estado estado;
-    private Tablero tablero;
+    private final Tablero tablero;
+    private TiroDeDados ultimoTiro;
 
     public Jugador(Dinero capitalInicial,Tablero tablero) {
 
@@ -190,5 +189,19 @@ public class Jugador {
 
         this.propiedades.remove(unBarrio);
 
+    }
+    
+    public TiroDeDados tirarDados() {
+        this.ultimoTiro = Dados.getInstance().tirar();
+        return this.ultimoTiro;
+    }
+
+    public TiroDeDados getUltimoTiroDeDados() {
+        return this.ultimoTiro;
+    }
+    
+    //Metodo para probar test
+    public void tirarDadosParaTests(int tiroUno, int tiroDos) {
+        this.ultimoTiro = Dados.getInstance().tirar(tiroUno, tiroDos);
     }
 }

@@ -10,7 +10,6 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BuenosAires;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
 import org.junit.Assert;
@@ -18,14 +17,14 @@ import org.junit.Test;
 
 public class PrimeraEntregaTest {
 
-	private static final double DELTA = 1e-15;
+    private static final double DELTA = 1e-15;
 
     @Test
     public void test01JugadorCaeEnQuini6PorPrimeraVezSuCapitalSeIncrementaEn50000() {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Quini6 quini6 = new Quini6();
 
         jugador.caerEn(quini6);
@@ -38,7 +37,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Quini6 quini6 = new Quini6();
 
         jugador.caerEn(quini6);
@@ -52,7 +51,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Quini6 quini6 = new Quini6();
 
         jugador.caerEn(quini6);
@@ -68,22 +67,21 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(50000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         SantaFe barrio = new SantaFe();
 
         jugador.caerEn(barrio);
         jugador.comprarBarrio(barrio);
 
-
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }
 
-    @Test (expected = JugadorPresoNoSePuedeMoverException.class)
+    @Test(expected = JugadorPresoNoSePuedeMoverException.class)
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Carcel carcel = new Carcel();
 
         jugador.caerEn(carcel);
@@ -96,7 +94,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Carcel carcel = new Carcel();
 
         jugador.caerEn(carcel);
@@ -106,15 +104,15 @@ public class PrimeraEntregaTest {
 
         jugador.mover(1);
 
-        Assert.assertEquals(6,jugador.posicionActual());
+        Assert.assertEquals(6, jugador.posicionActual());
     }
 
-    @Test (expected = JugadorPresoNoSePuedeMoverException.class)
+    @Test(expected = JugadorPresoNoSePuedeMoverException.class)
     public void test07JugadorNoPuedeMoverseAlNoPagarLaFianza() {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Carcel carcel = new Carcel();
 
         jugador.caerEn(carcel);
@@ -123,13 +121,13 @@ public class PrimeraEntregaTest {
     }
 
     @Test
-    public void test08testCaerEnAvanceDinamicoConCuatroYSoloAvanzaDos(){
+    public void test08testCaerEnAvanceDinamicoConCuatroYSoloAvanzaDos() {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        Dados.getInstance().manipularSuma(4);
+        jugador.tirarDadosParaTests(2, 2);
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
@@ -141,9 +139,9 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        Dados.getInstance().manipularSuma(7);
+        jugador.tirarDadosParaTests(3, 4);
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
@@ -155,9 +153,9 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        Dados.getInstance().manipularSuma(11);
+        jugador.tirarDadosParaTests(5, 6);
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
@@ -170,13 +168,13 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        jugador.comprarBarrio( new SantaFe());
-        jugador.comprarBarrio( new Tucuman());
-        jugador.comprarBarrio( new Neuquen());
+        jugador.comprarBarrio(new SantaFe());
+        jugador.comprarBarrio(new Tucuman());
+        jugador.comprarBarrio(new Neuquen());
 
-        Dados.getInstance().manipularSuma(12);
+        jugador.tirarDadosParaTests(6, 6);
         AvanceDinamico casillero = new AvanceDinamico();
         jugador.caerEn(casillero);
 
@@ -188,26 +186,26 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        jugador.comprarBarrio( new SantaFe() );
+        jugador.comprarBarrio(new SantaFe());
 
-        Dados.getInstance().manipularSuma(4);
+        jugador.tirarDadosParaTests(3, 1);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         jugador.caerEn(casillero);
-        
+
         //AL RETROCEDER 3 CAE EN POLICIA (15) Y DE AHI LO MANDA A CARCEL (5)
         Assert.assertEquals(5, jugador.posicionActual());
 
     }
-    
+
     @Test
     public void test12JugadorCaeEnRetrocesoDinamicoConCincoYDosPropiedadesConDosCasasEntoncesRetrocedeUno() {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
-        
+        Jugador jugador = new Jugador(capitalInicial, tablero);
+
         BuenosAires bsas = new BuenosAires();
         BarrioDividido bsasSur = bsas.getBarrioSur();
         BarrioDividido bsasNorte = bsas.getBarrioNorte();
@@ -216,10 +214,10 @@ public class PrimeraEntregaTest {
         jugador.construirCasaEn(bsasSur);
         jugador.construirCasaEn(bsasSur);
 
-        Dados.getInstance().manipularSuma(5);
+        jugador.tirarDadosParaTests(3, 2);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         jugador.caerEn(casillero);
-        
+
         Assert.assertEquals(casillero.getPosicion() - 1, jugador.posicionActual());
 
     }
@@ -229,13 +227,13 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        jugador.comprarBarrio( new SantaFe() );
-        jugador.comprarBarrio( new Tucuman() );
-        jugador.comprarBarrio( new Neuquen() );
+        jugador.comprarBarrio(new SantaFe());
+        jugador.comprarBarrio(new Tucuman());
+        jugador.comprarBarrio(new Neuquen());
 
-        Dados.getInstance().manipularSuma(2);
+        jugador.tirarDadosParaTests(1, 1);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         jugador.caerEn(casillero);
 
@@ -246,17 +244,15 @@ public class PrimeraEntregaTest {
     @Test
     public void test14JugadorCaeEnRetrocesoDinamicoConSieteYCapitalDeMilEntoncesRetrocedeSeis() {
 
-
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        Dados.getInstance().manipularSuma(7);
+        jugador.tirarDadosParaTests(3, 4);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         jugador.caerEn(casillero);
 
         Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 6);
-
 
     }
 
@@ -265,9 +261,9 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        Dados.getInstance().manipularSuma(11);
+        jugador.tirarDadosParaTests(6, 5);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
         jugador.caerEn(casillero);
 
@@ -275,12 +271,12 @@ public class PrimeraEntregaTest {
 
     }
 
-    @Test (expected = JugadorPresoNoSePuedeMoverException.class)
+    @Test(expected = JugadorPresoNoSePuedeMoverException.class)
     public void test16UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
 
         Tablero tablero = new Tablero();
-    	Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial,tablero);
+        Dinero capitalInicial = new Dinero(100000);
+        Jugador jugador = new Jugador(capitalInicial, tablero);
         Carcel carcel = new Carcel();
         Policia policia = new Policia(carcel);
 

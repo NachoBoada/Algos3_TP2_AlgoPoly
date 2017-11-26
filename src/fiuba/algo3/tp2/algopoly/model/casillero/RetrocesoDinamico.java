@@ -13,6 +13,7 @@ public class RetrocesoDinamico implements Encasillable {
 
     }
 
+    @Override
     public int getPosicion() {
         return this.posicion;
     }
@@ -22,7 +23,7 @@ public class RetrocesoDinamico implements Encasillable {
 
         jugador.actualizarCasillero(this, this.posicion);
 
-        int sumaDados = (Dados.getInstance()).obtenerUltimaSuma();
+        int sumaDados = jugador.getUltimoTiroDeDados().resultado();
 
         if (sumaDados == 2 || sumaDados == 3 || sumaDados == 4 || sumaDados == 5 || sumaDados == 6) {
         	

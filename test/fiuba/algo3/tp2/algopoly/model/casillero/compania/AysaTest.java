@@ -22,7 +22,7 @@ public class AysaTest {
 
         Aysa aysa = servicios.getAysa();
         jugadorDuenioDeEdesur.comprarCompania(aysa);
-        jugadorQuePaga.mover(3);
+        jugadorQuePaga.tirarDadosParaTests(2, 1);
         jugadorQuePaga.caerEn(aysa);
         Dinero dineroRestante = new Dinero(100000 - 300 * 3);
 
@@ -44,7 +44,7 @@ public class AysaTest {
         JugadorDuenioDeEdesurYAysa.comprarCompania(edesur);
         JugadorDuenioDeEdesurYAysa.comprarCompania(aysa);
 
-        Dados.getInstance().manipularSuma(3);
+        jugadorQuePaga.tirarDadosParaTests(2, 1);
         jugadorQuePaga.caerEn(aysa);
         Dinero dineroRestante = new Dinero(100000 - 500 * 3);
         
