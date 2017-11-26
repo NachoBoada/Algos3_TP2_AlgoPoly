@@ -11,7 +11,8 @@ public class PresoTurno3 extends Preso {
 		
 		this.carcel = carcel;
 	}
-	
+
+	@Override
 	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
 		
 		jugador.cambiarEstado ( new Libre() );

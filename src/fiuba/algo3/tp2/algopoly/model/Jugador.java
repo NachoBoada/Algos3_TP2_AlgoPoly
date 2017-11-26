@@ -45,8 +45,8 @@ public class Jugador {
     }
     
 
-    public boolean mover(int cantidadCasilleros) {
-        return (estado.mover(this, this.posicionActual, cantidadCasilleros,this.tablero));
+    public void mover(int cantidadCasilleros) {
+        estado.mover(this, this.posicionActual, cantidadCasilleros,this.tablero);
     }
 
     public void caerEn(Encasillable casillero) {

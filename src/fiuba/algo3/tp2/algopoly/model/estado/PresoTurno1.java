@@ -5,7 +5,8 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class PresoTurno1 extends Preso {
 
-		
+
+	@Override
 	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
 		
 		jugador.cambiarEstado ( new PresoTurno2 (carcel) );

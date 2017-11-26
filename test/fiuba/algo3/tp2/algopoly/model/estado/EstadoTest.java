@@ -24,12 +24,14 @@ public class EstadoTest {
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
-		Assert.assertTrue( jugador.mover(5) );
+		jugador.mover(5);
+
+		Assert.assertEquals(5, jugador.posicionActual());
 	}
 	
 	//PRESO TURNO 0
 	
-	@Test
+	@Test (expected = JugadorPresoNoSePuedeMoverException.class)
 	public void testJugadorQueCaePresoNoPuedeMoverse() {
 
 		Tablero tablero = new Tablero();
@@ -38,7 +40,7 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno0 () );
 				
-		Assert.assertFalse( jugador.mover(5) );
+		jugador.mover(5);
 	}
 	
 	@Test
@@ -56,7 +58,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 1
 	
-	@Test
+	@Test (expected = JugadorPresoNoSePuedeMoverException.class)
 	public void testJugadorPresoEnPrimerTurnoNoPuedeMoverse() {
 
 		Tablero tablero = new Tablero();
@@ -65,7 +67,7 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno1 () );
 				
-		Assert.assertFalse( jugador.mover(5) );
+		jugador.mover(5);
 	}
 	
 	@Test
@@ -83,7 +85,7 @@ public class EstadoTest {
 	
 	//PRESO TURNO 2
 	
-	@Test
+	@Test (expected = JugadorPresoNoSePuedeMoverException.class)
 	public void testJugadorPresoEnSegundoTurnoNoPuedeMoverse() {
 
 
@@ -93,7 +95,7 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 				
-		Assert.assertFalse( jugador.mover(5) );
+		jugador.mover(5);
 	}
 
 	@Test
@@ -119,10 +121,12 @@ public class EstadoTest {
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		jugador.pagarFianza();
 		
-		Assert.assertTrue( jugador.mover(5) );
+		jugador.mover(5);
+
+		Assert.assertEquals(5, jugador.posicionActual());
 	}
 
-	@Test
+	@Test (expected = CapitalInsuficienteException.class)
 	public void testJugadorPresoEnTurno2NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
 
 		Tablero tablero = new Tablero();
@@ -131,19 +135,12 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		
-		try{
-			jugador.pagarFianza();
-			Assert.fail();
-		} catch (CapitalInsuficienteException e){
-			Assert.assertTrue(true);
-		}
-
-		Assert.assertFalse( jugador.mover(5) );
+		jugador.pagarFianza();
 	}
 	
 	//PRESO TURNO 3
 	
-	@Test
+	@Test (expected = JugadorPresoNoSePuedeMoverException.class)
 	public void testJugadorPresoEnTercerTurnoNoPuedeMoverse() {
 
 		Tablero tablero = new Tablero();
@@ -152,7 +149,7 @@ public class EstadoTest {
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 				
-		Assert.assertFalse( jugador.mover(5) );
+		jugador.mover(5);
 	}
 
 	@Test
@@ -179,10 +176,12 @@ public class EstadoTest {
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		jugador.pagarFianza();
 		
-		Assert.assertTrue( jugador.mover(5) );
+		jugador.mover(5);
+
+		Assert.assertEquals(5, jugador.posicionActual());
 	}
 
-	@Test
+	@Test (expected = CapitalInsuficienteException.class)
 	public void testJugadorPresoEnTurno3NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
 
 		Tablero tablero = new Tablero();
@@ -190,15 +189,8 @@ public class EstadoTest {
 		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
-		
-		try{
-			jugador.pagarFianza();
-			Assert.fail();
-		} catch (CapitalInsuficienteException e){
-			Assert.assertTrue(true);
-		}
-		
-		Assert.assertFalse( jugador.mover(5) );
+
+		jugador.pagarFianza();
 	}
 	
 	//PRESO TURNO 4
@@ -214,8 +206,8 @@ public class EstadoTest {
 		jugador.cambiarEstado( new PresoTurno3 (carcel) );
 		//jugador pasa al siguiente turno
 		jugador.caerEn(carcel);
-		
-		Assert.assertTrue( jugador.mover(5) );
+
+		Assert.assertEquals(5, jugador.posicionActual());
 	}
 	
 	

@@ -21,20 +21,18 @@ public class CarcelTest {
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
-		jugador.caerEn(carcel);	
-		Assert.assertFalse( jugador.mover(1) );
+		jugador.caerEn(carcel);
 		//primer turno
-		jugador.caerEn(carcel);	
-		Assert.assertFalse( jugador.mover(1) );
+		jugador.caerEn(carcel);
 		//segundo turno
-		jugador.caerEn(carcel);	
-		Assert.assertFalse( jugador.mover(1) );
+		jugador.caerEn(carcel);
 		//tercer turno
-		jugador.caerEn(carcel);	
-		Assert.assertFalse( jugador.mover(1) );
+		jugador.caerEn(carcel);
 		//cuarto turno
 		jugador.caerEn(carcel);	
-		Assert.assertTrue( jugador.mover(1) );
+		jugador.mover(1);
+
+		Assert.assertEquals(6,jugador.posicionActual());
 	}
 	
 	@Test
@@ -96,7 +94,9 @@ public class CarcelTest {
 		jugador.caerEn(carcel);	jugador.caerEn(carcel);
 		jugador.pagarFianza();
 		
-		Assert.assertTrue( jugador.mover(2) );
+		jugador.mover(1);
+
+		Assert.assertEquals(6,jugador.posicionActual());
 	}
 	
 }

@@ -12,6 +12,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
+import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -77,7 +78,7 @@ public class PrimeraEntregaTest {
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }
 
-    @Test
+    @Test (expected = JugadorPresoNoSePuedeMoverException.class)
     public void test05JugadorNoPuedeDesplazarseLuegoDeCaerEnCarcel() {
 
         Tablero tablero = new Tablero();
@@ -87,7 +88,7 @@ public class PrimeraEntregaTest {
 
         jugador.caerEn(carcel);
 
-        Assert.assertFalse(jugador.mover(1));
+        jugador.mover(1);
     }
 
     @Test
@@ -103,10 +104,12 @@ public class PrimeraEntregaTest {
         jugador.caerEn(carcel);
         jugador.pagarFianza();
 
-        Assert.assertTrue(jugador.mover(2));
+        jugador.mover(1);
+
+        Assert.assertEquals(6,jugador.posicionActual());
     }
 
-    @Test
+    @Test (expected = JugadorPresoNoSePuedeMoverException.class)
     public void test07JugadorNoPuedeMoverseAlNoPagarLaFianza() {
 
         Tablero tablero = new Tablero();
@@ -116,7 +119,7 @@ public class PrimeraEntregaTest {
 
         jugador.caerEn(carcel);
 
-        Assert.assertFalse(jugador.mover(5));
+        jugador.mover(5);
     }
 
     @Test
@@ -272,7 +275,7 @@ public class PrimeraEntregaTest {
 
     }
 
-    @Test
+    @Test (expected = JugadorPresoNoSePuedeMoverException.class)
     public void test16UnJugadorCaeEnPoliciaNoPuedeMoverseYSuUbicacionEsLaCarcel() {
 
         Tablero tablero = new Tablero();
@@ -283,7 +286,7 @@ public class PrimeraEntregaTest {
 
         jugador.caerEn(policia);
 
-        Assert.assertFalse(jugador.mover(2));
+        jugador.mover(2);
         Assert.assertEquals(carcel, jugador.casilleroActual());
     }
 }
