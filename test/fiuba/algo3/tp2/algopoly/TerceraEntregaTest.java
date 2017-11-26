@@ -12,7 +12,6 @@ public class TerceraEntregaTest {
 
     @Test
     public void test01JugadorTiraDadosAmbosConIgualValorEntoncesPuedeVolverATirar() {
-        /*Un jugador arroja los dados y ambos tienen el mismo valor. Verificar que puede volver a jugar.*/
         Juego juego = Juego.getInstance();
         juego.comenzarJuego();
 
@@ -26,12 +25,11 @@ public class TerceraEntregaTest {
 
     @Test
     public void test02JugadorTiraDadosAmbosConIgualValorEnDosOportunidadesEntoncesSalteaElSegundoTiroYavanzaElTurno() {
-        /*Un jugador arroja los dados y ambos tienen el mismo valor. Verificar que puede volver a jugar.*/
         Juego juego = Juego.getInstance();
         juego.comenzarJuego();
-        
+
         Jugador primerJugador = juego.getJugadorActual();
-        
+
         TiroDeDados primerTiroDeDados = primerJugador.tirarDadosParaTests(2, 2);
         juego.turnoProximojugador();
         Assert.assertTrue(primerTiroDeDados.esDuplicado());
@@ -77,6 +75,21 @@ public class TerceraEntregaTest {
         jugador3.caerEn(cordobaNorte);
 
         Assert.assertEquals(100000 - 15000 - 20000 + 1300, jugador2.getCapital().getCantidad(), DELTA);
+    }
+
+    @Test
+    public void test04JugadorCambiaSuPosicionActualAlaIndicadaPorLosDadosLuegoDeTirar() {
+        Juego juego = Juego.getInstance();
+        juego.comenzarJuego();
+
+        Jugador primerJugador = juego.getJugadorActual();
+        int posicionActual = primerJugador.posicionActual();
+
+        TiroDeDados tiroDeDados = primerJugador.tirarDadosParaTests(1, 1);
+        primerJugador.mover(tiroDeDados.resultado());
+
+        Assert.assertEquals(primerJugador.posicionActual(), posicionActual + 2);
+
     }
 
     @Test(expected = NoSePuedeConstruirUnHotelEnUnBarrioSimpleException.class)
