@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
+import fiuba.algo3.tp2.algopoly.model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,10 +12,12 @@ public class AysaTest {
 	
     @Test
     public void test01JugadorCaeEnAysaYPaga300VecesLoQueSaleEnLosDados() {
+
+        Tablero tablero = new Tablero();
         Dinero dineroJugadorQuePaga = new Dinero(100000);
-        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
+        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga,tablero);
         Dinero dineroJugadorDuenioDeEdesur = new Dinero(100000);
-        Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur);
+        Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur,tablero);
         Servicios servicios = new Servicios();
 
         Aysa aysa = servicios.getAysa();
@@ -28,10 +31,12 @@ public class AysaTest {
     
     @Test
     public void test02JugadorCaeEnAysaDeUnDuenioDeEdesurYAysaYPaga500VecesLoQueSaleEnLosDados() {
+
+        Tablero tablero = new Tablero();
     	Dinero dineroJugadorQuePaga = new Dinero(100000);
-        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga);
+        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga,tablero);
         Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
-        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa);
+        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa,tablero);
         Servicios servicios = new Servicios();
         
         Edesur edesur = servicios.getEdesur();

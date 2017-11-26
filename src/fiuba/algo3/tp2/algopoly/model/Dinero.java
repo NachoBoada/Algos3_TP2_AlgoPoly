@@ -4,7 +4,7 @@ public class Dinero {
 
     private double cantidad;
 
-    public Dinero(int cantidad) {
+    public Dinero(double cantidad) {
         this.cantidad = cantidad;
     }
 

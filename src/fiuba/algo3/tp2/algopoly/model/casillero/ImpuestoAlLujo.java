@@ -17,6 +17,8 @@ public class ImpuestoAlLujo implements Encasillable {
 
 	@Override
 	public void actuarSobre(Jugador jugador) {
+
+		jugador.actualizarCasillero(this,this.posicion);
 		jugador.getCapital().multiplicar(1 - porcentajeDelImpuesto);
 	}
 	

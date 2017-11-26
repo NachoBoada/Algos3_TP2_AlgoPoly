@@ -6,19 +6,25 @@ import org.junit.Test;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 
 public class JugadorTest {
+
+    private static final double DELTA = 1e-15;
 	
     @Test
     public void testCreacionDelJugadorNoEsNullYElCapitalInicialEs0() {
+
+        Tablero tablero = new Tablero();
     	Dinero dinero0 = new Dinero(0);
-        Jugador jugador = new Jugador(dinero0);
+        Jugador jugador = new Jugador(dinero0,tablero);
 
         Assert.assertEquals(dinero0, jugador.getCapital());
     }
 
     @Test
     public void testincrementarCapitalEn100000() {
+
+        Tablero tablero = new Tablero();
     	Dinero dinero0 = new Dinero(0);
-    	Jugador jugador = new Jugador(dinero0);
+    	Jugador jugador = new Jugador(dinero0,tablero);
     	Dinero dinero1000000 = new Dinero(1000000);
         
         jugador.incrementarCapitalEn(dinero1000000);
@@ -28,10 +34,12 @@ public class JugadorTest {
     
     @Test
     public void testJugadorDerementarCapitalEn100Quedan200() {
+
+        Tablero tablero = new Tablero();
     	Dinero dinero300 = new Dinero(300);
         Dinero dinero200 = new Dinero(200);
         Dinero dinero100 = new Dinero(100);
-        Jugador jugador = new Jugador(dinero300);
+        Jugador jugador = new Jugador(dinero300,tablero);
         
         
         jugador.decrementarCapitalEn(dinero100);
@@ -41,8 +49,10 @@ public class JugadorTest {
     
     @Test
     public void testJugadorDerementarCapitalLanzarCapitalDelJugadorInsuficienteYAtraparlo() {
+
+        Tablero tablero = new Tablero();
         Dinero dinero100 = new Dinero(100);
-        Jugador jugador = new Jugador(dinero100);
+        Jugador jugador = new Jugador(dinero100,tablero);
         Dinero dinero200 = new Dinero(200);
         
         try{
@@ -56,8 +66,10 @@ public class JugadorTest {
     
     @Test
     public void testJugadorCompraBarrioYElJugadorTieneCapitalInsuficienteAtrapada() {
+
+        Tablero tablero = new Tablero();
         Dinero dineroSeraInsuficiente = new Dinero(0);
-        Jugador jugador = new Jugador(dineroSeraInsuficiente);
+        Jugador jugador = new Jugador(dineroSeraInsuficiente,tablero);
         SantaFe santafe = new SantaFe();
 
         try{
@@ -67,6 +79,27 @@ public class JugadorTest {
         catch (CapitalInsuficienteException e){
         	Assert.assertTrue(true);
         }
+    }
+
+    @Test
+    public void testJugadorVendeBarrioYCobraUnQuincePorCientoDeLoQueLeCosto(){
+
+        Tablero tablero = new Tablero();
+        Dinero dineroInicialJugador = new Dinero(100000);
+        Jugador jugador = new Jugador(dineroInicialJugador,tablero);
+        SantaFe santaFe = new SantaFe();
+        jugador.comprarBarrio(santaFe);
+
+        jugador.venderBarrio(santaFe);
+
+        Assert.assertEquals(100000 - 15000 + (15000 * 0.75) , jugador.getCapital().getCantidad(),DELTA);
+
+    }
+
+    @Test
+    public void testJugadorVendeCompaniaYCobraUnQuincePorCientoDeLoQueLeCosto(){
+
+
     }
 
 }

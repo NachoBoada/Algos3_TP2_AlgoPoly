@@ -25,7 +25,7 @@ public class Tablero {
 	private static final int TotalCasilleros = 20;
 	private LinkedList<Encasillable> casilleros;
 
-	private Tablero(){
+	public Tablero(){
 		BuenosAires buenosaires = new BuenosAires();
 		Servicios servicios = new Servicios();
 		Cordoba cordoba = new Cordoba();
@@ -57,13 +57,15 @@ public class Tablero {
 		casilleros.add(new Tucuman());		
 	}
 	
-	public static Tablero getInstance() {
+	/*public static Tablero getInstance() {
 		return INSTANCE;
-	}
+	}*/
 	
 	public void moverJugador (Jugador jugador, int posicionActual, int cantidadCasilleros) {
-		
-		jugador.caerEn( casilleros.get( (posicionActual + cantidadCasilleros) % TotalCasilleros ) );
+
+		int posicion = (posicionActual + cantidadCasilleros) % TotalCasilleros ;
+
+		jugador.caerEn( casilleros.get( posicion ) );
 	}
 	
 

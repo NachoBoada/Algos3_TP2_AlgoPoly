@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.compania.estado;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 
 public class CompaniaNoComprada implements EstadoCompania {
@@ -13,6 +14,6 @@ public class CompaniaNoComprada implements EstadoCompania {
 
     @Override
     public Jugador getDuenio() {
-        return new Jugador(new Dinero(0));
+        return new Jugador(new Dinero(0), new Tablero());
     }
 }

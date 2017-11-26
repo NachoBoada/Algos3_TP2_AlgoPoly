@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.estado;
 
+import fiuba.algo3.tp2.algopoly.model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,8 +20,9 @@ public class EstadoTest {
 	@Test
 	public void testJugadorLibrePuedeMoverse() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		Assert.assertTrue( jugador.mover(5) );
 	}
@@ -30,8 +32,9 @@ public class EstadoTest {
 	@Test
 	public void testJugadorQueCaePresoNoPuedeMoverse() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno0 () );
 				
@@ -40,9 +43,10 @@ public class EstadoTest {
 	
 	@Test
 	public void testJugadorQueCaePresoNoPuedePagarFianza() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno0 () );
 		jugador.pagarFianza();
@@ -55,8 +59,9 @@ public class EstadoTest {
 	@Test
 	public void testJugadorPresoEnPrimerTurnoNoPuedeMoverse() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno1 () );
 				
@@ -65,9 +70,10 @@ public class EstadoTest {
 	
 	@Test
 	public void testJugadorPresoEnPrimerTurnoNoPuedePagarFianza() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno1 () );
 		jugador.pagarFianza();
@@ -80,8 +86,10 @@ public class EstadoTest {
 	@Test
 	public void testJugadorPresoEnSegundoTurnoNoPuedeMoverse() {
 
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 				
@@ -90,9 +98,10 @@ public class EstadoTest {
 
 	@Test
 	public void testJugadorPresoEnSegundoTurnoPuedePagarFianza() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -103,8 +112,9 @@ public class EstadoTest {
 	@Test
 	public void testJugadorPresoEnSegundoTurnoPagaFianzaYPuedeMoverse() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -114,9 +124,10 @@ public class EstadoTest {
 
 	@Test
 	public void testJugadorPresoEnTurno2NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (0);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		
@@ -135,8 +146,9 @@ public class EstadoTest {
 	@Test
 	public void testJugadorPresoEnTercerTurnoNoPuedeMoverse() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 				
@@ -145,9 +157,10 @@ public class EstadoTest {
 
 	@Test
 	public void testJugadorPresoEnTercerTurnoPuedePagarFianza() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -159,8 +172,9 @@ public class EstadoTest {
 	@Test
 	public void testJugadorPresoEnTercerTurnoPagaFianzaYPuedeMoverse() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -170,9 +184,10 @@ public class EstadoTest {
 
 	@Test
 	public void testJugadorPresoEnTurno3NoTieneFondosParaPagarFianzaEntoncesNoPuedeMoverse() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (0);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		
@@ -190,9 +205,10 @@ public class EstadoTest {
 	
 	@Test
 	public void testJugadorPresoEnCuartoTurnoPasaASerLibreYPuedeMoverse() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		Carcel carcel = new Carcel();
 		
 		jugador.cambiarEstado( new PresoTurno3 (carcel) );

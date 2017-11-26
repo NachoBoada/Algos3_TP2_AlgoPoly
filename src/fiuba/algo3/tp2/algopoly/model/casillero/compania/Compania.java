@@ -31,6 +31,8 @@ public abstract class Compania implements Encasillable {
     
     @Override
     public void actuarSobre(Jugador jugador) {
+
+        jugador.actualizarCasillero(this,this.getPosicion());
         this.estado.actuarSobre(jugador, this);
     }
     

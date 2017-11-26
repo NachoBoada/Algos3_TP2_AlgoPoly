@@ -13,9 +13,9 @@ public class Libre extends Estado {
 	
 	public void pagarFianza(Jugador jugador) {}
 	
-	public boolean mover(Jugador jugador, int posicionActual, int cantidadCasillero) {
+	public boolean mover(Jugador jugador, int posicionActual, int cantidadCasillero,Tablero tablero) {
 		//jugador.sumarAPosicion(cantidadCasillero);
-		Tablero.getInstance().moverJugador(jugador, posicionActual, cantidadCasillero);
+		tablero.moverJugador(jugador, posicionActual, cantidadCasillero);
 		return true;
 	}
 

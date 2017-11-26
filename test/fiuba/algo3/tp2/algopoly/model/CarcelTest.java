@@ -14,9 +14,10 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorCaeEnCarcelEntoncesNoPuedeMoverseHastaTurno4() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
@@ -39,8 +40,9 @@ public class CarcelTest {
 	@Test
 	public void testJugadorCaeEnCarcelNoPuedePagarFianzaHastaTurno2() {
 
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
@@ -59,9 +61,10 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorEnCarcelPuedePagarFianzaEnTurno3() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
@@ -79,9 +82,10 @@ public class CarcelTest {
 	
 	@Test
 	public void testJugadorEnCarcelPagaFianzaEntoncesPuedeMoverse() {
-		
+
+		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador);
+		Jugador jugador = new Jugador(capitalJugador,tablero);
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel

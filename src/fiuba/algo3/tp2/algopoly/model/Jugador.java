@@ -9,6 +9,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
@@ -23,8 +24,9 @@ public class Jugador {
     private Encasillable casilleroActual;
     private int posicionActual;
     private Estado estado;
+    private Tablero tablero;
 
-    public Jugador(Dinero capitalInicial) {
+    public Jugador(Dinero capitalInicial,Tablero tablero) {
 
         capitalDelJugador = capitalInicial;
 
@@ -37,15 +39,13 @@ public class Jugador {
         posicionActual = 0;
 
         estado = new Libre();
-    }
-    
-    public void jugar () {
-    	estado.mover( this, this.posicionActual, Dados.getInstance().tirar() );
+
+        this.tablero = tablero;
     }
     
 
     public boolean mover(int cantidadCasilleros) {
-        return (estado.mover(this, this.posicionActual, cantidadCasilleros));
+        return (estado.mover(this, this.posicionActual, cantidadCasilleros,this.tablero));
     }
 
     public void caerEn(Encasillable casillero) {
@@ -175,5 +175,17 @@ public class Jugador {
     
     public void construirHotelEn(BarrioDividido barrio) {
         barrio.comprarHotel(this);
+    }
+
+    public void venderBarrio(Barrio unBarrio) {
+
+        Dinero dineroVenta = new Dinero(unBarrio.getPrecioDelBarrio().getCantidad() * 0.75);
+
+        this.incrementarCapitalEn(dineroVenta);
+
+        unBarrio.dejarSinPropietario();
+
+        this.propiedades.remove(unBarrio);
+
     }
 }

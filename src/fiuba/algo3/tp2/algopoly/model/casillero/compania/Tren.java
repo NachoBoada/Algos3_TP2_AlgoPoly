@@ -17,7 +17,7 @@ public class Tren extends Compania {
 
     public Tren(Transportes transportes) {
         super(PRECIO);
-        this.posicion = 18;
+        this.posicion = 16;
         this.transaportes = transportes;
     }
 

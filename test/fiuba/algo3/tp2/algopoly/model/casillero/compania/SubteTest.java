@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
+import fiuba.algo3.tp2.algopoly.model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,11 +12,13 @@ public class SubteTest {
 
     @Test
     public void test01JugadorCaeEnSubteSiendoPropiedadDeOtroJugadorEntoncesSuCapitalSeReduceEn600VecesSuTiroDeDados() {
+
+        Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero);
         
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
         
         Transportes transportes = new Transportes();
         Subte subte = transportes.getSubte();
@@ -31,11 +34,13 @@ public class SubteTest {
     
     @Test
     public void test02JugadorCaeEnSubteSiendoPropiedadDelPropietarioDelTrenEntoncesSuCapitalSeReduceEn1100VecesSuTiroDeDados() {
+
+        Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero);
         
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
         
         Transportes transportes = new Transportes();
         Tren tren = transportes.getTren();
