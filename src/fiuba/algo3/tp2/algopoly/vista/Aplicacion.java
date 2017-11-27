@@ -1,10 +1,9 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
-import fiuba.algo3.tp2.algopoly.model.Juego;
-import fiuba.algo3.tp2.algopoly.vista.eventos.AplicacionOnKeyPressEventHandler;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 
 public class Aplicacion extends Application {
 
@@ -19,15 +18,19 @@ public class Aplicacion extends Application {
 
         stage.setTitle("ALGOPOLY");
 
-        // Juego.getInstance().comenzarJuego();
+       //Juego.getInstance().comenzarJuego();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
         Scene escenaJuego = new Scene(contenedorPrincipal, 640 , 480);
 
+
         AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
         escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
 
-        stage.setScene(escenaJuego);
+        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage,escenaJuego);
+        Scene escenaTitulo = new Scene(contenedorBienvenidos,1200,600);
+
+        stage.setScene(escenaTitulo);
         stage.setFullScreen(true);
 
         stage.show();
