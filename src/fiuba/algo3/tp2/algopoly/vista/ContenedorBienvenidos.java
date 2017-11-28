@@ -34,7 +34,7 @@ public class ContenedorBienvenidos extends BorderPane {
         botonComenzarJuego.setPrefSize(500, 250);
 
 
-        Image imagenComenzarJuego = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/start.png");
+        Image imagenComenzarJuego = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/start1.png");
         BackgroundSize backgroundSizeComenzarJuego = new BackgroundSize(200, 200, true, true, true, false);
         BackgroundImage imagenDeFondoComenzarJuego = new BackgroundImage(imagenComenzarJuego, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSizeComenzarJuego);
         botonComenzarJuego.setBackground(new Background(imagenDeFondoComenzarJuego));
