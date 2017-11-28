@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -15,8 +16,6 @@ public class ContenedorPrincipal extends BorderPane {
     BarraDeMenu barraDeMenu;
     VBox panelIzquierdo;
     VBox panelDerecho;
-    VBox panelCentral;
-    Canvas canvasCentral;
 
 
 
@@ -68,16 +67,13 @@ public class ContenedorPrincipal extends BorderPane {
 
     private void setCentro() {
 
-        this.canvasCentral = new Canvas(690,364);
-        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/pruebaCanvas.png");
-        this.canvasCentral.getGraphicsContext2D().drawImage(imagen,0,0);
+        //this.canvasCentral = new Canvas(690,364);
+        //Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/pruebaCanvas.png");
+        //this.canvasCentral.getGraphicsContext2D().drawImage(imagen,0,0);
+        //this.panelCentral.get().setSpacing(20);
+        //this.panelCentral.get().setPadding(new Insets(25));
 
-        this.panelCentral = new VBox(canvasCentral);
-        this.panelCentral.setAlignment(Pos.CENTER);
-        this.panelCentral.setSpacing(20);
-        this.panelCentral.setPadding(new Insets(25));
-
-        this.setCenter(panelCentral);
+        this.setCenter(new TableroVista());
 
     }
 
