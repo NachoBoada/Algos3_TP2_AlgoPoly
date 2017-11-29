@@ -54,9 +54,8 @@ public class TerceraEntregaTest {
         Jugador jugador1 = new Jugador(new Dinero(20000), tablero);
         Jugador jugador2 = new Jugador(new Dinero(100000), tablero);
         Jugador jugador3 = new Jugador(new Dinero(100000), tablero);
-        Region cordoba = new Cordoba();
-        Barrio cordobaNorte = new CordobaNorte(cordoba);
-        Barrio santaFe = new SantaFe();
+        Barrio cordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
+        Barrio santaFe = tablero.obtenerBarrioPorNombre("Santa Fe");
 
         jugador1.comprarPropiedad(cordobaNorte);
         jugador2.comprarPropiedad(santaFe);
@@ -97,10 +96,11 @@ public class TerceraEntregaTest {
 
         Tablero tablero = new Tablero();
         Jugador jugador = new Jugador(new Dinero(100000), tablero);
-        Barrio barrioSimple = new SantaFe();
+        Barrio barrioSimple = tablero.obtenerBarrioPorNombre("Santa Fe");
 
         jugador.comprarPropiedad(barrioSimple);
         jugador.construirHotelEn(barrioSimple);
 
     }
+
 }

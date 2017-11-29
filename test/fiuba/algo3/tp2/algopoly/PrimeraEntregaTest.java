@@ -5,11 +5,7 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.*;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BuenosAires;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
 
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
 import org.junit.Assert;
@@ -25,7 +21,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Quini6 quini6 = new Quini6();
+        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
 
         jugador.caerEn(quini6);
 
@@ -38,7 +34,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Quini6 quini6 = new Quini6();
+        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
 
         jugador.caerEn(quini6);
         jugador.caerEn(quini6);
@@ -52,7 +48,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Quini6 quini6 = new Quini6();
+        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
 
         jugador.caerEn(quini6);
         jugador.caerEn(quini6);
@@ -68,7 +64,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(50000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        SantaFe barrio = new SantaFe();
+        Barrio barrio = tablero.obtenerBarrioPorNombre("Santa Fe");
 
         jugador.caerEn(barrio);
         jugador.comprarPropiedad(barrio);
@@ -82,7 +78,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Carcel carcel = new Carcel();
+        Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 
         jugador.caerEn(carcel);
 
@@ -95,7 +91,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Carcel carcel = new Carcel();
+        Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 
         jugador.caerEn(carcel);
         jugador.caerEn(carcel);
@@ -113,7 +109,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Carcel carcel = new Carcel();
+        Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 
         jugador.caerEn(carcel);
 
@@ -128,10 +124,10 @@ public class PrimeraEntregaTest {
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
         jugador.tirarDadosParaTests(2, 2);
-        AvanceDinamico casillero = new AvanceDinamico();
-        jugador.caerEn(casillero);
+        Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
+        jugador.caerEn(avanceDinamico);
 
-        Assert.assertEquals(casillero.getPosicion() + 2, jugador.posicionActual());
+        Assert.assertEquals(avanceDinamico.getPosicion() + 2, jugador.posicionActual());
     }
 
     @Test
@@ -142,10 +138,10 @@ public class PrimeraEntregaTest {
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
         jugador.tirarDadosParaTests(3, 4);
-        AvanceDinamico casillero = new AvanceDinamico();
-        jugador.caerEn(casillero);
+        Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
+        jugador.caerEn(avanceDinamico);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 6);
+        Assert.assertEquals(jugador.posicionActual(), avanceDinamico.getPosicion() + 6);
     }
 
     @Test
@@ -156,8 +152,8 @@ public class PrimeraEntregaTest {
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
         jugador.tirarDadosParaTests(5, 6);
-        AvanceDinamico casillero = new AvanceDinamico();
-        jugador.caerEn(casillero);
+        Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
+        jugador.caerEn(avanceDinamico);
 
         //AL AVANZAR 11 CASILLEROS CAIGO EN RETROCESO DINAMICO (18) Y ME HACE RETROCEDER 9
         Assert.assertEquals(9, jugador.posicionActual());
@@ -175,10 +171,10 @@ public class PrimeraEntregaTest {
         jugador.comprarPropiedad(new Neuquen());
 
         jugador.tirarDadosParaTests(6, 6);
-        AvanceDinamico casillero = new AvanceDinamico();
-        jugador.caerEn(casillero);
+        Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
+        jugador.caerEn(avanceDinamico);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() + 9);
+        Assert.assertEquals(jugador.posicionActual(), avanceDinamico.getPosicion() + 9);
     }
 
     @Test
@@ -191,8 +187,8 @@ public class PrimeraEntregaTest {
         jugador.comprarPropiedad(new SantaFe());
 
         jugador.tirarDadosParaTests(3, 1);
-        RetrocesoDinamico casillero = new RetrocesoDinamico();
-        jugador.caerEn(casillero);
+        Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
+        jugador.caerEn(retrocesoDinamico);
 
         //AL RETROCEDER 3 CAE EN POLICIA (15) Y DE AHI LO MANDA A CARCEL (5)
         Assert.assertEquals(5, jugador.posicionActual());
@@ -215,10 +211,10 @@ public class PrimeraEntregaTest {
         jugador.construirCasaEn(bsasSur);
 
         jugador.tirarDadosParaTests(3, 2);
-        RetrocesoDinamico casillero = new RetrocesoDinamico();
-        jugador.caerEn(casillero);
+        Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
+        jugador.caerEn(retrocesoDinamico);
 
-        Assert.assertEquals(casillero.getPosicion() - 1, jugador.posicionActual());
+        Assert.assertEquals(retrocesoDinamico.getPosicion() - 1, jugador.posicionActual());
 
     }
 
@@ -234,10 +230,10 @@ public class PrimeraEntregaTest {
         jugador.comprarPropiedad(new Neuquen());
 
         jugador.tirarDadosParaTests(1, 1);
-        RetrocesoDinamico casillero = new RetrocesoDinamico();
-        jugador.caerEn(casillero);
+        Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
+        jugador.caerEn(retrocesoDinamico);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion());
+        Assert.assertEquals(jugador.posicionActual(), retrocesoDinamico.getPosicion());
 
     }
 
@@ -249,10 +245,10 @@ public class PrimeraEntregaTest {
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
         jugador.tirarDadosParaTests(3, 4);
-        RetrocesoDinamico casillero = new RetrocesoDinamico();
-        jugador.caerEn(casillero);
+        Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
+        jugador.caerEn(retrocesoDinamico);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 6);
+        Assert.assertEquals(jugador.posicionActual(), retrocesoDinamico.getPosicion() - 6);
 
     }
 
@@ -264,10 +260,10 @@ public class PrimeraEntregaTest {
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
         jugador.tirarDadosParaTests(6, 5);
-        RetrocesoDinamico casillero = new RetrocesoDinamico();
-        jugador.caerEn(casillero);
+        Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
+        jugador.caerEn(retrocesoDinamico);
 
-        Assert.assertEquals(jugador.posicionActual(), casillero.getPosicion() - 9);
+        Assert.assertEquals(jugador.posicionActual(), retrocesoDinamico.getPosicion() - 9);
 
     }
 
@@ -277,8 +273,8 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
-        Carcel carcel = new Carcel();
-        Policia policia = new Policia(carcel);
+        Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
+        Encasillable policia = tablero.obtenerCasilleroPorNombre("Policia");
 
         jugador.caerEn(policia);
 

@@ -11,6 +11,7 @@ public class Aysa extends Compania {
     public Aysa(Servicios servicios) {
         super(PRECIO);
         posicion = 12;
+        this.nombre = "Aysa";
         this.algo = servicios;
         this.FACTOR_SIMPLE = 300;
         this.FACTOR_DOBLE = 500;

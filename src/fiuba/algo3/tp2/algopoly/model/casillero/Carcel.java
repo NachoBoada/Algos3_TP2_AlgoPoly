@@ -7,16 +7,24 @@ public class Carcel implements Encasillable {
 
     private final int posicion;
     private final Dinero costoFianza;
+    private final String nombre;
 
     public Carcel() {
 
         this.posicion = 5;
+
+        this.nombre = "Carcel";
 
         this.costoFianza = new Dinero(45000);
     }
     
     public int getPosicion() {
         return this.posicion;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
     }
 
     @Override

@@ -1,18 +1,26 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class AvanceDinamico implements Encasillable {
 
     private final int posicion;
+    private final String nombre;
 
     public AvanceDinamico() {
         this.posicion = 7;
+        this.nombre = "Avance Dinamico";
     }
 
     @Override
     public int getPosicion() {
         return this.posicion;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
     }
 
     @Override

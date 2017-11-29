@@ -10,6 +10,7 @@ public class SantaFe extends BarrioSimple {
         super();
 
         this.posicion = 11;
+        this.nombre = "Santa Fe";
         this.precio = new Dinero(15000);
         this.costoCasa= new Dinero(4000);
 

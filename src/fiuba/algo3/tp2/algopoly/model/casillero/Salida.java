@@ -1,14 +1,18 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class Salida implements Encasillable {
 
     private final int posicion;
+    private final String nombre;
 
     public Salida() {
 
         this.posicion = 0;
+
+        this.nombre = "Salida";
     }
 
     @Override
@@ -20,6 +24,11 @@ public class Salida implements Encasillable {
     @Override
     public int getPosicion() {
         return this.posicion;
+    }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
     }
 
 }

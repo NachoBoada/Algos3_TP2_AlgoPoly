@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
@@ -154,6 +155,7 @@ public class Jugador {
 
     public void venderPropiedad(Apropiable apropiable){
 
+
         Dinero dineroVenta = new Dinero(apropiable.getPrecio().getCantidad() * 0.85);
 
         this.incrementarCapitalEn(dineroVenta);
@@ -200,4 +202,5 @@ public class Jugador {
         return cantidad;
 
     }
+
 }

@@ -9,6 +9,7 @@ public class Tucuman extends BarrioSimple {
 
         super();
         this.posicion = 19;
+        this.nombre = "Tucuman";
         this.precio = new Dinero(25000);
         this.costoCasa= new Dinero(7000);
 

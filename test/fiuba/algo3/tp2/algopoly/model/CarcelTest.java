@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,7 +19,7 @@ public class CarcelTest {
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador,tablero);
-		Carcel carcel = new Carcel();
+		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
 		jugador.caerEn(carcel);
@@ -41,7 +42,7 @@ public class CarcelTest {
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador,tablero);
-		Carcel carcel = new Carcel();
+		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
 		jugador.caerEn(carcel);	
@@ -63,7 +64,7 @@ public class CarcelTest {
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador,tablero);
-		Carcel carcel = new Carcel();
+		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
 		jugador.caerEn(carcel);	
@@ -84,7 +85,7 @@ public class CarcelTest {
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
 		Jugador jugador = new Jugador(capitalJugador,tablero);
-		Carcel carcel = new Carcel();
+		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
 		jugador.caerEn(carcel);	

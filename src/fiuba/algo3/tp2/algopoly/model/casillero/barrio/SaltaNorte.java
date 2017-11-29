@@ -10,6 +10,7 @@ public class SaltaNorte extends BarrioDividido {
 		super(region);
 		
 		this.posicion = 13;
+		this.nombre = "Salta Norte";
         this.precio = new Dinero(23000);
     	this.precioCasa = new Dinero(4500);
     	this.precioHotel = new Dinero(7500);

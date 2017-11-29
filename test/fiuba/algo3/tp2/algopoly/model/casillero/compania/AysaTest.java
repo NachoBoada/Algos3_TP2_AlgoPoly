@@ -1,6 +1,9 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
 import fiuba.algo3.tp2.algopoly.model.Tablero;
+import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
+import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,9 +20,8 @@ public class AysaTest {
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga,tablero);
         Dinero dineroJugadorDuenioDeEdesur = new Dinero(100000);
         Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur,tablero);
-        Servicios servicios = new Servicios();
 
-        Aysa aysa = servicios.getAysa();
+        Compania aysa = tablero.obtenerCompaniaPorNombre("Aysa");
         jugadorDuenioDeEdesur.comprarPropiedad(aysa);
         jugadorQuePaga.tirarDadosParaTests(2, 1);
         jugadorQuePaga.caerEn(aysa);
@@ -36,15 +38,13 @@ public class AysaTest {
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga,tablero);
         Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
         Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa,tablero);
-        Servicios servicios = new Servicios();
-        
-        Edesur edesur = servicios.getEdesur();
-        Aysa aysa = servicios.getAysa();
+
+        Compania edesur = tablero.obtenerCompaniaPorNombre("Edesur");
         JugadorDuenioDeEdesurYAysa.comprarPropiedad(edesur);
-        JugadorDuenioDeEdesurYAysa.comprarPropiedad(aysa);
+        JugadorDuenioDeEdesurYAysa.comprarPropiedad(edesur);
 
         jugadorQuePaga.tirarDadosParaTests(2, 1);
-        jugadorQuePaga.caerEn(aysa);
+        jugadorQuePaga.caerEn(edesur);
         Dinero dineroRestante = new Dinero(100000 - 500 * 3);
         
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));

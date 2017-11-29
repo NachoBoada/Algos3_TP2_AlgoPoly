@@ -10,6 +10,7 @@ public class Neuquen extends BarrioSimple {
         super();
         
         this.posicion = 17;
+        this.nombre = "Neuquen";
         this.precio = new Dinero(17000);
         this.costoCasa= new Dinero(4800);
 

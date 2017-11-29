@@ -1,21 +1,11 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
-import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
-import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
-import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
-import fiuba.algo3.tp2.algopoly.model.casillero.ImpuestoAlLujo;
-import fiuba.algo3.tp2.algopoly.model.casillero.Policia;
-import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
-import fiuba.algo3.tp2.algopoly.model.casillero.RetrocesoDinamico;
-import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BuenosAires;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Cordoba;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Salta;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
+import fiuba.algo3.tp2.algopoly.model.casillero.*;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
 
@@ -23,9 +13,11 @@ public class Tablero {
 	
 	private static final int TotalCasilleros = 20;
 	private LinkedList<Encasillable> casilleros;
+	private ArrayList<Barrio> barrios;
+	private ArrayList<Compania> companias;
 
 	public Tablero(){
-		BuenosAires buenosaires = new BuenosAires();
+		BuenosAires buenosAires = new BuenosAires();
 		Servicios servicios = new Servicios();
 		Cordoba cordoba = new Cordoba();
 		Transportes transportes = new Transportes();
@@ -33,27 +25,74 @@ public class Tablero {
 		Carcel carcel = new Carcel();
 		
 		casilleros = new LinkedList<Encasillable>();
+		barrios = new ArrayList<Barrio>();
+		companias = new ArrayList<Compania>();
 		
 		casilleros.add(new Salida());
+
 		casilleros.add(new Quini6());
-		casilleros.add(buenosaires.getBarrioSur());
-		casilleros.add(servicios.getEdesur());
-		casilleros.add(buenosaires.getBarrioNorte());
+
+		Barrio buenosAiresSur = buenosAires.getBarrioSur();
+		casilleros.add(buenosAiresSur);
+		barrios.add(buenosAiresSur);
+
+		Compania edesur = servicios.getEdesur();
+		casilleros.add(edesur);
+		companias.add(edesur);
+
+		Barrio buenosAiresNorte = buenosAires.getBarrioNorte();
+		casilleros.add(buenosAiresNorte);
+		barrios.add(buenosAiresNorte);
+
 		casilleros.add(carcel);
-		casilleros.add(cordoba.getBarrioSur());
+
+		Barrio cordobaSur = cordoba.getBarrioSur();
+		casilleros.add(cordobaSur);
+		barrios.add(cordobaSur);
+
 		casilleros.add(new AvanceDinamico());
-		casilleros.add(transportes.getSubte());
-		casilleros.add(cordoba.getBarrioNorte());
+
+		Compania subte = transportes.getSubte();
+		casilleros.add(subte);
+		companias.add(subte);
+
+		Barrio cordobaNorte = cordoba.getBarrioNorte();
+		casilleros.add(cordobaNorte);
+		barrios.add(cordobaNorte);
+
 		casilleros.add(new ImpuestoAlLujo());
-		casilleros.add(new SantaFe());
-		casilleros.add(servicios.getAysa());
-		casilleros.add(salta.getBarrioNorte());
-		casilleros.add(salta.getBarrioSur());
+
+		Barrio santaFe = new SantaFe();
+		casilleros.add(santaFe);
+		barrios.add(santaFe);
+
+		Compania aysa = servicios.getAysa();
+		casilleros.add(aysa);
+		companias.add(aysa);
+
+		Barrio saltaNorte = salta.getBarrioNorte();
+		casilleros.add(saltaNorte);
+		barrios.add(saltaNorte);
+
+		Barrio saltaSur = salta.getBarrioSur();
+		casilleros.add(saltaSur);
+		barrios.add(saltaSur);
+
 		casilleros.add(new Policia(carcel));
-		casilleros.add(transportes.getTren());
-		casilleros.add(new Neuquen());
+
+		Compania tren = transportes.getTren();
+		casilleros.add(tren);
+		companias.add(tren);
+
+		Barrio neuquen = new Neuquen();
+		casilleros.add(neuquen);
+		barrios.add(neuquen);
+
 		casilleros.add(new RetrocesoDinamico());
-		casilleros.add(new Tucuman());		
+
+		Barrio tucuman = new Tucuman();
+		casilleros.add(tucuman);
+		barrios.add(tucuman);
 	}
 	
 	public void moverJugador (Jugador jugador, int posicionActual, int cantidadCasilleros) {
@@ -61,6 +100,62 @@ public class Tablero {
 		int posicion = (posicionActual + cantidadCasilleros) % TotalCasilleros ;
 
 		jugador.caerEn( casilleros.get( posicion ) );
+	}
+
+	public Encasillable obtenerCasilleroPorNombre(String nombre){
+
+		Encasillable casilleroPedido = null;
+		
+		for ( Encasillable casillero: this.casilleros ) {
+
+			if (casillero.getNombre().equals(nombre)) {
+
+				casilleroPedido = casillero;
+
+			}
+
+		}
+		
+		return casilleroPedido;
+
+	}
+
+	public Barrio obtenerBarrioPorNombre(String nombre){
+
+		Barrio barrioPedido = null;
+
+		for ( Barrio barrio : this.barrios ) {
+
+			if (barrio.getNombre().equals(nombre)) {
+
+				barrioPedido = barrio;
+
+			}
+
+		}
+
+		return barrioPedido;
+
+
+	}
+
+	public Compania obtenerCompaniaPorNombre(String nombre){
+
+		Compania companiaPedida = null;
+
+		for ( Compania compania : this.companias ) {
+
+			if (compania.getNombre() == nombre ) {
+
+				companiaPedida = compania;
+
+			}
+
+		}
+
+		return companiaPedida;
+
+
 	}
 	
 

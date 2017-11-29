@@ -12,4 +12,6 @@ public interface Apropiable {
     public Dinero getPrecio();
 
     public int obtenerCantidadDePropiedadesParaMovimientoDinamico();
+
+    public String getNombre();
 }

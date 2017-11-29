@@ -1,19 +1,15 @@
 package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Tablero;
+import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.ImpuestoAlLujo;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Aysa;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Edesur;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Subte;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Tren;
 
 public class SegundaEntregaTest {
 
@@ -24,7 +20,7 @@ public class SegundaEntregaTest {
     public void test01JugadorCaeEnSantaFeSinPropietarioLoCompraYSuCapitalSeDecrementaEn15mil() {
 
         Tablero tablero = new Tablero();
-        SantaFe barrioSantaFe = new SantaFe();
+        Barrio barrioSantaFe = tablero.obtenerBarrioPorNombre("Santa Fe");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
 
         jugador.caerEn(barrioSantaFe);
@@ -37,7 +33,7 @@ public class SegundaEntregaTest {
     public void test01JugadorCaeEnNeuquenSinPropietarioLoCompraYSuCapitalSeDecrementaEn17mil() {
 
         Tablero tablero = new Tablero();
-        Neuquen barrioNeuquen = new Neuquen();
+        Barrio barrioNeuquen = tablero.obtenerBarrioPorNombre("Neuquen");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
 
         jugador.caerEn(barrioNeuquen);
@@ -50,8 +46,7 @@ public class SegundaEntregaTest {
     public void test01JugadorCaeEnBsAsSurSinPropietarioLoCompraYSuCapitalSeDecrementaEn20mil() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
 
         jugador.caerEn(barrioBsAsSur);
@@ -64,9 +59,8 @@ public class SegundaEntregaTest {
     public void test02UnJugadorDuenioDeBsAsSurYNorteCompraUnaCasaEnElSurYSuCapitalSeDecrementaEn5mil() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
+        Barrio barrioBsAsNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioBsAsSur);
         jugador.comprarPropiedad(barrioBsAsNorte);
@@ -81,9 +75,8 @@ public class SegundaEntregaTest {
     public void test02UnJugadorDuenioDeCordobaSurYNorteCompraUnaCasaEnElSurYSuCapitalSeDecrementaEn2mil() {
 
         Tablero tablero = new Tablero();
-        Cordoba regionCordoba = new Cordoba();
-        BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
-        BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
+        Barrio barrioCordobaSur = tablero.obtenerBarrioPorNombre("Cordoba Sur");
+        Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioCordobaSur);
         jugador.comprarPropiedad(barrioCordobaNorte);
@@ -98,9 +91,8 @@ public class SegundaEntregaTest {
     public void test02UnJugadorDuenioDeSaltaSurYNorteCompraUnaCasaEnElSurYSuCapitalSeDecrementaEn4500() {
 
         Tablero tablero = new Tablero();
-        Salta regionSalta = new Salta();
-        BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
-        BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
+        Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
+        Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioSaltaSur);
         jugador.comprarPropiedad(barrioSaltaNorte);
@@ -115,9 +107,8 @@ public class SegundaEntregaTest {
     public void test03UnJugadorCaeEnBsAsSurConUnaCasaEntoncesPaga3milDeAlquiler() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
+        Barrio barrioBsAsNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioBsAsSur);
         jugador1.comprarPropiedad(barrioBsAsNorte);
@@ -134,9 +125,8 @@ public class SegundaEntregaTest {
     public void test03UnJugadorCaeEnCordobaNorteConUnaCasaEntoncesPaga1800DeAlquiler() {
 
         Tablero tablero = new Tablero();
-        Cordoba regionCordoba = new Cordoba();
-        BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
-        BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
+        Barrio barrioCordobaSur = tablero.obtenerBarrioPorNombre("Cordoba Sur");
+        Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioCordobaSur);
         jugador1.comprarPropiedad(barrioCordobaNorte);
@@ -153,8 +143,7 @@ public class SegundaEntregaTest {
     public void test03UnJugadorCaeEnSaltaConUnaCasaEntoncesPaga3250DeAlquiler() {
 
         Tablero tablero = new Tablero();
-        Salta regionSalta = new Salta();
-        BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
+        Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioSaltaSur);
         jugador.construirCasaEn(barrioSaltaSur);
@@ -169,8 +158,7 @@ public class SegundaEntregaTest {
     public void test04UnJugadorCaeEnBuenosAiresSurConDosCasasEntonesPaga3500DeAlquiler() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioBsAsSur);
         jugador1.construirCasaEn(barrioBsAsSur);
@@ -186,8 +174,7 @@ public class SegundaEntregaTest {
     public void test04UnJugadorCaeEnCordobaNorteConDosCasasEntonesPaga2900DeAlquiler() {
 
         Tablero tablero = new Tablero();
-        Cordoba regionCordoba = new Cordoba();
-        BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
+        Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaNorte);
@@ -203,8 +190,7 @@ public class SegundaEntregaTest {
     public void test04UnJugadorCaeEnSaltaConDosCasasEntonesPaga3850DeAlquiler() {
 
         Tablero tablero = new Tablero();
-        Salta regionSalta = new Salta();
-        BarrioDividido barrioSaltaNorte = regionSalta.getBarrioSur();
+        Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaNorte);
@@ -220,9 +206,8 @@ public class SegundaEntregaTest {
     public void test05UnJugadorConBsAsNorteYSurNoTieneCupoMaximoDeCasasEntoncesComprarHotelNoDecrementaElCapital() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
+        Barrio barrioBsAsNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioBsAsSur);
         jugador.comprarPropiedad(barrioBsAsNorte);
@@ -232,7 +217,7 @@ public class SegundaEntregaTest {
         double capitalJugador = jugador.getCapital().getCantidad();
 
         jugador.construirHotelEn(barrioBsAsSur);
-        jugador.construirHotelEn(barrioBsAsNorte);
+        jugador.construirHotelEn(barrioBsAsNorte);      //ACA MEJOR TIRAR EXCEPCION!!!!!
 
         Assert.assertEquals(capitalJugador, jugador.getCapital().getCantidad(), DELTA);
     }
@@ -241,9 +226,8 @@ public class SegundaEntregaTest {
     public void test05UnJugadorConCordobaNorteYSurNoTieneCupoMaximoDeCasasEntoncesComprarHotelNoDecrementaElCapital() {
 
         Tablero tablero = new Tablero();
-        Cordoba regionCordoba = new Cordoba();
-        BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
-        BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
+        Barrio barrioCordobaSur = tablero.obtenerBarrioPorNombre("Cordoba Sur");
+        Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioCordobaSur);
         jugador.comprarPropiedad(barrioCordobaNorte);
@@ -262,9 +246,8 @@ public class SegundaEntregaTest {
     public void test05UnJugadorConSaltaNorteYSurNoTieneCupoMaximoDeCasasEntoncesComprarHotelNoDecrementaElCapital() {
 
         Tablero tablero = new Tablero();
-        Salta regionSalta = new Salta();
-        BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
-        BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
+        Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
+        Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioSaltaSur);
         jugador.comprarPropiedad(barrioSaltaNorte);
@@ -283,9 +266,8 @@ public class SegundaEntregaTest {
     public void test06UnJugadorConBsAsNorteYSurTieneCupoMaximoDeCasasEntoncesConstruirHotelEnNorteDecrementaElCapitalEn9mil() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
+        Barrio barrioBsAsNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioBsAsSur);
         jugador.comprarPropiedad(barrioBsAsNorte);
@@ -304,9 +286,8 @@ public class SegundaEntregaTest {
     public void test06UnJugadorConCordobaNorteYSurTieneCupoMaximoDeCasasEntoncesConstruirHotelEnSurDecrementaElCapitalEn3mil() {
 
         Tablero tablero = new Tablero();
-        Cordoba regionCordoba = new Cordoba();
-        BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
-        BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
+        Barrio barrioCordobaSur = tablero.obtenerBarrioPorNombre("Cordoba Sur");
+        Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioCordobaSur);
         jugador.comprarPropiedad(barrioCordobaNorte);
@@ -325,9 +306,8 @@ public class SegundaEntregaTest {
     public void test06UnJugadorConSaltaaNorteYSurTieneCupoMaximoDeCasasEntoncesConstruirHotelDecrementaElCapitalEn7500() {
 
         Tablero tablero = new Tablero();
-        Salta regionSalta = new Salta();
-        BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
-        BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
+        Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
+        Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioSaltaSur);
         jugador.comprarPropiedad(barrioSaltaNorte);
@@ -346,9 +326,8 @@ public class SegundaEntregaTest {
     public void test07UnJugadorCaeEnBsAsSurConUnHotelEntoncesPagaUnAlquilerDe5mil() {
 
         Tablero tablero = new Tablero();
-        BuenosAires regionBsAs = new BuenosAires();
-        BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
+        Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
+        Barrio barrioBsAsNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioBsAsSur);
         jugador1.comprarPropiedad(barrioBsAsNorte);
@@ -368,9 +347,8 @@ public class SegundaEntregaTest {
     public void test07UnJugadorCaeEnCordobaNorteConUnHotelEntoncesPagaUnAlquilerDe3500() {
 
         Tablero tablero = new Tablero();
-        Cordoba regionCordoba = new Cordoba();
-        BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
-        BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
+        Barrio barrioCordobaSur = tablero.obtenerBarrioPorNombre("Cordoba Sur");
+        Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioCordobaSur);
         jugador1.comprarPropiedad(barrioCordobaNorte);
@@ -390,9 +368,8 @@ public class SegundaEntregaTest {
     public void test07UnJugadorCaeEnSaltaConUnHotelEntoncesPagaUnAlquilerDe5500() {
 
         Tablero tablero = new Tablero();
-        Salta regionSalta = new Salta();
-        BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
-        BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
+        Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
+        Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador1.comprarPropiedad(barrioSaltaSur);
         jugador1.comprarPropiedad(barrioSaltaNorte);
@@ -412,7 +389,7 @@ public class SegundaEntregaTest {
     public void test09UnJugadorPropietarioDeSantaFeConstruyeUnaCasaYSuCapitalSeDecrementaEn4mil() {
 
         Tablero tablero = new Tablero();
-        SantaFe barrioSantaFe = new SantaFe();
+        Barrio barrioSantaFe = tablero.obtenerBarrioPorNombre("Santa Fe");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
         jugador.comprarPropiedad(barrioSantaFe);
         Double capitalJugador = jugador.getCapital().getCantidad();
@@ -432,7 +409,7 @@ public class SegundaEntregaTest {
         Dinero capitalInicialPagador = new Dinero(100000);
         Jugador jugadorPagador = new Jugador(capitalInicialPagador, tablero);
 
-        Tren tren = new Transportes().getTren();
+        Compania tren = tablero.obtenerCompaniaPorNombre("Tren");
         jugadorCobrador.comprarPropiedad(tren);
 
         jugadorPagador.tirarDadosParaTests(3, 2);
@@ -453,9 +430,8 @@ public class SegundaEntregaTest {
         Dinero capitalInicialPagador = new Dinero(100000);
         Jugador jugadorPagador = new Jugador(capitalInicialPagador, tablero);
 
-        Transportes transportes = new Transportes();
-        Tren tren = transportes.getTren();
-        Subte subte = transportes.getSubte();
+        Compania tren = tablero.obtenerCompaniaPorNombre("Tren");
+        Compania subte = tablero.obtenerCompaniaPorNombre("Subte");
 
         jugadorCobrador.comprarPropiedad(tren);
         jugadorCobrador.comprarPropiedad(subte);
@@ -472,8 +448,8 @@ public class SegundaEntregaTest {
     public void test13JugadorIntercambiaPropiedadConOtroYTercerJugadorAlCaerLePagaAlNuevoPropietarioDeUnaDeLasPropiedadaes() {
 
         Tablero tablero = new Tablero();
-        SantaFe santaFe = new SantaFe();
-        Neuquen neuquen = new Neuquen();
+        Barrio santaFe = tablero.obtenerBarrioPorNombre("Santa Fe");
+        Barrio neuquen = tablero.obtenerBarrioPorNombre("Neuquen");
         Dinero dinero1 = new Dinero(100000);
         Dinero dinero2 = new Dinero(100000);
         Dinero dinero3 = new Dinero(100000);
@@ -493,11 +469,11 @@ public class SegundaEntregaTest {
     }
 
     @Test
-    public void test14JugadorIntercambiaPropiedadConCasaConOtroYTercerJugadorAlCaerLePagaAlNuevoPropietarioDeUnaDeLasPropiedadaesAlquilerSinCasa() {
+    public void test14JugadorIntercambiaPropiedadConCasaConOtroYTercerJugadorAlCaerLePagaAlNuevoPropietarioDeUnaDeLasPropiedadaesAlquilerConCasa() {
 
         Tablero tablero = new Tablero();
-        SantaFe santaFe = new SantaFe();
-        Neuquen neuquen = new Neuquen();
+        Barrio santaFe = tablero.obtenerBarrioPorNombre("Santa Fe");
+        Barrio neuquen = tablero.obtenerBarrioPorNombre("Neuquen");
         Dinero dinero1 = new Dinero(100000);
         Dinero dinero2 = new Dinero(100000);
         Dinero dinero3 = new Dinero(100000);
@@ -523,7 +499,7 @@ public class SegundaEntregaTest {
         Tablero tablero = new Tablero();
         Dinero dineroJugador = new Dinero(80);
         Jugador jugador = new Jugador(dineroJugador, tablero);
-        ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
+        Encasillable impuesto = tablero.obtenerCasilleroPorNombre("Impuesto Al Lujo");
 
         jugador.caerEn(impuesto);
         Dinero dineroRestante = new Dinero(72);
@@ -539,9 +515,8 @@ public class SegundaEntregaTest {
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga, tablero);
         Dinero dineroJugadorDuenioDeEdesur = new Dinero(100000);
         Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur, tablero);
-        Servicios servicios = new Servicios();
 
-        Edesur edesur = servicios.getEdesur();
+        Compania edesur = tablero.obtenerCompaniaPorNombre("Edesur");
         jugadorDuenioDeEdesur.comprarPropiedad(edesur);
         jugadorQuePaga.tirarDadosParaTests(2, 1);
         jugadorQuePaga.caerEn(edesur);
@@ -558,10 +533,9 @@ public class SegundaEntregaTest {
         Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga, tablero);
         Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
         Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa, tablero);
-        Servicios servicios = new Servicios();
 
-        Edesur edesur = servicios.getEdesur();
-        Aysa aysa = servicios.getAysa();
+        Compania edesur = tablero.obtenerCompaniaPorNombre("Edesur");
+        Compania aysa = tablero.obtenerCompaniaPorNombre("Aysa");
         JugadorDuenioDeEdesurYAysa.comprarPropiedad(edesur);
         JugadorDuenioDeEdesurYAysa.comprarPropiedad(aysa);
         jugadorQuePaga.tirarDadosParaTests(2, 1);

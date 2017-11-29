@@ -9,12 +9,13 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.EstadoBarrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
-public abstract class Barrio implements Encasillable, Apropiable {
+public abstract class Barrio implements Encasillable, Apropiable{
 
 	protected EstadoBarrio estadoActual;
 	protected Comprado estadoComprado;
     protected Dinero precio;
     protected int posicion;
+    protected String nombre;
 
 
     Barrio(){
@@ -50,7 +51,12 @@ public abstract class Barrio implements Encasillable, Apropiable {
     	return this.posicion;
 
 	}
-	
+
+	@Override
+	public String getNombre() {
+		return nombre;
+	}
+
 	public abstract void comprarCasa (Jugador jugador);
 
 	public abstract void comprarHotel(Jugador jugador);

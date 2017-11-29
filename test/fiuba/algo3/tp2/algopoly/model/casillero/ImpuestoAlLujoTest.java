@@ -15,7 +15,7 @@ public class ImpuestoAlLujoTest {
     	Dinero dinero = new Dinero(100);
     	Dinero dineroRestante = new Dinero(90);
         Jugador jugador = new Jugador(dinero,tablero);
-        ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
+        Encasillable impuesto = tablero.obtenerCasilleroPorNombre("Impuesto Al Lujo");
         
         jugador.caerEn(impuesto);
 

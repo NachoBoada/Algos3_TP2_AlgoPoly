@@ -10,6 +10,7 @@ public class Tren extends Compania {
     public Tren(Transportes transportes) {
         super(PRECIO);
         this.posicion = 16;
+        this.nombre = "Tren";
         this.algo = transportes;
         this.FACTOR_SIMPLE = 450;
         this.FACTOR_DOBLE = 800;

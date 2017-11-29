@@ -8,13 +8,14 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaComprada
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaNoComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
 
-public abstract class Compania implements Encasillable, Apropiable {
+public abstract class Compania implements Encasillable, Apropiable{
 
     protected final Dinero precio;
     private EstadoCompania estadoActual;
     protected AlgunNombreDeInterfaz algo;
     protected int FACTOR_SIMPLE;
     protected int FACTOR_DOBLE;
+    protected String nombre;
 
     public Compania(Dinero precio) {
         this.precio = precio;
@@ -45,6 +46,12 @@ public abstract class Compania implements Encasillable, Apropiable {
     public int obtenerCantidadDePropiedadesParaMovimientoDinamico(){
 
         return 0;
+
+    }
+
+    public String getNombre(){
+
+        return this.nombre;
 
     }
 }

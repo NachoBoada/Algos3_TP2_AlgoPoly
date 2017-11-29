@@ -11,6 +11,7 @@ public class Subte extends Compania {
     public Subte(Transportes transportes) {
         super(PRECIO);
         this.posicion = 8;
+        this.nombre = "Subte";
         this.algo = transportes;
         this.FACTOR_SIMPLE = 600;
         this.FACTOR_DOBLE = 1100;

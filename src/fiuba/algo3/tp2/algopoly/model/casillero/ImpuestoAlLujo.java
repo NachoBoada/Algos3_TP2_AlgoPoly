@@ -1,19 +1,30 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class ImpuestoAlLujo implements Encasillable {
 	
 	private final int posicion;
 	private double porcentajeDelImpuesto = 0.1;
+	private final String nombre;
 	
 	public ImpuestoAlLujo(){
-		posicion = 10;
+
+		this.posicion = 10;
+
+		this.nombre = "Impuesto Al Lujo";
 	}
 	
     public int getPosicion() {
         return this.posicion;
     }
+
+	@Override
+	public String getNombre() {
+		return this.nombre;
+	}
+
 
 	@Override
 	public void actuarSobre(Jugador jugador) {

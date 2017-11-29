@@ -1,14 +1,18 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class RetrocesoDinamico implements Encasillable {
 
     private final int posicion;
+    private final String nombre;
 
     public RetrocesoDinamico() {
 
         this.posicion = 18;
+
+        this.nombre = "Retroceso Dinamico";
 
     }
 
@@ -16,6 +20,12 @@ public class RetrocesoDinamico implements Encasillable {
     public int getPosicion() {
         return this.posicion;
     }
+
+    @Override
+    public String getNombre() {
+        return this.nombre;
+    }
+
 
     @Override
     public void actuarSobre(Jugador jugador) {
