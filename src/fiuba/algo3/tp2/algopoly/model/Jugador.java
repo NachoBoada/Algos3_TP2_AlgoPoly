@@ -82,7 +82,7 @@ public class Jugador {
     public void decrementarCapitalEn(Dinero decrementoDeCapital) {
         try {
             capitalDelJugador.restar(decrementoDeCapital);
-        } catch (ElDineroNoPuedeSerNegativo e) {
+        } catch (ElDineroNoPuedeSerNegativoException e) {
             throw new CapitalInsuficienteException();
         }
     }

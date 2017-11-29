@@ -22,7 +22,7 @@ public class Dinero {
 
     public void restar(Dinero dinero) {
         if (this.cantidad < dinero.getCantidad()) {
-            throw new ElDineroNoPuedeSerNegativo();
+            throw new ElDineroNoPuedeSerNegativoException();
         }
 
         this.cantidad -= dinero.getCantidad();
@@ -30,7 +30,7 @@ public class Dinero {
 
     public void restarEntero(int factor) {
         if (this.cantidad < factor) {
-            throw new ElDineroNoPuedeSerNegativo();
+            throw new ElDineroNoPuedeSerNegativoException();
         }
 
         this.cantidad -= factor;
