@@ -58,8 +58,8 @@ public class TerceraEntregaTest {
         Barrio cordobaNorte = new CordobaNorte(cordoba);
         Barrio santaFe = new SantaFe();
 
-        jugador1.comprarBarrio(cordobaNorte);
-        jugador2.comprarBarrio(santaFe);
+        jugador1.comprarPropiedad(cordobaNorte);
+        jugador2.comprarPropiedad(santaFe);
 
         try {
 
@@ -67,11 +67,11 @@ public class TerceraEntregaTest {
 
         } catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e) {
 
-            jugador1.venderBarrio(cordobaNorte);
+            jugador1.venderPropiedad(cordobaNorte);
 
         }
 
-        jugador2.comprarBarrio(cordobaNorte);
+        jugador2.comprarPropiedad(cordobaNorte);
         jugador3.caerEn(cordobaNorte);
 
         Assert.assertEquals(100000 - 15000 - 20000 + 1300, jugador2.getCapital().getCantidad(), DELTA);
@@ -99,7 +99,7 @@ public class TerceraEntregaTest {
         Jugador jugador = new Jugador(new Dinero(100000), tablero);
         Barrio barrioSimple = new SantaFe();
 
-        jugador.comprarBarrio(barrioSimple);
+        jugador.comprarPropiedad(barrioSimple);
         jugador.construirHotelEn(barrioSimple);
 
     }

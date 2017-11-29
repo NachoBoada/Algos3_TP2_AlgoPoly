@@ -23,7 +23,7 @@ public class Servicios implements AlgunNombreDeInterfaz {
 
     public void cobrar(CompaniaComprada companiaComprada, Jugador jugador) {
         Jugador duenio = companiaComprada.getDuenio();
-        if (duenio.esDuenioDe(edesur) && duenio.esDuenioDe(aysa)) {
+        if (duenio.esPropietarioDe(edesur) && duenio.esPropietarioDe(aysa)) {
         	companiaComprada.cobrarDoble(jugador);
         } else {
         	companiaComprada.cobrarSimple(jugador);

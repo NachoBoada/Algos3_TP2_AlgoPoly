@@ -2,12 +2,13 @@ package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaNoComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
 
-public abstract class Compania implements Encasillable {
+public abstract class Compania implements Encasillable, Apropiable {
 
     protected final Dinero precio;
     private EstadoCompania estadoActual;
@@ -38,6 +39,12 @@ public abstract class Compania implements Encasillable {
     public void dejarSinPropietario(){
 
         this.estadoActual = new CompaniaNoComprada();
+
+    }
+
+    public int obtenerCantidadDePropiedadesParaMovimientoDinamico(){
+
+        return 0;
 
     }
 }

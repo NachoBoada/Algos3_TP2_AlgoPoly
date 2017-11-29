@@ -21,7 +21,7 @@ public class SubteTest {
         
         Transportes transportes = new Transportes();
         Subte subte = transportes.getSubte();
-        jugadorCobrador.comprarCompania(subte);
+        jugadorCobrador.comprarPropiedad(subte);
 
         jugadorPagador.tirarDadosParaTests(2, 3);
         jugadorPagador.caerEn(subte);
@@ -45,8 +45,8 @@ public class SubteTest {
         Tren tren = transportes.getTren();
         Subte subte = transportes.getSubte();
         
-        jugadorCobrador.comprarCompania(tren);
-        jugadorCobrador.comprarCompania(subte);
+        jugadorCobrador.comprarPropiedad(tren);
+        jugadorCobrador.comprarPropiedad(subte);
 
         jugadorPagador.tirarDadosParaTests(2, 3);
         jugadorPagador.caerEn(subte);

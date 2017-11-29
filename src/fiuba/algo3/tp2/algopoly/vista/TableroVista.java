@@ -12,7 +12,7 @@ public class TableroVista extends GridPane {
 
         this.setAlignment(Pos.CENTER);
 
-        this. add(this.crearCasilleroEstandar("SALIDA"), 5, 5);
+        this.add(this.crearCasilleroEstandar("SALIDA"), 5, 5);
         this.add(this.crearCasilleroEstandar("Quini 6"), 4, 5);
         this.add(this.crearCasilleroEstandar("Buenos Aires\n      SUR"),3, 5);
         this.add(this.crearCasilleroEstandar("EDESUR"), 2, 5);

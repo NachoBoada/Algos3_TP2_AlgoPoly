@@ -20,7 +20,6 @@ public class AvanceDinamico implements Encasillable {
 
         jugador.actualizarCasillero(this, this.posicion);
 
-//        int sumaDados = (Dados.getInstance()).obtenerUltimaSuma();
         int sumaDados = jugador.getUltimoTiroDeDados().resultado();
 
         //si los dados suman 2, moveria 0 casilleros.
@@ -40,7 +39,7 @@ public class AvanceDinamico implements Encasillable {
 
         if (sumaDados == 11 || sumaDados == 12) {
 
-        	int cantidadCasilleros = sumaDados - jugador.getCantidadDePropiedades();
+        	int cantidadCasilleros = sumaDados - jugador.getCantidadDePropiedadesParaMovimientoDinamico();
         	
         	if (cantidadCasilleros > 0)	jugador.mover(cantidadCasilleros);
 

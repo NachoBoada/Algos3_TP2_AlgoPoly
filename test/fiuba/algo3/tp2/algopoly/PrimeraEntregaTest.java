@@ -71,7 +71,7 @@ public class PrimeraEntregaTest {
         SantaFe barrio = new SantaFe();
 
         jugador.caerEn(barrio);
-        jugador.comprarBarrio(barrio);
+        jugador.comprarPropiedad(barrio);
 
         Assert.assertTrue(jugador.esPropietarioDe(barrio));
     }
@@ -170,9 +170,9 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        jugador.comprarBarrio(new SantaFe());
-        jugador.comprarBarrio(new Tucuman());
-        jugador.comprarBarrio(new Neuquen());
+        jugador.comprarPropiedad(new SantaFe());
+        jugador.comprarPropiedad(new Tucuman());
+        jugador.comprarPropiedad(new Neuquen());
 
         jugador.tirarDadosParaTests(6, 6);
         AvanceDinamico casillero = new AvanceDinamico();
@@ -188,7 +188,7 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        jugador.comprarBarrio(new SantaFe());
+        jugador.comprarPropiedad(new SantaFe());
 
         jugador.tirarDadosParaTests(3, 1);
         RetrocesoDinamico casillero = new RetrocesoDinamico();
@@ -209,8 +209,8 @@ public class PrimeraEntregaTest {
         BuenosAires bsas = new BuenosAires();
         BarrioDividido bsasSur = bsas.getBarrioSur();
         BarrioDividido bsasNorte = bsas.getBarrioNorte();
-        jugador.comprarBarrio(bsasNorte);
-        jugador.comprarBarrio(bsasSur);
+        jugador.comprarPropiedad(bsasNorte);
+        jugador.comprarPropiedad(bsasSur);
         jugador.construirCasaEn(bsasSur);
         jugador.construirCasaEn(bsasSur);
 
@@ -229,9 +229,9 @@ public class PrimeraEntregaTest {
         Dinero capitalInicial = new Dinero(100000);
         Jugador jugador = new Jugador(capitalInicial, tablero);
 
-        jugador.comprarBarrio(new SantaFe());
-        jugador.comprarBarrio(new Tucuman());
-        jugador.comprarBarrio(new Neuquen());
+        jugador.comprarPropiedad(new SantaFe());
+        jugador.comprarPropiedad(new Tucuman());
+        jugador.comprarPropiedad(new Neuquen());
 
         jugador.tirarDadosParaTests(1, 1);
         RetrocesoDinamico casillero = new RetrocesoDinamico();

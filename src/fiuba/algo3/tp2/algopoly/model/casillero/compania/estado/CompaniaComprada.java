@@ -21,7 +21,7 @@ public class CompaniaComprada implements EstadoCompania {
     }
 
     public void actuarSobre(Jugador jugador, Compania compania, AlgunNombreDeInterfaz algo) {
-        if (!jugador.esDuenioDe(compania)) {
+        if (!jugador.esPropietarioDe(compania)) {
             algo.cobrar(this, jugador);
         }
     }

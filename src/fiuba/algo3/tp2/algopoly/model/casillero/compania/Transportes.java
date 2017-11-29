@@ -23,7 +23,7 @@ public class Transportes implements AlgunNombreDeInterfaz {
 
     public void cobrar(CompaniaComprada companiaComprada, Jugador jugador) {
         Jugador duenio = companiaComprada.getDuenio();
-        if (duenio.esDuenioDe(subte) && duenio.esDuenioDe(tren)) {
+        if (duenio.esPropietarioDe(subte) && duenio.esPropietarioDe(tren)) {
         	companiaComprada.cobrarDoble(jugador);
         } else {
         	companiaComprada.cobrarSimple(jugador);

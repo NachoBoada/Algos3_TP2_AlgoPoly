@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
+import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
@@ -17,8 +18,6 @@ import fiuba.algo3.tp2.algopoly.model.estado.Libre;
 public class Jugador {
 
     private final Dinero capitalDelJugador;
-    private final ArrayList<Barrio> propiedades;
-    private final ArrayList<Compania> companias;
     private final BoletaQuini6 boletaQuini6;
     private Encasillable casilleroActual;
     private int posicionActual;
@@ -26,13 +25,13 @@ public class Jugador {
     private final Tablero tablero;
     private TiroDeDados ultimoTiro;
     private int contadorTirosDuplicados;
+    private ArrayList<Apropiable> apropiables;
 
     public Jugador(Dinero capitalInicial, Tablero tablero) {
 
         capitalDelJugador = capitalInicial;
 
-        propiedades = new ArrayList<>();
-        companias = new ArrayList<>();
+        this.apropiables = new ArrayList<Apropiable>();
 
         boletaQuini6 = new BoletaQuini6();
 
@@ -67,10 +66,6 @@ public class Jugador {
         posicionActual = posicion;
     }
 
-    public void sumarAPosicion(int cantidad) {
-        this.posicionActual += cantidad;
-    }
-
     public Dinero getCapital() {
         return capitalDelJugador;
     }
@@ -91,15 +86,8 @@ public class Jugador {
         return boletaQuini6;
     }
 
-    public void comprarBarrio(Barrio barrioAComprar) {
-        this.decrementarCapitalEn(barrioAComprar.getPrecioDelBarrio());
-
-        barrioAComprar.modificarPropietario(this);
-        this.agregarPropiedad(barrioAComprar);
-    }
-
-    public boolean esPropietarioDe(Barrio barrio) {
-        return propiedades.contains(barrio);
+    public boolean esPropietarioDe(Apropiable unaPropiedad) {
+        return apropiables.contains(unaPropiedad);
     }
 
     public void cambiarEstado(Estado estado) {
@@ -114,58 +102,33 @@ public class Jugador {
         estado.pagarFianza(this);
     }
 
-    public int getCantidadDePropiedades() {
+    public void agregarPropiedad(Apropiable unaPropiedad) {
 
-        int cantidadPropiedades = this.propiedades.size();
-
-        ListIterator<Barrio> iterador = propiedades.listIterator();
-        int cantidadEdificaciones = 0;
-
-        for (int i = 0; i < cantidadPropiedades; i++) {
-            cantidadEdificaciones += iterador.next().obtenerCantidadEdificaciones();
-        }
-
-        return cantidadPropiedades + cantidadEdificaciones;
-    }
-
-    public void comprarCompania(Compania compania) {
-        this.decrementarCapitalEn(compania.getPrecio());
-
-        compania.modificarPropietario(this);
-        companias.add(compania);
-    }
-
-    public void agregarPropiedad(Barrio unaPropiedad) {
-
-        this.propiedades.add(unaPropiedad);
+        this.apropiables.add(unaPropiedad);
 
     }
 
-    public void quitarPropiedad(Barrio unaPropiedad) {
+    public void quitarPropiedad(Apropiable unaPropiedad) {
 
         unaPropiedad.dejarSinPropietario();
 
-        this.propiedades.remove(unaPropiedad);
+        this.apropiables.remove(unaPropiedad);
 
     }
 
-    public boolean esDuenioDe(Compania compania) {
-        return companias.contains(compania);
-    }
+    public void intercambiarPropiedadPor(Barrio miBarrio, Barrio otroBarrio) {
 
-    public void intercambiarPropiedadPor(Barrio miPropiedad, Barrio otraPropiedad) {
+        Jugador otroJugador = otroBarrio.getPropietario();
 
-        Jugador otroJugador = otraPropiedad.getPropietario();
+        otroJugador.quitarPropiedad(otroBarrio);
 
-        otroJugador.quitarPropiedad(otraPropiedad);
+        this.quitarPropiedad(miBarrio);
 
-        this.quitarPropiedad(miPropiedad);
+        otroJugador.agregarPropiedad(miBarrio);
+        miBarrio.modificarPropietario(otroJugador);
 
-        otroJugador.agregarPropiedad(miPropiedad);
-        miPropiedad.modificarPropietario(otroJugador);
-
-        this.agregarPropiedad(otraPropiedad);
-        otraPropiedad.modificarPropietario(this);
+        this.agregarPropiedad(otroBarrio);
+        otroBarrio.modificarPropietario(this);
 
     }
 
@@ -179,27 +142,23 @@ public class Jugador {
 
     }
 
-    public void venderBarrio(Barrio unBarrio) {
+    public void comprarPropiedad(Apropiable apropiable){
 
-        Dinero dineroVenta = new Dinero(unBarrio.getPrecioDelBarrio().getCantidad() * 0.75);
+        this.decrementarCapitalEn(apropiable.getPrecio());
 
-        this.incrementarCapitalEn(dineroVenta);
+        apropiable.modificarPropietario(this);
 
-        unBarrio.dejarSinPropietario();
-
-        this.propiedades.remove(unBarrio);
+        this.agregarPropiedad(apropiable);
 
     }
 
-    public void venderCompania(Compania unaCompania){
+    public void venderPropiedad(Apropiable apropiable){
 
-        Dinero dineroVenta = new Dinero(unaCompania.getPrecio().getCantidad() * 0.75);
+        Dinero dineroVenta = new Dinero(apropiable.getPrecio().getCantidad() * 0.85);
 
         this.incrementarCapitalEn(dineroVenta);
 
-        unaCompania.dejarSinPropietario();
-
-        this.companias.remove(unaCompania);
+        this.quitarPropiedad(apropiable);
 
     }
 
@@ -226,5 +185,19 @@ public class Jugador {
             contadorTirosDuplicados++;
         }
         return this.ultimoTiro;
+    }
+
+    public int getCantidadDePropiedadesParaMovimientoDinamico() {
+
+        int cantidad = 0;
+
+        for ( Apropiable propiedad : this.apropiables ) {
+
+            cantidad = cantidad + propiedad.obtenerCantidadDePropiedadesParaMovimientoDinamico();
+
+        }
+
+        return cantidad;
+
     }
 }

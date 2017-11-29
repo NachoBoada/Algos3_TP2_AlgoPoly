@@ -26,7 +26,7 @@ public class RetrocesoDinamico implements Encasillable {
 
         if (sumaDados == 2 || sumaDados == 3 || sumaDados == 4 || sumaDados == 5 || sumaDados == 6) {
         	
-        	int cantidadCasilleros = sumaDados - jugador.getCantidadDePropiedades();
+        	int cantidadCasilleros = sumaDados - jugador.getCantidadDePropiedadesParaMovimientoDinamico();
 
             if (cantidadCasilleros > 0)	jugador.mover(cantidadCasilleros * -1);
         }

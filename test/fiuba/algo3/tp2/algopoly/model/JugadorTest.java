@@ -76,7 +76,7 @@ public class JugadorTest {
         SantaFe santafe = new SantaFe();
 
         try{
-        	jugador.comprarBarrio(santafe);
+        	jugador.comprarPropiedad(santafe);
         	Assert.fail();
         }
         catch (CapitalInsuficienteException e){
@@ -91,11 +91,11 @@ public class JugadorTest {
         Dinero dineroInicialJugador = new Dinero(100000);
         Jugador jugador = new Jugador(dineroInicialJugador,tablero);
         SantaFe santaFe = new SantaFe();
-        jugador.comprarBarrio(santaFe);
+        jugador.comprarPropiedad(santaFe);
 
-        jugador.venderBarrio(santaFe);
+        jugador.venderPropiedad(santaFe);
 
-        Assert.assertEquals(100000 - 15000 + (15000 * 0.75) , jugador.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(100000 - 15000 + (15000 * 0.85) , jugador.getCapital().getCantidad(),DELTA);
 
     }
 
@@ -106,11 +106,11 @@ public class JugadorTest {
         Dinero dineroInicialJugador = new Dinero(100000);
         Jugador jugador = new Jugador(dineroInicialJugador,tablero);
         Compania aysa = new Aysa(new Servicios());
-        jugador.comprarCompania(aysa);
+        jugador.comprarPropiedad(aysa);
 
-        jugador.venderCompania(aysa);
+        jugador.venderPropiedad(aysa);
 
-        Assert.assertEquals(100000 - 30000 + (30000 * 0.75) , jugador.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(100000 - 30000 + (30000 * 0.85) , jugador.getCapital().getCantidad(),DELTA);
 
     }
 
