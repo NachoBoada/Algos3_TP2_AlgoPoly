@@ -8,13 +8,13 @@ public class Edesur extends Compania {
 
     private final int posicion;
 
-    public Edesur(Servicios servicios) {
+    public Edesur(ServiciosPublicos servicios) {
         super(PRECIO);
         this.posicion = 3;
         this.nombre = "Edesur";
-        this.algo = servicios;
-        this.FACTOR_SIMPLE = 500;
-        this.FACTOR_DOBLE = 1000;
+        this.servicios = servicios;
+        this.factorSimple = 500;
+        this.factorDoble = 1000;
     }
 
     @Override

@@ -4,34 +4,35 @@ import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.AlgunNombreDeInterfaz;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 
 public class CompaniaComprada implements EstadoCompania {
 	
 
     private final Jugador duenio;
-    private int FACTOR_SIMPLE;
-    private int FACTOR_DOBLE;
+    private final int factorSimple;
+    private final int factorDoble;
     
     public CompaniaComprada(Jugador jugador, int factorSimple, int factorDoble) {
         this.duenio = jugador;
-        this.FACTOR_SIMPLE = factorSimple;
-    	this.FACTOR_DOBLE = factorDoble;
+        this.factorSimple = factorSimple;
+    	this.factorDoble = factorDoble;
     }
 
-    public void actuarSobre(Jugador jugador, Compania compania, AlgunNombreDeInterfaz algo) {
+    @Override
+    public void actuarSobre(Jugador jugador, Compania compania, Servicios algo) {
         if (!jugador.esPropietarioDe(compania)) {
             algo.cobrar(this, jugador);
         }
     }
     
     public void cobrarDoble(Jugador jugador) {
-        cobrar(jugador, FACTOR_DOBLE);
+        cobrar(jugador, factorDoble);
     }
 
     public void cobrarSimple(Jugador jugador) {
-        cobrar(jugador, FACTOR_SIMPLE);
+        cobrar(jugador, factorSimple);
     }
     
 

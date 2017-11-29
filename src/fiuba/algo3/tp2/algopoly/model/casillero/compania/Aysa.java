@@ -8,13 +8,13 @@ public class Aysa extends Compania {
 
     private final int posicion;
 
-    public Aysa(Servicios servicios) {
+    public Aysa(ServiciosPublicos servicios) {
         super(PRECIO);
         posicion = 12;
         this.nombre = "Aysa";
-        this.algo = servicios;
-        this.FACTOR_SIMPLE = 300;
-        this.FACTOR_DOBLE = 500;
+        this.servicios = servicios;
+        this.factorSimple = 300;
+        this.factorDoble = 500;
     }
 
     @Override

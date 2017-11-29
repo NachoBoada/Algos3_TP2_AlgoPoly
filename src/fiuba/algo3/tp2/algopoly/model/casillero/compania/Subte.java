@@ -8,13 +8,13 @@ public class Subte extends Compania {
 
     private final int posicion;
 
-    public Subte(Transportes transportes) {
+    public Subte(ServiciosDeTransporte transportes) {
         super(PRECIO);
         this.posicion = 8;
         this.nombre = "Subte";
-        this.algo = transportes;
-        this.FACTOR_SIMPLE = 600;
-        this.FACTOR_DOBLE = 1100;
+        this.servicios = transportes;
+        this.factorSimple = 600;
+        this.factorDoble = 1100;
     }
 
     @Override
