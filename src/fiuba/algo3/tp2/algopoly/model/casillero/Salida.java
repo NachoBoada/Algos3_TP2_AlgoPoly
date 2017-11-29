@@ -22,4 +22,9 @@ public class Salida implements Encasillable {
         return this.posicion;
     }
 
+    @Override
+    public String getDescripcion() {
+        return " casillero de partida de los jugadores";
+    }
+
 }

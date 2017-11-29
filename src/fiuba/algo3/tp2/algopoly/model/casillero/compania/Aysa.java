@@ -25,6 +25,11 @@ public class Aysa extends Compania {
         return this.posicion;
     }
 
+    @Override
+    public String getDescripcion() {
+        return "Precio compania: $30000\n"+" Monto a pagar unica comapnia: 300 veces lo que dice los dados\n"+"Monto a pagar teniendo 2 companias: $500 lo sacado en los dados\n";
+    }
+
     private void cobrar(Jugador jugador, int factor) {
         int ultimaSumaDados = jugador.getUltimoTiroDeDados().resultado();
         Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);

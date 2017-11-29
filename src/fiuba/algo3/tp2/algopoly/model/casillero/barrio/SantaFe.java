@@ -19,4 +19,8 @@ public class SantaFe extends BarrioSimple {
 
     }
 
+    @Override
+    public String getDescripcion() {
+        return "Precio terreno: $15000\n" + "Alquiler: $1500\n" + "Alquiler con 1 casa: $3500\n" + "Construir la única casa posible cuesta $4000\n";
+    }
 }

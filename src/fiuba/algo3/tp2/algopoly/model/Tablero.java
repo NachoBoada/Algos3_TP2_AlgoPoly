@@ -1,23 +1,11 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import java.util.LinkedList;
-
-import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
-import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
-import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
-import fiuba.algo3.tp2.algopoly.model.casillero.ImpuestoAlLujo;
-import fiuba.algo3.tp2.algopoly.model.casillero.Policia;
-import fiuba.algo3.tp2.algopoly.model.casillero.Quini6;
-import fiuba.algo3.tp2.algopoly.model.casillero.RetrocesoDinamico;
-import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BuenosAires;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Cordoba;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Neuquen;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Salta;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Tucuman;
+import fiuba.algo3.tp2.algopoly.model.casillero.*;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
+
+import java.util.LinkedList;
 
 public class Tablero {
 	
@@ -67,6 +55,9 @@ public class Tablero {
 
 		jugador.caerEn( casilleros.get( posicion ) );
 	}
-	
+
+	public Encasillable getEncasillable ( int posicion ){
+		return casilleros.get(posicion);
+	}
 
 }

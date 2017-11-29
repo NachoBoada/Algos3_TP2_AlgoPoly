@@ -18,6 +18,10 @@ public class BuenosAiresNorte extends BarrioDividido {
 
 
 	}
-	
-	
+
+
+	@Override
+	public String getDescripcion() {
+		return "Precio terreno: $25000 (veinte mil pesos)\n" + "Alquiler: $2500\n" + "Alquiler con 1 casa: $3500\n" + "Alquiler con 2 casas: $4000\n" + "Alquiler con Hotel: $6000\n" + "Construir casas cuestan $5500 y hotel $9000\n";
+	}
 }

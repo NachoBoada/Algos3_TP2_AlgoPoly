@@ -4,17 +4,22 @@ public class Juego {
 
     private Jugadores jugadores;
     private Jugador jugadorActual;
-    private static final Juego INSTANCE = new Juego();
+    private static  Juego INSTANCE;
+    private Tablero tablero;
 
     private Juego() {
+        tablero= new Tablero();
     }
 
     public static Juego getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Juego();
+        }
         return INSTANCE;
     }
 
     public void comenzarJuego() {
-        jugadores = new Jugadores(new Tablero());
+        jugadores = new Jugadores( tablero);
         this.jugadorActual = this.jugadores.primero();
     }
 
@@ -34,5 +39,9 @@ public class Juego {
         if (jugadores.quedaUno()) {
             //this.finalizarJuego();
         }
+    }
+
+    public Tablero getTablero() {
+        return tablero;
     }
 }

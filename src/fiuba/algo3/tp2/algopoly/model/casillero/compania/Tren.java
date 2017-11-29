@@ -4,7 +4,6 @@ import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Tren extends Compania {
 
@@ -25,7 +24,12 @@ public class Tren extends Compania {
     public int getPosicion() {
         return this.posicion;
     }
-    
+
+    @Override
+    public String getDescripcion() {
+        return "Precio compania: $38000\n"+" Monto a pagar unica comapnia: 450 veces lo que dice los dados\n"+"Monto a pagar teniendo 2 companias: $800 lo sacado en los dados\n";
+    }
+
     @Override
     public void doSomething(Jugador jugador) {
         this.transaportes.cobrarBoleto(this, jugador);

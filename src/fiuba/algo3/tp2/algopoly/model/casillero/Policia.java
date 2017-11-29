@@ -18,6 +18,11 @@ public class Policia implements Encasillable {
     }
 
     @Override
+    public String getDescripcion() {
+        return "Al caer en este casillero el jugador va a la cárcel";
+    }
+
+    @Override
     public void actuarSobre(Jugador jugador) {
 
         jugador.actualizarCasillero(this, this.posicion);

@@ -16,6 +16,11 @@ public class ImpuestoAlLujo implements Encasillable {
     }
 
 	@Override
+	public String getDescripcion() {
+		return " Se paga el 10% de todo el efectivo del jugador";
+	}
+
+	@Override
 	public void actuarSobre(Jugador jugador) {
 
 		jugador.actualizarCasillero(this,this.posicion);

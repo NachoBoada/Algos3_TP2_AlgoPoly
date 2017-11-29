@@ -4,7 +4,6 @@ import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class Subte extends Compania {
 
@@ -24,6 +23,11 @@ public class Subte extends Compania {
     @Override
     public int getPosicion() {
         return this.posicion;
+    }
+
+    @Override
+    public String getDescripcion() {
+        return "Precio compania: $40000\n"+" Monto a pagar unica comapnia: 600 veces lo que dice los dados\n"+"Monto a pagar teniendo 2 companias: $1100 lo sacado en los dados\n";
     }
 
     private void cobrarBoleto(Jugador jugador, int factor) {

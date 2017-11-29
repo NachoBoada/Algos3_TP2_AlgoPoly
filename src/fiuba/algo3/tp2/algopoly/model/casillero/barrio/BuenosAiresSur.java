@@ -18,4 +18,8 @@ public class BuenosAiresSur extends BarrioDividido {
 
 	}
 
+	@Override
+	public String getDescripcion() {
+		return "Precio terreno: $20000 (veinte mil pesos)\n" + "Alquiler: $2000\n" + "Alquiler con 1 casa: $3000\n" + "Alquiler con 2 casas: $3500\n" + "Alquiler con Hotel: $5000\n" + "Construir casas cuestan $5000 y hotel $8000\n";
+	}
 }

@@ -8,6 +8,5 @@ public interface Encasillable {
     
     int getPosicion();
 
-
-
+    String getDescripcion();
 }

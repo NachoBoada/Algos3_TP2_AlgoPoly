@@ -17,6 +17,11 @@ public class Quini6 implements Encasillable {
     }
 
     @Override
+    public String getDescripcion() {
+        return " Primer premio:  50000\n"+" Segundo premio:  30000\n" + "Tercer premio en adelante: 0\n";
+    }
+
+    @Override
     public void actuarSobre(Jugador jugador) {
 
         jugador.actualizarCasillero(this, this.posicion);

@@ -48,16 +48,15 @@ public class ContenedorPrincipal extends BorderPane {
     private void setPanelDerecho() {
 
         Label jugadoresRestantes = new Label("Jugadores Restantes");
-        Label infoDeCasilleroSeleccionado = new Label("Info de casillero seleccionado");
 
-        this.panelDerecho = new VBox(jugadoresRestantes,infoDeCasilleroSeleccionado);
-        this.panelDerecho.setSpacing(500);
-        this.panelDerecho.setPadding(new Insets(15));
+        this.panelDerecho = new VBox();
+        //this.panelDerecho.setSpacing(300);
+        //this.panelDerecho.setPadding(new Insets(15));
 
-        this.panelDerecho.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
-
-        StackPane informacionCasillero = new StackPane();
-        informacionCasillero.getChildren().add(new InformacionCasilleroVista());
+        this.panelDerecho.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        InformacionCasilleroVista informacionCasilleroVista= new InformacionCasilleroVista();
+        this.panelDerecho.getChildren().add(informacionCasilleroVista);
+        this.panelDerecho.getChildren().add(jugadoresRestantes);
         this.setRight(this.panelDerecho);
 
     }
@@ -70,7 +69,7 @@ public class ContenedorPrincipal extends BorderPane {
         //this.panelCentral.get().setSpacing(20);
         //this.panelCentral.get().setPadding(new Insets(25));
 
-        this.setCenter(new TableroVista());
+        this.setCenter(new TableroVista( panelDerecho));
 
     }
 
