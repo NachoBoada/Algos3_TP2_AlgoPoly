@@ -1,8 +1,9 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaComprada;
 
-public class Transportes {
+public class Transportes implements AlgunNombreDeInterfaz {
 
     private final Subte subte;
     private final Tren tren;
@@ -20,12 +21,12 @@ public class Transportes {
         return this.tren;
     }
 
-    public void cobrarBoleto(Compania compania, Jugador jugador) {
-        Jugador duenio = compania.getDuenio();
-        if (duenio.esDuenioDe(tren) && duenio.esDuenioDe(subte)) {
-            compania.cobrarDoble(jugador);
+    public void cobrar(CompaniaComprada companiaComprada, Jugador jugador) {
+        Jugador duenio = companiaComprada.getDuenio();
+        if (duenio.esDuenioDe(subte) && duenio.esDuenioDe(tren)) {
+        	companiaComprada.cobrarDoble(jugador);
         } else {
-            compania.cobrarSimple(jugador);
+        	companiaComprada.cobrarSimple(jugador);
         }
     }
 }

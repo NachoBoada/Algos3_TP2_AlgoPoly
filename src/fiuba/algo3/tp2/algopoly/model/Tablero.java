@@ -21,7 +21,6 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
 
 public class Tablero {
 	
-	private static final Tablero INSTANCE = new Tablero();
 	private static final int TotalCasilleros = 20;
 	private LinkedList<Encasillable> casilleros;
 
@@ -56,10 +55,6 @@ public class Tablero {
 		casilleros.add(new RetrocesoDinamico());
 		casilleros.add(new Tucuman());		
 	}
-	
-	/*public static Tablero getInstance() {
-		return INSTANCE;
-	}*/
 	
 	public void moverJugador (Jugador jugador, int posicionActual, int cantidadCasilleros) {
 

@@ -10,41 +10,34 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
 public abstract class Compania implements Encasillable {
 
     protected final Dinero precio;
-    private EstadoCompania estado;
+    private EstadoCompania estadoActual;
+    protected AlgunNombreDeInterfaz algo;
+    protected int FACTOR_SIMPLE;
+    protected int FACTOR_DOBLE;
 
     public Compania(Dinero precio) {
         this.precio = precio;
-        this.estado = new CompaniaNoComprada();
+        this.estadoActual = new CompaniaNoComprada();
     }
 
     public Dinero getPrecio() {
         return precio;
     }
 
-    public Jugador getDuenio() {
-        return estado.getDuenio();
-    }
-
     public void modificarPropietario(Jugador jugador) {
-        this.estado = new CompaniaComprada(jugador);
+        this.estadoActual = new CompaniaComprada (jugador, FACTOR_SIMPLE, FACTOR_DOBLE);
     }
     
     @Override
     public void actuarSobre(Jugador jugador) {
 
         jugador.actualizarCasillero(this,this.getPosicion());
-        this.estado.actuarSobre(jugador, this);
+        this.estadoActual.actuarSobre(jugador, this, algo);
     }
     
-    public abstract void cobrarDoble(Jugador jugador);
-
-    public abstract void cobrarSimple(Jugador jugador);
-    
-    public abstract void doSomething(Jugador jugador);
-
     public void dejarSinPropietario(){
 
-        this.estado = new CompaniaNoComprada();
+        this.estadoActual = new CompaniaNoComprada();
 
     }
 }

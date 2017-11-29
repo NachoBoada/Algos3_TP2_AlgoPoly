@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class SubteTest {
 
@@ -27,9 +26,9 @@ public class SubteTest {
         jugadorPagador.tirarDadosParaTests(2, 3);
         jugadorPagador.caerEn(subte);
 
-        Dinero capitalFinalJugadorPagador = new Dinero(100000 - (5 * 600));
+        Dinero capitalFinalJugadorPagador = new Dinero (100000 - (5 * 600));
         
-        Assert.assertTrue(jugadorPagador.getCapital().equals(capitalFinalJugadorPagador));
+        Assert.assertTrue(capitalFinalJugadorPagador.equals(jugadorPagador.getCapital()));
     }
     
     @Test

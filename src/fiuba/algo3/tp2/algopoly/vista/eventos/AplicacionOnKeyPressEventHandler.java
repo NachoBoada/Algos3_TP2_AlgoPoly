@@ -1,7 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
 import fiuba.algo3.tp2.algopoly.vista.BarraDeMenu;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

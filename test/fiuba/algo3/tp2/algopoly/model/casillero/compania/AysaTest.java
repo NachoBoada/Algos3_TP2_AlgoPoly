@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class AysaTest {
 	
