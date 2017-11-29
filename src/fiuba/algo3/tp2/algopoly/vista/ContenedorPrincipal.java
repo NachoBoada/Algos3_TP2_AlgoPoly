@@ -50,8 +50,8 @@ public class ContenedorPrincipal extends BorderPane {
         Label jugadoresRestantes = new Label("Jugadores Restantes");
 
         this.panelDerecho = new VBox();
-        //this.panelDerecho.setSpacing(300);
-        //this.panelDerecho.setPadding(new Insets(15));
+        this.panelDerecho.setSpacing(100);
+        this.panelDerecho.setPadding(new Insets(10));
 
         this.panelDerecho.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         InformacionCasilleroVista informacionCasilleroVista= new InformacionCasilleroVista();

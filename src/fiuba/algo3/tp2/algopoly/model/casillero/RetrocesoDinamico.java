@@ -19,7 +19,7 @@ public class RetrocesoDinamico implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return " agos\n " + "agos";
+        return " Modifica el movimiento del jugador";
     }
 
     @Override

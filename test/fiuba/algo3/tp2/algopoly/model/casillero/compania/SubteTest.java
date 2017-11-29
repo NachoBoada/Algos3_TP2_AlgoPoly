@@ -1,12 +1,10 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
-
-import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 
 public class SubteTest {
 
@@ -15,10 +13,10 @@ public class SubteTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero,"Jugador");
         
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero, "Jugador");
         
         Transportes transportes = new Transportes();
         Subte subte = transportes.getSubte();
@@ -37,10 +35,10 @@ public class SubteTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero, "Jugador1");
         
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero, "Jugador2");
         
         Transportes transportes = new Transportes();
         Tren tren = transportes.getTren();

@@ -14,7 +14,7 @@ public class ImpuestoAlLujoTest {
         Tablero tablero = new Tablero();
     	Dinero dinero = new Dinero(100);
     	Dinero dineroRestante = new Dinero(90);
-        Jugador jugador = new Jugador(dinero,tablero);
+        Jugador jugador = new Jugador(dinero,tablero, "Jugador");
         ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
         
         jugador.caerEn(impuesto);

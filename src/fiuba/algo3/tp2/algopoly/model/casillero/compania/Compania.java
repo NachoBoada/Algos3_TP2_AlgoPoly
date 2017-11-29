@@ -11,6 +11,8 @@ public abstract class Compania implements Encasillable {
 
     protected final Dinero precio;
     private EstadoCompania estado;
+    protected   int FACTOR_SIMPLE;
+    protected   int FACTOR_DOBLE;
 
     public Compania(Dinero precio) {
         this.precio = precio;
@@ -24,6 +26,16 @@ public abstract class Compania implements Encasillable {
     public Jugador getDuenio() {
         return estado.getDuenio();
     }
+
+    @Override
+    public String getDescripcion() {
+        return "Precio compania: $" +  getPrecio().getCantidad() +"\n"+"Monto : " + getFACTOR_SIMPLE()+" lo sacado en los dados\n"
+                +"Monto con Edesur: "+ getFACTOR_DOBLE() +" lo sacado en los dados\n";
+    }
+
+    public int getFACTOR_SIMPLE(){ return FACTOR_SIMPLE; }
+
+    public int getFACTOR_DOBLE(){ return FACTOR_DOBLE;}
 
     public void modificarPropietario(Jugador jugador) {
         this.estado = new CompaniaComprada(jugador);
@@ -47,4 +59,5 @@ public abstract class Compania implements Encasillable {
         this.estado = new CompaniaNoComprada();
 
     }
+
 }

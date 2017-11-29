@@ -14,8 +14,7 @@ public class BotonAccionCasilleroEventHandler implements EventHandler<ActionEven
 
         this.informacionCasillero= informacionCasillero;
         this.casillero= casillero;
-        //StackPane stackSeleccion = (StackPane) panelDerecho.getChildren().get(1);
-        //this.informacionCasillero = (VBox) stackSeleccion.getChildren().get(1);
+
     }
     @Override
     public void handle(ActionEvent event) {

@@ -1,8 +1,5 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import java.util.ArrayList;
-import java.util.ListIterator;
-
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
@@ -14,9 +11,13 @@ import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
 import fiuba.algo3.tp2.algopoly.model.estado.Libre;
 
+import java.util.ArrayList;
+import java.util.ListIterator;
+
 public class Jugador {
 
     private final Dinero capitalDelJugador;
+    private String nombreJugador;
     private final ArrayList<Barrio> propiedades;
     private final ArrayList<Compania> companias;
     private final BoletaQuini6 boletaQuini6;
@@ -27,10 +28,10 @@ public class Jugador {
     private TiroDeDados ultimoTiro;
     private int contadorTirosDuplicados;
 
-    public Jugador(Dinero capitalInicial, Tablero tablero) {
+    public Jugador(Dinero capitalInicial, Tablero tablero, String nombre) {
 
         capitalDelJugador = capitalInicial;
-
+        nombreJugador= nombre;
         propiedades = new ArrayList<>();
         companias = new ArrayList<>();
 
@@ -227,4 +228,6 @@ public class Jugador {
         }
         return this.ultimoTiro;
     }
+
+    public String getNombreJugador() { return nombreJugador; }
 }

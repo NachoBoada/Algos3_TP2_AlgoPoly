@@ -18,8 +18,4 @@ public class CordobaNorte extends BarrioDividido {
 
 	}
 
-	@Override
-	public String getDescripcion() {
-		return "Precio terreno: $20000\n" + "Alquiler: $1300\n" + "Alquiler con 1 casa: $1800\n" + "Alquiler con 2 casas: $2900\n" + "Alquiler con Hotel: $3500\n" + "Construir casas cuestan $2200 y hotel $3500\n";
-	}
 }

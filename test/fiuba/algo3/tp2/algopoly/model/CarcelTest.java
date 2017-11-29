@@ -17,7 +17,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador");
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
@@ -40,7 +40,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero, "Jugador");
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
@@ -62,7 +62,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador");
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel
@@ -83,7 +83,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador");
 		Carcel carcel = new Carcel();
 		
 		//caigo en carcel

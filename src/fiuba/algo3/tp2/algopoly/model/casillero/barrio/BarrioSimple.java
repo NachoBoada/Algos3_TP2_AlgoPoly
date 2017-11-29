@@ -31,7 +31,8 @@ public abstract class BarrioSimple extends Barrio {
 		this.estadoComprado.resetear();
 
 	}
-	
+	public Dinero getCostoCasa(){ return costoCasa; }
+
 	public int obtenerCantidadEdificaciones() {
 		return cantidadCasas;
 	}
@@ -41,5 +42,12 @@ public abstract class BarrioSimple extends Barrio {
 
 		throw new NoSePuedeConstruirUnHotelEnUnBarrioSimpleException();
 
+	}
+	@Override
+	public String getDescripcion() {
+		return "Propietario:" + estadoActual.getPropietario().getNombreJugador()+ "\nCasa: "+obtenerCantidadEdificaciones()
+                +"\nPrecio terreno: $"+ getPrecioDelBarrio().getCantidad() + "\nAlquiler: $"+ estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
+                +"\nAlquiler con casa: $"+ estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
+                + "\nConstruccion: $" + getCostoCasa().getCantidad();
 	}
 }

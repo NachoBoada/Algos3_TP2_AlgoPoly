@@ -8,8 +8,6 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 public class Edesur extends Compania {
 
     private static final Dinero PRECIO = new Dinero(35000);
-    private static final int FACTOR_SIMPLE = 500;
-    private static final int FACTOR_DOBLE = 1000;
 
     private final int posicion;
     private final Servicios servicios;
@@ -17,17 +15,14 @@ public class Edesur extends Compania {
     public Edesur(Servicios servicios) {
         super(PRECIO);
         this.posicion = 3;
+        FACTOR_SIMPLE = 500;
+        FACTOR_DOBLE = 1000;
         this.servicios = servicios;
     }
 
     @Override
     public int getPosicion() {
         return this.posicion;
-    }
-
-    @Override
-    public String getDescripcion() {
-        return "Precio compania: $35000\n"+" Monto a pagar unica comapnia: 500 veces lo que dice los dados\n"+"Monto a pagar teniendo 2 companias: $1000 lo sacado en los dados\n";
     }
 
     private void cobrar(Jugador jugador, int factor) {

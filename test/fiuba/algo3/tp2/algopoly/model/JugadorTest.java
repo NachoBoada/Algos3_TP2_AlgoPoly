@@ -17,7 +17,7 @@ public class JugadorTest {
 
         Tablero tablero = new Tablero();
     	Dinero dinero0 = new Dinero(0);
-        Jugador jugador = new Jugador(dinero0,tablero);
+        Jugador jugador = new Jugador(dinero0,tablero,"Jugador");
 
         Assert.assertEquals(dinero0, jugador.getCapital());
     }
@@ -27,7 +27,7 @@ public class JugadorTest {
 
         Tablero tablero = new Tablero();
     	Dinero dinero0 = new Dinero(0);
-    	Jugador jugador = new Jugador(dinero0,tablero);
+    	Jugador jugador = new Jugador(dinero0,tablero,"Jugador");
     	Dinero dinero1000000 = new Dinero(1000000);
         
         jugador.incrementarCapitalEn(dinero1000000);
@@ -42,7 +42,7 @@ public class JugadorTest {
     	Dinero dinero300 = new Dinero(300);
         Dinero dinero200 = new Dinero(200);
         Dinero dinero100 = new Dinero(100);
-        Jugador jugador = new Jugador(dinero300,tablero);
+        Jugador jugador = new Jugador(dinero300,tablero, "Jugador");
         
         
         jugador.decrementarCapitalEn(dinero100);
@@ -55,7 +55,7 @@ public class JugadorTest {
 
         Tablero tablero = new Tablero();
         Dinero dinero100 = new Dinero(100);
-        Jugador jugador = new Jugador(dinero100,tablero);
+        Jugador jugador = new Jugador(dinero100,tablero, "Jugador");
         Dinero dinero200 = new Dinero(200);
         
         try{
@@ -72,7 +72,7 @@ public class JugadorTest {
 
         Tablero tablero = new Tablero();
         Dinero dineroSeraInsuficiente = new Dinero(0);
-        Jugador jugador = new Jugador(dineroSeraInsuficiente,tablero);
+        Jugador jugador = new Jugador(dineroSeraInsuficiente,tablero, "Jugador");
         SantaFe santafe = new SantaFe();
 
         try{
@@ -89,7 +89,7 @@ public class JugadorTest {
 
         Tablero tablero = new Tablero();
         Dinero dineroInicialJugador = new Dinero(100000);
-        Jugador jugador = new Jugador(dineroInicialJugador,tablero);
+        Jugador jugador = new Jugador(dineroInicialJugador,tablero, "Jugador");
         SantaFe santaFe = new SantaFe();
         jugador.comprarBarrio(santaFe);
 
@@ -104,7 +104,7 @@ public class JugadorTest {
 
         Tablero tablero = new Tablero();
         Dinero dineroInicialJugador = new Dinero(100000);
-        Jugador jugador = new Jugador(dineroInicialJugador,tablero);
+        Jugador jugador = new Jugador(dineroInicialJugador,tablero, "Jugador");
         Compania aysa = new Aysa(new Servicios());
         jugador.comprarCompania(aysa);
 

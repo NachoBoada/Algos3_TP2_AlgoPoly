@@ -17,7 +17,7 @@ public class AvanceDinamico implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return "agos";
+        return " Modifica el movimiento del jugador";
     }
 
     @Override

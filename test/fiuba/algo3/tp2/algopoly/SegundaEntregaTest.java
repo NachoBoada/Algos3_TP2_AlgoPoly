@@ -25,7 +25,7 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         SantaFe barrioSantaFe = new SantaFe();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador");
 
         jugador.caerEn(barrioSantaFe);
         jugador.comprarBarrio(barrioSantaFe);
@@ -38,7 +38,7 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Neuquen barrioNeuquen = new Neuquen();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador");
 
         jugador.caerEn(barrioNeuquen);
         jugador.comprarBarrio(barrioNeuquen);
@@ -52,7 +52,7 @@ public class SegundaEntregaTest {
         Tablero tablero = new Tablero();
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador");
 
         jugador.caerEn(barrioBsAsSur);
         jugador.comprarBarrio(barrioBsAsSur);
@@ -67,7 +67,7 @@ public class SegundaEntregaTest {
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
         BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador");
         jugador.comprarBarrio(barrioBsAsSur);
         jugador.comprarBarrio(barrioBsAsNorte);
         double capitalJugador = jugador.getCapital().getCantidad();
@@ -84,7 +84,7 @@ public class SegundaEntregaTest {
         Cordoba regionCordoba = new Cordoba();
         BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
         BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador");
         jugador.comprarBarrio(barrioCordobaSur);
         jugador.comprarBarrio(barrioCordobaNorte);
         double capitalJugador = jugador.getCapital().getCantidad();
@@ -101,7 +101,7 @@ public class SegundaEntregaTest {
         Salta regionSalta = new Salta();
         BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
         BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador");
         jugador.comprarBarrio(barrioSaltaSur);
         jugador.comprarBarrio(barrioSaltaNorte);
         double capitalJugador = jugador.getCapital().getCantidad();
@@ -118,12 +118,12 @@ public class SegundaEntregaTest {
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
         BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioBsAsSur);
         jugador1.comprarBarrio(barrioBsAsNorte);
         jugador1.construirCasaEn(barrioBsAsNorte);
         jugador1.construirCasaEn(barrioBsAsSur);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioBsAsSur);
 
@@ -137,12 +137,12 @@ public class SegundaEntregaTest {
         Cordoba regionCordoba = new Cordoba();
         BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
         BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioCordobaSur);
         jugador1.comprarBarrio(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaSur);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioCordobaNorte);
 
@@ -155,10 +155,10 @@ public class SegundaEntregaTest {
         Tablero tablero = new Tablero();
         Salta regionSalta = new Salta();
         BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioSaltaSur);
         jugador.construirCasaEn(barrioSaltaSur);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioSaltaSur);
 
@@ -171,11 +171,11 @@ public class SegundaEntregaTest {
         Tablero tablero = new Tablero();
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioBsAsSur);
         jugador1.construirCasaEn(barrioBsAsSur);
         jugador1.construirCasaEn(barrioBsAsSur);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioBsAsSur);
 
@@ -188,11 +188,11 @@ public class SegundaEntregaTest {
         Tablero tablero = new Tablero();
         Cordoba regionCordoba = new Cordoba();
         BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaNorte);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioCordobaNorte);
 
@@ -205,11 +205,11 @@ public class SegundaEntregaTest {
         Tablero tablero = new Tablero();
         Salta regionSalta = new Salta();
         BarrioDividido barrioSaltaNorte = regionSalta.getBarrioSur();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaNorte);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioSaltaNorte);
 
@@ -223,7 +223,7 @@ public class SegundaEntregaTest {
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
         BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioBsAsSur);
         jugador.comprarBarrio(barrioBsAsNorte);
         jugador.construirCasaEn(barrioBsAsSur);
@@ -244,7 +244,7 @@ public class SegundaEntregaTest {
         Cordoba regionCordoba = new Cordoba();
         BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
         BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioCordobaSur);
         jugador.comprarBarrio(barrioCordobaNorte);
         jugador.construirCasaEn(barrioCordobaNorte);
@@ -265,7 +265,7 @@ public class SegundaEntregaTest {
         Salta regionSalta = new Salta();
         BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
         BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioSaltaSur);
         jugador.comprarBarrio(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaSur);
@@ -286,7 +286,7 @@ public class SegundaEntregaTest {
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
         BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioBsAsSur);
         jugador.comprarBarrio(barrioBsAsNorte);
         jugador.construirCasaEn(barrioBsAsSur);
@@ -307,7 +307,7 @@ public class SegundaEntregaTest {
         Cordoba regionCordoba = new Cordoba();
         BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
         BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioCordobaSur);
         jugador.comprarBarrio(barrioCordobaNorte);
         jugador.construirCasaEn(barrioCordobaNorte);
@@ -328,7 +328,7 @@ public class SegundaEntregaTest {
         Salta regionSalta = new Salta();
         BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
         BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioSaltaSur);
         jugador.comprarBarrio(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaSur);
@@ -349,7 +349,7 @@ public class SegundaEntregaTest {
         BuenosAires regionBsAs = new BuenosAires();
         BarrioDividido barrioBsAsSur = regionBsAs.getBarrioSur();
         BarrioDividido barrioBsAsNorte = regionBsAs.getBarrioNorte();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioBsAsSur);
         jugador1.comprarBarrio(barrioBsAsNorte);
         jugador1.construirCasaEn(barrioBsAsSur);
@@ -357,7 +357,7 @@ public class SegundaEntregaTest {
         jugador1.construirCasaEn(barrioBsAsNorte);
         jugador1.construirCasaEn(barrioBsAsNorte);
         jugador1.construirHotelEn(barrioBsAsSur);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioBsAsSur);
 
@@ -371,7 +371,7 @@ public class SegundaEntregaTest {
         Cordoba regionCordoba = new Cordoba();
         BarrioDividido barrioCordobaSur = regionCordoba.getBarrioSur();
         BarrioDividido barrioCordobaNorte = regionCordoba.getBarrioNorte();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioCordobaSur);
         jugador1.comprarBarrio(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaNorte);
@@ -379,7 +379,7 @@ public class SegundaEntregaTest {
         jugador1.construirCasaEn(barrioCordobaSur);
         jugador1.construirCasaEn(barrioCordobaSur);
         jugador1.construirHotelEn(barrioCordobaNorte);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioCordobaNorte);
 
@@ -393,7 +393,7 @@ public class SegundaEntregaTest {
         Salta regionSalta = new Salta();
         BarrioDividido barrioSaltaSur = regionSalta.getBarrioSur();
         BarrioDividido barrioSaltaNorte = regionSalta.getBarrioNorte();
-        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador1.comprarBarrio(barrioSaltaSur);
         jugador1.comprarBarrio(barrioSaltaNorte);
         jugador1.construirCasaEn(barrioSaltaSur);
@@ -401,7 +401,7 @@ public class SegundaEntregaTest {
         jugador1.construirCasaEn(barrioSaltaNorte);
         jugador1.construirCasaEn(barrioSaltaNorte);
         jugador1.construirHotelEn(barrioSaltaSur);
-        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador2");
 
         jugador2.caerEn(barrioSaltaSur);
 
@@ -413,7 +413,7 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         SantaFe barrioSantaFe = new SantaFe();
-        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero);
+        Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero, "Jugador1");
         jugador.comprarBarrio(barrioSantaFe);
         Double capitalJugador = jugador.getCapital().getCantidad();
 
@@ -427,10 +427,10 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador, tablero);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador, tablero, "Jugador1");
 
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador, tablero);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador, tablero, "Jugador2");
 
         Tren tren = new Transportes().getTren();
         jugadorCobrador.comprarCompania(tren);
@@ -448,10 +448,10 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador, tablero);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador, tablero, "Jugador1");
 
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador, tablero);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador, tablero, "Jugador2");
 
         Transportes transportes = new Transportes();
         Tren tren = transportes.getTren();
@@ -477,9 +477,9 @@ public class SegundaEntregaTest {
         Dinero dinero1 = new Dinero(100000);
         Dinero dinero2 = new Dinero(100000);
         Dinero dinero3 = new Dinero(100000);
-        Jugador jugador1 = new Jugador(dinero1, tablero);
-        Jugador jugador2 = new Jugador(dinero2, tablero);
-        Jugador jugador3 = new Jugador(dinero3, tablero);
+        Jugador jugador1 = new Jugador(dinero1, tablero, "Jugador1");
+        Jugador jugador2 = new Jugador(dinero2, tablero, "Jugador2");
+        Jugador jugador3 = new Jugador(dinero3, tablero, "Jugador3");
         jugador1.comprarBarrio(santaFe);
         jugador2.comprarBarrio(neuquen);
 
@@ -501,9 +501,9 @@ public class SegundaEntregaTest {
         Dinero dinero1 = new Dinero(100000);
         Dinero dinero2 = new Dinero(100000);
         Dinero dinero3 = new Dinero(100000);
-        Jugador jugador1 = new Jugador(dinero1, tablero);
-        Jugador jugador2 = new Jugador(dinero2, tablero);
-        Jugador jugador3 = new Jugador(dinero3, tablero);
+        Jugador jugador1 = new Jugador(dinero1, tablero, "Jugador1");
+        Jugador jugador2 = new Jugador(dinero2, tablero, "Jugador2");
+        Jugador jugador3 = new Jugador(dinero3, tablero, "Jugador3");
         jugador1.comprarBarrio(neuquen);
         jugador1.construirCasaEn(neuquen);
         jugador2.comprarBarrio(santaFe);
@@ -522,7 +522,7 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero dineroJugador = new Dinero(80);
-        Jugador jugador = new Jugador(dineroJugador, tablero);
+        Jugador jugador = new Jugador(dineroJugador, tablero, "Jugador1");
         ImpuestoAlLujo impuesto = new ImpuestoAlLujo();
 
         jugador.caerEn(impuesto);
@@ -536,9 +536,9 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero dineroJugadorQuePaga = new Dinero(100000);
-        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga, tablero);
+        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga, tablero, "Jugador1");
         Dinero dineroJugadorDuenioDeEdesur = new Dinero(100000);
-        Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur, tablero);
+        Jugador jugadorDuenioDeEdesur = new Jugador(dineroJugadorDuenioDeEdesur, tablero, "Jugador2");
         Servicios servicios = new Servicios();
 
         Edesur edesur = servicios.getEdesur();
@@ -555,9 +555,9 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero dineroJugadorQuePaga = new Dinero(100000);
-        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga, tablero);
+        Jugador jugadorQuePaga = new Jugador(dineroJugadorQuePaga, tablero, "Jugador1");
         Dinero dineroJugadorDuenioDeEdesurYAysa = new Dinero(100000);
-        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa, tablero);
+        Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa, tablero, "Jugador2");
         Servicios servicios = new Servicios();
 
         Edesur edesur = servicios.getEdesur();

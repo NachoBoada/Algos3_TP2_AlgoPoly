@@ -24,7 +24,7 @@ public class BarrioTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador unJugador = new Jugador(capitalInicial,tablero);
+        Jugador unJugador = new Jugador(capitalInicial,tablero, "Jugador");
         Barrio santaFe = new SantaFe();
 
         santaFe.modificarPropietario(unJugador);

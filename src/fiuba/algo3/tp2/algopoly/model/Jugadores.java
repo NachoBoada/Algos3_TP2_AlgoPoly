@@ -11,9 +11,9 @@ public class Jugadores {
     public Jugadores(Tablero tablero) {
         jugadores = new LinkedList<>();
 
-        jugadores.add(new Jugador(new Dinero(10000), tablero));
-        jugadores.add(new Jugador(new Dinero(10000), tablero));
-        jugadores.add(new Jugador(new Dinero(10000), tablero));
+        jugadores.add(new Jugador(new Dinero(10000), tablero,"Jugador1"));
+        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador2"));
+        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador3"));
 
         this.iterador = jugadores.listIterator(1);
     }
@@ -26,9 +26,7 @@ public class Jugadores {
         return iterador.next();
     }
 
-    public Jugador primero() {
-        return jugadores.getFirst();
-    }
+    public Jugador primero() { return jugadores.getFirst(); }
 
     public boolean eliminar(Jugador jugador) {
         return jugadores.isEmpty() ? false : jugadores.remove(jugador);

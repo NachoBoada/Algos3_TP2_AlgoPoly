@@ -16,7 +16,6 @@ public class Comprado implements EstadoBarrio {
     protected Dinero precioAlquilerConHotel;
 
     public Comprado(Dinero precioAlquilerSinConstruccion, Dinero precioAlquilerConUnaCasa, Dinero precioAlquilerConDosCasas, Dinero precioAlquilerConHotel){
-
         this.precioAlquilerSinConstruccion = precioAlquilerSinConstruccion;
         this.precioAlquilerConUnaCasa = precioAlquilerConUnaCasa;
         this.precioAlquilerConDosCasas = precioAlquilerConDosCasas;
@@ -78,4 +77,6 @@ public class Comprado implements EstadoBarrio {
     public Jugador getPropietario() {
         return propietario;
     }
+
+
 }

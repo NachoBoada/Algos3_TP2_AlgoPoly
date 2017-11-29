@@ -16,8 +16,5 @@ public class Neuquen extends BarrioSimple {
         this.estadoComprado = new Comprado(new Dinero (1500),new Dinero(3500),new Dinero(0),new Dinero(0));
     }
 
-    @Override
-    public String getDescripcion() {
-       return " Precio terreno: 17000\n" + "Alquiler: $1800\n"+"Alquiler con casa $3800\n" + "Construccion:  $4800";
-    }
+
 }

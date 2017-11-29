@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -10,8 +11,8 @@ public class InformacionCasilleroVista extends VBox {
 
     InformacionCasilleroVista(){
 
-        //setPadding(new Insets(10));
-        //setSpacing(8)
+        setPadding(new Insets(10));
+        setSpacing(8);
 
         Label infoDeCasilleroSeleccionado = new Label("Info de casillero seleccionado");
         label= new Label( );

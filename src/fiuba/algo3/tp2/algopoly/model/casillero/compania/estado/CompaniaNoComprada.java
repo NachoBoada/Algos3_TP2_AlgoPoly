@@ -14,6 +14,6 @@ public class CompaniaNoComprada implements EstadoCompania {
 
     @Override
     public Jugador getDuenio() {
-        return new Jugador(new Dinero(0), new Tablero());
+        return new Jugador(new Dinero(0), new Tablero(), "Sin propietario");
     }
 }

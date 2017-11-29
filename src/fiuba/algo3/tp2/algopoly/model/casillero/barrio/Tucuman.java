@@ -16,8 +16,5 @@ public class Tucuman extends BarrioSimple {
 
     }
 
-    @Override
-    public String getDescripcion() {
-        return " Precio terreno: 25000\n" + "Alquiler: $2500\n"+"Alquiler con 1 edificio histórico: $4500\n" + "Construccion:  $7000";
-    }
+
 }
