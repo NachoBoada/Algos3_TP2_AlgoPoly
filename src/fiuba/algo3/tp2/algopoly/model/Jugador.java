@@ -68,6 +68,8 @@ public class Jugador {
         posicionActual = posicion;
     }
 
+    public int getPosicionActual(){ return posicionActual;}
+
     public void sumarAPosicion(int cantidad) {
         this.posicionActual += cantidad;
     }
@@ -230,4 +232,6 @@ public class Jugador {
     }
 
     public String getNombreJugador() { return nombreJugador; }
+
+
 }
