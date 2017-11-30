@@ -45,4 +45,9 @@ public class Juego {
         this.juegoFinalizado = true;
 
     }
+
+    public Jugador obtenerJugador(String nombre) {
+
+        return this.jugadores.obtenerJugador(nombre);
+    }
 }

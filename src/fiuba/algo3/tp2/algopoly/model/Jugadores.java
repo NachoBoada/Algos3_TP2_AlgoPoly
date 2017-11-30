@@ -38,4 +38,20 @@ public class Jugadores {
         return jugadores.size() == 1;
     }
 
+    public Jugador obtenerJugador(String nombre) {
+
+        Jugador jugadorPedido = null;
+
+        for (Jugador jugador : this.jugadores) {
+
+            if (jugador.getNombreJugador().equals(nombre)){
+
+                jugadorPedido = jugador;
+            }
+
+        }
+
+        return jugadorPedido;
+
+    }
 }

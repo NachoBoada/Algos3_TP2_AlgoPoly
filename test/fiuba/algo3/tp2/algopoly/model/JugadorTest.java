@@ -114,14 +114,4 @@ public class JugadorTest {
 
     }
 
-    @Test
-    public void testJugadorPierdeElJuegoPorqueNoTieneEfectivoNiPropiedades(){
-
-        Tablero tablero = new Tablero();
-        Dinero dineroInicialJugador = new Dinero(100000);
-        Jugador jugador1 = new Jugador(dineroInicialJugador,tablero,"Jugador 1");
-
-
-    }
-
 }
