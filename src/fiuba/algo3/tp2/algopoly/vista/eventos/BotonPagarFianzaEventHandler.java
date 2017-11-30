@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
+import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
@@ -42,6 +43,14 @@ public class BotonPagarFianzaEventHandler implements EventHandler<ActionEvent>{
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
             alertaJugadorPresoNoSePuedeMover.setHeaderText("No se puede pagar fianza en este turno.");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+        }catch (CapitalInsuficienteException e){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("No tenes dinero para pagar la fianza.");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
 
         }

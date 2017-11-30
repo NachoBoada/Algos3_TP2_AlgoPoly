@@ -47,6 +47,7 @@ public class Jugador {
         this.tablero = tablero;
 
         contadorTirosDuplicados = 0;
+
     }
 
     public void mover(int cantidadCasilleros) {

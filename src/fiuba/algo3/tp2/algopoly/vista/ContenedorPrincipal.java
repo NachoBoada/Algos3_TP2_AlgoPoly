@@ -16,8 +16,8 @@ public class ContenedorPrincipal extends BorderPane {
     VBox panelIzquierdo;
     VBox panelDerecho;
     Stage stage;
-    Boolean jugadorComproPropiedad;
-
+    boolean jugadorComproPropiedad;
+    boolean jugadorTieneQueVender;
 
 
     public ContenedorPrincipal(Stage stage) {
@@ -28,7 +28,6 @@ public class ContenedorPrincipal extends BorderPane {
         this.setPanelIzquierdo();
         this.setPanelDerecho();
         this.setCentro();
-
 
 
     }
@@ -167,6 +166,13 @@ public class ContenedorPrincipal extends BorderPane {
         }
     }
 
+    public boolean getJugadorTieneQueVender(){
+
+        return jugadorTieneQueVender;
+
+
+    }
+
     public void jugadorComproPropiedad() {
 
         this.jugadorComproPropiedad = true;
@@ -176,5 +182,10 @@ public class ContenedorPrincipal extends BorderPane {
 
        this.jugadorComproPropiedad = false;
 
+    }
+
+    public void jugadorTieneQueVender() {
+
+        this.jugadorTieneQueVender = true;
     }
 }

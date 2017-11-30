@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
 import com.sun.org.apache.bcel.internal.generic.ALOAD;
+import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
@@ -48,6 +49,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         try {
 
             jugadorActual.mover(tiro.resultado());
+            Juego.getInstance().turnoProximojugador();
 
         }catch (JugadorPresoNoSePuedeMoverException e){
 
@@ -59,9 +61,30 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.caerEn(jugadorActual.casilleroActual());
 
+            Juego.getInstance().turnoProximojugador();
+
+        }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
+
+            Alert alertaJugadorDebeVenderPropiedades = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorDebeVenderPropiedades.initOwner(stage);
+            alertaJugadorDebeVenderPropiedades.setTitle("ATENCION");
+            alertaJugadorDebeVenderPropiedades.setHeaderText("Tenes que vender propiedades para afrontar el gasto.");
+            alertaJugadorDebeVenderPropiedades.showAndWait();
+
+            if ( jugadorActual.getPropiedades().isEmpty() ){
+
+                Juego.getInstance().jugadorPierdeElJuego(jugadorActual);
+
+            }
+
+            this.contenedorPrincipal.jugadorTieneQueVender();
+
         }
 
-        Juego.getInstance().turnoProximojugador();
+
+
+
+
 
         this.contenedorPrincipal.jugadorNoComproPropiedad();
 

@@ -29,6 +29,13 @@ public class OpcionVenderPropiedadEventHandler implements EventHandler<ActionEve
 
         jugadorActual.venderPropiedad(this.propiedad);
 
+        if (this.contenedorPrincipal.getJugadorTieneQueVender()){
+
+            jugadorActual.caerEn(jugadorActual.casilleroActual());
+            Juego.getInstance().turnoProximojugador();
+
+        }
+
         this.contenedorPrincipal.setPanelIzquierdo();
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();

@@ -95,6 +95,5 @@ public class JuegoTest {
 
         jugador.comprarPropiedad(propiedadAComprar);
 
-
     }
 }

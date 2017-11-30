@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
+import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
@@ -63,6 +64,14 @@ public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEve
             alertaBarrioNoComprado.initOwner(stage);
             alertaBarrioNoComprado.setTitle("ATENCION");
             alertaBarrioNoComprado.setHeaderText("Esta compania ya esta comprada, no se puede comprar.");
+            alertaBarrioNoComprado.showAndWait();
+
+        }catch (CapitalInsuficienteException e){
+
+            Alert alertaBarrioNoComprado = new Alert(Alert.AlertType.WARNING);
+            alertaBarrioNoComprado.initOwner(stage);
+            alertaBarrioNoComprado.setTitle("ATENCION");
+            alertaBarrioNoComprado.setHeaderText("Tu dinero es insuficiente para comprar esta propiedad.");
             alertaBarrioNoComprado.showAndWait();
 
         }
