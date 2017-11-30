@@ -11,9 +11,9 @@ public class Jugadores {
     public Jugadores(Tablero tablero) {
         jugadores = new LinkedList<>();
 
-        jugadores.add(new Jugador(new Dinero(10000), tablero));
-        jugadores.add(new Jugador(new Dinero(10000), tablero));
-        jugadores.add(new Jugador(new Dinero(10000), tablero));
+        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador 1"));
+        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador 2"));
+        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador 3"));
 
         this.iterador = jugadores.listIterator(1);
     }

@@ -29,9 +29,11 @@ public class Jugador {
     private int contadorTirosDuplicados;
     private ArrayList<Apropiable> apropiables;
 
-    public Jugador(Dinero capitalInicial, Tablero tablero) {
+    public Jugador(Dinero capitalInicial, Tablero tablero, String nombreJugador) {
 
         capitalDelJugador = capitalInicial;
+
+        this.nombreJugador = nombreJugador;
 
         this.apropiables = new ArrayList<Apropiable>();
 

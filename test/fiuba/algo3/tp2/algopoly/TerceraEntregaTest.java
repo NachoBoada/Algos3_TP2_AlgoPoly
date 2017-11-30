@@ -51,9 +51,9 @@ public class TerceraEntregaTest {
         */
 
         Tablero tablero = new Tablero();
-        Jugador jugador1 = new Jugador(new Dinero(20000), tablero);
-        Jugador jugador2 = new Jugador(new Dinero(100000), tablero);
-        Jugador jugador3 = new Jugador(new Dinero(100000), tablero);
+        Jugador jugador1 = new Jugador(new Dinero(20000), tablero,"Jugador 1");
+        Jugador jugador2 = new Jugador(new Dinero(100000), tablero,"Jugador 2");
+        Jugador jugador3 = new Jugador(new Dinero(100000), tablero,"Jugador 3");
         Barrio cordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
         Barrio santaFe = tablero.obtenerBarrioPorNombre("Santa Fe");
 
@@ -99,7 +99,7 @@ public class TerceraEntregaTest {
     public void testPunto5() {
 
         Tablero tablero = new Tablero();
-        Jugador jugador = new Jugador(new Dinero(100000), tablero);
+        Jugador jugador = new Jugador(new Dinero(100000), tablero,"Jugador");
         Barrio barrioSimple = tablero.obtenerBarrioPorNombre("Santa Fe");
 
         jugador.comprarPropiedad(barrioSimple);

@@ -20,7 +20,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
 
         jugador.caerEn(quini6);
@@ -33,7 +33,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
 
         jugador.caerEn(quini6);
@@ -47,7 +47,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
 
         jugador.caerEn(quini6);
@@ -63,7 +63,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(50000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Barrio barrio = tablero.obtenerBarrioPorNombre("Santa Fe");
 
         jugador.caerEn(barrio);
@@ -77,7 +77,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 
         jugador.caerEn(carcel);
@@ -90,7 +90,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 
         jugador.caerEn(carcel);
@@ -108,7 +108,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 
         jugador.caerEn(carcel);
@@ -121,7 +121,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.tirarDadosParaTests(2, 2);
         Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
@@ -135,7 +135,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.tirarDadosParaTests(3, 4);
         Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
@@ -149,7 +149,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.tirarDadosParaTests(5, 6);
         Encasillable avanceDinamico = tablero.obtenerCasilleroPorNombre("Avance Dinamico");
@@ -164,7 +164,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.comprarPropiedad(new SantaFe());
         jugador.comprarPropiedad(new Tucuman());
@@ -182,7 +182,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.comprarPropiedad(new SantaFe());
 
@@ -200,7 +200,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         BuenosAires bsas = new BuenosAires();
         BarrioDividido bsasSur = bsas.getBarrioSur();
@@ -223,7 +223,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.comprarPropiedad(new SantaFe());
         jugador.comprarPropiedad(new Tucuman());
@@ -242,7 +242,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.tirarDadosParaTests(3, 4);
         Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
@@ -257,7 +257,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(1000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
 
         jugador.tirarDadosParaTests(6, 5);
         Encasillable retrocesoDinamico = tablero.obtenerCasilleroPorNombre("Retroceso Dinamico");
@@ -272,7 +272,7 @@ public class PrimeraEntregaTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(100000);
-        Jugador jugador = new Jugador(capitalInicial, tablero);
+        Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
         Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
         Encasillable policia = tablero.obtenerCasilleroPorNombre("Policia");
 

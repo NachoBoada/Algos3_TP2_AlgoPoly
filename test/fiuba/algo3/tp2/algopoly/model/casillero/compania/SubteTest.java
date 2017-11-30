@@ -14,10 +14,10 @@ public class SubteTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero,"Jugador 1");
         
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero,"Jugador 2");
         
         ServiciosDeTransporte transportes = new ServiciosDeTransporte();
         Compania subte = tablero.obtenerCompaniaPorNombre("Subte");
@@ -36,10 +36,10 @@ public class SubteTest {
 
         Tablero tablero = new Tablero();
         Dinero capitalInicialCobrador = new Dinero(100000);
-        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero);
+        Jugador jugadorCobrador = new Jugador(capitalInicialCobrador,tablero,"Jugador 1");
         
         Dinero capitalInicialPagador = new Dinero(100000);
-        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
+        Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero,"Jugador 2");
         
         ServiciosDeTransporte transportes = new ServiciosDeTransporte();
         Compania tren = tablero.obtenerCompaniaPorNombre("Tren");

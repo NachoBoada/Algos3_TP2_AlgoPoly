@@ -22,7 +22,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.mover(5);
 
@@ -36,7 +36,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno0 () );
 				
@@ -48,7 +48,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno0 () );
 		jugador.pagarFianza();
@@ -63,7 +63,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno1 () );
 				
@@ -75,7 +75,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno1 () );
 		jugador.pagarFianza();
@@ -91,7 +91,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 				
@@ -103,7 +103,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -116,7 +116,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -131,7 +131,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (0);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno2 ( new Carcel() ) );
 		
@@ -145,7 +145,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 				
@@ -157,7 +157,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -171,7 +171,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 		jugador.pagarFianza();
@@ -186,7 +186,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (0);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno3 ( new Carcel() ) );
 
@@ -200,7 +200,7 @@ public class EstadoTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		Carcel carcel = new Carcel();
 		
 		jugador.cambiarEstado( new PresoTurno3 (carcel) );

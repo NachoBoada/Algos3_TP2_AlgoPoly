@@ -18,7 +18,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
@@ -41,7 +41,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
@@ -63,7 +63,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
@@ -84,7 +84,7 @@ public class CarcelTest {
 
 		Tablero tablero = new Tablero();
 		Dinero capitalJugador = new Dinero (CAPITALINICIAL);
-		Jugador jugador = new Jugador(capitalJugador,tablero);
+		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		Encasillable carcel = tablero.obtenerCasilleroPorNombre("Carcel");
 		
 		//caigo en carcel
