@@ -7,6 +7,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 public interface EstadoCompania {
 
 
-    public abstract void actuarSobre(Jugador jugador, Compania compania, Servicios algo);
+    public void actuarSobre(Jugador jugador, Compania compania, Servicios algo);
 
+    public  Jugador getPropietario();
 }

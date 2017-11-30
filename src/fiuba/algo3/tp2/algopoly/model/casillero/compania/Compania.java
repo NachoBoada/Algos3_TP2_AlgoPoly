@@ -4,6 +4,7 @@ import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
+import fiuba.algo3.tp2.algopoly.model.casillero.SinPropietarioException;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaNoComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
@@ -58,5 +59,22 @@ public abstract class Compania implements Encasillable, Apropiable {
 
         return this.nombre;
 
+    }
+
+    @Override
+    public String getDescripcion() {
+        String propietario;
+        try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
+        catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
+        return "Propietario: "+ propietario+"\nPrecio compania: $" + getPrecio().getCantidad() + "\n" + "Monto : " + getFactorSimple() + " lo sacado en los dados\n"
+                + "Monto con Edesur: " + getFactorDoble() + " lo sacado en los dados\n";
+    }
+
+    public int getFactorSimple() {
+        return factorSimple;
+    }
+
+    public int getFactorDoble() {
+        return factorDoble;
     }
 }

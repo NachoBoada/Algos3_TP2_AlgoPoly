@@ -23,7 +23,7 @@ public class ServiciosPublicos implements Servicios {
 
     @Override
     public void cobrar(CompaniaComprada companiaComprada, Jugador jugador) {
-        Jugador duenio = companiaComprada.getDuenio();
+        Jugador duenio = companiaComprada.getPropietario();
         if (duenio.esPropietarioDe(edesur) && duenio.esPropietarioDe(aysa)) {
             companiaComprada.cobrarDoble(jugador);
         } else {

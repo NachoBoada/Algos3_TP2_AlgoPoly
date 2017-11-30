@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.SinPropietarioException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
 public abstract class BarrioDividido extends Barrio {
@@ -67,7 +68,31 @@ public abstract class BarrioDividido extends Barrio {
 		cantidadCasas = 0;
 		cantidadHoteles = 0;		
 	}
-	
-	
 
+	@Override
+	public String getDescripcion() {
+        String propietario;
+        try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
+        catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
+
+		return "Propietario: " + propietario + "\nCantidad de casas construidas: " + getCantidadCasas()
+				+ "\nCantidad de hoteles: " + getCantidadHoteles() + "\nPrecio terreno: " + getPrecio().getCantidad()
+				+ "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
+				+ "\nAlquiler con 1 casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
+				+ "\nAlquiler con 2 casas: $" + estadoComprado.getPrecioAlquilerConDosCasas().getCantidad() + "\nAlquiler con Hotel: $"
+				+ estadoComprado.getPrecioAlquilerConHotel().getCantidad() + "\nConstruir casas: $" + getPrecioCasa().getCantidad()
+				+ "\nConstruir hotel: $" + getPrecioHotel().getCantidad();
+	}
+
+	public int getCantidadHoteles() {
+		return cantidadHoteles;
+	}
+
+	public Dinero getPrecioCasa() {
+		return precioCasa;
+	}
+
+	public Dinero getPrecioHotel() {
+		return precioHotel;
+	}
 }

@@ -47,7 +47,7 @@ public class CompaniaComprada implements EstadoCompania {
     }
 
 
-    public Jugador getDuenio() {
+    public Jugador getPropietario() {
         return this.duenio;
     }
 
