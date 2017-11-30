@@ -2,9 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.compania;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
-import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
-import fiuba.algo3.tp2.algopoly.model.casillero.SinPropietarioException;
+import fiuba.algo3.tp2.algopoly.model.casillero.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaNoComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
@@ -30,7 +28,20 @@ public abstract class Compania implements Encasillable, Apropiable {
 
     @Override
     public void modificarPropietario(Jugador jugador) {
-        this.estadoActual = new CompaniaComprada(jugador, factorSimple, factorDoble);
+
+
+        try{
+
+            estadoActual.getPropietario();
+
+            throw new NoSePuedeComprarUnaCompaniaYaComprada();
+
+        }catch (SinPropietarioException e){
+
+            this.estadoActual = new CompaniaComprada(jugador, factorSimple, factorDoble);
+
+        }
+
     }
 
     @Override

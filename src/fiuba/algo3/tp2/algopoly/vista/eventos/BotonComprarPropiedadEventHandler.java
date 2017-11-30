@@ -5,9 +5,12 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaComprado;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnaCompaniaYaComprada;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEvent>{
@@ -42,7 +45,27 @@ public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEve
 
         }
 
-        jugadorActual.comprarPropiedad(propiedadAComprar);
+        try{
+
+            jugadorActual.comprarPropiedad(propiedadAComprar);
+
+        }catch (NoSePuedeComprarUnBarrioYaComprado e){
+
+            Alert alertaBarrioNoComprado = new Alert(Alert.AlertType.WARNING);
+            alertaBarrioNoComprado.initOwner(stage);
+            alertaBarrioNoComprado.setTitle("ATENCION");
+            alertaBarrioNoComprado.setHeaderText("Este barrio ya esta comprado, no se puede comprar.");
+            alertaBarrioNoComprado.showAndWait();
+
+        }catch (NoSePuedeComprarUnaCompaniaYaComprada e){
+
+            Alert alertaBarrioNoComprado = new Alert(Alert.AlertType.WARNING);
+            alertaBarrioNoComprado.initOwner(stage);
+            alertaBarrioNoComprado.setTitle("ATENCION");
+            alertaBarrioNoComprado.setHeaderText("Esta compania ya esta comprada, no se puede comprar.");
+            alertaBarrioNoComprado.showAndWait();
+
+        }
 
         this.contenedorPrincipal.jugadorComproPropiedad();
 

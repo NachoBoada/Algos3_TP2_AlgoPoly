@@ -152,9 +152,9 @@ public class Jugador {
 
     public void comprarPropiedad(Apropiable apropiable){
 
-        this.decrementarCapitalEn(apropiable.getPrecio());
-
         apropiable.modificarPropietario(this);
+
+        this.decrementarCapitalEn(apropiable.getPrecio());
 
         this.agregarPropiedad(apropiable);
 

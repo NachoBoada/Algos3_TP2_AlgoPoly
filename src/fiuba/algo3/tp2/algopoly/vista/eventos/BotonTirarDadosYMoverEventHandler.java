@@ -57,9 +57,13 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             alertaJugadorPresoNoSePuedeMover.setHeaderText("Estas preso y no te podes mover!");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
 
+            jugadorActual.caerEn(jugadorActual.casilleroActual());
+
         }
 
         Juego.getInstance().turnoProximojugador();
+
+        this.contenedorPrincipal.jugadorNoComproPropiedad();
 
         this.contenedorPrincipal.setPanelIzquierdo();
         this.contenedorPrincipal.setPanelDerecho();

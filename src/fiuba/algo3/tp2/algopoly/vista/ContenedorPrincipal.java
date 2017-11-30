@@ -65,10 +65,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         }
 
-
-
         MenuButton botonVenderPropiedad = new MenuButton("Vender Propiedad");
-        BotonVenderPropiedadEventHandler botonVenderPropiedadEventHandler = new BotonVenderPropiedadEventHandler(this.stage,this,botonVenderPropiedad);
 
         this.agregarPropiedadesAMenuVenderPropiedades(botonVenderPropiedad);
 
@@ -100,9 +97,20 @@ public class ContenedorPrincipal extends BorderPane {
 
         }
 
+        Button botonPagarFianza = new Button("Pagar Fianza");
+        BotonPagarFianzaEventHandler botonPagarFianzaEventHandler = new BotonPagarFianzaEventHandler(this.stage,this);
+        botonPagarFianza.setOnAction(botonPagarFianzaEventHandler);
+        botonPagarFianza.setDisable(true);
+
+        if (jugadorActual.casilleroActual().getNombre().equals("Carcel")) {
+
+            botonPagarFianza.setDisable(false);
+
+        }
+
         this.panelIzquierdo.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
         InformacionJugadorVista informacionJugadorVista= new InformacionJugadorVista();
-        panelIzquierdo.getChildren().addAll(acciones,botonTirarDadosYMover,botonComprarPropiedad,botonVenderPropiedad,botonConstruirCasa,botonConstruirHotel);
+        panelIzquierdo.getChildren().addAll(acciones,botonTirarDadosYMover,botonComprarPropiedad,botonVenderPropiedad,botonConstruirCasa,botonConstruirHotel,botonPagarFianza);
         panelIzquierdo.getChildren().add(informacionJugadorVista);
         this.setLeft(this.panelIzquierdo);
 
@@ -162,5 +170,11 @@ public class ContenedorPrincipal extends BorderPane {
     public void jugadorComproPropiedad() {
 
         this.jugadorComproPropiedad = true;
+    }
+
+    public void jugadorNoComproPropiedad(){
+
+       this.jugadorComproPropiedad = false;
+
     }
 }

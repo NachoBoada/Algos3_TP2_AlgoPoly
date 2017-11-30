@@ -40,11 +40,12 @@ public class AysaTest {
         Jugador JugadorDuenioDeEdesurYAysa = new Jugador(dineroJugadorDuenioDeEdesurYAysa,tablero,"Jugador 2");
 
         Compania edesur = tablero.obtenerCompaniaPorNombre("Edesur");
+        Compania aysa = tablero.obtenerCompaniaPorNombre("Aysa");
         JugadorDuenioDeEdesurYAysa.comprarPropiedad(edesur);
-        JugadorDuenioDeEdesurYAysa.comprarPropiedad(edesur);
+        JugadorDuenioDeEdesurYAysa.comprarPropiedad(aysa);
 
         jugadorQuePaga.tirarDadosParaTests(2, 1);
-        jugadorQuePaga.caerEn(edesur);
+        jugadorQuePaga.caerEn(aysa);
         Dinero dineroRestante = new Dinero(100000 - 500 * 3);
         
         Assert.assertTrue(jugadorQuePaga.getCapital().equals(dineroRestante));

@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly.model;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Random;
 
 public class Jugadores {
 

@@ -65,6 +65,8 @@ public class BotonConstruirHotelEventHandler implements EventHandler<ActionEvent
             alertaBarrioNoComprado.showAndWait();
         }
 
+        this.contenedorPrincipal.jugadorNoComproPropiedad();
+
         this.contenedorPrincipal.setPanelIzquierdo();
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();

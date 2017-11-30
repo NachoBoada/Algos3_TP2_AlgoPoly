@@ -8,8 +8,10 @@ public abstract class Preso extends Estado {
 	protected String nombre;
 
 	public void mover (Jugador jugador, int posicionActual, int cantidadCasillero, Tablero tablero) {
+
 		throw new JugadorPresoNoSePuedeMoverException();
 	}
+
 
 	public abstract void cambiarProximoEstadoPreso(Jugador jugador, Carcel carcel);
 

@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaComprado;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerSinConstruccion;
@@ -40,7 +41,12 @@ public class Comprado implements EstadoBarrio {
 
     public void modificarPropietario(Jugador unJugador) {
 
-        this.propietario = unJugador;
+        if ( (this.propietario == null) ){
+
+            this.propietario = unJugador;
+        }else {throw new NoSePuedeComprarUnBarrioYaComprado(); }
+
+
     }
 
 
@@ -68,6 +74,8 @@ public class Comprado implements EstadoBarrio {
     public void resetear() {
 
         this.cambiarTipoAlquiler(new AlquilerSinConstruccion(this));
+
+        this.propietario = null;
     }
 
     public void agregarConstruccion() {

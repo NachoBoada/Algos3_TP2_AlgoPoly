@@ -14,7 +14,11 @@ public class PresoTurno1 extends Preso {
 		jugador.cambiarEstado ( new PresoTurno2 (carcel) );
 	}
 	
-	public void pagarFianza(Jugador jugador) {}
+	public void pagarFianza(Jugador jugador) {
+
+		throw new NoSePuedePagarFianzaEnEsteTurnoException();
+
+	}
 
 	@Override
 	public String getNombre() {

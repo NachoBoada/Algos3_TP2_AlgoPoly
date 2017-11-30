@@ -56,6 +56,8 @@ public class BotonConstruirCasaEventHandler implements EventHandler<ActionEvent>
 
         }
 
+        this.contenedorPrincipal.jugadorNoComproPropiedad();
+
         this.contenedorPrincipal.setPanelIzquierdo();
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();
