@@ -33,14 +33,15 @@ public class ContenedorPrincipal extends BorderPane {
     private void setPanelIzquierdo() {
 
         Label acciones = new Label("Acciones de jugador");
-        Label infoJugadorActual = new Label("Info jugador actual");
 
-        this.panelIzquierdo = new VBox(acciones,infoJugadorActual);
+        this.panelIzquierdo = new VBox();
         this.panelIzquierdo.setSpacing(500);
         this.panelIzquierdo.setPadding(new Insets(15));
 
         this.panelIzquierdo.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
-
+        InformacionJugadorVista informacionJugadorVista= new InformacionJugadorVista();
+        panelIzquierdo.getChildren().add(acciones);
+        panelIzquierdo.getChildren().add(informacionJugadorVista);
         this.setLeft(this.panelIzquierdo);
 
     }

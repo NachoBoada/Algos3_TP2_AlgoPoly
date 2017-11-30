@@ -57,6 +57,10 @@ public class Jugador {
         casillero.actuarSobre(this);
     }
 
+    public String getEstado(){
+        return estado.getNombre();
+    }
+
     public Encasillable casilleroActual() {
         return casilleroActual;
     }
@@ -218,4 +222,6 @@ public class Jugador {
     public int getPosicionActual() {
         return posicionActual;
     }
+
+    public ArrayList<Apropiable> getPropiedades(){ return apropiables; }
 }

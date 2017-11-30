@@ -6,7 +6,10 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class Libre extends Estado {
 	
-	
+	private String nombre ;
+
+	public Libre(){ nombre = "Libre "; }
+
 	public void cambiarProximoEstadoPreso(Jugador jugador, Carcel carcel) {
 		jugador.cambiarEstado( new PresoTurno0 () );
 	}
@@ -18,5 +21,11 @@ public class Libre extends Estado {
 		tablero.moverJugador(jugador, posicionActual, cantidadCasillero);
 
 	}
+
+    @Override
+    public String getNombre() {
+        return nombre;
+    }
+
 
 }

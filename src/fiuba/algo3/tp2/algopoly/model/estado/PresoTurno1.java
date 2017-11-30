@@ -5,7 +5,9 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 
 public class PresoTurno1 extends Preso {
 
-
+	public PresoTurno1(){
+		nombre= "Preso ( primer turno)";
+	}
 	@Override
 	public void cambiarProximoEstadoPreso (Jugador jugador, Carcel carcel) {
 		
@@ -13,5 +15,10 @@ public class PresoTurno1 extends Preso {
 	}
 	
 	public void pagarFianza(Jugador jugador) {}
+
+	@Override
+	public String getNombre() {
+		return nombre;
+	}
 
 }

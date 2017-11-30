@@ -11,5 +11,6 @@ public abstract class Estado {
 	public abstract void pagarFianza (Jugador jugador);
 	
 	public abstract void mover (Jugador jugador, int posicionActual, int cantidadCasilleros, Tablero tablero);
-	
+
+    public abstract String getNombre();
 }
