@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.algopoly.model;
 
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
+import fiuba.algo3.tp2.algopoly.model.estado.NoSePuedePagarFianzaEnEsteTurnoException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,16 +47,33 @@ public class CarcelTest {
 		
 		//caigo en carcel
 		jugador.caerEn(carcel);	
-		jugador.pagarFianza();
+
+		try{
+			jugador.pagarFianza();
+		}catch (NoSePuedePagarFianzaEnEsteTurnoException e){
+
+			//primer turno
+			jugador.caerEn(carcel);
+
+		}
+
 		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
-		//primer turno
-		jugador.caerEn(carcel);	
+
+
+		try{
+			jugador.pagarFianza();
+
+		}catch (NoSePuedePagarFianzaEnEsteTurnoException e){
+
+			//segundo turno
+			jugador.caerEn(carcel);
+
+		}
+
 		jugador.pagarFianza();
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
-		//segundo turno
-		jugador.caerEn(carcel);	
-		jugador.pagarFianza();
-		Assert.assertNotEquals(CAPITALINICIAL, jugador.getCapital().getCantidad());
+		Assert.assertEquals(CAPITALINICIAL - 45000, jugador.getCapital().getCantidad(), DELTA);
+
+
 	}
 	
 	@Test

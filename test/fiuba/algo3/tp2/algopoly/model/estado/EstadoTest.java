@@ -51,9 +51,17 @@ public class EstadoTest {
 		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno0 () );
-		jugador.pagarFianza();
+
+		try{
+			jugador.pagarFianza();
+		}catch (NoSePuedePagarFianzaEnEsteTurnoException e){
+
+			Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
+
+		}
+
 		
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
+
 	}
 	
 	//PRESO TURNO 1
@@ -78,9 +86,14 @@ public class EstadoTest {
 		Jugador jugador = new Jugador(capitalJugador,tablero,"Jugador 1");
 		
 		jugador.cambiarEstado( new PresoTurno1 () );
-		jugador.pagarFianza();
-		
-		Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
+
+		try{
+			jugador.pagarFianza();
+		}catch (NoSePuedePagarFianzaEnEsteTurnoException e){
+
+			Assert.assertEquals(CAPITALINICIAL, jugador.getCapital().getCantidad(), DELTA);
+
+		}
 	}
 	
 	//PRESO TURNO 2
