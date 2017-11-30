@@ -3,6 +3,7 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.SinPropietarioException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
 public abstract class BarrioSimple extends Barrio {
@@ -45,7 +46,10 @@ public abstract class BarrioSimple extends Barrio {
 
     @Override
     public String getDescripcion() {
-        return "Propietario:" + estadoActual.getPropietario().getNombreJugador() + "\nCasa: " + obtenerCantidadEdificaciones()
+        String propietario;
+        try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
+        catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
+        return "Propietario:" + propietario + "\nCasa: " + obtenerCantidadEdificaciones()
                 + "\nPrecio terreno: $" + getPrecio().getCantidad() + "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
                 + "\nAlquiler con casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
                 + "\nConstruccion: $" + getCostoCasa().getCantidad();
