@@ -19,7 +19,7 @@ public class SubteTest {
         Dinero capitalInicialPagador = new Dinero(100000);
         Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
         
-        Transportes transportes = new Transportes();
+        ServiciosDeTransporte transportes = new ServiciosDeTransporte();
         Compania subte = tablero.obtenerCompaniaPorNombre("Subte");
         jugadorCobrador.comprarPropiedad(subte);
 
@@ -41,7 +41,7 @@ public class SubteTest {
         Dinero capitalInicialPagador = new Dinero(100000);
         Jugador jugadorPagador = new Jugador(capitalInicialPagador,tablero);
         
-        Transportes transportes = new Transportes();
+        ServiciosDeTransporte transportes = new ServiciosDeTransporte();
         Compania tren = tablero.obtenerCompaniaPorNombre("Tren");
         Compania subte = tablero.obtenerCompaniaPorNombre("Subte");
         

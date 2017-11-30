@@ -42,4 +42,16 @@ public abstract class BarrioSimple extends Barrio {
 		throw new NoSePuedeConstruirUnHotelEnUnBarrioSimpleException();
 
 	}
+
+    @Override
+    public String getDescripcion() {
+        return "Propietario:" + estadoActual.getPropietario().getNombreJugador() + "\nCasa: " + obtenerCantidadEdificaciones()
+                + "\nPrecio terreno: $" + getPrecio().getCantidad() + "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
+                + "\nAlquiler con casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
+                + "\nConstruccion: $" + getCostoCasa().getCantidad();
+    }
+
+    public Dinero getCostoCasa() {
+        return costoCasa;
+    }
 }

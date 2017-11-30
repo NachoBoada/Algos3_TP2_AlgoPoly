@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.algopoly.model;
 
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Aysa;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.ServiciosPublicos;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -105,7 +105,7 @@ public class JugadorTest {
         Tablero tablero = new Tablero();
         Dinero dineroInicialJugador = new Dinero(100000);
         Jugador jugador = new Jugador(dineroInicialJugador,tablero);
-        Compania aysa = new Aysa(new Servicios());
+        Compania aysa = new Aysa(new ServiciosPublicos());
         jugador.comprarPropiedad(aysa);
 
         jugador.venderPropiedad(aysa);

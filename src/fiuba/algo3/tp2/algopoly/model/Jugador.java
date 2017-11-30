@@ -21,6 +21,7 @@ public class Jugador {
     private final Dinero capitalDelJugador;
     private final BoletaQuini6 boletaQuini6;
     private Encasillable casilleroActual;
+    private String nombreJugador;
     private int posicionActual;
     private Estado estado;
     private final Tablero tablero;
@@ -208,4 +209,11 @@ public class Jugador {
 
     }
 
+    public String getNombreJugador() {
+        return nombreJugador;
+    }
+
+    public int getPosicionActual() {
+        return posicionActual;
+    }
 }

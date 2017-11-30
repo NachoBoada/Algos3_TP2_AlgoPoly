@@ -6,8 +6,8 @@ import java.util.LinkedList;
 import fiuba.algo3.tp2.algopoly.model.casillero.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Transportes;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.ServiciosPublicos;
+import fiuba.algo3.tp2.algopoly.model.casillero.compania.ServiciosDeTransporte;
 
 public class Tablero {
 	
@@ -18,9 +18,9 @@ public class Tablero {
 
 	public Tablero(){
 		BuenosAires buenosAires = new BuenosAires();
-		Servicios servicios = new Servicios();
+		ServiciosPublicos servicios = new ServiciosPublicos();
 		Cordoba cordoba = new Cordoba();
-		Transportes transportes = new Transportes();
+		ServiciosDeTransporte transportes = new ServiciosDeTransporte();
 		Salta salta = new Salta();
 		Carcel carcel = new Carcel();
 		

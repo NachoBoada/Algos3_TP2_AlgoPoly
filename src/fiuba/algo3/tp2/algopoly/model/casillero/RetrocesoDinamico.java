@@ -26,6 +26,10 @@ public class RetrocesoDinamico implements Encasillable {
         return this.nombre;
     }
 
+    @Override
+    public String getDescripcion() {
+        return " Modifica el movimiento del jugador";
+    }
 
     @Override
     public void actuarSobre(Jugador jugador) {

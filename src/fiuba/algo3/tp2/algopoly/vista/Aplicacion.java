@@ -8,7 +8,7 @@ import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 public class Aplicacion extends Application {
 
 
-    final static void main(String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 

@@ -7,13 +7,13 @@ public class Tren extends Compania {
     private static final Dinero PRECIO = new Dinero(38000);
     private final int posicion;
 
-    public Tren(Transportes transportes) {
+    public Tren(ServiciosDeTransporte transportes) {
         super(PRECIO);
         this.posicion = 16;
         this.nombre = "Tren";
-        this.algo = transportes;
-        this.FACTOR_SIMPLE = 450;
-        this.FACTOR_DOBLE = 800;
+        this.servicios = transportes;
+        this.factorSimple = 450;
+        this.factorDoble = 800;
     }
 
     @Override

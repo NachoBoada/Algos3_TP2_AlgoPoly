@@ -8,5 +8,5 @@ public interface EstadoBarrio {
 
     public abstract void actuarSobre(Jugador jugador,Barrio unBarrio);
 
-
+    public abstract Jugador getPropietario();
 }

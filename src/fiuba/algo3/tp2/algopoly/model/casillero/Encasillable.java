@@ -11,4 +11,6 @@ public interface Encasillable {
 
     String getNombre();
 
+    String getDescripcion();
+
 }
