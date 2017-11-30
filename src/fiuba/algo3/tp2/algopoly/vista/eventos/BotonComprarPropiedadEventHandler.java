@@ -44,12 +44,11 @@ public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEve
 
         jugadorActual.comprarPropiedad(propiedadAComprar);
 
+        this.contenedorPrincipal.jugadorComproPropiedad();
+
         this.contenedorPrincipal.setPanelIzquierdo();
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();
-
-
-
 
     }
 }

@@ -1,12 +1,13 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruir;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Aysa;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.ServiciosPublicos;
 import org.junit.Assert;
 import org.junit.Test;
-
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.SantaFe;
 
 public class JugadorTest {
 
@@ -113,5 +114,39 @@ public class JugadorTest {
         Assert.assertEquals(100000 - 30000 + (30000 * 0.85) , jugador.getCapital().getCantidad(),DELTA);
 
     }
+
+    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruir.class)
+    public void testJugadorQuiereConstruirUnaCasaEnUnBarrioSimpleQueNoComproEntoncesNoPuede(){
+
+        Jugador jugador = new Jugador(new Dinero(100000),new Tablero(),"Jugador");
+        Barrio santaFe = new SantaFe();
+
+        jugador.construirCasaEn(santaFe);
+
+    }
+
+    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruir.class)
+    public void testJugadorQuiereConstruirUnaCasaEnUnBarrioDivididoQueNoComproEntoncesNoPuede(){
+
+        Jugador jugador = new Jugador(new Dinero(100000),new Tablero(),"Jugador");
+        Barrio buenosAiresSur = new BuenosAiresSur(new BuenosAires());
+
+        jugador.construirCasaEn(buenosAiresSur);
+
+    }
+
+    @Test (expected = JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException.class)
+    public void testJugadorQuiereConstruirUnaCasaEnUnBarrioDivididoPeroNoComproAmbasBarriosDeLaMismaRegion(){
+
+        Jugador jugador = new Jugador(new Dinero(100000),new Tablero(),"Jugador");
+        Barrio buenosAiresSur = new BuenosAiresSur(new BuenosAires());
+
+        jugador.comprarPropiedad(buenosAiresSur);
+
+        jugador.construirCasaEn(buenosAiresSur);
+
+    }
+
+
 
 }

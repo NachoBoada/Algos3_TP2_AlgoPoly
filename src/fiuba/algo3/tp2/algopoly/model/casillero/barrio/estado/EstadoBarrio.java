@@ -6,7 +6,11 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 public interface EstadoBarrio {
 
 
-    public abstract void actuarSobre(Jugador jugador,Barrio unBarrio);
+    public  void actuarSobre(Jugador jugador,Barrio unBarrio);
 
-    public abstract Jugador getPropietario();
+    public  Jugador getPropietario();
+
+    public void agregarConstruccion();
+
+
 }

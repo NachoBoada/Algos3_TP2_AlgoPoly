@@ -3,10 +3,7 @@ package fiuba.algo3.tp2.algopoly.vista;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
-import fiuba.algo3.tp2.algopoly.vista.eventos.BotonComprarPropiedadEventHandler;
-import fiuba.algo3.tp2.algopoly.vista.eventos.BotonTirarDadosYMoverEventHandler;
-import fiuba.algo3.tp2.algopoly.vista.eventos.BotonVenderPropiedadEventHandler;
-import fiuba.algo3.tp2.algopoly.vista.eventos.OpcionVenderPropiedadEventHandler;
+import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -19,16 +16,20 @@ public class ContenedorPrincipal extends BorderPane {
     VBox panelIzquierdo;
     VBox panelDerecho;
     Stage stage;
+    Boolean jugadorComproPropiedad;
 
 
 
     public ContenedorPrincipal(Stage stage) {
 
+        this.jugadorComproPropiedad = false;
+        this.stage = stage;
         this.setBarraDeMenu(stage);
         this.setPanelIzquierdo();
         this.setPanelDerecho();
         this.setCentro();
-        this.stage = stage;
+
+
 
     }
 
@@ -64,14 +65,40 @@ public class ContenedorPrincipal extends BorderPane {
 
         }
 
+
+
         MenuButton botonVenderPropiedad = new MenuButton("Vender Propiedad");
         BotonVenderPropiedadEventHandler botonVenderPropiedadEventHandler = new BotonVenderPropiedadEventHandler(this.stage,this,botonVenderPropiedad);
 
         this.agregarPropiedadesAMenuVenderPropiedades(botonVenderPropiedad);
 
         Button botonConstruirCasa = new Button("Construir casa");
+        BotonConstruirCasaEventHandler botonConstruirCasaEventHandler = new BotonConstruirCasaEventHandler(this.stage,this);
+        botonConstruirCasa.setOnAction(botonConstruirCasaEventHandler);
+        botonConstruirCasa.setDisable(false);
 
         Button botonConstruirHotel = new Button("Construir hotel");
+        BotonConstruirHotelEventHandler botonConstruirHotelEventHandler = new BotonConstruirHotelEventHandler(this.stage,this);
+        botonConstruirHotel.setOnAction(botonConstruirHotelEventHandler);
+        botonConstruirHotel.setDisable(false);
+
+        if (this.jugadorComproPropiedad){
+
+            botonConstruirCasa.setDisable(true);
+            botonConstruirHotel.setDisable(true);
+            jugadorComproPropiedad = false;
+        }
+
+        try{
+
+            Juego.getInstance().getTablero().obtenerBarrioPorNombre(jugadorActual.casilleroActual().getNombre());
+
+        }catch(NullPointerException e){
+
+            botonConstruirCasa.setDisable(true);
+            botonConstruirHotel.setDisable(true);
+
+        }
 
         this.panelIzquierdo.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
         InformacionJugadorVista informacionJugadorVista= new InformacionJugadorVista();
@@ -130,5 +157,10 @@ public class ContenedorPrincipal extends BorderPane {
             botonVenderPropiedad.getItems().add(opcionVenderPropiedad);
 
         }
+    }
+
+    public void jugadorComproPropiedad() {
+
+        this.jugadorComproPropiedad = true;
     }
 }

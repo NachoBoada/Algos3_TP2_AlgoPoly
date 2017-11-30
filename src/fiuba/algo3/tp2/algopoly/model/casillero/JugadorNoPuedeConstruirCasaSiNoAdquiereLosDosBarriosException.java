@@ -1,4 +1,4 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
-public class JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException {
+public class JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException extends RuntimeException {
 }

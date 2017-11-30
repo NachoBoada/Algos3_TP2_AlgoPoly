@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly;
 
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.*;
 import org.junit.Assert;
@@ -144,8 +145,10 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
+        Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 1");
         jugador.comprarPropiedad(barrioSaltaSur);
+        jugador.comprarPropiedad(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaSur);
         Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 2");
 
@@ -159,8 +162,10 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Barrio barrioBsAsSur = tablero.obtenerBarrioPorNombre("Buenos Aires Sur");
+        Barrio barrioBsAsNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 1");
         jugador1.comprarPropiedad(barrioBsAsSur);
+        jugador1.comprarPropiedad(barrioBsAsNorte);
         jugador1.construirCasaEn(barrioBsAsSur);
         jugador1.construirCasaEn(barrioBsAsSur);
         Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 2");
@@ -175,8 +180,10 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Barrio barrioCordobaNorte = tablero.obtenerBarrioPorNombre("Cordoba Norte");
+        Barrio barrioCordobaSur = tablero.obtenerBarrioPorNombre("Cordoba Sur");
         Jugador jugador1 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 1");
         jugador1.comprarPropiedad(barrioCordobaNorte);
+        jugador1.comprarPropiedad(barrioCordobaSur);
         jugador1.construirCasaEn(barrioCordobaNorte);
         jugador1.construirCasaEn(barrioCordobaNorte);
         Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 2");
@@ -191,8 +198,10 @@ public class SegundaEntregaTest {
 
         Tablero tablero = new Tablero();
         Barrio barrioSaltaNorte = tablero.obtenerBarrioPorNombre("Salta Norte");
+        Barrio barrioSaltaSur = tablero.obtenerBarrioPorNombre("Salta Sur");
         Jugador jugador = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 1");
         jugador.comprarPropiedad(barrioSaltaNorte);
+        jugador.comprarPropiedad(barrioSaltaSur);
         jugador.construirCasaEn(barrioSaltaNorte);
         jugador.construirCasaEn(barrioSaltaNorte);
         Jugador jugador2 = new Jugador(new Dinero(CAPITAL_INICIAL_JUGADOR), tablero,"Jugador 2");
@@ -202,7 +211,7 @@ public class SegundaEntregaTest {
         Assert.assertEquals(CAPITAL_INICIAL_JUGADOR - 3850, jugador2.getCapital().getCantidad(), DELTA);
     }
 
-    @Test
+    @Test (expected = JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException.class)
     public void test05UnJugadorConBsAsNorteYSurNoTieneCupoMaximoDeCasasEntoncesComprarHotelNoDecrementaElCapital() {
 
         Tablero tablero = new Tablero();
@@ -217,12 +226,11 @@ public class SegundaEntregaTest {
         double capitalJugador = jugador.getCapital().getCantidad();
 
         jugador.construirHotelEn(barrioBsAsSur);
-        jugador.construirHotelEn(barrioBsAsNorte);      //ACA MEJOR TIRAR EXCEPCION!!!!!
+        jugador.construirHotelEn(barrioBsAsNorte);
 
-        Assert.assertEquals(capitalJugador, jugador.getCapital().getCantidad(), DELTA);
     }
 
-    @Test
+    @Test (expected = JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException.class)
     public void test05UnJugadorConCordobaNorteYSurNoTieneCupoMaximoDeCasasEntoncesComprarHotelNoDecrementaElCapital() {
 
         Tablero tablero = new Tablero();
@@ -239,10 +247,9 @@ public class SegundaEntregaTest {
         jugador.construirHotelEn(barrioCordobaNorte);
         jugador.construirHotelEn(barrioCordobaSur);
 
-        Assert.assertEquals(capitalJugador, jugador.getCapital().getCantidad(), DELTA);
     }
 
-    @Test
+    @Test (expected = JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException.class)
     public void test05UnJugadorConSaltaNorteYSurNoTieneCupoMaximoDeCasasEntoncesComprarHotelNoDecrementaElCapital() {
 
         Tablero tablero = new Tablero();
@@ -259,7 +266,6 @@ public class SegundaEntregaTest {
         jugador.construirHotelEn(barrioSaltaNorte);
         jugador.construirHotelEn(barrioSaltaSur);
 
-        Assert.assertEquals(capitalJugador, jugador.getCapital().getCantidad(), DELTA);
     }
 
     @Test

@@ -3,6 +3,8 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException;
 
 public abstract class Region {
 
@@ -22,7 +24,7 @@ public abstract class Region {
     	if (jugador.esPropietarioDe(barrioSur) && jugador.esPropietarioDe(barrioNorte)) {
     		jugador.decrementarCapitalEn(costoCasa);
     		barrio.sumarCasa();
-    	}
+    	}else { throw new JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException(); }
     		
     }
     
@@ -31,7 +33,7 @@ public abstract class Region {
     		
     		jugador.decrementarCapitalEn(costoHotel);
     		barrio.sumarHotel();
-    	}
+    	}else {throw new JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException();}
     }
 
 	public void demolerEdificaciones() {

@@ -13,13 +13,15 @@ public abstract class BarrioSimple extends Barrio {
 
 
 	public void comprarCasa(Jugador jugador ) throws CapitalInsuficienteException {
-		
+
+		this.estadoActual.agregarConstruccion();
+
 		if (this.cantidadCasas == 1) throw new NoSePermiteConstruirMasDeUnaCasaEnBarrioSimpleException();
 		
 		jugador.decrementarCapitalEn( this.costoCasa);
 		
 		this.cantidadCasas=1;
-		this.estadoComprado.agregarConstruccion();
+
 	}
 
 	@Override

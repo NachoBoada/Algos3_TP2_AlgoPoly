@@ -2,6 +2,7 @@ package fiuba.algo3.tp2.algopoly.vista;
 
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -29,11 +30,6 @@ public class InformacionJugadorVista extends VBox{
             Label propiedades = new Label( "Propiedades:");
             propiedades.setLineSpacing(100);
 
-            for (int i=0; i<cantidad; i++){
-                Label propiedad = new Label("\t" +jugadorActual.getPropiedades().get(i).getNombre());
-                propiedad.setLineSpacing(100);
-                this.getChildren().add(propiedad);
-            }
 
             Label estado = new Label("Estado: "+ jugadorActual.getEstado());
             estado.setLineSpacing(100);
@@ -42,8 +38,17 @@ public class InformacionJugadorVista extends VBox{
             this.getChildren().add(nombre);
             this.getChildren().add(capital);
             this.getChildren().add(posicion);
-            this.getChildren().add(propiedades);
             this.getChildren().add(estado);
+            this.getChildren().add(propiedades);
+
+
+            for (Apropiable apropiable : jugadorActual.getPropiedades()) {
+
+                Label propiedad = new Label("\t" + apropiable.getNombre());
+                propiedad.setLineSpacing(100);
+                this.getChildren().add(propiedad);
+
+            }
 
         }
 }
