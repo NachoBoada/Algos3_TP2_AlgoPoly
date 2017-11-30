@@ -168,7 +168,7 @@ public class Jugador {
 
     public boolean tienePropiedades(){
 
-        return this.apropiables.isEmpty();
+        return !this.apropiables.isEmpty();
 
     }
 

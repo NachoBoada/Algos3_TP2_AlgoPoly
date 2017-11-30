@@ -13,7 +13,7 @@ public class TerceraEntregaTest {
     @Test
     public void test01JugadorTiraDadosAmbosConIgualValorEntoncesPuedeVolverATirar() {
         Juego juego = Juego.getInstance();
-        juego.comenzarJuego();
+        juego.comenzarJuego(100000);
 
         Jugador primerJugador = juego.getJugadorActual();
         TiroDeDados tiroDeDados = primerJugador.tirarDadosParaTests(2, 2);
@@ -26,7 +26,7 @@ public class TerceraEntregaTest {
     @Test
     public void test02JugadorTiraDadosAmbosConIgualValorEnDosOportunidadesEntoncesSalteaElSegundoTiroYavanzaElTurno() {
         Juego juego = Juego.getInstance();
-        juego.comenzarJuego();
+        juego.comenzarJuego(100000);
 
         Jugador primerJugador = juego.getJugadorActual();
 
@@ -83,7 +83,7 @@ public class TerceraEntregaTest {
     @Test
     public void test04JugadorCambiaSuPosicionActualAlaIndicadaPorLosDadosLuegoDeTirar() {
         Juego juego = Juego.getInstance();
-        juego.comenzarJuego();
+        juego.comenzarJuego(100000);
 
         Jugador primerJugador = juego.getJugadorActual();
         int posicionActual = primerJugador.posicionActual();
@@ -104,6 +104,61 @@ public class TerceraEntregaTest {
 
         jugador.comprarPropiedad(barrioSimple);
         jugador.construirHotelEn(barrioSimple);
+
+    }
+
+    @Test
+    public void testUnJugadorPierdeElJuegoPorqueNoPuedeAfrontarUnGasto(){
+
+        Juego.getInstance().comenzarJuego(20000);
+        Tablero tablero = Juego.getInstance().getTablero();
+        Jugador jugador1 = Juego.getInstance().obtenerJugador("Jugador 1");
+        Jugador jugador2 = Juego.getInstance().obtenerJugador("Jugador 2");
+        Jugador jugador3 = Juego.getInstance().obtenerJugador("Jugador 3");
+
+        jugador1.comprarPropiedad(tablero.obtenerBarrioPorNombre("Cordoba Norte"));
+        jugador2.comprarPropiedad(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador3.comprarPropiedad(tablero.obtenerBarrioPorNombre("Neuquen"));
+
+        try {
+
+            jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+
+        }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
+
+            if (jugador1.tienePropiedades()) {
+
+                jugador1.venderPropiedad(tablero.obtenerBarrioPorNombre("Cordoba Norte"));
+
+                jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+
+            }
+
+        }
+
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+
+        try {
+
+            jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+
+        }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
+
+            if (!jugador1.tienePropiedades()) {
+
+                Juego.getInstance().jugadorPierdeElJuego(jugador1);
+
+            }
+
+        }
+
+        Assert.assertEquals(1000 ,jugador1.getCapital().getCantidad(),DELTA);
 
     }
 

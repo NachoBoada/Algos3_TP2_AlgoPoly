@@ -7,7 +7,7 @@ public class JugadoresTest {
 
     @Test
     public void testProximoVuelveAlPrimerJugadorAlAvanzarTresVeces() {
-        Jugadores jugadores = new Jugadores(new Tablero());
+        Jugadores jugadores = new Jugadores(new Tablero(),100000);
 
         Jugador primerJugador = jugadores.primero();
 
@@ -20,7 +20,7 @@ public class JugadoresTest {
 
     @Test
     public void testProximoDevuelveSiempreElPrimeroLuegoDeEliminarLosOtrosJugadores() {
-        Jugadores jugadores = new Jugadores(new Tablero());
+        Jugadores jugadores = new Jugadores(new Tablero(),100000);
 
         Jugador jugadorAeliminar = jugadores.proximo();
         jugadores.eliminar(jugadorAeliminar);
@@ -41,7 +41,7 @@ public class JugadoresTest {
 
     @Test
     public void testEliminarDevuelveFalseCuandoNoHayMasJugadores() {
-        Jugadores jugadores = new Jugadores(new Tablero());
+        Jugadores jugadores = new Jugadores(new Tablero(),100000);
 
         Jugador jugadorAeliminar = jugadores.proximo();
         jugadores.eliminar(jugadorAeliminar);
@@ -55,14 +55,14 @@ public class JugadoresTest {
 
     @Test
     public void testQuedaUnoDevuelveFalseAlCrearJugadores() {
-        Jugadores jugadores = new Jugadores(new Tablero());
+        Jugadores jugadores = new Jugadores(new Tablero(),100000);
         
         Assert.assertFalse(jugadores.quedaUno());
     }
     
     @Test
     public void testQuedaUnoDevuelveTrueAlEliminarDosJugadores() {
-        Jugadores jugadores = new Jugadores(new Tablero());
+        Jugadores jugadores = new Jugadores(new Tablero(),100000);
 
         Jugador jugadorAeliminar = jugadores.proximo();
         jugadores.eliminar(jugadorAeliminar);

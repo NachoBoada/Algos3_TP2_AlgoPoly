@@ -8,12 +8,12 @@ public class Jugadores {
     private ListIterator<Jugador> iterador;
     private final LinkedList<Jugador> jugadores;
 
-    public Jugadores(Tablero tablero) {
+    public Jugadores(Tablero tablero, double capitalInicialDeJugadores) {
         jugadores = new LinkedList<>();
 
-        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador 1"));
-        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador 2"));
-        jugadores.add(new Jugador(new Dinero(10000), tablero, "Jugador 3"));
+        jugadores.add(new Jugador(new Dinero(capitalInicialDeJugadores), tablero, "Jugador 1"));
+        jugadores.add(new Jugador(new Dinero(capitalInicialDeJugadores), tablero, "Jugador 2"));
+        jugadores.add(new Jugador(new Dinero(capitalInicialDeJugadores), tablero, "Jugador 3"));
 
         this.iterador = jugadores.listIterator(1);
     }

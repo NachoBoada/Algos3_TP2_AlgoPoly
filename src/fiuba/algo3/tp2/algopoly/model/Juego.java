@@ -16,10 +16,10 @@ public class Juego {
         return INSTANCE;
     }
 
-    public void comenzarJuego() {
+    public void comenzarJuego(double capitalInicialDeJugadores) {
         tablero= new Tablero();
         this.juegoFinalizado = false;
-        jugadores = new Jugadores( tablero);
+        jugadores = new Jugadores( tablero,capitalInicialDeJugadores);
         this.jugadorActual = this.jugadores.primero();
     }
 

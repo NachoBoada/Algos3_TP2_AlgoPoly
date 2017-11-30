@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,7 +20,9 @@ public class Aplicacion extends Application {
 
         stage.setTitle("ALGOPOLY");
 
-       Juego.getInstance().comenzarJuego();
+        double capitalInicialDeJugadores = 100000;
+
+        Juego.getInstance().comenzarJuego(capitalInicialDeJugadores);
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
         Scene escenaJuego = new Scene(contenedorPrincipal, 640 , 480);
