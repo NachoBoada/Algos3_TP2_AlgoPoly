@@ -66,7 +66,11 @@ public class TerceraEntregaTest {
 
         } catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e) {
 
-            jugador1.venderPropiedad(cordobaNorte);
+            if (jugador1.tienePropiedades()) {
+
+                jugador1.venderPropiedad(cordobaNorte);
+
+            }
 
         }
 

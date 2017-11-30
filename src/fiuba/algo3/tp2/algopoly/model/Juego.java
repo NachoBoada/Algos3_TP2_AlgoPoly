@@ -5,8 +5,10 @@ public class Juego {
     private Jugadores jugadores;
     private Jugador jugadorActual;
     private static final Juego INSTANCE = new Juego();
+    private boolean juegoFinalizado;
 
     private Juego() {
+
     }
 
     public static Juego getInstance() {
@@ -14,6 +16,8 @@ public class Juego {
     }
 
     public void comenzarJuego() {
+
+        this.juegoFinalizado = false;
         jugadores = new Jugadores(new Tablero());
         this.jugadorActual = this.jugadores.primero();
     }
@@ -32,7 +36,13 @@ public class Juego {
         jugadores.eliminar(jugador);
 
         if (jugadores.quedaUno()) {
-            //this.finalizarJuego();
+            this.finalizarJuego();
         }
+    }
+
+    public void finalizarJuego(){
+
+        this.juegoFinalizado = true;
+
     }
 }

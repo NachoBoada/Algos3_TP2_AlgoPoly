@@ -155,12 +155,17 @@ public class Jugador {
 
     public void venderPropiedad(Apropiable apropiable){
 
-
         Dinero dineroVenta = new Dinero(apropiable.getPrecio().getCantidad() * 0.85);
 
         this.incrementarCapitalEn(dineroVenta);
 
         this.quitarPropiedad(apropiable);
+
+    }
+
+    public boolean tienePropiedades(){
+
+        return this.apropiables.isEmpty();
 
     }
 
