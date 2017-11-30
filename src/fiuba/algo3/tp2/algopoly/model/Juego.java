@@ -4,6 +4,7 @@ public class Juego {
 
     private Jugadores jugadores;
     private Jugador jugadorActual;
+    private Tablero tablero;
     private static final Juego INSTANCE = new Juego();
     private boolean juegoFinalizado;
 
@@ -16,9 +17,9 @@ public class Juego {
     }
 
     public void comenzarJuego() {
-
+        tablero= new Tablero();
         this.juegoFinalizado = false;
-        jugadores = new Jugadores(new Tablero());
+        jugadores = new Jugadores( tablero);
         this.jugadorActual = this.jugadores.primero();
     }
 
@@ -39,6 +40,8 @@ public class Juego {
             this.finalizarJuego();
         }
     }
+
+    public Tablero getTablero(){ return tablero; }
 
     public void finalizarJuego(){
 

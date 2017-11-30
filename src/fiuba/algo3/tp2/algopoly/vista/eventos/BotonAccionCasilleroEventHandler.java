@@ -18,7 +18,7 @@ public class BotonAccionCasilleroEventHandler implements EventHandler<ActionEven
     }
     @Override
     public void handle(ActionEvent event) {
-
+        if(casillero == null){ System.out.println("agos");}
         this.informacionCasillero.setContenido( casillero.getDescripcion());
 
 
