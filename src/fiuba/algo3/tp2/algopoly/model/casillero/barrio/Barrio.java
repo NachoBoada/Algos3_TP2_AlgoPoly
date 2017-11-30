@@ -77,4 +77,10 @@ public abstract class Barrio implements Encasillable, Apropiable{
 
 	}
 
+	public boolean esApropiable(){
+
+		return true;
+
+	}
+
 }

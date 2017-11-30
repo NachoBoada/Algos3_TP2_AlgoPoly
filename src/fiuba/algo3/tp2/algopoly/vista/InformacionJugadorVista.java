@@ -7,11 +7,11 @@ import javafx.scene.layout.VBox;
 
 public class InformacionJugadorVista extends VBox{
 
-        Juego juego;
+
 
         InformacionJugadorVista() {
-            juego= Juego.getInstance();
-            Jugador jugadorActual= juego.getJugadorActual();
+
+            Jugador jugadorActual= Juego.getInstance().getJugadorActual();
             int cantidad= jugadorActual.getCantidadDePropiedadesParaMovimientoDinamico();
 
             Label infoJugadorActual = new Label("Informacion jugador actual:");

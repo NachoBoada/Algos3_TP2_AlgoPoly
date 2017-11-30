@@ -77,4 +77,10 @@ public abstract class Compania implements Encasillable, Apropiable {
     public int getFactorDoble() {
         return factorDoble;
     }
+
+    public boolean esApropiable(){
+
+        return true;
+
+    }
 }

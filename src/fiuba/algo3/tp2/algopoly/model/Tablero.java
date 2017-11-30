@@ -134,6 +134,8 @@ public class Tablero {
 
 		}
 
+		if (barrioPedido == null){ throw new NullPointerException() ; }
+
 		return barrioPedido;
 
 
@@ -152,6 +154,8 @@ public class Tablero {
 			}
 
 		}
+
+		if (companiaPedida == null) { throw new NullPointerException() ; }
 
 		return companiaPedida;
 

@@ -35,4 +35,10 @@ public class Salida implements Encasillable {
     public String getDescripcion() {
         return " casillero de partida de los jugadores";
     }
+
+    public boolean esApropiable(){
+
+        return false;
+
+    }
 }

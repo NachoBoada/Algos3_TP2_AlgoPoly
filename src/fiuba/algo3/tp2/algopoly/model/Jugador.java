@@ -177,7 +177,7 @@ public class Jugador {
     }
 
     public boolean saltearTurno() {
-        return this.ultimoTiro.esDuplicado() && contadorTirosDuplicados == 2;
+        return ( (this.ultimoTiro.esDuplicado() && contadorTirosDuplicados == 2) || ( ! this.ultimoTiro.esDuplicado() ) );
     }
 
     public TiroDeDados tirarDados() {
@@ -224,4 +224,5 @@ public class Jugador {
     }
 
     public ArrayList<Apropiable> getPropiedades(){ return apropiables; }
+
 }

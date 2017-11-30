@@ -14,7 +14,7 @@ public class Quini6 implements Encasillable {
 
         this.posicion = 1;
 
-        this.nombre = "Quini6";
+        this.nombre = "Quini 6";
     }
 
     public int getPosicion() {
@@ -28,7 +28,9 @@ public class Quini6 implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return " Modifica el movimiento del jugador";
+        return "El jugador obtiene un premio \n" +
+                "la primera y segunda vez que \n" +
+                "cae en este casillero.";
     }
 
     @Override
@@ -42,5 +44,11 @@ public class Quini6 implements Encasillable {
         jugador.incrementarCapitalEn(premio.getValor());
 
         boleto.actualizarPremio();
+    }
+
+    public boolean esApropiable(){
+
+        return false;
+
     }
 }

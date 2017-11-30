@@ -45,4 +45,10 @@ public class Carcel implements Encasillable {
 		return costoFianza;
 	}
 
+    public boolean esApropiable(){
+
+        return false;
+
+    }
+
 }

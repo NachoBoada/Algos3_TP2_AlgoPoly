@@ -21,6 +21,5 @@ public class BotonAccionCasilleroEventHandler implements EventHandler<ActionEven
         if(casillero == null){ System.out.println("agos");}
         this.informacionCasillero.setContenido( casillero.getDescripcion());
 
-
     }
 }

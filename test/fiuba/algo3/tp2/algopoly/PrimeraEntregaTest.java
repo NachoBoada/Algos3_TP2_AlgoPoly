@@ -21,7 +21,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
-        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
+        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini 6");
 
         jugador.caerEn(quini6);
 
@@ -34,7 +34,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
-        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
+        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini 6");
 
         jugador.caerEn(quini6);
         jugador.caerEn(quini6);
@@ -48,7 +48,7 @@ public class PrimeraEntregaTest {
         Tablero tablero = new Tablero();
         Dinero capitalInicial = new Dinero(0);
         Jugador jugador = new Jugador(capitalInicial, tablero,"Jugador 1");
-        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini6");
+        Encasillable quini6 = tablero.obtenerCasilleroPorNombre("Quini 6");
 
         jugador.caerEn(quini6);
         jugador.caerEn(quini6);

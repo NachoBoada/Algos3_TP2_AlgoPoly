@@ -23,17 +23,17 @@ public class TableroVista extends GridPane {
         this.panelDerecho= panelDerecho;
         this.setAlignment(Pos.CENTER);
 
-        this. add(this.crearCasilleroEstandar("Salida", "casillero6.png"), 5, 5);
+        this.add(this.crearCasilleroEstandar("Salida", "casillero6.png"), 5, 5);
         this.add(this.crearCasilleroEstandar("Quini 6", "casillero6.png"), 4, 5);
         this.add(this.crearCasilleroEstandar("Buenos Aires Sur", "casillero2.png"),3, 5);
         this.add(this.crearCasilleroEstandar("Edesur", "casillero6.png"), 2, 5);
         this.add(this.crearCasilleroEstandar("Buenos Aires Norte", "casillero2.png"),1,5);
         this.add(this.crearCasilleroEstandar("Carcel", "casillero6.png"),0,5);
         this.add(this.crearCasilleroEstandar("Cordoba Sur", "casillero.png"), 0, 4);
-        this.add(this.crearCasilleroEstandar(" Avance Dinamico", "casillero6.png"), 0, 3);
+        this.add(this.crearCasilleroEstandar("Avance Dinamico", "casillero6.png"), 0, 3);
         this.add(this.crearCasilleroEstandar("Subte", "casillero6.png"), 0, 2);
         this.add(this.crearCasilleroEstandar("Cordoba Norte","casillero.png"), 0, 1);
-        this.add(this.crearCasilleroEstandar("Impuesto de lujo","casillero6.png"), 0, 0);
+        this.add(this.crearCasilleroEstandar("Impuesto Al Lujo","casillero6.png"), 0, 0);
         this.add(this.crearCasilleroEstandar("Santa Fe", "casillero1.png"), 1, 0);
         this.add(this.crearCasilleroEstandar("Aysa", "casillero6.png"), 2, 0);
         this.add(this.crearCasilleroEstandar("Salta Norte", "casillero3.png"), 3, 0);
