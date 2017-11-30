@@ -7,8 +7,10 @@ public class PresoTurno2 extends Preso {
 
 	private Carcel carcel;
 	
-	public PresoTurno2 (Carcel carcel) {
-		this.carcel = carcel;
+	 public PresoTurno2 (Carcel carcel) {
+
+	     this.carcel = carcel;
+	     nombre= "preso (segundo turno)";
 	}
 
 	@Override
@@ -19,5 +21,9 @@ public class PresoTurno2 extends Preso {
 	public void pagarFianza(Jugador jugador) {
 	    jugador.decrementarCapitalEn(carcel.getCostoFianza());
 		jugador.cambiarEstado( new Libre() );
+	}
+	@Override
+	public String getNombre() {
+		return nombre;
 	}
 }
