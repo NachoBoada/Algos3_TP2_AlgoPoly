@@ -16,23 +16,23 @@ public class InformacionJugadorVista extends VBox{
             int cantidad= jugadorActual.getCantidadDePropiedadesParaMovimientoDinamico();
 
             Label infoJugadorActual = new Label("Informacion jugador actual:");
-            infoJugadorActual.setLineSpacing(100);
+            infoJugadorActual.setLineSpacing(300);
 
             Label nombre = new Label( "Nombre: "+ jugadorActual.getNombreJugador());
-            nombre.setLineSpacing(100);
+            nombre.setLineSpacing(300);
 
             Label capital = new Label("Capital disponible: " + jugadorActual.getCapital().getCantidad());
-            capital.setLineSpacing(100);
+            capital.setLineSpacing(300);
 
             Label posicion = new Label( "Posicion actual:" + jugadorActual.getPosicionActual());
-            posicion.setLineSpacing(100);
+            posicion.setLineSpacing(300);
 
             Label propiedades = new Label( "Propiedades:");
-            propiedades.setLineSpacing(100);
+            propiedades.setLineSpacing(300);
 
 
             Label estado = new Label("Estado: "+ jugadorActual.getEstado());
-            estado.setLineSpacing(100);
+            estado.setLineSpacing(300);
 
             this.getChildren().add(infoJugadorActual);
             this.getChildren().add(nombre);

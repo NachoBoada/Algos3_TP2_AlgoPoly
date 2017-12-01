@@ -24,7 +24,7 @@ public class TableroVista extends GridPane {
         this.panelDerecho= panelDerecho;
         this.setAlignment(Pos.CENTER);
 
-        this. add(this.crearCasilleroEstandar("Salida", "casillero5.png"), 5, 5);
+        this.add(this.crearCasilleroEstandar("Salida", "casillero5.png"), 5, 5);
         this.add(this.crearCasilleroEstandar("Quini 6", "casillero.png"), 4, 5);
         this.add(this.crearCasilleroEstandar("Buenos Aires Sur", "casillero4.png"),3, 5);
         this.add(this.crearCasilleroEstandar("Edesur", "casillero7.png"), 2, 5);
@@ -49,9 +49,9 @@ public class TableroVista extends GridPane {
     private Button crearCasilleroEstandar(String nombreCasillero, String imagen ) {
 
         Encasillable unCasillero= tablero.obtenerCasilleroPorNombre(nombreCasillero);
-        Button casillero = new Button(nombreCasillero + "\n"+ "    "+ unCasillero.getPosicion());
+        Button casillero = new Button(nombreCasillero.toUpperCase() + "\n"+ "    "+ unCasillero.getPosicion());
 
-        casillero.setFont(Font.font("times new roman", FontPosture.REGULAR,15 ));
+        casillero.setFont(Font.font("times new roman", FontPosture.REGULAR,12 ));
         casillero.setPrefSize(140, 100);
         InformacionCasilleroVista informacionCasillero=(InformacionCasilleroVista)panelDerecho.getChildren().get(0);
         BotonAccionCasilleroEventHandler botonAccionCasilleroEventHandler= new BotonAccionCasilleroEventHandler(unCasillero, informacionCasillero);
