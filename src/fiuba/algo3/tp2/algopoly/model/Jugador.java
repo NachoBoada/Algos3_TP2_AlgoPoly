@@ -28,6 +28,8 @@ public class Jugador {
     private TiroDeDados ultimoTiro;
     private int contadorTirosDuplicados;
     private ArrayList<Apropiable> apropiables;
+    private boolean jugadorCayoEnAvanceDinamico;
+    private boolean jugadorCayoEnRetrocesoDinamico;
 
     public Jugador(Dinero capitalInicial, Tablero tablero, String nombreJugador) {
 
@@ -153,9 +155,9 @@ public class Jugador {
 
     public void comprarPropiedad(Apropiable apropiable){
 
-        apropiable.modificarPropietario(this);
-
         this.decrementarCapitalEn(apropiable.getPrecio());
+
+        apropiable.modificarPropietario(this);
 
         this.agregarPropiedad(apropiable);
 

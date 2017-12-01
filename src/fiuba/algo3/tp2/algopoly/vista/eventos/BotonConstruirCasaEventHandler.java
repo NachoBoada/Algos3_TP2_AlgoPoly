@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
+import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
@@ -53,6 +54,14 @@ public class BotonConstruirCasaEventHandler implements EventHandler<ActionEvent>
             alertaBarriosNoComprados.setTitle("ATENCION");
             alertaBarriosNoComprados.setHeaderText("Tenes que comprar los dos barrios de la region para poder construir una casa.");
             alertaBarriosNoComprados.showAndWait();
+
+        }catch (CapitalInsuficienteException e){
+
+            Alert alertaCapitalInsuficienteParaConstruirCasa = new Alert(Alert.AlertType.WARNING);
+            alertaCapitalInsuficienteParaConstruirCasa.initOwner(stage);
+            alertaCapitalInsuficienteParaConstruirCasa.setTitle("ATENCION");
+            alertaCapitalInsuficienteParaConstruirCasa.setHeaderText("No tenes dinero suficiente para construir una casa.");
+            alertaCapitalInsuficienteParaConstruirCasa.showAndWait();
 
         }
 

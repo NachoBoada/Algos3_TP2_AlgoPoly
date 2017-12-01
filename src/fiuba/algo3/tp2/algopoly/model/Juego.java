@@ -6,6 +6,7 @@ public class Juego {
 
     private Jugadores jugadores;
     private Jugador jugadorActual;
+    private String nombreJugadorGanador;
     private Tablero tablero;
     private static final Juego INSTANCE = new Juego();
     private boolean juegoFinalizado;
@@ -39,6 +40,7 @@ public class Juego {
         jugadores.eliminar(jugador);
 
         if (jugadores.quedaUno()) {
+            this.nombreJugadorGanador = this.jugadores.primero().getNombreJugador();
             this.finalizarJuego();
         }
     }
@@ -58,5 +60,16 @@ public class Juego {
 
     public LinkedList<Jugador> getJugadores (){
         return this.jugadores.getJugadores();
+    }
+
+    public boolean finalizado() {
+
+        return this.juegoFinalizado;
+    }
+
+    public String obtenerNombreJugadorGanador() {
+
+        return this.nombreJugadorGanador;
+
     }
 }

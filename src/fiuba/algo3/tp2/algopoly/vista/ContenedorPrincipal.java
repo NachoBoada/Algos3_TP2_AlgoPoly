@@ -123,16 +123,16 @@ public class ContenedorPrincipal extends BorderPane {
 
     public void setPanelDerecho() {
 
-        Label jugadoresRestantes = new Label("Jugadores Restantes");
-
         this.panelDerecho = new VBox();
         this.panelDerecho.setSpacing(100);
         this.panelDerecho.setPadding(new Insets(10));
 
+
         this.panelDerecho.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         InformacionCasilleroVista informacionCasilleroVista= new InformacionCasilleroVista();
-        this.panelDerecho.getChildren().add(informacionCasilleroVista);
-        this.panelDerecho.getChildren().add(jugadoresRestantes);
+        JugadoresRestantesVista jugadoresRestantesVista = new JugadoresRestantesVista();
+        jugadoresRestantesVista.setContenido();
+        this.panelDerecho.getChildren().addAll(informacionCasilleroVista,jugadoresRestantesVista);
         this.setRight(this.panelDerecho);
 
     }
@@ -202,4 +202,10 @@ public class ContenedorPrincipal extends BorderPane {
 
         this.jugadorTieneQueVender = true;
     }
+
+    public void setJugadorTieneQueVender(boolean jugadorTieneQueVender) {
+
+        this.jugadorTieneQueVender = jugadorTieneQueVender;
+    }
+
 }

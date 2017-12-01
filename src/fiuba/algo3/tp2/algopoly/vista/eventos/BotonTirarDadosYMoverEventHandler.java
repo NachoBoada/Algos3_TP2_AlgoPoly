@@ -4,13 +4,18 @@ import com.sun.org.apache.bcel.internal.generic.ALOAD;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.Tablero;
+import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+
+import java.util.Optional;
 
 public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEvent> {
 
@@ -30,8 +35,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     public void handle(ActionEvent event) {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
-
-        TiroDeDados tiro = Juego.getInstance().getJugadorActual().tirarDados();
+        TiroDeDados tiro = jugadorActual.tirarDados();
 
         Alert alertaTiroDeDados = new Alert(Alert.AlertType.INFORMATION);
         alertaTiroDeDados.initOwner(stage);
@@ -49,6 +53,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         try {
 
             jugadorActual.mover(tiro.resultado());
+
             Juego.getInstance().turnoProximojugador();
 
         }catch (JugadorPresoNoSePuedeMoverException e){
@@ -74,6 +79,19 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             if ( jugadorActual.getPropiedades().isEmpty() ){
 
                 Juego.getInstance().jugadorPierdeElJuego(jugadorActual);
+                Alert alertaJugadorEliminado = new Alert(Alert.AlertType.INFORMATION);
+                alertaJugadorEliminado.initOwner(stage);
+                alertaJugadorEliminado.setTitle("ATENCION");
+                alertaJugadorEliminado.setHeaderText(jugadorActual.getNombreJugador() + " perdiste porque no tenes dinero ni propiedades para afrontar el gasto!");
+                alertaJugadorEliminado.showAndWait();
+
+                Juego.getInstance().turnoProximojugador();
+
+                this.contenedorPrincipal.jugadorNoComproPropiedad();
+
+                this.contenedorPrincipal.setPanelIzquierdo();
+                this.contenedorPrincipal.setPanelDerecho();
+                this.contenedorPrincipal.setCentro();
 
             }
 
@@ -81,10 +99,29 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         }
 
+        if (Juego.getInstance().finalizado()){
+
+            Alert alertaJuegoFinalizado = new Alert(Alert.AlertType.CONFIRMATION );
 
 
+            alertaJuegoFinalizado.initOwner(stage);
+            alertaJuegoFinalizado.setTitle("Fin de Juego!");
+            String jugadorGanador = Juego.getInstance().obtenerNombreJugadorGanador();
+            alertaJuegoFinalizado.setHeaderText(jugadorGanador + " ha ganado el Juego \n Desea reiniciar el juego?");
 
+            Optional<ButtonType> result = alertaJuegoFinalizado.showAndWait();
+            if (result.get() == ButtonType.OK){
+                Juego.getInstance().comenzarJuego(100000);
+                this.contenedorPrincipal.jugadorNoComproPropiedad();
 
+                this.contenedorPrincipal.setPanelIzquierdo();
+                this.contenedorPrincipal.setPanelDerecho();
+                this.contenedorPrincipal.setCentro();
+            } else {
+                System.exit(0);
+            }
+
+        }
 
         this.contenedorPrincipal.jugadorNoComproPropiedad();
 
@@ -93,4 +130,5 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         this.contenedorPrincipal.setCentro();
 
     }
+
 }
