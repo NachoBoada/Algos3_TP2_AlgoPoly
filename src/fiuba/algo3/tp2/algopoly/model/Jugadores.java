@@ -55,4 +55,8 @@ public class Jugadores {
         return jugadorPedido;
 
     }
+
+    public LinkedList<Jugador> getJugadores() {
+        return this.jugadores;
+    }
 }
