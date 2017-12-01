@@ -5,9 +5,12 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
 import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 import javafx.geometry.Insets;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class ContenedorPrincipal extends BorderPane {
@@ -15,6 +18,7 @@ public class ContenedorPrincipal extends BorderPane {
     BarraDeMenu barraDeMenu;
     VBox panelIzquierdo;
     VBox panelDerecho;
+    StackPane panelCentral;
     Stage stage;
     boolean jugadorComproPropiedad;
     boolean jugadorTieneQueVender;
@@ -141,8 +145,18 @@ public class ContenedorPrincipal extends BorderPane {
         //this.panelCentral.get().setSpacing(20);
         //this.panelCentral.get().setPadding(new Insets(25));
 
-        this.setCenter(new TableroVista(panelDerecho));
+        this.panelCentral = new StackPane();
 
+        Canvas canvas = new Canvas (660, 500);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.rgb(255,255,255,0.1));
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+        new JugadoresVista(gc);
+
+        this.panelCentral.getChildren().addAll(new TableroVista(panelDerecho), canvas);
+
+        this.setCenter(this.panelCentral);
     }
 
 

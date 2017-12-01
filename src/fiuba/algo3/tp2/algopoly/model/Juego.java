@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import java.util.LinkedList;
+
 public class Juego {
 
     private Jugadores jugadores;
@@ -52,5 +54,9 @@ public class Juego {
     public Jugador obtenerJugador(String nombre) {
 
         return this.jugadores.obtenerJugador(nombre);
+    }
+
+    public LinkedList<Jugador> getJugadores (){
+        return this.jugadores.getJugadores();
     }
 }
