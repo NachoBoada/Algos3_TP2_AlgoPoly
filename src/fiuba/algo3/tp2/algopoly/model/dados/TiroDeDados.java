@@ -9,7 +9,15 @@ public class TiroDeDados {
         _tiroUno = tiroUno;
         _tiroDos = tiroDos;
     }
-    
+
+    public int getTiroUno() {
+        return _tiroUno;
+    }
+
+    public int geTiroDos() {
+        return _tiroDos;
+    }
+
     public boolean esDuplicado() {
         return _tiroUno == _tiroDos;
     }

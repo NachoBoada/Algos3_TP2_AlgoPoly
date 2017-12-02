@@ -1,17 +1,27 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
+import com.sun.javafx.geom.BaseBounds;
+import com.sun.javafx.geom.transform.BaseTransform;
+import com.sun.javafx.jmx.MXNodeAlgorithm;
+import com.sun.javafx.jmx.MXNodeAlgorithmContext;
+import com.sun.javafx.sg.prism.NGNode;
 import com.sun.org.apache.bcel.internal.generic.ALOAD;
 import fiuba.algo3.tp2.algopoly.model.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
+import fiuba.algo3.tp2.algopoly.vista.ContenedorDados;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.Optional;
 
 public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEvent> {
@@ -26,27 +36,32 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     }
 
-
     @Override
     public void handle(ActionEvent event) {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
         TiroDeDados tiro = jugadorActual.tirarDados();
 
-        Alert alertaTiroDeDados = new Alert(Alert.AlertType.INFORMATION);
+        /*Alert alertaTiroDeDados = new Alert(Alert.AlertType.INFORMATION);
         alertaTiroDeDados.initOwner(stage);
-        alertaTiroDeDados.setTitle("Tiro de dados");
+        alertaTiroDeDados.setTitle("Tiro de dados");*/
 
-        if (!jugadorActual.saltearTurno()){
+        /*if (!jugadorActual.saltearTurno()){
             alertaTiroDeDados.setHeaderText("Ambos dados arrojaron el mismo numero y suman: " + tiro.resultado() + "\n" +
                     "Tenes turno doble!");
         }else {
             alertaTiroDeDados.setHeaderText("El resultado de la tirada de dados es: " + tiro.resultado());
         }
 
-        alertaTiroDeDados.showAndWait();
+        alertaTiroDeDados.showAndWait();*/
 
-
+        Stage stageDados = new Stage();
+        stageDados.setTitle("Tiro de Dados");
+        ContenedorDados contenedorDados = new ContenedorDados(stageDados);
+        contenedorDados.setContenido(tiro);
+        Scene escenaTiroDeDados = new Scene(contenedorDados,350,350);
+        stageDados.setScene(escenaTiroDeDados);
+        stageDados.showAndWait();
 
         try {
 
@@ -54,7 +69,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Impuesto Al Lujo"));
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Carcel"));
 
             this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
 
@@ -218,7 +233,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
             alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Policia y te encierra en la Carcel!");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
-            
+
         }
 
     }

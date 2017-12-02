@@ -16,11 +16,15 @@ public class Dados {
     }
 
     public TiroDeDados tirar() {
+
         return new TiroDeDados(dadoUno.tirar(), dadoDos.tirar());
+
     }
 
     public TiroDeDados tirar(int tiroUno, int tiroDos) {
+
         return new TiroDeDados(tiroUno, tiroDos);
+
     }
 
 }

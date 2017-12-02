@@ -8,6 +8,6 @@ public class Dado {
     private final static int MIN_VALOR = 1;
 
     public int tirar() {
-        return new Random().nextInt(MAX_VALOR - MIN_VALOR) + MIN_VALOR;
-    }    
+        return new Random().nextInt(MAX_VALOR - MIN_VALOR ) + MIN_VALOR;
+    }
 }

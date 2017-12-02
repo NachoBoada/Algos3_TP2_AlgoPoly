@@ -103,7 +103,7 @@ public class ContenedorPrincipal extends BorderPane {
         botonPagarFianza.setOnAction(botonPagarFianzaEventHandler);
         botonPagarFianza.setDisable(true);
 
-        if (jugadorActual.casilleroActual().getNombre().equals("Carcel")) {
+        if (jugadorActual.casilleroActual().getNombre().equals("Carcel") && jugadorActual.getEstado() != "Libre") {
 
             botonPagarFianza.setDisable(false);
 

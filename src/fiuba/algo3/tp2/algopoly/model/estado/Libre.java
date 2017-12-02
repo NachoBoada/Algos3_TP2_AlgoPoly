@@ -8,7 +8,7 @@ public class Libre extends Estado {
 	
 	private String nombre ;
 
-	public Libre(){ nombre = "Libre "; }
+	public Libre(){ nombre = "Libre"; }
 
 	public void cambiarProximoEstadoPreso(Jugador jugador, Carcel carcel) {
 		jugador.cambiarEstado( new PresoTurno0 () );
