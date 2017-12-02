@@ -14,7 +14,7 @@ public abstract class BarrioSimple extends Barrio {
 
 	public void comprarCasa(Jugador jugador ) throws CapitalInsuficienteException {
 
-		this.estadoActual.agregarConstruccion();
+		this.estadoActual.agregarConstruccion(jugador);
 
 		if (this.cantidadCasas == 1) throw new NoSePermiteConstruirMasDeUnaCasaEnBarrioSimpleException();
 		

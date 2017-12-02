@@ -5,12 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
-public class BotonAceptarTiroDadosEventHandler implements EventHandler<ActionEvent> {
+public class BotonAceptarYCerrarVentanaEventHandler implements EventHandler<ActionEvent> {
 
     Stage stage;
 
 
-    public BotonAceptarTiroDadosEventHandler(Stage stage){
+    public BotonAceptarYCerrarVentanaEventHandler(Stage stage){
 
         this.stage = stage;
 

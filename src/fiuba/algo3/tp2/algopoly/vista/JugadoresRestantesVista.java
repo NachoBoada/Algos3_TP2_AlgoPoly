@@ -38,81 +38,45 @@ public class JugadoresRestantesVista extends VBox {
         this.getChildren().add(jugadoresRestantes);
 
 
+
         for (Jugador jugador : Juego.getInstance().getJugadores()) {
 
             HBox jugadorRestante = new HBox();
 
             Label labelJugador = new Label(jugador.getNombreJugador());
-            Label pieza = new Label("Pieza");
+
+            Image imagenJugador = this.imagenJugador3;
 
             if (jugador.getNombreJugador().equals("Jugador 1")){
 
-                Image imagenJugador = this.imagenJugador1;
-
-                Button botonJugador1 = new Button();
-                botonJugador1.setPrefSize(40,31);
-                MenuButton botonPropiedades = new MenuButton("Propiedades");
-                this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
-                BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-                botonJugador1.setBackground(new Background(imagenFondo));
-
-                Label capital = new Label ("Capital: " + jugador.getCapital().getCantidad());
-
-
-                this.getChildren().add(labelJugador);
-                jugadorRestante.getChildren().addAll(pieza,botonJugador1,capital,botonPropiedades);
+                imagenJugador = this.imagenJugador1;
 
             }
 
             if (jugador.getNombreJugador().equals("Jugador 2")){
 
-                Image imagenJugador = this.imagenJugador2;
-
-                Button botonJugador2 = new Button();
-                botonJugador2.setPrefSize(40,31);
-                MenuButton botonPropiedades = new MenuButton("Propiedades");
-                this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
-                BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-                botonJugador2.setBackground(new Background(imagenFondo));
-
-                Label capital = new Label ("Capital: " + jugador.getCapital().getCantidad());
-
-                this.getChildren().add(labelJugador);
-                jugadorRestante.getChildren().addAll(pieza,botonJugador2,capital,botonPropiedades);
-
+                imagenJugador = this.imagenJugador2;
             }
 
+            Button botonJugador = new Button();
+            botonJugador.setPrefSize(40,31);
+            MenuButton botonPropiedades = new MenuButton("Propiedades");
+            this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
+            BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+            botonJugador.setBackground(new Background(imagenFondo));
 
-            if (jugador.getNombreJugador().equals("Jugador 3")){
+            Label capital = new Label ("Capital: " + jugador.getCapital().getCantidad());
 
-                Image imagenJugador = this.imagenJugador3;
 
-                Button botonJugador3 = new Button();
-                botonJugador3.setPrefSize(40,31);
-                MenuButton botonPropiedades = new MenuButton("Propiedades");
-                this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
-                BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
-                botonJugador3.setBackground(new Background(imagenFondo));
-
-                Label capital = new Label ("Capital: " + jugador.getCapital().getCantidad());
-
-                this.getChildren().add(labelJugador);
-                jugadorRestante.getChildren().addAll(pieza,botonJugador3,capital,botonPropiedades);
-
-            }
+            this.getChildren().add(labelJugador);
+            jugadorRestante.getChildren().addAll(botonJugador,capital,botonPropiedades);
 
             this.getChildren().add(jugadorRestante);
-
 
             this.setSpacing(20);
 
 
         }
-
-
-
-
-
 
     }
 
@@ -129,14 +93,5 @@ public class JugadoresRestantesVista extends VBox {
 
         }
     }
-
-
-
-
-
-
-
-
-
 
 }

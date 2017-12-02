@@ -1,11 +1,11 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
+import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
-import fiuba.algo3.tp2.algopoly.vista.eventos.BotonAceptarTiroDadosEventHandler;
+import fiuba.algo3.tp2.algopoly.vista.eventos.BotonAceptarYCerrarVentanaEventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -31,6 +31,7 @@ public class ContenedorDados extends BorderPane {
         this.imagenes.add(new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/dado-4.png"));
         this.imagenes.add(new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/dado-5.png"));
         this.imagenes.add(new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/dado-6.png"));
+
     }
 
 
@@ -54,25 +55,35 @@ public class ContenedorDados extends BorderPane {
         BackgroundImage imagenDado2 = new BackgroundImage(this.imagenes.get(tiro.geTiroDos() - 1), BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         dado2.setBackground(new Background(imagenDado2));
 
-        Button botonAceptarTiroDados = new Button("Aceptar");
-        BotonAceptarTiroDadosEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarTiroDadosEventHandler(this.stage);
-        botonAceptarTiroDados.setOnAction(botonAceptarTiroDadosEventHandler);
+        Button botonAceptarYCerrarVentana = new Button("Aceptar");
+        BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage);
+        botonAceptarYCerrarVentana.setOnAction(botonAceptarTiroDadosEventHandler);
 
-        if (tiro.esDuplicado()){
+
+        if(tiro.esDuplicado() && Juego.getInstance().getJugadorActual().getContadorTirosDuplicados() == 2){
+
+            Label labelCantidadDeCasilleros = new Label();
+            labelCantidadDeCasilleros.setText("Te vas a mover " + tiro.resultado() + " casilleros.");
+            this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,botonAceptarYCerrarVentana);
+
+        }
+
+
+        if (tiro.esDuplicado() && Juego.getInstance().getJugadorActual().getContadorTirosDuplicados() == 1){
 
             Label labelCantidadDeCasilleros = new Label();
             labelCantidadDeCasilleros.setText("Te vas a mover " + tiro.resultado() + " casilleros." );
 
             Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero y tenes turno doble!");
 
-            this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,labelTiroDoble,botonAceptarTiroDados);
+            this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,labelTiroDoble,botonAceptarYCerrarVentana);
 
 
-        }else {
+        }if(!tiro.esDuplicado()){
 
             Label labelCantidadDeCasilleros = new Label();
             labelCantidadDeCasilleros.setText("Te vas a mover " + tiro.resultado() + " casilleros.");
-            this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,botonAceptarTiroDados);
+            this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,botonAceptarYCerrarVentana);
 
         }
 

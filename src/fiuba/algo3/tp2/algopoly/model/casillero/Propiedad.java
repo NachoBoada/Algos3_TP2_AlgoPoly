@@ -17,12 +17,9 @@ public abstract class Propiedad {
 
     public void vendidaA(Jugador jugador){
 
-        jugador.decrementarCapitalEn(this.getPrecio());
-
         this.modificarPropietario(jugador);
 
         jugador.agregarPropiedad(this);
-
 
     }
 }

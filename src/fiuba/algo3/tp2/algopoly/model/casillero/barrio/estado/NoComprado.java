@@ -18,7 +18,7 @@ public class NoComprado implements EstadoBarrio {
     }
 
     @Override
-    public void agregarConstruccion() {
+    public void agregarConstruccion(Jugador jugador) {
 
         throw new JugadorDebeComprarElBarrioParaPoderConstruir();
     }

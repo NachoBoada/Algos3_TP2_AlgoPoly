@@ -2,6 +2,8 @@ package fiuba.algo3.tp2.algopoly.vista.eventos;
 
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorBienvenidos;
+import fiuba.algo3.tp2.algopoly.vista.ContenedorDados;
+import fiuba.algo3.tp2.algopoly.vista.ContenedorProximoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -32,11 +34,20 @@ public class BotonComenzarJuegoEventHandler implements EventHandler<ActionEvent>
 
     private void informarTurnoProximoJugador() {
 
-        Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
+        /*Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
         alertaProximoJugador.initOwner(this.stage);
         alertaProximoJugador.setTitle("ATENCION");
         alertaProximoJugador.setHeaderText("Ahora juega: " + Juego.getInstance().getJugadorActual().getNombreJugador());
-        alertaProximoJugador.showAndWait();
+        alertaProximoJugador.showAndWait();*/
+
+        Stage stageProximoJugador = new Stage();
+        stageProximoJugador.setTitle("Proximo jugador");
+        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador);
+        contenedorProximoJugador.setContenido();
+        Scene escenaProximoJugador = new Scene(contenedorProximoJugador,300,200);
+        stageProximoJugador.setScene(escenaProximoJugador);
+        stageProximoJugador.initOwner(this.stage);
+        stageProximoJugador.showAndWait();
 
     }
 }

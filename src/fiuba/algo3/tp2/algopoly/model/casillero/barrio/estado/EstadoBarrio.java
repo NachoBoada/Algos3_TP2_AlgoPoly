@@ -10,7 +10,7 @@ public interface EstadoBarrio {
 
     public  Jugador getPropietario();
 
-    public void agregarConstruccion();
+    public void agregarConstruccion(Jugador jugador);
 
 
 }

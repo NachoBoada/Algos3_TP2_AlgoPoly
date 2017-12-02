@@ -50,6 +50,8 @@ public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEve
 
             jugadorActual.comprarPropiedad(propiedadAComprar);
 
+            this.informarCompraRealizada(jugadorActual);
+
         }catch (NoSePuedeComprarUnBarrioYaComprado e){
 
             Alert alertaBarrioNoComprado = new Alert(Alert.AlertType.WARNING);
@@ -81,6 +83,16 @@ public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEve
         this.contenedorPrincipal.setPanelIzquierdo();
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();
+
+    }
+
+    private void informarCompraRealizada(Jugador jugadorActual) {
+
+        Alert alertaCompraRealizada = new Alert(Alert.AlertType.INFORMATION);
+        alertaCompraRealizada.initOwner(stage);
+        alertaCompraRealizada.setTitle("COMPRA");
+        alertaCompraRealizada.setHeaderText("Compra realizada. Ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
+        alertaCompraRealizada.showAndWait();
 
     }
 }

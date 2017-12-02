@@ -40,6 +40,8 @@ public abstract class Compania extends Propiedad implements Encasillable {
 
             this.estadoActual = new CompaniaComprada(jugador, factorSimple, factorDoble);
 
+            jugador.decrementarCapitalEn(this.precio);
+
         }
 
     }

@@ -25,8 +25,6 @@ public class Jugador {
     private TiroDeDados ultimoTiro;
     private int contadorTirosDuplicados;
     private ArrayList<Propiedad> propiedades;
-    private boolean jugadorCayoEnAvanceDinamico;
-    private boolean jugadorCayoEnRetrocesoDinamico;
 
     public Jugador(Dinero capitalInicial, Tablero tablero, String nombreJugador) {
 
@@ -133,10 +131,10 @@ public class Jugador {
         this.quitarPropiedad(miBarrio);
 
         otroJugador.agregarPropiedad(miBarrio);
-        miBarrio.modificarPropietario(otroJugador);
+        miBarrio.modificarPropietarioPorIntercambio(otroJugador);
 
         this.agregarPropiedad(otroBarrio);
-        otroBarrio.modificarPropietario(this);
+        otroBarrio.modificarPropietarioPorIntercambio(this);
 
     }
 
@@ -152,9 +150,7 @@ public class Jugador {
 
     public void comprarPropiedad(Propiedad propiedad){
 
-
         propiedad.vendidaA(this);
-
     }
 
     public void venderPropiedad(Propiedad apropiable){
@@ -179,6 +175,12 @@ public class Jugador {
 
     public TiroDeDados tirarDados() {
         this.ultimoTiro = Dados.getInstance().tirar();
+
+        if ( this.contadorTirosDuplicados == 2){
+
+            this.contadorTirosDuplicados = 0;
+
+        }
         if (this.ultimoTiro.esDuplicado()) {
             contadorTirosDuplicados++;
         }
@@ -221,5 +223,11 @@ public class Jugador {
     }
 
     public ArrayList<Propiedad> getPropiedades(){ return propiedades; }
+
+    public int getContadorTirosDuplicados(){
+
+        return this.contadorTirosDuplicados;
+
+    }
 
 }

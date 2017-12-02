@@ -12,6 +12,7 @@ import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorDados;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
+import fiuba.algo3.tp2.algopoly.vista.ContenedorProximoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -61,6 +62,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         contenedorDados.setContenido(tiro);
         Scene escenaTiroDeDados = new Scene(contenedorDados,350,350);
         stageDados.setScene(escenaTiroDeDados);
+        stageDados.initOwner(this.stage);
         stageDados.showAndWait();
 
         try {
@@ -69,7 +71,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Carcel"));
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Salta Sur"));
 
             this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
 
@@ -104,7 +106,8 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             Alert alertaJugadorDebeVenderPropiedades = new Alert(Alert.AlertType.WARNING);
             alertaJugadorDebeVenderPropiedades.initOwner(stage);
             alertaJugadorDebeVenderPropiedades.setTitle("ATENCION");
-            alertaJugadorDebeVenderPropiedades.setHeaderText("Tenes que vender propiedades para afrontar el gasto.");
+            alertaJugadorDebeVenderPropiedades.setHeaderText("Caes en la propiedad: "+ jugadorActual.casilleroActual().getNombre() +
+                    " y no tenes dinero en efectivo. Tenes que vender propiedades para afrontar el gasto.");
             alertaJugadorDebeVenderPropiedades.showAndWait();
 
             if ( jugadorActual.getPropiedades().isEmpty() ){
@@ -170,11 +173,20 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     private void informarTurnoProximoJugador() {
 
-        Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
+        /*Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
         alertaProximoJugador.initOwner(this.stage);
         alertaProximoJugador.setTitle("ATENCION");
         alertaProximoJugador.setHeaderText("Ahora juega: " + Juego.getInstance().getJugadorActual().getNombreJugador());
-        alertaProximoJugador.showAndWait();
+        alertaProximoJugador.showAndWait();*/
+
+        Stage stageProximoJugador = new Stage();
+        stageProximoJugador.setTitle("Proximo jugador");
+        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador);
+        contenedorProximoJugador.setContenido();
+        Scene escenaProximoJugador = new Scene(contenedorProximoJugador,200,200);
+        stageProximoJugador.setScene(escenaProximoJugador);
+        stageProximoJugador.initOwner(this.stage);
+        stageProximoJugador.showAndWait();
 
     }
 
@@ -187,7 +199,6 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
             alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Impuesto Al Lujo y tu capital se reduce en un 10 %.");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
-
 
         }
 
@@ -214,9 +225,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             if (capitalAntesDeMoverse.getCantidad() != capitalDespuesDeMoverse.getCantidad()) {
 
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + "\n" + "y tenes que afrontar el gasto.");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + "\n" + "y tenes que afrontar el gasto." +
+                        "Ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
                 alertaJugadorPresoNoSePuedeMover.showAndWait();
-
 
             }
 

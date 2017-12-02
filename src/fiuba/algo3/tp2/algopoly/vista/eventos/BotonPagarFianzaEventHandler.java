@@ -37,6 +37,12 @@ public class BotonPagarFianzaEventHandler implements EventHandler<ActionEvent>{
 
             jugadorActual.pagarFianza();
 
+            Alert alertaJugadorPagoFianza = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPagoFianza.initOwner(stage);
+            alertaJugadorPagoFianza.setTitle("ATENCION");
+            alertaJugadorPagoFianza.setHeaderText("Pago de fianza realizado. Ya sos libre otra vez!");
+            alertaJugadorPagoFianza.showAndWait();
+
         }catch (NoSePuedePagarFianzaEnEsteTurnoException e){
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
