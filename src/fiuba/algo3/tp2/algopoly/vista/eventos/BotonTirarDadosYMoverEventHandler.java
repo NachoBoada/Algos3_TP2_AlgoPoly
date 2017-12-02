@@ -1,10 +1,7 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
 import com.sun.org.apache.bcel.internal.generic.ALOAD;
-import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
-import fiuba.algo3.tp2.algopoly.model.Juego;
-import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.Tablero;
+import fiuba.algo3.tp2.algopoly.model.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
@@ -30,7 +27,6 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     }
 
 
-
     @Override
     public void handle(ActionEvent event) {
 
@@ -42,19 +38,38 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         alertaTiroDeDados.setTitle("Tiro de dados");
 
         if (!jugadorActual.saltearTurno()){
-            alertaTiroDeDados.setHeaderText("Ambos dados arrijaron el mismo numero y suman: " + tiro.resultado() + "\n" +
-                    "Podes volver a jugar!");
+            alertaTiroDeDados.setHeaderText("Ambos dados arrojaron el mismo numero y suman: " + tiro.resultado() + "\n" +
+                    "Tenes turno doble!");
         }else {
             alertaTiroDeDados.setHeaderText("El resultado de la tirada de dados es: " + tiro.resultado());
         }
 
         alertaTiroDeDados.showAndWait();
 
+
+
         try {
+
+            Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
             jugadorActual.mover(tiro.resultado());
 
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Impuesto Al Lujo"));
+
+            this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
+
+            this.informarCaidaEnCarcel(jugadorActual);
+
+            this.informarCaidaEnPropiedad(jugadorActual,capitalAntesDeMoverse);
+
+            this.informarCaidaEnImpuestoAlLujo(jugadorActual);
+
+            //this.informarCaidaEnPolicia(jugadorActual);
+
+
             Juego.getInstance().turnoProximojugador();
+
+
 
         }catch (JugadorPresoNoSePuedeMoverException e){
 
@@ -67,6 +82,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             jugadorActual.caerEn(jugadorActual.casilleroActual());
 
             Juego.getInstance().turnoProximojugador();
+
 
         }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
 
@@ -93,6 +109,8 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 this.contenedorPrincipal.setPanelDerecho();
                 this.contenedorPrincipal.setCentro();
 
+                this.informarTurnoProximoJugador();
+
             }
 
             this.contenedorPrincipal.jugadorTieneQueVender();
@@ -117,6 +135,8 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 this.contenedorPrincipal.setPanelIzquierdo();
                 this.contenedorPrincipal.setPanelDerecho();
                 this.contenedorPrincipal.setCentro();
+
+                this.informarTurnoProximoJugador();
             } else {
                 System.exit(0);
             }
@@ -129,6 +149,132 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();
 
+        this.informarTurnoProximoJugador();
+
+    }
+
+    private void informarTurnoProximoJugador() {
+
+        Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
+        alertaProximoJugador.initOwner(this.stage);
+        alertaProximoJugador.setTitle("ATENCION");
+        alertaProximoJugador.setHeaderText("Ahora juega: " + Juego.getInstance().getJugadorActual().getNombreJugador());
+        alertaProximoJugador.showAndWait();
+
+    }
+
+    private void informarCaidaEnImpuestoAlLujo(Jugador jugadorActual) {
+
+        if (jugadorActual.casilleroActual().getNombre().equals("Impuesto Al Lujo")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Impuesto Al Lujo y tu capital se reduce en un 10 %.");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
+
+    }
+
+    private void informarCaidaEnPropiedad(Jugador jugadorActual, Dinero capitalAntesDeMoverse) {
+
+        Dinero capitalDespuesDeMoverse = jugadorActual.getCapital();
+
+        if ( jugadorActual.casilleroActual().esPropiedad() ){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+
+            if (capitalAntesDeMoverse.getCantidad() == capitalDespuesDeMoverse.getCantidad()) {
+
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + "\n" + "pero no tenes que afrontar un gasto.");
+                alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+            }
+
+            if (capitalAntesDeMoverse.getCantidad() != capitalDespuesDeMoverse.getCantidad()) {
+
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + "\n" + "y tenes que afrontar el gasto.");
+                alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+            }
+
+        }
+
+    }
+
+    private void informarCaidaEnPolicia(Jugador jugadorActual) {
+
+        if (jugadorActual.casilleroActual().getNombre().equals("Policia")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Policia y te encierra en la Carcel!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+            
+        }
+
+    }
+
+    private void informarCaidaEnCarcel(Jugador jugadorActual) {
+
+        if (jugadorActual.casilleroActual().getNombre().equals("Carcel")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Carcel y ahora estas preso!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
+
+
+    }
+
+    private void informarCaidaEnQuini6(Jugador jugadorActual, Dinero capitalAntesDeMoverse) {
+
+        if (jugadorActual.casilleroActual().getNombre().equals("Quini 6")){
+
+            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() ){
+
+                Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+                alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+                alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Quini 6 pero ya no podes ganar mas premios.");
+                alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+            }
+
+            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 50000 ){
+
+                Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+                alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+                alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Quini 6 y ganas 50000 pesos!.");
+                alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+            }
+
+            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 30000 ){
+
+                Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+                alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+                alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Quini 6 y ganas 30000 pesos!.");
+                alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+            }
+
+        }
     }
 
 }

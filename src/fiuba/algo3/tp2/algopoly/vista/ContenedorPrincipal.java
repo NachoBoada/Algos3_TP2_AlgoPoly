@@ -32,7 +32,6 @@ public class ContenedorPrincipal extends BorderPane {
         this.setPanelDerecho();
         this.setCentro();
 
-
     }
 
     private void setBarraDeMenu(Stage stage) {
@@ -163,7 +162,7 @@ public class ContenedorPrincipal extends BorderPane {
         return barraDeMenu;
     }
 
-    private void agregarPropiedadesAMenuVenderPropiedades(MenuButton botonVenderPropiedad) {
+    private void agregarPropiedadesAMenuVenderPropiedades(MenuButton botonPropiedades) {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
 
@@ -174,7 +173,7 @@ public class ContenedorPrincipal extends BorderPane {
             OpcionVenderPropiedadEventHandler opcionVenderPropiedadEventHandler = new OpcionVenderPropiedadEventHandler(propiedad,this);
             opcionVenderPropiedad.setOnAction(opcionVenderPropiedadEventHandler);
 
-            botonVenderPropiedad.getItems().add(opcionVenderPropiedad);
+            botonPropiedades.getItems().add(opcionVenderPropiedad);
 
         }
     }
