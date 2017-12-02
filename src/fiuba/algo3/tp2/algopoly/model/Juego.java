@@ -37,6 +37,7 @@ public class Juego {
     }
 
     public void jugadorPierdeElJuego(Jugador jugador) {
+
         jugadores.eliminar(jugador);
 
         if (jugadores.quedaUno()) {

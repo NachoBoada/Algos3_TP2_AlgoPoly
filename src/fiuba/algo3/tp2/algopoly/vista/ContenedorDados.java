@@ -59,11 +59,11 @@ public class ContenedorDados extends BorderPane {
         BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage);
         botonAceptarYCerrarVentana.setOnAction(botonAceptarTiroDadosEventHandler);
 
+        Label labelCantidadDeCasilleros = new Label();
+        labelCantidadDeCasilleros.setText("Resultado: " + tiro.resultado());
 
         if(tiro.esDuplicado() && Juego.getInstance().getJugadorActual().getContadorTirosDuplicados() == 2){
 
-            Label labelCantidadDeCasilleros = new Label();
-            labelCantidadDeCasilleros.setText("Resultado: " + tiro.resultado() + " casilleros.");
             Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero pero no podes tener dos turnos dobles seguidos!");
             this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,labelTiroDoble,botonAceptarYCerrarVentana);
 
@@ -72,8 +72,6 @@ public class ContenedorDados extends BorderPane {
 
         if (tiro.esDuplicado() && Juego.getInstance().getJugadorActual().getContadorTirosDuplicados() == 1){
 
-            Label labelCantidadDeCasilleros = new Label();
-            labelCantidadDeCasilleros.setText("Resultado: " + tiro.resultado() + " casilleros." );
 
             Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero y tenes turno doble!");
 
@@ -82,8 +80,7 @@ public class ContenedorDados extends BorderPane {
 
         }if(!tiro.esDuplicado()){
 
-            Label labelCantidadDeCasilleros = new Label();
-            labelCantidadDeCasilleros.setText("Resultado " + tiro.resultado() + " casilleros.");
+
             this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,botonAceptarYCerrarVentana);
 
         }

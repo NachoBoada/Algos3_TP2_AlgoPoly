@@ -69,9 +69,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            //jugadorActual.mover(tiro.resultado());
+            jugadorActual.mover(tiro.resultado());
 
-            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Aysa"));
 
             this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
 
