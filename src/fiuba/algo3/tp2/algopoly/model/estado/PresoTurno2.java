@@ -10,7 +10,7 @@ public class PresoTurno2 extends Preso {
 	 public PresoTurno2 (Carcel carcel) {
 
 	     this.carcel = carcel;
-	     nombre= "preso (segundo turno)";
+	     nombre= "Preso (segundo turno)";
 	}
 
 	@Override

@@ -71,7 +71,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Salta Sur"));
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Carcel"));
 
             this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
 
@@ -188,6 +188,76 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageProximoJugador.initOwner(this.stage);
         stageProximoJugador.showAndWait();
 
+        if(Juego.getInstance().getJugadorActual().casilleroActual().getNombre().equals("Carcel")){
+
+            this.informarEstadiaEnCarcel();
+
+        }
+
+
+
+
+
+    }
+
+    private void informarEstadiaEnCarcel() {
+
+
+        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
+        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso ( primer turno)")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
+        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso (segundo turno)")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
+        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso ( tercer turno)")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
+        if(Juego.getInstance().getJugadorActual().getEstado().equals("Libre")){
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Ya cumpliste tu condena, estas libre!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+
+        }
+
     }
 
     private void informarCaidaEnImpuestoAlLujo(Jugador jugadorActual) {
@@ -251,17 +321,20 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     private void informarCaidaEnCarcel(Jugador jugadorActual) {
 
-        if (jugadorActual.casilleroActual().getNombre().equals("Carcel")){
+        if (jugadorActual.casilleroActual().getNombre().equals("Carcel")) {
 
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Carcel y ahora estas preso!");
-            alertaJugadorPresoNoSePuedeMover.showAndWait();
 
+            if (jugadorActual.getEstado().equals("Preso")) {
+
+                Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+                alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+                alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Carcel y ahora estas preso!");
+                alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+            }
 
         }
-
 
 
     }

@@ -109,6 +109,8 @@ public class ContenedorPrincipal extends BorderPane {
 
         }
 
+
+
         this.panelIzquierdo.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
         InformacionJugadorVista informacionJugadorVista= new InformacionJugadorVista();
         panelIzquierdo.getChildren().addAll(acciones,botonTirarDadosYMover,botonComprarPropiedad,botonVenderPropiedad,botonConstruirCasa,botonConstruirHotel,botonPagarFianza);
@@ -116,7 +118,6 @@ public class ContenedorPrincipal extends BorderPane {
         this.setLeft(this.panelIzquierdo);
 
     }
-
 
 
     public void setPanelDerecho() {
