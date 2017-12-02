@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaComprada
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.CompaniaNoComprada;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
 
-public abstract class Compania implements Encasillable, Apropiable {
+public abstract class Compania extends Propiedad implements Encasillable {
 
     protected final Dinero precio;
     private EstadoCompania estadoActual;
@@ -89,7 +89,7 @@ public abstract class Compania implements Encasillable, Apropiable {
         return factorDoble;
     }
 
-    public boolean esApropiable(){
+    public boolean esPropiedad(){
 
         return true;
 

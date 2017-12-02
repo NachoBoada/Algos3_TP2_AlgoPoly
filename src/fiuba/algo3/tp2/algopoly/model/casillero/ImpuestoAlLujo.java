@@ -38,7 +38,7 @@ public class ImpuestoAlLujo implements Encasillable {
 		jugador.getCapital().multiplicar(1 - porcentajeDelImpuesto);
 	}
 
-	public boolean esApropiable(){
+	public boolean esPropiedad(){
 
 		return false;
 

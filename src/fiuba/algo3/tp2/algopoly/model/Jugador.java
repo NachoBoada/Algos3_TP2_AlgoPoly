@@ -1,16 +1,13 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 import fiuba.algo3.tp2.algopoly.model.boleta.BoletaQuini6;
-import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
+import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.model.casillero.Carcel;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Salida;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
-import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.dados.Dados;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.Estado;
@@ -27,7 +24,7 @@ public class Jugador {
     private final Tablero tablero;
     private TiroDeDados ultimoTiro;
     private int contadorTirosDuplicados;
-    private ArrayList<Apropiable> apropiables;
+    private ArrayList<Propiedad> propiedades;
     private boolean jugadorCayoEnAvanceDinamico;
     private boolean jugadorCayoEnRetrocesoDinamico;
 
@@ -37,7 +34,7 @@ public class Jugador {
 
         this.nombreJugador = nombreJugador;
 
-        this.apropiables = new ArrayList<Apropiable>();
+        this.propiedades = new ArrayList<Propiedad>();
 
         boletaQuini6 = new BoletaQuini6();
 
@@ -97,8 +94,8 @@ public class Jugador {
         return boletaQuini6;
     }
 
-    public boolean esPropietarioDe(Apropiable unaPropiedad) {
-        return apropiables.contains(unaPropiedad);
+    public boolean esPropietarioDe(Propiedad unaPropiedad) {
+        return propiedades.contains(unaPropiedad);
     }
 
     public void cambiarEstado(Estado estado) {
@@ -113,17 +110,17 @@ public class Jugador {
         estado.pagarFianza(this);
     }
 
-    public void agregarPropiedad(Apropiable unaPropiedad) {
+    public void agregarPropiedad(Propiedad unaPropiedad) {
 
-        this.apropiables.add(unaPropiedad);
+        this.propiedades.add(unaPropiedad);
 
     }
 
-    public void quitarPropiedad(Apropiable unaPropiedad) {
+    public void quitarPropiedad(Propiedad unaPropiedad) {
 
         unaPropiedad.dejarSinPropietario();
 
-        this.apropiables.remove(unaPropiedad);
+        this.propiedades.remove(unaPropiedad);
 
     }
 
@@ -153,17 +150,14 @@ public class Jugador {
 
     }
 
-    public void comprarPropiedad(Apropiable apropiable){
+    public void comprarPropiedad(Propiedad propiedad){
 
-        this.decrementarCapitalEn(apropiable.getPrecio());
 
-        apropiable.modificarPropietario(this);
-
-        this.agregarPropiedad(apropiable);
+        propiedad.vendidaA(this);
 
     }
 
-    public void venderPropiedad(Apropiable apropiable){
+    public void venderPropiedad(Propiedad apropiable){
 
         Dinero dineroVenta = new Dinero(apropiable.getPrecio().getCantidad() * 0.85);
 
@@ -175,7 +169,7 @@ public class Jugador {
 
     public boolean tienePropiedades(){
 
-        return !this.apropiables.isEmpty();
+        return !this.propiedades.isEmpty();
 
     }
 
@@ -208,7 +202,7 @@ public class Jugador {
 
         int cantidad = 0;
 
-        for ( Apropiable propiedad : this.apropiables ) {
+        for ( Propiedad propiedad : this.propiedades ) {
 
             cantidad = cantidad + propiedad.obtenerCantidadDePropiedadesParaMovimientoDinamico();
 
@@ -226,6 +220,6 @@ public class Jugador {
         return posicionActual;
     }
 
-    public ArrayList<Apropiable> getPropiedades(){ return apropiables; }
+    public ArrayList<Propiedad> getPropiedades(){ return propiedades; }
 
 }

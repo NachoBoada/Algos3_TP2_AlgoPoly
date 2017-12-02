@@ -13,5 +13,5 @@ public interface Encasillable {
 
     String getDescripcion();
 
-    boolean esApropiable();
+    boolean esPropiedad();
 }

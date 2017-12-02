@@ -40,7 +40,7 @@ public class Policia implements Encasillable {
         jugador.caerEn(this.carcel);
     }
 
-    public boolean esApropiable(){
+    public boolean esPropiedad(){
 
         return false;
 

@@ -61,7 +61,7 @@ public class RetrocesoDinamico implements Encasillable {
 
     }
 
-    public boolean esApropiable(){
+    public boolean esPropiedad(){
 
         return false;
 

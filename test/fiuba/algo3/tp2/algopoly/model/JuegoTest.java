@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
+import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
@@ -81,7 +81,7 @@ public class JuegoTest {
         Encasillable casilleroActual = jugador.casilleroActual();
         Tablero tablero = Juego.getInstance().getTablero();
 
-        Apropiable propiedadAComprar;
+        Propiedad propiedadAComprar;
 
         try{
 

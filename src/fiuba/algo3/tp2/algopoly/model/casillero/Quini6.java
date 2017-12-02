@@ -46,7 +46,7 @@ public class Quini6 implements Encasillable {
         boleto.actualizarPremio();
     }
 
-    public boolean esApropiable(){
+    public boolean esPropiedad(){
 
         return false;
 

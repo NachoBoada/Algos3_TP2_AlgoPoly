@@ -63,7 +63,7 @@ public class AvanceDinamico implements Encasillable {
 
     }
 
-    public boolean esApropiable(){
+    public boolean esPropiedad(){
 
         return false;
 

@@ -36,7 +36,7 @@ public class Salida implements Encasillable {
         return " casillero de partida de los jugadores";
     }
 
-    public boolean esApropiable(){
+    public boolean esPropiedad(){
 
         return false;
 

@@ -2,14 +2,14 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
+import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.Comprado;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.EstadoBarrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado.NoComprado;
 
-public abstract class Barrio implements Encasillable, Apropiable{
+public abstract class Barrio extends Propiedad implements Encasillable {
 
 	protected EstadoBarrio estadoActual;
 	protected Comprado estadoComprado;
@@ -77,7 +77,7 @@ public abstract class Barrio implements Encasillable, Apropiable{
 
 	}
 
-	public boolean esApropiable(){
+	public boolean esPropiedad(){
 
 		return true;
 

@@ -2,7 +2,7 @@ package fiuba.algo3.tp2.algopoly.vista;
 
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.Apropiable;
+import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
@@ -10,7 +10,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class ContenedorPrincipal extends BorderPane {
@@ -62,7 +61,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
 
-        if (jugadorActual.casilleroActual().esApropiable()){
+        if (jugadorActual.casilleroActual().esPropiedad()){
 
             botonComprarPropiedad.setDisable(false);
 
@@ -168,7 +167,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
 
-        for ( Apropiable propiedad : jugadorActual.getPropiedades() ) {
+        for ( Propiedad propiedad : jugadorActual.getPropiedades() ) {
 
 
             MenuItem opcionVenderPropiedad = new MenuItem(propiedad.getNombre());
