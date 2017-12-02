@@ -69,9 +69,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            jugadorActual.mover(tiro.resultado());
+            //jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Carcel"));
+            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
 
             this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
 
@@ -190,7 +190,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         if(Juego.getInstance().getJugadorActual().casilleroActual().getNombre().equals("Carcel")){
 
-            this.informarEstadiaEnCarcel();
+            this.informarSalidaDeLaCarcel();
 
         }
 
@@ -200,52 +200,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     }
 
-    private void informarEstadiaEnCarcel() {
-
-
-        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso")){
-
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
-            alertaJugadorPresoNoSePuedeMover.showAndWait();
-
-
-        }
-
-        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso ( primer turno)")){
-
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
-            alertaJugadorPresoNoSePuedeMover.showAndWait();
-
-
-        }
-
-        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso (segundo turno)")){
-
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
-            alertaJugadorPresoNoSePuedeMover.showAndWait();
-
-
-        }
-
-        if(Juego.getInstance().getJugadorActual().getEstado().equals("Preso ( tercer turno)")){
-
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Seguis en la carcel!");
-            alertaJugadorPresoNoSePuedeMover.showAndWait();
-
-
-        }
+    private void informarSalidaDeLaCarcel() {
 
         if(Juego.getInstance().getJugadorActual().getEstado().equals("Libre")){
 
@@ -287,7 +242,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             if (capitalAntesDeMoverse.getCantidad() == capitalDespuesDeMoverse.getCantidad()) {
 
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + "\n" + "pero no tenes que afrontar un gasto.");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + ". \n" + "No tenes que afrontar un gasto.");
                 alertaJugadorPresoNoSePuedeMover.showAndWait();
 
 

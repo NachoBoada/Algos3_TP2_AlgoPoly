@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model;
 
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaComprado;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
@@ -94,6 +95,20 @@ public class JuegoTest {
         }
 
         jugador.comprarPropiedad(propiedadAComprar);
+
+    }
+
+    @Test (expected = NoSePuedeComprarUnBarrioYaComprado.class)
+    public void testNoSePuedeComprarUnBarrioYaComprado(){
+
+        Juego juego = Juego.getInstance();
+        juego.comenzarJuego(100000);
+        Jugador jugador1 = Juego.getInstance().obtenerJugador("Jugador 1");
+        Jugador jugador2 = Juego.getInstance().obtenerJugador("Jugador 2");
+
+        jugador1.comprarPropiedad(juego.getTablero().obtenerBarrioPorNombre("Buenos Aires Norte"));
+        jugador2.comprarPropiedad(juego.getTablero().obtenerBarrioPorNombre("Buenos Aires Norte"));
+
 
     }
 }

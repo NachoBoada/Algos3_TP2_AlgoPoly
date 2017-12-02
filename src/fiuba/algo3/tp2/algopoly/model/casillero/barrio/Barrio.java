@@ -29,15 +29,8 @@ public abstract class Barrio extends Propiedad implements Encasillable {
 
     	this.estadoActual = estadoComprado;
 
-    	try {
+		this.estadoComprado.modificarPropietario(unJugador,this.precio);
 
-			this.estadoComprado.modificarPropietario(unJugador,this.precio);
-
-		} catch (NoSePuedeComprarUnBarrioYaComprado e){
-
-    		this.estadoActual = new NoComprado();
-
-		}
 	}
 
 	public Dinero getPrecio() {

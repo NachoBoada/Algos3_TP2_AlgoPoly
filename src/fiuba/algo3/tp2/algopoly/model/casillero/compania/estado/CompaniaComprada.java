@@ -38,9 +38,10 @@ public class CompaniaComprada implements EstadoCompania {
 
     private void cobrar(Jugador jugador, int factor) {
         int ultimaSumaDados = jugador.getUltimoTiroDeDados().resultado();
-        Dinero dineroADecrementar = new Dinero(ultimaSumaDados * factor);
+        Dinero dineroACobrar = new Dinero(ultimaSumaDados * factor);
         try {
-            jugador.decrementarCapitalEn(dineroADecrementar);
+            jugador.decrementarCapitalEn(dineroACobrar);
+            this.duenio.incrementarCapitalEn(dineroACobrar);
         } catch (CapitalInsuficienteException e) {
             throw new ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException();
         }
