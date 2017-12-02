@@ -71,7 +71,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Aysa"));
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
 
             this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
 
@@ -113,13 +113,14 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             if ( jugadorActual.getPropiedades().isEmpty() ){
 
                 Juego.getInstance().jugadorPierdeElJuego(jugadorActual);
+
                 Alert alertaJugadorEliminado = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorEliminado.initOwner(stage);
                 alertaJugadorEliminado.setTitle("ATENCION");
                 alertaJugadorEliminado.setHeaderText(jugadorActual.getNombreJugador() + " perdiste porque no tenes dinero ni propiedades para afrontar el gasto!");
                 alertaJugadorEliminado.showAndWait();
 
-                Juego.getInstance().turnoProximojugador();
+                //Juego.getInstance().turnoProximojugador();
 
                 this.contenedorPrincipal.jugadorNoComproPropiedad();
 

@@ -40,6 +40,8 @@ public class Juego {
 
         jugadores.eliminar(jugador);
 
+        this.jugadorActual = this.jugadores.getJugadorActual();
+
         if (jugadores.quedaUno()) {
             this.nombreJugadorGanador = this.jugadores.primero().getNombreJugador();
             this.finalizarJuego();

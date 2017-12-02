@@ -8,6 +8,7 @@ public class Jugadores {
 
     private ListIterator<Jugador> iterador;
     private final LinkedList<Jugador> jugadores;
+    private Jugador jugadorActual;
 
     public Jugadores(Tablero tablero, double capitalInicialDeJugadores) {
         jugadores = new LinkedList<>();
@@ -17,6 +18,7 @@ public class Jugadores {
         jugadores.add(new Jugador(new Dinero(capitalInicialDeJugadores), tablero, "Jugador 3"));
 
         this.iterador = jugadores.listIterator(1);
+        jugadorActual = jugadores.get(0);
     }
 
     public Jugador proximo() {
@@ -32,7 +34,12 @@ public class Jugadores {
     }
 
     public boolean eliminar(Jugador jugador) {
-        return jugadores.isEmpty() ? false : jugadores.remove(jugador);
+        if (jugadores.isEmpty()) {
+            return false;
+        }
+        this.jugadorActual = proximo();
+        jugadores.remove(jugador);
+        return true;
     }
 
     public boolean quedaUno() {
@@ -59,4 +66,10 @@ public class Jugadores {
     public LinkedList<Jugador> getJugadores() {
         return this.jugadores;
     }
+
+    public Jugador getJugadorActual() {
+        return this.jugadorActual;
+    }
+
+
 }
