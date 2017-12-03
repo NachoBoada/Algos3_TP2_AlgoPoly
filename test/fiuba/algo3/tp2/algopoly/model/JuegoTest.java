@@ -111,4 +111,37 @@ public class JuegoTest {
 
 
     }
+
+    @Test
+    public void test(){
+
+        Juego juego = Juego.getInstance();
+        juego.comenzarJuego(100000);
+
+        Jugador jugador = juego.getJugadorActual();
+
+        juego.getJugadorActual().tirarDadosParaTests(1,1);;
+        juego.turnoProximojugador();
+
+        juego.getJugadorActual().tirarDadosParaTests(1,2);
+        juego.turnoProximojugador();
+
+        juego.getJugadorActual().tirarDadosParaTests(2,1);
+        juego.turnoProximojugador();
+
+        juego.getJugadorActual().tirarDadosParaTests(2,1);
+        juego.turnoProximojugador();
+
+        juego.getJugadorActual().tirarDadosParaTests(1,1);
+        juego.turnoProximojugador();
+
+        Assert.assertEquals(juego.obtenerJugador("Jugador 1"),juego.getJugadorActual());
+
+        juego.getJugadorActual().tirarDadosParaTests(1,1);
+        juego.turnoProximojugador();
+
+
+
+
+    }
 }

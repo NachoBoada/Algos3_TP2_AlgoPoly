@@ -27,7 +27,15 @@ public class Juego {
     }
 
     public void turnoProximojugador() {
+
+        if ( ! this.jugadorActual.getUltimoTiroDeDados().esDuplicado() && this.jugadorActual.getContadorTirosDuplicados() == 1){
+
+            this.jugadorActual.resetContadorTirosDuplicados();
+
+        }
+
         if (this.jugadorActual.saltearTurno()) {
+
             this.jugadorActual = this.jugadores.proximo();
         }
     }

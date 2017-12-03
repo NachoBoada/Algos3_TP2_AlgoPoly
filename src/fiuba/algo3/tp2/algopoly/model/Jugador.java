@@ -177,10 +177,13 @@ public class Jugador {
     }
 
     public boolean saltearTurno() {
+
         return ( (this.ultimoTiro.esDuplicado() && contadorTirosDuplicados == 2) || ( ! this.ultimoTiro.esDuplicado() ) );
+
     }
 
     public TiroDeDados tirarDados() {
+
         this.ultimoTiro = Dados.getInstance().tirar();
 
         if ( this.contadorTirosDuplicados == 2){
@@ -201,6 +204,13 @@ public class Jugador {
     //Metodo para probar test
     public TiroDeDados tirarDadosParaTests(int tiroUno, int tiroDos) {
         this.ultimoTiro = Dados.getInstance().tirar(tiroUno, tiroDos);
+
+        if ( this.contadorTirosDuplicados == 2){
+
+            this.contadorTirosDuplicados = 0;
+
+        }
+
         if (this.ultimoTiro.esDuplicado()) {
             contadorTirosDuplicados++;
         }
@@ -237,12 +247,28 @@ public class Jugador {
 
     }
 
+    public void resetContadorTirosDuplicados(){
+
+        this.contadorTirosDuplicados = 0;
+
+    }
+
     public boolean avanzoDinamicamente() {
-        return avanzoDinamicamente;
+
+        boolean avanzo = this.avanzoDinamicamente;
+
+        this.avanzoDinamicamente = false;
+
+        return avanzo;
     }
 
     public boolean retrocedioDinamicamente() {
-        return retrocedioDinamicamente;
+
+        boolean retrocedio = this.retrocedioDinamicamente;
+
+        this.retrocedioDinamicamente = false;
+
+        return retrocedio;
     }
 
     public void setAvanceDinamico() {
@@ -254,7 +280,12 @@ public class Jugador {
     }
 
     public boolean fueDetenido() {
-        return fueDetenido;
+
+        boolean detenido = this.fueDetenido;
+
+        this.fueDetenido = false;
+
+        return detenido;
     }
 
     public void detener() {
