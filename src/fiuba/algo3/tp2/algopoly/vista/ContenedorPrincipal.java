@@ -186,7 +186,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 
             MenuItem opcionVenderPropiedad = new MenuItem(propiedad.getNombre());
-            OpcionVenderPropiedadEventHandler opcionVenderPropiedadEventHandler = new OpcionVenderPropiedadEventHandler(propiedad,this);
+            OpcionVenderPropiedadEventHandler opcionVenderPropiedadEventHandler = new OpcionVenderPropiedadEventHandler(propiedad,this.stage,this);
             opcionVenderPropiedad.setOnAction(opcionVenderPropiedadEventHandler);
 
             botonPropiedades.getItems().add(opcionVenderPropiedad);

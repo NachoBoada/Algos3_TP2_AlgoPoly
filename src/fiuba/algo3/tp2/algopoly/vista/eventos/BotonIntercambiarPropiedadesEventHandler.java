@@ -14,6 +14,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class BotonIntercambiarPropiedadesEventHandler implements EventHandler<ActionEvent> {
@@ -46,7 +47,8 @@ public class BotonIntercambiarPropiedadesEventHandler implements EventHandler<Ac
 
             if( !jugador.equals(juego.getJugadorActual()) ) {
 
-                MenuButton menuJugador = new MenuButton(jugador.getNombreJugador());
+                MenuButton menuJugador = new MenuButton("Propiedades de \n" + jugador.getNombreJugador());
+                menuJugador.setTextAlignment(TextAlignment.CENTER);
 
                 for (Propiedad propiedad : jugador.getPropiedades()) {
 
@@ -62,7 +64,7 @@ public class BotonIntercambiarPropiedadesEventHandler implements EventHandler<Ac
         }
 
 
-        stagePropiedades.setScene(new Scene(centro, 350, 350));
+        stagePropiedades.setScene(new Scene(centro, 350, 150));
         stagePropiedades.initOwner(this.stage);
         stagePropiedades.showAndWait();
 
