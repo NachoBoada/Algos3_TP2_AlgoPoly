@@ -96,4 +96,13 @@ public abstract class Compania extends Propiedad implements Encasillable {
         return true;
 
     }
+
+    public void modificarPropietarioPorIntercambio(Jugador jugador) {
+        this.estadoActual = new CompaniaComprada(jugador, factorSimple, factorDoble);
+    }
+
+    @Override
+    public Jugador getPropietario() {
+        return this.estadoActual.getPropietario();
+    }
 }

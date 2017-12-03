@@ -2,6 +2,8 @@ package fiuba.algo3.tp2.algopoly.vista;
 
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.Tablero;
+import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 import javafx.geometry.Insets;
@@ -61,14 +63,18 @@ public class ContenedorPrincipal extends BorderPane {
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
 
         if (jugadorActual.casilleroActual().esPropiedad()){
-
             botonComprarPropiedad.setDisable(false);
-
         }
 
         MenuButton botonVenderPropiedad = new MenuButton("Vender Propiedad");
 
         this.agregarPropiedadesAMenuVenderPropiedades(botonVenderPropiedad);
+
+        Button botonIntercambiarPropiedades = new Button("IntercambiarPropiedades");
+        BotonIntercambiarPropiedadesEventHandler botonIntercambiarPropiedadesEventHandler = new BotonIntercambiarPropiedadesEventHandler(this.stage,this);
+        botonIntercambiarPropiedades.setOnAction(botonIntercambiarPropiedadesEventHandler);
+        botonIntercambiarPropiedades.setDisable(true);
+        habilitarBotonDeIntercambioDePropiedades(botonIntercambiarPropiedades);
 
         Button botonConstruirCasa = new Button("Construir casa");
         BotonConstruirCasaEventHandler botonConstruirCasaEventHandler = new BotonConstruirCasaEventHandler(this.stage,this);
@@ -88,14 +94,12 @@ public class ContenedorPrincipal extends BorderPane {
         }
 
         try{
-
             Juego.getInstance().getTablero().obtenerBarrioPorNombre(jugadorActual.casilleroActual().getNombre());
 
         }catch(NullPointerException e){
 
             botonConstruirCasa.setDisable(true);
             botonConstruirHotel.setDisable(true);
-
         }
 
         Button botonPagarFianza = new Button("Pagar Fianza");
@@ -104,21 +108,17 @@ public class ContenedorPrincipal extends BorderPane {
         botonPagarFianza.setDisable(true);
 
         if (jugadorActual.casilleroActual().getNombre().equals("Carcel") && jugadorActual.getEstado() != "Libre") {
-
             botonPagarFianza.setDisable(false);
-
         }
-
 
 
         this.panelIzquierdo.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
         InformacionJugadorVista informacionJugadorVista= new InformacionJugadorVista();
-        panelIzquierdo.getChildren().addAll(acciones,botonTirarDadosYMover,botonComprarPropiedad,botonVenderPropiedad,botonConstruirCasa,botonConstruirHotel,botonPagarFianza);
+        panelIzquierdo.getChildren().addAll(acciones,botonTirarDadosYMover,botonComprarPropiedad,botonVenderPropiedad,botonIntercambiarPropiedades,botonConstruirCasa,botonConstruirHotel,botonPagarFianza);
         panelIzquierdo.getChildren().add(informacionJugadorVista);
         this.setLeft(this.panelIzquierdo);
 
     }
-
 
     public void setPanelDerecho() {
 
@@ -176,6 +176,31 @@ public class ContenedorPrincipal extends BorderPane {
 
             botonPropiedades.getItems().add(opcionVenderPropiedad);
 
+        }
+    }
+
+
+    private void habilitarBotonDeIntercambioDePropiedades(Button botonIntercambiarPropiedades) {
+
+        Juego juego = Juego.getInstance();
+        Jugador jugadorActual = juego.getJugadorActual();
+
+        if (jugadorActual.casilleroActual().esPropiedad()){
+
+            Tablero tablero = Juego.getInstance().getTablero();
+            Encasillable casilleroActual = juego.getJugadorActual().casilleroActual();
+            Propiedad propiedad;
+
+            try {
+                propiedad = tablero.obtenerBarrioPorNombre(casilleroActual.getNombre());
+
+            }catch (NullPointerException e){
+                propiedad = tablero.obtenerCompaniaPorNombre(casilleroActual.getNombre());
+            }
+
+            if (jugadorActual.esPropietarioDe(propiedad)) {
+                botonIntercambiarPropiedades.setDisable(false);
+            }
         }
     }
 

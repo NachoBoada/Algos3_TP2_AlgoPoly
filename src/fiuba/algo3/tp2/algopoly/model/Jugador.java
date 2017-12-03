@@ -129,19 +129,19 @@ public class Jugador {
 
     }
 
-    public void intercambiarPropiedadPor(Barrio miBarrio, Barrio otroBarrio) {
+    public void intercambiarPropiedadPor(Propiedad miPropiedad, Propiedad otraPropiedad) {
 
-        Jugador otroJugador = otroBarrio.getPropietario();
+        Jugador otroJugador = otraPropiedad.getPropietario();
 
-        otroJugador.quitarPropiedad(otroBarrio);
+        otroJugador.quitarPropiedad(otraPropiedad);
 
-        this.quitarPropiedad(miBarrio);
+        this.quitarPropiedad(miPropiedad);
 
-        otroJugador.agregarPropiedad(miBarrio);
-        miBarrio.modificarPropietarioPorIntercambio(otroJugador);
+        otroJugador.agregarPropiedad(miPropiedad);
+        miPropiedad.modificarPropietarioPorIntercambio(otroJugador);
 
-        this.agregarPropiedad(otroBarrio);
-        otroBarrio.modificarPropietarioPorIntercambio(this);
+        this.agregarPropiedad(otraPropiedad);
+        otraPropiedad.modificarPropietarioPorIntercambio(this);
 
     }
 

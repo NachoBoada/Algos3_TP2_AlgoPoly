@@ -22,4 +22,8 @@ public abstract class Propiedad {
         jugador.agregarPropiedad(this);
 
     }
+
+    public abstract void modificarPropietarioPorIntercambio (Jugador jugador);
+
+    public abstract Jugador getPropietario();
 }

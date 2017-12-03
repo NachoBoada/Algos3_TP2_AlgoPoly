@@ -20,7 +20,7 @@ public class Aplicacion extends Application {
 
         stage.setTitle("ALGOPOLY");
 
-        double capitalInicialDeJugadores = 25000;
+        double capitalInicialDeJugadores = 100000;
 
         Juego.getInstance().comenzarJuego(capitalInicialDeJugadores);
 
