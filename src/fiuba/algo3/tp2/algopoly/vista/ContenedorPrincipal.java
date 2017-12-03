@@ -11,8 +11,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class ContenedorPrincipal extends BorderPane {
 
@@ -23,6 +27,7 @@ public class ContenedorPrincipal extends BorderPane {
     Stage stage;
     boolean jugadorComproPropiedad;
     boolean jugadorTieneQueVender;
+    private MediaPlayer musica;
 
 
     public ContenedorPrincipal(Stage stage) {
@@ -33,6 +38,16 @@ public class ContenedorPrincipal extends BorderPane {
         this.setPanelIzquierdo();
         this.setPanelDerecho();
         this.setCentro();
+
+    }
+
+    public void reproducirMusica() {
+        String pathMusicaDeFondo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/SonidoJuego.mp3").toAbsolutePath().toUri().toString();
+        Media cancionJuego1 = new Media(pathMusicaDeFondo);
+        musica = new MediaPlayer(cancionJuego1);
+
+        musica.setAutoPlay(true);
+        musica.setCycleCount(MediaPlayer.INDEFINITE);
 
     }
 

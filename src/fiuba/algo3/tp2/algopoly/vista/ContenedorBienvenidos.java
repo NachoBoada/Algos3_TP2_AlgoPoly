@@ -7,22 +7,28 @@ import javafx.scene.effect.MotionBlur;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.nio.file.Paths;
 
 
 public class ContenedorBienvenidos extends BorderPane {
 
 
     private Stage stage;
-    private MediaPlayer sonido;
+    private MediaPlayer musica;
 
 
-    public ContenedorBienvenidos(Stage stage, Scene proximaEscena) {
+    public ContenedorBienvenidos(Stage stage, Scene proximaEscena, ContenedorPrincipal contenedorPrincipal) {
 
         super();
 
         this.stage = stage;
+
+        reproducirMusica();
 
         Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/algopoly3.png");
         BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
@@ -48,7 +54,7 @@ public class ContenedorBienvenidos extends BorderPane {
                 e -> botonComenzarJuego.setEffect(null));
 
 
-        BotonComenzarJuegoEventHandler nuevoJuegoHandler = new BotonComenzarJuegoEventHandler(stage, proximaEscena,this);
+        BotonComenzarJuegoEventHandler nuevoJuegoHandler = new BotonComenzarJuegoEventHandler(stage, proximaEscena, contenedorPrincipal,this);
         botonComenzarJuego.setOnAction(nuevoJuegoHandler);
 
 
@@ -57,4 +63,16 @@ public class ContenedorBienvenidos extends BorderPane {
 
     }
 
+    private void reproducirMusica() {
+        String pathMusicaDeFondo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/SonidoBienvenida.mp3").toAbsolutePath().toUri().toString();
+        Media musicaDeFondo = new Media(pathMusicaDeFondo);
+        musica = new MediaPlayer(musicaDeFondo);
+
+        musica.setAutoPlay(true);
+        musica.setCycleCount(MediaPlayer.INDEFINITE);
+    }
+
+    public void pararMusica() {
+        musica.stop();
+    }
 }
