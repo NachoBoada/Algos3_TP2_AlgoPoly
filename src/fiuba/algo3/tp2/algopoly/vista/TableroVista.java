@@ -24,43 +24,43 @@ public class TableroVista extends GridPane {
         this.panelDerecho= panelDerecho;
         this.setAlignment(Pos.CENTER);
 
-        this.add(this.crearCasilleroEstandar("Salida", "casillero5.png"), 5, 5);
-        this.add(this.crearCasilleroEstandar("Quini 6", "casillero.png"), 4, 5);
-        this.add(this.crearCasilleroEstandar("Buenos Aires Sur", "casillero4.png"),3, 5);
-        this.add(this.crearCasilleroEstandar("Edesur", "casillero7.png"), 2, 5);
-        this.add(this.crearCasilleroEstandar("Buenos Aires Norte", "casillero4.png"),1,5);
-        this.add(this.crearCasilleroEstandar("Carcel", "casillero11.png"),0,5);
-        this.add(this.crearCasilleroEstandar("Cordoba Sur", "casillero2.png"), 0, 4);
-        this.add(this.crearCasilleroEstandar("Avance Dinamico", "casillero.png"), 0, 3);
-        this.add(this.crearCasilleroEstandar("Subte", "casillero7.png"), 0, 2);
-        this.add(this.crearCasilleroEstandar("Cordoba Norte","casillero2.png"), 0, 1);
-        this.add(this.crearCasilleroEstandar("Impuesto Al Lujo","casillero.png"), 0, 0);
-        this.add(this.crearCasilleroEstandar("Santa Fe", "casillero8.png"), 1, 0);
-        this.add(this.crearCasilleroEstandar("Aysa", "casillero7.png"), 2, 0);
-        this.add(this.crearCasilleroEstandar("Salta Norte", "casillero6.png"), 3, 0);
-        this.add(this.crearCasilleroEstandar("Salta Sur", "casillero6.png"), 4, 0);
-        this.add(this.crearCasilleroEstandar("Policia", "casillero9.png"), 5, 0);
-        this.add(this.crearCasilleroEstandar("Tren", "casillero7.png"), 5, 1);
-        this.add(this.crearCasilleroEstandar("Neuquen", "casillero10.png"), 5, 2);
-        this.add(this.crearCasilleroEstandar("Retroceso Dinamico", "casillero.png"), 5, 3);
-        this.add(this.crearCasilleroEstandar("Tucuman", "casillero3.png"), 5, 4);
+        this. add(this.crearCasillero("Salida", "Casillero0.png"), 5, 5);
+        this.add(this.crearCasillero("Quini 6", "Casillero1.png"), 4, 5);
+        this.add(this.crearCasillero("Buenos Aires Sur", "Casillero2.png"),3, 5);
+        this.add(this.crearCasillero("Edesur", "Casillero3.png"), 2, 5);
+        this.add(this.crearCasillero("Buenos Aires Norte", "Casillero4.png"),1,5);
+        this.add(this.crearCasillero("Carcel", "Casillero5.png"),0,5);
+        this.add(this.crearCasillero("Cordoba Sur", "Casillero6.png"), 0, 4);
+        this.add(this.crearCasillero("Avance Dinamico", "Casillero7.png"), 0, 3);
+        this.add(this.crearCasillero("Subte", "Casillero8.png"), 0, 2);
+        this.add(this.crearCasillero("Cordoba Norte","Casillero9.png"), 0, 1);
+        this.add(this.crearCasillero("Impuesto Al Lujo","Casillero10.png"), 0, 0);
+        this.add(this.crearCasillero("Santa Fe", "Casillero11.png"), 1, 0);
+        this.add(this.crearCasillero("Aysa", "Casillero12.png"), 2, 0);
+        this.add(this.crearCasillero("Salta Norte", "Casillero13.png"), 3, 0);
+        this.add(this.crearCasillero("Salta Sur", "Casillero14.png"), 4, 0);
+        this.add(this.crearCasillero("Policia", "Casillero15.png"), 5, 0);
+        this.add(this.crearCasillero("Tren", "Casillero16.png"), 5, 1);
+        this.add(this.crearCasillero("Neuquen", "Casillero17.png"), 5, 2);
+        this.add(this.crearCasillero("Retroceso Dinamico", "Casillero18.png"), 5, 3);
+        this.add(this.crearCasillero("Tucuman", "Casillero19.png"), 5, 4);
     }
 
-    private Button crearCasilleroEstandar(String nombreCasillero, String imagen ) {
+     private Button crearCasillero(String nombreCasillero, String imagen ) {
 
         Encasillable unCasillero= tablero.obtenerCasilleroPorNombre(nombreCasillero);
-        Button casillero = new Button(nombreCasillero.toUpperCase() + "\n"+ "    "+ unCasillero.getPosicion());
-
-        casillero.setFont(Font.font("times new roman", FontPosture.REGULAR,12 ));
+        Button casillero = new Button();
         casillero.setPrefSize(140, 100);
+
         InformacionCasilleroVista informacionCasillero=(InformacionCasilleroVista)panelDerecho.getChildren().get(0);
         BotonAccionCasilleroEventHandler botonAccionCasilleroEventHandler= new BotonAccionCasilleroEventHandler(unCasillero, informacionCasillero);
 
-
         Image imagenBoton= new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/"+imagen);
-        BackgroundSize backgroundSizeBoton = new BackgroundSize(140, 100, true, true, true, true);
+
+        BackgroundSize backgroundSizeBoton = new BackgroundSize( 140, 100, true, true, true, true);
         BackgroundImage imagenDeFondoBoton = new BackgroundImage(imagenBoton, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSizeBoton);
         casillero.setBackground(new Background(imagenDeFondoBoton));
+        casillero.setStyle("-fx-border-color: BLACK; -fx-border-width: 0.5px;");
 
 
         casillero.setOnAction( botonAccionCasilleroEventHandler );
