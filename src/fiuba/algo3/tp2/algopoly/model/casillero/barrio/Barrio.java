@@ -2,7 +2,6 @@ package fiuba.algo3.tp2.algopoly.model.casillero.barrio;
 
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaComprado;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
@@ -27,9 +26,7 @@ public abstract class Barrio extends Propiedad implements Encasillable {
 
 	public void modificarPropietario(Jugador unJugador) {
 
-    	this.estadoActual = estadoComprado;
-
-		this.estadoComprado.modificarPropietario(unJugador,this.precio);
+		this.estadoActual.venderA(unJugador,this.precio,this);
 
 	}
 
@@ -89,6 +86,14 @@ public abstract class Barrio extends Propiedad implements Encasillable {
 		this.estadoActual = estadoComprado;
 
 		this.estadoComprado.modificarPropietarioPorIntercambio(jugador);
+
+	}
+
+	public void comprado(Jugador jugador) {
+
+		this.estadoActual = estadoComprado;
+
+		this.estadoComprado.modificarPropietario(jugador);
 
 	}
 }

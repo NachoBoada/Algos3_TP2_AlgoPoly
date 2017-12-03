@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaComprado;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaCompradoException;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
@@ -98,7 +98,7 @@ public class JuegoTest {
 
     }
 
-    @Test (expected = NoSePuedeComprarUnBarrioYaComprado.class)
+    @Test (expected = NoSePuedeComprarUnBarrioYaCompradoException.class)
     public void testNoSePuedeComprarUnBarrioYaComprado(){
 
         Juego juego = Juego.getInstance();

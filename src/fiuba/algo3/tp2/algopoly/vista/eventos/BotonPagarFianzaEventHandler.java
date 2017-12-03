@@ -5,7 +5,6 @@ import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
-import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnaCompaniaYaComprada;
 import fiuba.algo3.tp2.algopoly.model.estado.NoSePuedePagarFianzaEnEsteTurnoException;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;

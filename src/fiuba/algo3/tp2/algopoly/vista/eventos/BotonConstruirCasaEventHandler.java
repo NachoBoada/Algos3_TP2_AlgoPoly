@@ -5,7 +5,7 @@ import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
-import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruir;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruirException;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
@@ -39,7 +39,7 @@ public class BotonConstruirCasaEventHandler implements EventHandler<ActionEvent>
 
             jugadorActual.construirCasaEn(barrio);
 
-        }catch (JugadorDebeComprarElBarrioParaPoderConstruir e){
+        }catch (JugadorDebeComprarElBarrioParaPoderConstruirException e){
 
             Alert alertaBarrioNoComprado = new Alert(Alert.AlertType.WARNING);
             alertaBarrioNoComprado.initOwner(stage);

@@ -1,10 +1,9 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.barrio.estado;
 
 import fiuba.algo3.tp2.algopoly.model.Dinero;
-import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
-import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruir;
-import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaComprado;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruirException;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaCompradoException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerBarrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.alquiler.AlquilerSinConstruccion;
@@ -41,16 +40,9 @@ public class Comprado implements EstadoBarrio {
     }
 
 
-    public void modificarPropietario(Jugador unJugador, Dinero precioBarrio) {
+    public void modificarPropietario(Jugador unJugador) {
 
-        if ( (this.propietario == null) ){
-
-            this.propietario = unJugador;
-
-            unJugador.decrementarCapitalEn(precioBarrio);
-
-        }else {throw new NoSePuedeComprarUnBarrioYaComprado(); }
-
+        this.propietario = unJugador;
 
     }
 
@@ -89,8 +81,15 @@ public class Comprado implements EstadoBarrio {
 
             this.alquiler.cambiarProximoAlquiler();
 
-        }else { throw new JugadorDebeComprarElBarrioParaPoderConstruir(); }
+        }else { throw new JugadorDebeComprarElBarrioParaPoderConstruirException(); }
 
+
+    }
+
+    @Override
+    public void venderA(Jugador jugador, Dinero precio, Barrio barrio) {
+
+        throw new NoSePuedeComprarUnBarrioYaCompradoException();
 
     }
 

@@ -5,7 +5,7 @@ import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
-import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruir;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruirException;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePuedeConstruirUnHotelEnUnBarrioSimpleException;
@@ -56,7 +56,7 @@ public class BotonConstruirHotelEventHandler implements EventHandler<ActionEvent
             alertaBarrioNoComprado.setHeaderText("No se puede contruir un hotel si no construis el maximo numero de casas en cada barrio de la region.");
             alertaBarrioNoComprado.showAndWait();
 
-        }catch (JugadorDebeComprarElBarrioParaPoderConstruir e){
+        }catch (JugadorDebeComprarElBarrioParaPoderConstruirException e){
 
 
             Alert alertaBarrioNoComprado = new Alert(Alert.AlertType.WARNING);

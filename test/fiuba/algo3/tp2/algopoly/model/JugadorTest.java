@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model;
 
-import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruir;
+import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruirException;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.*;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Aysa;
@@ -115,7 +115,7 @@ public class JugadorTest {
 
     }
 
-    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruir.class)
+    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruirException.class)
     public void testJugadorQuiereConstruirUnaCasaEnUnBarrioSimpleQueNoComproEntoncesNoPuede(){
 
         Jugador jugador = new Jugador(new Dinero(100000),new Tablero(),"Jugador");
@@ -125,7 +125,7 @@ public class JugadorTest {
 
     }
 
-    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruir.class)
+    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruirException.class)
     public void testJugadorQuiereConstruirUnaCasaEnUnBarrioDivididoQueNoComproEntoncesNoPuede(){
 
         Jugador jugador = new Jugador(new Dinero(100000),new Tablero(),"Jugador");

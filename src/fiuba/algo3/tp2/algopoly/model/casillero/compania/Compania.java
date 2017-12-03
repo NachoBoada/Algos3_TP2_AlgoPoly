@@ -34,7 +34,7 @@ public abstract class Compania extends Propiedad implements Encasillable {
 
             estadoActual.getPropietario();
 
-            throw new NoSePuedeComprarUnaCompaniaYaComprada();
+            throw new NoSePuedeComprarUnaCompaniaYaCompradaException();
 
         }catch (SinPropietarioException e){
 
