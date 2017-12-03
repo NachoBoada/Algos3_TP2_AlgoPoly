@@ -53,7 +53,7 @@ public class ContenedorPrincipal extends BorderPane {
 
     private void setBarraDeMenu(Stage stage) {
 
-        this.barraDeMenu = new BarraDeMenu(stage);
+        this.barraDeMenu = new BarraDeMenu(stage, this);
         this.setTop(barraDeMenu);
 
     }
@@ -247,4 +247,7 @@ public class ContenedorPrincipal extends BorderPane {
         this.jugadorTieneQueVender = jugadorTieneQueVender;
     }
 
+    public void pararMusica() {
+        this.musica.stop();
+    }
 }

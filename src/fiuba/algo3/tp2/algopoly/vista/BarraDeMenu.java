@@ -1,6 +1,7 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
 
+import fiuba.algo3.tp2.algopoly.vista.eventos.OpcionActivarMusicaEventHandler;
 import fiuba.algo3.tp2.algopoly.vista.eventos.OpcionPantallaCompletaEventHandler;
 import fiuba.algo3.tp2.algopoly.vista.eventos.OpcionSalirEventHandler;
 import javafx.scene.control.Menu;
@@ -13,7 +14,7 @@ public class BarraDeMenu extends MenuBar {
 
     MenuItem opcionPantallaCompleta = new MenuItem("Pantalla completa");
 
-    public BarraDeMenu (Stage stage) {
+    public BarraDeMenu (Stage stage, ContenedorPrincipal contenedorPrincipal) {
 
         Menu menuJuego = new Menu("Juego");
         Menu menuSonido = new Menu("Sonido");
@@ -31,6 +32,9 @@ public class BarraDeMenu extends MenuBar {
         opcionPantallaCompleta.setOnAction(opcionPantallaCompletaEventHandler);
 
         opcionPantallaCompleta.setDisable(true);
+
+        OpcionActivarMusicaEventHandler opcionActivarMusicaEventHandler = new OpcionActivarMusicaEventHandler(contenedorPrincipal, opcionActivarMusica);
+        opcionActivarMusica.setOnAction(opcionActivarMusicaEventHandler);
 
         menuJuego.getItems().addAll(opcionNuevoJuego,new SeparatorMenuItem(),opcionSalir);
         menuVer.getItems().addAll(opcionPantallaCompleta);
