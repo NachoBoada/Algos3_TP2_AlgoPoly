@@ -50,7 +50,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageDados.setTitle("Tiro de Dados");
         ContenedorDados contenedorDados = new ContenedorDados(stageDados);
         contenedorDados.setContenido(tiro);
-        Scene escenaTiroDeDados = new Scene(contenedorDados, 350, 350);
+        Scene escenaTiroDeDados = new Scene(contenedorDados, 375, 375);
         stageDados.setScene(escenaTiroDeDados);
         stageDados.initOwner(this.stage);
         stageDados.showAndWait();
@@ -59,9 +59,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            jugadorActual.mover(tiro.resultado());
+            //jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Policia"));
+            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
 
             this.informarCaidaEnPolicia(jugadorActual);
 
@@ -99,8 +99,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             Alert alertaJugadorDebeVenderPropiedades = new Alert(Alert.AlertType.WARNING);
             alertaJugadorDebeVenderPropiedades.initOwner(stage);
             alertaJugadorDebeVenderPropiedades.setTitle("ATENCION");
-            alertaJugadorDebeVenderPropiedades.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() +
-                    " y no tenes dinero en efectivo. Tenes que vender propiedades para afrontar el gasto.");
+            alertaJugadorDebeVenderPropiedades.setHeaderText("Caiste en la propiedad: " + jugadorActual.casilleroActual().getNombre() +
+                    " y no tenes dinero en efectivo. ");
+            alertaJugadorDebeVenderPropiedades.setContentText("Tenes que vender propiedades para afrontar el gasto.");
             alertaJugadorDebeVenderPropiedades.showAndWait();
 
             if (jugadorActual.getPropiedades().isEmpty()) {
@@ -171,7 +172,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Cayo en Retroceso Dinamico!");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Retroceso Dinamico!");
             alertaJugadorPresoNoSePuedeMover.setContentText("Vaya a dar un paseo por " + jugador.casilleroActual().getNombre());
             alertaJugadorPresoNoSePuedeMover.showAndWait();
 
@@ -184,7 +185,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Cayo en Avance Dinamico!");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Avance Dinamico!");
             alertaJugadorPresoNoSePuedeMover.setContentText("Vaya a dar un paseo por " + jugador.casilleroActual().getNombre());
             alertaJugadorPresoNoSePuedeMover.showAndWait();
 
@@ -236,11 +237,12 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         if (jugadorActual.casilleroActual().getNombre().equals("Impuesto Al Lujo")) {
 
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Impuesto Al Lujo y tu capital se reduce en un 10 %.");
-            alertaJugadorPresoNoSePuedeMover.showAndWait();
+            Alert alertaJugadorCaeEnImpuestoAlLujo = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorCaeEnImpuestoAlLujo.initOwner(stage);
+            alertaJugadorCaeEnImpuestoAlLujo.setTitle("ATENCION");
+            alertaJugadorCaeEnImpuestoAlLujo.setHeaderText("Caiste en Impuesto Al Lujo!");
+            alertaJugadorCaeEnImpuestoAlLujo.setContentText("Tu capital se reduce en un 10% y ahora es de: " + jugadorActual.getCapital().getCantidad());
+            alertaJugadorCaeEnImpuestoAlLujo.showAndWait();
 
         }
 
@@ -253,23 +255,24 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         if (jugadorActual.casilleroActual().esPropiedad()) {
 
-            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
-            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
-            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            Alert alertaJugadorCaeEnPropiedad = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorCaeEnPropiedad.initOwner(stage);
+            alertaJugadorCaeEnPropiedad.setTitle("ATENCION");
 
             if (capitalAntesDeMoverse.getCantidad() == capitalDespuesDeMoverse.getCantidad()) {
 
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + ". \n" + "No tenes que afrontar un gasto.");
-                alertaJugadorPresoNoSePuedeMover.showAndWait();
+                alertaJugadorCaeEnPropiedad.setHeaderText("Caiste en la propiedad: " + jugadorActual.casilleroActual().getNombre());
+                alertaJugadorCaeEnPropiedad.setContentText("No tenes que afrontar un gasto.");
+                alertaJugadorCaeEnPropiedad.showAndWait();
 
 
             }
 
             if (capitalAntesDeMoverse.getCantidad() != capitalDespuesDeMoverse.getCantidad()) {
 
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() + "\n" + "y tenes que afrontar el gasto." +
-                        "Ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
-                alertaJugadorPresoNoSePuedeMover.showAndWait();
+                alertaJugadorCaeEnPropiedad.setHeaderText("Caiste en la propiedad: " + jugadorActual.casilleroActual().getNombre());
+                alertaJugadorCaeEnPropiedad.setContentText("Afrontaste el gasto y ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
+                alertaJugadorCaeEnPropiedad.showAndWait();
 
             }
 
@@ -284,7 +287,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Cayo en policia!");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Policia!");
             alertaJugadorPresoNoSePuedeMover.setContentText("Vayase directo a la carcel!");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
 
@@ -302,7 +305,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Carcel y ahora estas preso!");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Carcel y ahora estas preso!");
                 alertaJugadorPresoNoSePuedeMover.showAndWait();
 
             }
@@ -321,7 +324,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Quini 6 pero ya no podes ganar mas premios.");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Quini 6 pero ya no podes ganar mas premios.");
                 alertaJugadorPresoNoSePuedeMover.showAndWait();
 
             }
@@ -331,7 +334,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Quini 6 y ganas 50000 pesos!.");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Quini 6 y ganaste 50000 pesos!.");
                 alertaJugadorPresoNoSePuedeMover.showAndWait();
 
             }
@@ -341,7 +344,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
-                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Quini 6 y ganas 30000 pesos!.");
+                alertaJugadorPresoNoSePuedeMover.setHeaderText("Caiste en Quini 6 y ganaste 30000 pesos!.");
                 alertaJugadorPresoNoSePuedeMover.showAndWait();
 
             }
