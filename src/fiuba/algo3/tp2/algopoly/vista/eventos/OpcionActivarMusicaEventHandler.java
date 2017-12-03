@@ -12,14 +12,18 @@ public class OpcionActivarMusicaEventHandler implements EventHandler<ActionEvent
 
     private final MenuItem opcionActivarMusica;
     private final ContenedorPrincipal contenedorPrincipal;
+    private final MenuItem desactivarMusica;
 
-    public OpcionActivarMusicaEventHandler(ContenedorPrincipal contenedorPrincipal, MenuItem opcionActivarMusica) {
+    public OpcionActivarMusicaEventHandler(ContenedorPrincipal contenedorPrincipal, MenuItem opcionActivarMusica, MenuItem opcionDesactivarMusica) {
         this.contenedorPrincipal = contenedorPrincipal;
         this.opcionActivarMusica = opcionActivarMusica;
+        this.desactivarMusica = opcionDesactivarMusica;
     }
 
     @Override
     public void handle(ActionEvent event) {
         this.contenedorPrincipal.reproducirMusica();
+        this.opcionActivarMusica.setDisable(true);
+        this.desactivarMusica.setDisable(false);
     }
 }
