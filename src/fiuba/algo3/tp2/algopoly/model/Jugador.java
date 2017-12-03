@@ -25,6 +25,9 @@ public class Jugador {
     private TiroDeDados ultimoTiro;
     private int contadorTirosDuplicados;
     private ArrayList<Propiedad> propiedades;
+    private boolean avanzoDinamicamente;
+    private boolean retrocedioDinamicamente;
+    private boolean fueDetenido;
 
     public Jugador(Dinero capitalInicial, Tablero tablero, String nombreJugador) {
 
@@ -44,6 +47,10 @@ public class Jugador {
         this.tablero = tablero;
 
         contadorTirosDuplicados = 0;
+
+        avanzoDinamicamente = false;
+        retrocedioDinamicamente = false;
+        fueDetenido = false;
 
     }
 
@@ -230,4 +237,27 @@ public class Jugador {
 
     }
 
+    public boolean avanzoDinamicamente() {
+        return avanzoDinamicamente;
+    }
+
+    public boolean retrocedioDinamicamente() {
+        return retrocedioDinamicamente;
+    }
+
+    public void setAvanceDinamico() {
+        avanzoDinamicamente = true;
+    }
+
+    public void setretrocesoDinamico() {
+        retrocedioDinamicamente = true;
+    }
+
+    public boolean fueDetenido() {
+        return fueDetenido;
+    }
+
+    public void detener() {
+        fueDetenido = true;
+    }
 }

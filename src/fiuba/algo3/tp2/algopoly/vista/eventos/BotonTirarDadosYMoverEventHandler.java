@@ -1,13 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
-import com.sun.javafx.geom.BaseBounds;
-import com.sun.javafx.geom.transform.BaseTransform;
-import com.sun.javafx.jmx.MXNodeAlgorithm;
-import com.sun.javafx.jmx.MXNodeAlgorithmContext;
-import com.sun.javafx.sg.prism.NGNode;
-import com.sun.org.apache.bcel.internal.generic.ALOAD;
 import fiuba.algo3.tp2.algopoly.model.*;
-import fiuba.algo3.tp2.algopoly.model.casillero.AvanceDinamico;
 import fiuba.algo3.tp2.algopoly.model.dados.TiroDeDados;
 import fiuba.algo3.tp2.algopoly.model.estado.JugadorPresoNoSePuedeMoverException;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorDados;
@@ -15,14 +8,11 @@ import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorProximoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.util.Optional;
 
 public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEvent> {
@@ -30,7 +20,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     ContenedorPrincipal contenedorPrincipal;
     Stage stage;
 
-    public BotonTirarDadosYMoverEventHandler(Stage stage, ContenedorPrincipal contenedorPrincipal){
+    public BotonTirarDadosYMoverEventHandler(Stage stage, ContenedorPrincipal contenedorPrincipal) {
 
         this.contenedorPrincipal = contenedorPrincipal;
         this.stage = stage;
@@ -60,7 +50,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageDados.setTitle("Tiro de Dados");
         ContenedorDados contenedorDados = new ContenedorDados(stageDados);
         contenedorDados.setContenido(tiro);
-        Scene escenaTiroDeDados = new Scene(contenedorDados,350,350);
+        Scene escenaTiroDeDados = new Scene(contenedorDados, 350, 350);
         stageDados.setScene(escenaTiroDeDados);
         stageDados.initOwner(this.stage);
         stageDados.showAndWait();
@@ -69,26 +59,29 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            jugadorActual.mover(tiro.resultado());
+            //jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
+            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Policia"));
 
-            this.informarCaidaEnQuini6(jugadorActual,capitalAntesDeMoverse);
+            this.informarCaidaEnPolicia(jugadorActual);
+
+            this.informarCaidaEnRetrocesoDinamico(jugadorActual);
+
+            this.informarCaidaEnAvanceDinamico(jugadorActual);
+
+            this.informarCaidaEnQuini6(jugadorActual, capitalAntesDeMoverse);
 
             this.informarCaidaEnCarcel(jugadorActual);
 
-            this.informarCaidaEnPropiedad(jugadorActual,capitalAntesDeMoverse);
+            this.informarCaidaEnPropiedad(jugadorActual, capitalAntesDeMoverse);
 
             this.informarCaidaEnImpuestoAlLujo(jugadorActual);
-
-            //this.informarCaidaEnPolicia(jugadorActual);
 
 
             Juego.getInstance().turnoProximojugador();
 
 
-
-        }catch (JugadorPresoNoSePuedeMoverException e){
+        } catch (JugadorPresoNoSePuedeMoverException e) {
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -101,16 +94,16 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             Juego.getInstance().turnoProximojugador();
 
 
-        }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
+        } catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e) {
 
             Alert alertaJugadorDebeVenderPropiedades = new Alert(Alert.AlertType.WARNING);
             alertaJugadorDebeVenderPropiedades.initOwner(stage);
             alertaJugadorDebeVenderPropiedades.setTitle("ATENCION");
-            alertaJugadorDebeVenderPropiedades.setHeaderText("Caes en la propiedad: "+ jugadorActual.casilleroActual().getNombre() +
+            alertaJugadorDebeVenderPropiedades.setHeaderText("Caes en la propiedad: " + jugadorActual.casilleroActual().getNombre() +
                     " y no tenes dinero en efectivo. Tenes que vender propiedades para afrontar el gasto.");
             alertaJugadorDebeVenderPropiedades.showAndWait();
 
-            if ( jugadorActual.getPropiedades().isEmpty() ){
+            if (jugadorActual.getPropiedades().isEmpty()) {
 
                 Juego.getInstance().jugadorPierdeElJuego(jugadorActual);
 
@@ -136,9 +129,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         }
 
-        if (Juego.getInstance().finalizado()){
+        if (Juego.getInstance().finalizado()) {
 
-            Alert alertaJuegoFinalizado = new Alert(Alert.AlertType.CONFIRMATION );
+            Alert alertaJuegoFinalizado = new Alert(Alert.AlertType.CONFIRMATION);
 
 
             alertaJuegoFinalizado.initOwner(stage);
@@ -147,7 +140,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             alertaJuegoFinalizado.setHeaderText(jugadorGanador + " ha ganado el Juego \n Desea reiniciar el juego?");
 
             Optional<ButtonType> result = alertaJuegoFinalizado.showAndWait();
-            if (result.get() == ButtonType.OK){
+            if (result.get() == ButtonType.OK) {
                 Juego.getInstance().comenzarJuego(100000);
                 this.contenedorPrincipal.jugadorNoComproPropiedad();
 
@@ -172,6 +165,32 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     }
 
+    private void informarCaidaEnRetrocesoDinamico(Jugador jugador) {
+        if (jugador.retrocedioDinamicamente()) {
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Cayo en Retroceso Dinamico!");
+            alertaJugadorPresoNoSePuedeMover.setContentText("Vaya a dar un paseo por " + jugador.casilleroActual().getNombre());
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+        }
+    }
+
+    private void informarCaidaEnAvanceDinamico(Jugador jugador) {
+        if (jugador.avanzoDinamicamente()) {
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Cayo en Avance Dinamico!");
+            alertaJugadorPresoNoSePuedeMover.setContentText("Vaya a dar un paseo por " + jugador.casilleroActual().getNombre());
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+        }
+    }
+
     private void informarTurnoProximoJugador() {
 
         /*Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
@@ -184,26 +203,23 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageProximoJugador.setTitle("Proximo jugador");
         ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador);
         contenedorProximoJugador.setContenido();
-        Scene escenaProximoJugador = new Scene(contenedorProximoJugador,200,200);
+        Scene escenaProximoJugador = new Scene(contenedorProximoJugador, 200, 200);
         stageProximoJugador.setScene(escenaProximoJugador);
         stageProximoJugador.initOwner(this.stage);
         stageProximoJugador.showAndWait();
 
-        if(Juego.getInstance().getJugadorActual().casilleroActual().getNombre().equals("Carcel")){
+        if (Juego.getInstance().getJugadorActual().casilleroActual().getNombre().equals("Carcel")) {
 
             this.informarSalidaDeLaCarcel();
 
         }
 
 
-
-
-
     }
 
     private void informarSalidaDeLaCarcel() {
 
-        if(Juego.getInstance().getJugadorActual().getEstado().equals("Libre")){
+        if (Juego.getInstance().getJugadorActual().getEstado().equals("Libre")) {
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -218,7 +234,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     private void informarCaidaEnImpuestoAlLujo(Jugador jugadorActual) {
 
-        if (jugadorActual.casilleroActual().getNombre().equals("Impuesto Al Lujo")){
+        if (jugadorActual.casilleroActual().getNombre().equals("Impuesto Al Lujo")) {
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -235,7 +251,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         Dinero capitalDespuesDeMoverse = jugadorActual.getCapital();
 
-        if ( jugadorActual.casilleroActual().esPropiedad() ){
+        if (jugadorActual.casilleroActual().esPropiedad()) {
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -263,12 +279,13 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     private void informarCaidaEnPolicia(Jugador jugadorActual) {
 
-        if (jugadorActual.casilleroActual().getNombre().equals("Policia")){
+        if (jugadorActual.fueDetenido()) {
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
-            alertaJugadorPresoNoSePuedeMover.setHeaderText("Caes en Policia y te encierra en la Carcel!");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Cayo en policia!");
+            alertaJugadorPresoNoSePuedeMover.setContentText("Vayase directo a la carcel!");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
 
         }
@@ -297,9 +314,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     private void informarCaidaEnQuini6(Jugador jugadorActual, Dinero capitalAntesDeMoverse) {
 
-        if (jugadorActual.casilleroActual().getNombre().equals("Quini 6")){
+        if (jugadorActual.casilleroActual().getNombre().equals("Quini 6")) {
 
-            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() ){
+            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad()) {
 
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -309,7 +326,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             }
 
-            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 50000 ){
+            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 50000) {
 
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -319,7 +336,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             }
 
-            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 30000 ){
+            if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 30000) {
 
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);

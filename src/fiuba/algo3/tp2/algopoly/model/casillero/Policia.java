@@ -35,6 +35,8 @@ public class Policia implements Encasillable {
     @Override
     public void actuarSobre(Jugador jugador) {
 
+        jugador.detener();
+
         jugador.actualizarCasillero(this, this.posicion);
 
         jugador.caerEn(this.carcel);

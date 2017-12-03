@@ -34,6 +34,7 @@ public class RetrocesoDinamico implements Encasillable {
     @Override
     public void actuarSobre(Jugador jugador) {
 
+        jugador.setretrocesoDinamico();
         jugador.actualizarCasillero(this, this.posicion);
 
         int sumaDados = jugador.getUltimoTiroDeDados().resultado();

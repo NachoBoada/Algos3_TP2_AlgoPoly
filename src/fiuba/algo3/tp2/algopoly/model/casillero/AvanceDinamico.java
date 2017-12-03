@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2.algopoly.model.casillero;
 
-import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 
 public class AvanceDinamico implements Encasillable {
@@ -32,6 +31,7 @@ public class AvanceDinamico implements Encasillable {
     @Override
     public void actuarSobre(Jugador jugador) {
 
+        jugador.setAvanceDinamico();
         jugador.actualizarCasillero(this, this.posicion);
 
         int sumaDados = jugador.getUltimoTiroDeDados().resultado();
