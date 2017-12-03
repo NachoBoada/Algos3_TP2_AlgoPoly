@@ -111,27 +111,4 @@ public class JuegoTest {
 
 
     }
-
-    @Test
-    public void test(){
-
-        Juego juego = Juego.getInstance();
-        juego.comenzarJuego(100000);
-        Jugador jugador1 = juego.obtenerJugador("Jugador 1");
-
-        juego.getJugadorActual().tirarDados();
-        juego.turnoProximojugador();
-
-        juego.getJugadorActual().tirarDados();
-        juego.turnoProximojugador();
-
-
-        juego.getJugadorActual().tirarDados();
-        juego.turnoProximojugador();
-
-        juego.jugadorPierdeElJuego(juego.obtenerJugador("Jugador 3"));
-
-        juego.getJugadorActual().tirarDados();
-        juego.turnoProximojugador();
-    }
 }
