@@ -41,14 +41,13 @@ public class Carcel implements Encasillable {
 
     }
 
-	public Dinero getCostoFianza() {
-		return costoFianza;
-	}
-
     public boolean esPropiedad(){
 
         return false;
 
     }
 
+    public void cobrarFianzaA(Jugador jugador) {
+        jugador.decrementarCapitalEn(this.costoFianza);
+    }
 }

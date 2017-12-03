@@ -20,7 +20,7 @@ public class PresoTurno3 extends Preso {
 	}
 	
 	public void pagarFianza (Jugador jugador) {
-	    jugador.decrementarCapitalEn(carcel.getCostoFianza());
+		carcel.cobrarFianzaA(jugador);
 		jugador.cambiarEstado( new Libre() );
 	}
 
