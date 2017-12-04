@@ -12,7 +12,11 @@ import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEvent>{
 
@@ -88,12 +92,18 @@ public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEve
 
     private void informarCompraRealizada(Jugador jugadorActual) {
 
+        String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
+        Media cajaRegistradora = new Media(pathCajaRegistradora);
+        MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
+        sonidoCaja.setAutoPlay(true);
+
         Alert alertaCompraRealizada = new Alert(Alert.AlertType.INFORMATION);
         alertaCompraRealizada.initOwner(stage);
         alertaCompraRealizada.setTitle("COMPRA");
         alertaCompraRealizada.setHeaderText("Compra realizada!");
         alertaCompraRealizada.setContentText("Ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
         alertaCompraRealizada.showAndWait();
+
 
     }
 }

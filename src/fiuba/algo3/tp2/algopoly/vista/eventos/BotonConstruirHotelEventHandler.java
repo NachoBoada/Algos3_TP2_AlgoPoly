@@ -14,7 +14,12 @@ import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.nio.file.Paths;
 
 public class BotonConstruirHotelEventHandler implements EventHandler<ActionEvent>{
 
@@ -40,6 +45,8 @@ public class BotonConstruirHotelEventHandler implements EventHandler<ActionEvent
         try{
 
             jugador.construirHotelEn(barrio);
+
+            this.informarConstruccionRealizada(jugador);
 
         }catch (NoSePuedeConstruirUnHotelEnUnBarrioSimpleException e){
 
@@ -90,5 +97,29 @@ public class BotonConstruirHotelEventHandler implements EventHandler<ActionEvent
         this.contenedorPrincipal.setPanelDerecho();
         this.contenedorPrincipal.setCentro();
 
+    }
+
+    private void informarConstruccionRealizada(Jugador jugador) {
+
+        String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
+        Media cajaRegistradora = new Media(pathCajaRegistradora);
+        MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
+        sonidoCaja.setAutoPlay(true);
+
+        String pathSonidoConstruccion = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoConstruccion.mp3").toAbsolutePath().toUri().toString();
+        Media construccion = new Media(pathSonidoConstruccion);
+        MediaPlayer sonidoConstruccion = new MediaPlayer(construccion);
+        sonidoConstruccion.setAutoPlay(true);
+        Duration duracionInicio = new Duration(3000);
+        Duration duracionFin = new Duration(5000);
+        sonidoConstruccion.setStartTime(duracionInicio);
+        sonidoConstruccion.setStopTime(duracionFin);
+
+        Alert alertaConstruccionRealizada = new Alert(Alert.AlertType.INFORMATION);
+        alertaConstruccionRealizada.initOwner(stage);
+        alertaConstruccionRealizada.setTitle("Construccion");
+        alertaConstruccionRealizada.setHeaderText("La construccion del hotel fue realizada.");
+        alertaConstruccionRealizada.setContentText("Ahora tu capital es de: " + jugador.getCapital().getCantidad());
+        alertaConstruccionRealizada.showAndWait();
     }
 }

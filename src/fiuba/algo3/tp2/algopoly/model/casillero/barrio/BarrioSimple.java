@@ -51,7 +51,8 @@ public abstract class BarrioSimple extends Barrio {
         String propietario;
         try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
         catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
-        return "Propietario:" + propietario + "\nCasa: " + obtenerCantidadEdificaciones()
+        return  "Nombre: " + this.nombre + "\n"
+				+ "Propietario:" + propietario + "\nCasa: " + obtenerCantidadEdificaciones()
                 + "\nPrecio terreno: $" + getPrecio().getCantidad() + "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
                 + "\nAlquiler con casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
                 + "\nConstruccion: $" + getCostoCasa().getCantidad();

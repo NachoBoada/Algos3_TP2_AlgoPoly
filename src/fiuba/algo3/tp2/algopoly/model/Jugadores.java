@@ -39,6 +39,7 @@ public class Jugadores {
         }
         this.jugadorActual = proximo();
         jugadores.remove(jugador);
+        this.iterador = jugadores.listIterator(this.jugadores.indexOf(this.jugadorActual) + 1);
         return true;
     }
 

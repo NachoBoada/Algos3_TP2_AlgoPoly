@@ -12,8 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BackgroundImage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.nio.file.Paths;
 import java.util.Optional;
 
 public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEvent> {
@@ -32,7 +36,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     public void handle(ActionEvent event) {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
-        TiroDeDados tiro = jugadorActual.tirarDados();
+        TiroDeDados tiro = jugadorActual.tirarDadosParaTests(1,1);
 
 
         Stage stageDados = new Stage();
@@ -48,9 +52,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            jugadorActual.mover(tiro.resultado());
+            //jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Tucuman"));
+            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
 
             this.informarCaidaEnPolicia(jugadorActual);
 
@@ -97,6 +101,11 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
                 Juego.getInstance().jugadorPierdeElJuego(jugadorActual);
 
+                String pathPerdiste = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoPerdiste.mp3").toAbsolutePath().toUri().toString();
+                Media perdiste = new Media(pathPerdiste);
+                MediaPlayer sonidoPerdiste = new MediaPlayer(perdiste);
+                sonidoPerdiste.setAutoPlay(true);
+
                 Alert alertaJugadorEliminado = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorEliminado.initOwner(stage);
                 alertaJugadorEliminado.setTitle("ATENCION");
@@ -121,9 +130,12 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         if (Juego.getInstance().finalizado()) {
 
+            String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
+            Media festejo = new Media(pathSonidoFestejo);
+            MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
+            sonidoFestejo.setAutoPlay(true);
+
             Alert alertaJuegoFinalizado = new Alert(Alert.AlertType.CONFIRMATION);
-
-
             alertaJuegoFinalizado.initOwner(stage);
             alertaJuegoFinalizado.setTitle("Fin de Juego!");
             String jugadorGanador = Juego.getInstance().obtenerNombreJugadorGanador();
@@ -211,12 +223,16 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         if (Juego.getInstance().getJugadorActual().getEstado().equals("Libre")) {
 
+            String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
+            Media festejo = new Media(pathSonidoFestejo);
+            MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
+            sonidoFestejo.setAutoPlay(true);
+
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
             alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
             alertaJugadorPresoNoSePuedeMover.setHeaderText("Ya cumpliste tu condena, estas libre!");
             alertaJugadorPresoNoSePuedeMover.showAndWait();
-
 
         }
 
@@ -225,6 +241,11 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     private void informarCaidaEnImpuestoAlLujo(Jugador jugadorActual) {
 
         if (jugadorActual.casilleroActual().getNombre().equals("Impuesto Al Lujo")) {
+
+            String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
+            Media cajaRegistradora = new Media(pathCajaRegistradora);
+            MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
+            sonidoCaja.setAutoPlay(true);
 
             Alert alertaJugadorCaeEnImpuestoAlLujo = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorCaeEnImpuestoAlLujo.initOwner(stage);
@@ -259,6 +280,12 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             if (capitalAntesDeMoverse.getCantidad() != capitalDespuesDeMoverse.getCantidad()) {
 
+                String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
+                Media cajaRegistradora = new Media(pathCajaRegistradora);
+                MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
+                sonidoCaja.setAutoPlay(true);
+
+
                 alertaJugadorCaeEnPropiedad.setHeaderText("Caiste en la propiedad: " + jugadorActual.casilleroActual().getNombre());
                 alertaJugadorCaeEnPropiedad.setContentText("Afrontaste el gasto y ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
                 alertaJugadorCaeEnPropiedad.showAndWait();
@@ -272,6 +299,13 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     private void informarCaidaEnPolicia(Jugador jugadorActual) {
 
         if (jugadorActual.fueDetenido()) {
+
+            String pathSirenaDePolicia = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sirenaDePolicia.mp3").toAbsolutePath().toUri().toString();
+            Media sirenaDePolicia = new Media(pathSirenaDePolicia);
+            MediaPlayer sonidoSirena = new MediaPlayer(sirenaDePolicia);
+            sonidoSirena.setAutoPlay(true);
+            Duration duracion = new Duration(1500);
+            sonidoSirena.setStopTime(duracion);
 
             Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
             alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -290,6 +324,13 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
 
             if (jugadorActual.getEstado().equals("Preso")) {
+
+                String pathSonidoCelda = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCelda.mp3").toAbsolutePath().toUri().toString();
+                Media celda = new Media(pathSonidoCelda);
+                MediaPlayer sonidoCelda = new MediaPlayer(celda);
+                sonidoCelda.setAutoPlay(true);
+                Duration duracion = new Duration(1000);
+                sonidoCelda.setStartTime(duracion);
 
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -320,6 +361,16 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 50000) {
 
+                String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
+                Media cajaRegistradora = new Media(pathCajaRegistradora);
+                MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
+                sonidoCaja.setAutoPlay(true);
+
+                String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
+                Media festejo = new Media(pathSonidoFestejo);
+                MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
+                sonidoFestejo.setAutoPlay(true);
+
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
@@ -329,6 +380,16 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             }
 
             if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 30000) {
+
+                String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
+                Media cajaRegistradora = new Media(pathCajaRegistradora);
+                MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
+                sonidoCaja.setAutoPlay(true);
+
+                String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
+                Media festejo = new Media(pathSonidoFestejo);
+                MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
+                sonidoFestejo.setAutoPlay(true);
 
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
