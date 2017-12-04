@@ -52,14 +52,20 @@ public abstract class BarrioSimple extends Barrio {
         try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
         catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
         return  "Nombre: " + this.nombre + "\n"
-				+ "Propietario:" + propietario + "\nCasa: " + obtenerCantidadEdificaciones()
-                + "\nPrecio terreno: $" + getPrecio().getCantidad() + "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
-                + "\nAlquiler con casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
-                + "\nConstruccion: $" + getCostoCasa().getCantidad();
-    }
 
-    public Dinero getCostoCasa() {
-        return costoCasa;
-    }
+				+ "Propietario:" + propietario + "\nCasa: " + obtenerCantidadEdificaciones()
+						+ "\nPrecio terreno: $" + getPrecio().getCantidad() + "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
+						+ "\nAlquiler con casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()
+						+ "\nConstruccion: $" + getCostoCasa().getCantidad();
+						}
+
+	public Dinero getCostoCasa() {
+		return costoCasa;
+		}
+
+	public int getCantidadHoteles () {
+		return 0;
+		}
+
 
 }

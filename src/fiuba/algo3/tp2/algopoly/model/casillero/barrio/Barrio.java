@@ -97,4 +97,7 @@ public abstract class Barrio extends Propiedad implements Encasillable {
 
 	}
 
+	public abstract int getCantidadHoteles();
+
+
 }
