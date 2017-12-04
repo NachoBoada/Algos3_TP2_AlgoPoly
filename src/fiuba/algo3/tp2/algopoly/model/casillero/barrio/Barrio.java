@@ -96,4 +96,5 @@ public abstract class Barrio extends Propiedad implements Encasillable {
 		this.estadoComprado.modificarPropietario(jugador);
 
 	}
+
 }

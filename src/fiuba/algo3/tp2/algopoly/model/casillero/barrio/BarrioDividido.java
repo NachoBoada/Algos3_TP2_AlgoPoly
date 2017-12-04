@@ -98,4 +98,5 @@ public abstract class BarrioDividido extends Barrio {
 	public Dinero getPrecioHotel() {
 		return precioHotel;
 	}
+
 }
