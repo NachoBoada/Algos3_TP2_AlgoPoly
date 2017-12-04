@@ -23,7 +23,7 @@ public class InformacionJugadorVista extends VBox{
 
             this.setSpacing(10);
 
-            Label infoJugadorActual = new Label("INFORMACION DE JUGADOR ACTUAL");
+            Label infoJugadorActual = new Label("INFORMACION DE\nJUGADOR ACTUAL");
             infoJugadorActual.setTextFill(Color.web("#0066CC"));
             infoJugadorActual.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
             infoJugadorActual.setLineSpacing(300);
