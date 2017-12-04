@@ -12,6 +12,9 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class JugadoresRestantesVista extends VBox {
 
@@ -34,6 +37,8 @@ public class JugadoresRestantesVista extends VBox {
     public void setContenido(){
 
         Label jugadoresRestantes = new Label("Jugadores Restantes");
+        jugadoresRestantes.setTextFill(Color.web("#0066CC"));
+        jugadoresRestantes.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
 
         this.getChildren().add(jugadoresRestantes);
 
@@ -42,30 +47,56 @@ public class JugadoresRestantesVista extends VBox {
         for (Jugador jugador : Juego.getInstance().getJugadores()) {
 
             HBox jugadorRestante = new HBox();
+            jugadorRestante.setSpacing(10);
+            jugadorRestante.setAlignment(Pos.CENTER);
 
             Label labelJugador = new Label(jugador.getNombreJugador());
+
+
 
             Image imagenJugador = this.imagenJugador3;
 
             if (jugador.getNombreJugador().equals("Jugador 1")){
 
                 imagenJugador = this.imagenJugador1;
+                labelJugador.setTextFill(Color.web("#CC0000"));
+                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
             }
 
             if (jugador.getNombreJugador().equals("Jugador 2")){
 
                 imagenJugador = this.imagenJugador2;
+                labelJugador.setTextFill(Color.web("#006600"));
+                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+            }
+
+            if (jugador.getNombreJugador().equals("Jugador 3")){
+
+                imagenJugador = this.imagenJugador3;
+                labelJugador.setTextFill(Color.web("#6600CC"));
+                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+
             }
 
             Button botonJugador = new Button();
             botonJugador.setPrefSize(40,31);
             MenuButton botonPropiedades = new MenuButton("Propiedades");
+            botonPropiedades.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+            botonPropiedades.setStyle("-fx-base: #FFCCFF;");
             this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
             BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             botonJugador.setBackground(new Background(imagenFondo));
 
+            if (jugador.getPropiedades().isEmpty()){
+
+                botonPropiedades.setDisable(true);
+
+            }
+
             Label capital = new Label ("Capital: " + jugador.getCapital().getCantidad());
+            capital.setTextFill(Color.web("#000000"));
+            capital.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
 
 
             this.getChildren().add(labelJugador);
@@ -74,7 +105,6 @@ public class JugadoresRestantesVista extends VBox {
             this.getChildren().add(jugadorRestante);
 
             this.setSpacing(20);
-
 
         }
 
@@ -85,7 +115,6 @@ public class JugadoresRestantesVista extends VBox {
         Jugador jugador = unJugador ;
 
         for ( Propiedad propiedad : jugador.getPropiedades() ) {
-
 
             MenuItem opcionVenderPropiedad = new MenuItem(propiedad.getNombre());
 

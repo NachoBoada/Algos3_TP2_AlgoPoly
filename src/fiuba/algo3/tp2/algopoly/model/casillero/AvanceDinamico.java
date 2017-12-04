@@ -20,7 +20,8 @@ public class AvanceDinamico implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return " Modifica el movimiento del jugador";
+        return "Nombre: Avance Dinamico\n" +
+                "Modifica el movimiento del jugador";
     }
 
     @Override

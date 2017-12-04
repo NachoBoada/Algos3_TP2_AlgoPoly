@@ -1,8 +1,12 @@
 package fiuba.algo3.tp2.algopoly.vista;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 
 public class InformacionCasilleroVista extends VBox {
@@ -13,9 +17,14 @@ public class InformacionCasilleroVista extends VBox {
 
         setPadding(new Insets(10));
         setSpacing(8);
+        this.setAlignment(Pos.CENTER);
 
-        Label infoDeCasilleroSeleccionado = new Label("Info de casillero seleccionado");
+        Label infoDeCasilleroSeleccionado = new Label("INFORMACION DE CASILLERO SELECCIONADO");
+        infoDeCasilleroSeleccionado.setTextFill(Color.web("#0066CC"));
+        infoDeCasilleroSeleccionado.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
         label= new Label( );
+        label.setAlignment(Pos.CENTER);
+        label.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
         getChildren().add( infoDeCasilleroSeleccionado);
         getChildren().add( label);
 

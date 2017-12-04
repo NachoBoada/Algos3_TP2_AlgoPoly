@@ -29,7 +29,8 @@ public class Policia implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return "Al caer en este casillero el jugador va a la cárcel";
+        return "Nombre: Policia \n" +
+                "Al caer en este casillero el jugador va a la cárcel";
     }
 
     @Override

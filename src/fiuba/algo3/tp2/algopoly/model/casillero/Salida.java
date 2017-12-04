@@ -33,7 +33,8 @@ public class Salida implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return " casillero de partida de los jugadores";
+        return  "Nombre: Salida \n" +
+                "Casillero de partida de los jugadores";
     }
 
     public boolean esPropiedad(){

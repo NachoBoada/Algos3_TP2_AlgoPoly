@@ -29,7 +29,9 @@ public class Carcel implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return "Precio de la fianza:45000 ( se podra pagar en el turno 2 o 3)";
+        return "Nombre: Carcel \n" +
+                "Precio de la fianza: 45000 \n" +
+                "(se podra pagar en el turno 2 o 3)";
     }
 
     @Override

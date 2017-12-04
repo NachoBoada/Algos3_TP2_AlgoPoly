@@ -33,18 +33,6 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
         TiroDeDados tiro = jugadorActual.tirarDados();
 
-        /*Alert alertaTiroDeDados = new Alert(Alert.AlertType.INFORMATION);
-        alertaTiroDeDados.initOwner(stage);
-        alertaTiroDeDados.setTitle("Tiro de dados");*/
-
-        /*if (!jugadorActual.saltearTurno()){
-            alertaTiroDeDados.setHeaderText("Ambos dados arrojaron el mismo numero y suman: " + tiro.resultado() + "\n" +
-                    "Tenes turno doble!");
-        }else {
-            alertaTiroDeDados.setHeaderText("El resultado de la tirada de dados es: " + tiro.resultado());
-        }
-
-        alertaTiroDeDados.showAndWait();*/
 
         Stage stageDados = new Stage();
         stageDados.setTitle("Tiro de Dados");

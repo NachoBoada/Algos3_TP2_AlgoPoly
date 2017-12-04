@@ -4,8 +4,11 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.vista.InformacionCasilleroVista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.effect.InnerShadow;
 
 public class BotonAccionCasilleroEventHandler implements EventHandler<ActionEvent> {
+
 
     private InformacionCasilleroVista informacionCasillero;
     private Encasillable casillero;
@@ -15,11 +18,13 @@ public class BotonAccionCasilleroEventHandler implements EventHandler<ActionEven
         this.informacionCasillero= informacionCasillero;
         this.casillero= casillero;
 
+
     }
     @Override
     public void handle(ActionEvent event) {
-        if(casillero == null){ System.out.println("agos");}
+
         this.informacionCasillero.setContenido( casillero.getDescripcion());
+
 
     }
 }

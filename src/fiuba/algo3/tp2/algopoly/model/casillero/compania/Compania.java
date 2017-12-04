@@ -10,7 +10,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.compania.estado.EstadoCompania;
 public abstract class Compania extends Propiedad implements Encasillable {
 
     protected final Dinero precio;
-    private EstadoCompania estadoActual;
+    protected EstadoCompania estadoActual;
     protected Servicios servicios;
     protected int factorSimple;
     protected int factorDoble;
@@ -74,14 +74,7 @@ public abstract class Compania extends Propiedad implements Encasillable {
 
     }
 
-    @Override
-    public String getDescripcion() {
-        String propietario;
-        try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
-        catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
-        return "Propietario: "+ propietario+"\nPrecio compania: $" + getPrecio().getCantidad() + "\n" + "Monto : " + getFactorSimple() + " lo sacado en los dados\n"
-                + "Monto con Edesur: " + getFactorDoble() + " lo sacado en los dados\n";
-    }
+
 
     public int getFactorSimple() {
         return factorSimple;

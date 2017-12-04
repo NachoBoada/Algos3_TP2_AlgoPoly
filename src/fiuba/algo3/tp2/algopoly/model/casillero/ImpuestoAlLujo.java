@@ -22,7 +22,8 @@ public class ImpuestoAlLujo implements Encasillable {
 
 	@Override
 	public String getDescripcion() {
-		return " Se paga el 10% de todo el efectivo del jugador";
+		return "Nombre: Impuesto Al Lujo \n" +
+				"Se paga el 10% de todo el efectivo del jugador";
 	}
 
 	@Override

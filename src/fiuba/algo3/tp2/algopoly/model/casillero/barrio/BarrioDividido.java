@@ -77,7 +77,8 @@ public abstract class BarrioDividido extends Barrio {
         try{  propietario = estadoActual.getPropietario().getNombreJugador(); }
         catch ( SinPropietarioException e){ propietario = "Sin propietario"; }
 
-		return "Propietario: " + propietario + "\nCantidad de casas construidas: " + getCantidadCasas()
+		return  "Nombre: " + this.nombre + "\n"
+				+ "Propietario: " + propietario + "\nCantidad de casas construidas: " + getCantidadCasas()
 				+ "\nCantidad de hoteles: " + getCantidadHoteles() + "\nPrecio terreno: " + getPrecio().getCantidad()
 				+ "\nAlquiler: $" + estadoComprado.getPrecioAlquilerSinConstruccion().getCantidad()
 				+ "\nAlquiler con 1 casa: $" + estadoComprado.getPrecioAlquilerConUnaCasa().getCantidad()

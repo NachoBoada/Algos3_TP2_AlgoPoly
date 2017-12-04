@@ -28,7 +28,8 @@ public class Quini6 implements Encasillable {
 
     @Override
     public String getDescripcion() {
-        return "El jugador obtiene un premio \n" +
+        return  "Nombre: Quini 6 \n" +
+                "El jugador obtiene un premio \n" +
                 "la primera y segunda vez que \n" +
                 "cae en este casillero.";
     }
