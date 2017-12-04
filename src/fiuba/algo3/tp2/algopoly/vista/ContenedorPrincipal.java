@@ -182,7 +182,6 @@ public class ContenedorPrincipal extends BorderPane {
         this.panelDerecho.setPadding(new Insets(10));
 
 
-        //this.panelDerecho.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         InformacionCasilleroVista informacionCasilleroVista= new InformacionCasilleroVista();
         JugadoresRestantesVista jugadoresRestantesVista = new JugadoresRestantesVista();
         jugadoresRestantesVista.setContenido();

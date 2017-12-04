@@ -48,12 +48,12 @@ public class JugadoresRestantesVista extends VBox {
 
             HBox jugadorRestante = new HBox();
             VBox infoJugador = new VBox();
+            infoJugador.setAlignment(Pos.CENTER);
+            infoJugador.setSpacing(5);
             jugadorRestante.setSpacing(5);
             jugadorRestante.setAlignment(Pos.CENTER);
 
             Label labelJugador = new Label(jugador.getNombreJugador());
-
-
 
             Image imagenJugador = this.imagenJugador3;
 
@@ -88,6 +88,9 @@ public class JugadoresRestantesVista extends VBox {
             this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
             BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
             botonJugador.setBackground(new Background(imagenFondo));
+
+            botonPropiedades.setAlignment(Pos.CENTER);
+
 
             if (jugador.getPropiedades().isEmpty()){
 
