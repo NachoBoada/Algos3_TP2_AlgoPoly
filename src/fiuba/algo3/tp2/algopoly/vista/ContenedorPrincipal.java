@@ -101,13 +101,13 @@ public class ContenedorPrincipal extends BorderPane {
         botonConstruirHotel.setOnAction(botonConstruirHotelEventHandler);
         botonConstruirHotel.setDisable(false);
 
-        if (this.jugadorComproPropiedad){
+/*        if (this.jugadorComproPropiedad){
 
             botonConstruirCasa.setDisable(true);
             botonConstruirHotel.setDisable(true);
             jugadorComproPropiedad = false;
         }
-
+*/
         try{
             Juego.getInstance().getTablero().obtenerBarrioPorNombre(jugadorActual.casilleroActual().getNombre());
 

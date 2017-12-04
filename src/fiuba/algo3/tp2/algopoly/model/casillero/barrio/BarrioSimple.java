@@ -60,4 +60,5 @@ public abstract class BarrioSimple extends Barrio {
     public Dinero getCostoCasa() {
         return costoCasa;
     }
+
 }
