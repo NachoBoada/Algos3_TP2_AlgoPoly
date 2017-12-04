@@ -93,9 +93,8 @@ public class ContenedorProximoJugador extends BorderPane{
 
         this.setCenter(this.centro);
 
-        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles.jpg");
-        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles2.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
         this.setBackground(new Background(imagenDeFondo));
 
     }
