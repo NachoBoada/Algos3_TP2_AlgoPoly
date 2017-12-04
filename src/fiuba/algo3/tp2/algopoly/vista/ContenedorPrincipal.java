@@ -68,7 +68,7 @@ public class ContenedorPrincipal extends BorderPane {
 
         Label acciones = new Label("ACCIONES DE JUGADOR");
         acciones.setTextFill(Color.web("#0066CC"));
-        acciones.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        acciones.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
 
         this.panelIzquierdo = new VBox();
         this.panelIzquierdo.setSpacing(100);
@@ -82,13 +82,13 @@ public class ContenedorPrincipal extends BorderPane {
         Button botonTirarDadosYMover = new Button("Tirar Dados Y Mover");
         BotonTirarDadosYMoverEventHandler botonTirarDadosYMoverEventHandler = new BotonTirarDadosYMoverEventHandler(this.stage,this);
         botonTirarDadosYMover.setOnAction(botonTirarDadosYMoverEventHandler);
-        botonTirarDadosYMover.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonTirarDadosYMover.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonTirarDadosYMover.setStyle("-fx-base: #FF6666;");
 
         Button botonComprarPropiedad = new Button("Comprar Propiedad");
         BotonComprarPropiedadEventHandler botonComprarPropiedadEventHandler = new BotonComprarPropiedadEventHandler(this.stage,this);
         botonComprarPropiedad.setOnAction(botonComprarPropiedadEventHandler);
-        botonComprarPropiedad.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonComprarPropiedad.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonComprarPropiedad.setStyle("-fx-base: #9999FF;");
         botonComprarPropiedad.setDisable(true);
 
@@ -99,7 +99,7 @@ public class ContenedorPrincipal extends BorderPane {
         }
 
         MenuButton botonVenderPropiedad = new MenuButton("Vender Propiedad");
-        botonVenderPropiedad.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonVenderPropiedad.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonVenderPropiedad.setStyle("-fx-base: #FFCCFF;");
 
         if (jugadorActual.getPropiedades().isEmpty()){
@@ -113,7 +113,7 @@ public class ContenedorPrincipal extends BorderPane {
         Button botonIntercambiarPropiedades = new Button("Intercambiar Propiedades");
         BotonIntercambiarPropiedadesEventHandler botonIntercambiarPropiedadesEventHandler = new BotonIntercambiarPropiedadesEventHandler(this.stage,this);
         botonIntercambiarPropiedades.setOnAction(botonIntercambiarPropiedadesEventHandler);
-        botonIntercambiarPropiedades.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonIntercambiarPropiedades.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonIntercambiarPropiedades.setStyle("-fx-base: #99FF99;");
         botonIntercambiarPropiedades.setDisable(true);
         habilitarBotonDeIntercambioDePropiedades(botonIntercambiarPropiedades);
@@ -121,24 +121,25 @@ public class ContenedorPrincipal extends BorderPane {
         Button botonConstruirCasa = new Button("Construir casa");
         BotonConstruirCasaEventHandler botonConstruirCasaEventHandler = new BotonConstruirCasaEventHandler(this.stage,this);
         botonConstruirCasa.setOnAction(botonConstruirCasaEventHandler);
-        botonConstruirCasa.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonConstruirCasa.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonConstruirCasa.setStyle("-fx-base: #FFCC99;");
         botonConstruirCasa.setDisable(false);
 
         Button botonConstruirHotel = new Button("Construir hotel");
         BotonConstruirHotelEventHandler botonConstruirHotelEventHandler = new BotonConstruirHotelEventHandler(this.stage,this);
         botonConstruirHotel.setOnAction(botonConstruirHotelEventHandler);
-        botonConstruirHotel.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonConstruirHotel.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonConstruirHotel.setStyle("-fx-base: #CCFFFF;");
         botonConstruirHotel.setDisable(false);
 
-/*        if (this.jugadorComproPropiedad){
+        if (this.jugadorComproPropiedad){
 
             botonConstruirCasa.setDisable(true);
             botonConstruirHotel.setDisable(true);
             jugadorComproPropiedad = false;
+
         }
-*/
+
         try{
             Juego.getInstance().getTablero().obtenerBarrioPorNombre(jugadorActual.casilleroActual().getNombre());
 
@@ -151,7 +152,7 @@ public class ContenedorPrincipal extends BorderPane {
         Button botonPagarFianza = new Button("Pagar Fianza");
         BotonPagarFianzaEventHandler botonPagarFianzaEventHandler = new BotonPagarFianzaEventHandler(this.stage,this);
         botonPagarFianza.setOnAction(botonPagarFianzaEventHandler);
-        botonPagarFianza.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+        botonPagarFianza.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonPagarFianza.setStyle("-fx-base: #FFFFCC;");
         botonPagarFianza.setDisable(true);
 

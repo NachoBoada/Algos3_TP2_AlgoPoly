@@ -25,11 +25,11 @@ public class InformacionJugadorVista extends VBox{
 
             Label infoJugadorActual = new Label("INFORMACION DE JUGADOR ACTUAL");
             infoJugadorActual.setTextFill(Color.web("#0066CC"));
-            infoJugadorActual.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+            infoJugadorActual.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
             infoJugadorActual.setLineSpacing(300);
 
             Label nombre = new Label( jugadorActual.getNombreJugador());
-            nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+            nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             nombre.setLineSpacing(300);
 
 
@@ -54,20 +54,20 @@ public class InformacionJugadorVista extends VBox{
 
 
             Label capital = new Label("Capital disponible: " + jugadorActual.getCapital().getCantidad());
-            capital.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+            capital.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             capital.setLineSpacing(300);
 
             Label posicion = new Label( "Posicion actual:" + jugadorActual.getPosicionActual());
-            posicion.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+            posicion.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             posicion.setLineSpacing(300);
 
             Label propiedades = new Label( "Propiedades:");
-            propiedades.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+            propiedades.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             propiedades.setLineSpacing(300);
 
 
             Label estado = new Label("Estado: "+ jugadorActual.getEstado());
-            estado.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+            estado.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             estado.setLineSpacing(300);
 
             this.getChildren().add(infoJugadorActual);
@@ -82,7 +82,7 @@ public class InformacionJugadorVista extends VBox{
             if (jugadorActual.getPropiedades().isEmpty()){
 
                 Label propiedad = new Label("No tiene");
-                propiedad.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+                propiedad.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
                 propiedad.setLineSpacing(100);
                 this.getChildren().add(propiedad);
 
@@ -93,7 +93,7 @@ public class InformacionJugadorVista extends VBox{
             for (Propiedad apropiable : jugadorActual.getPropiedades()) {
 
                 Label propiedad = new Label("\t" + apropiable.getNombre());
-                propiedad.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+                propiedad.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
                 propiedad.setLineSpacing(100);
                 this.getChildren().add(propiedad);
 

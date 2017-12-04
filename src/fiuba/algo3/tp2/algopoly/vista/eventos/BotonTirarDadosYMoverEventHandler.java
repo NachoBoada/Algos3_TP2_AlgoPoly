@@ -49,7 +49,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Tucuman"));
 
             this.informarCaidaEnPolicia(jugadorActual);
 

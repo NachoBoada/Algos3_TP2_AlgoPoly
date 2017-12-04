@@ -21,10 +21,10 @@ public class InformacionCasilleroVista extends VBox {
 
         Label infoDeCasilleroSeleccionado = new Label("INFORMACION DE CASILLERO SELECCIONADO");
         infoDeCasilleroSeleccionado.setTextFill(Color.web("#0066CC"));
-        infoDeCasilleroSeleccionado.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        infoDeCasilleroSeleccionado.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
         label= new Label( );
         label.setAlignment(Pos.CENTER);
-        label.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+        label.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
         getChildren().add( infoDeCasilleroSeleccionado);
         getChildren().add( label);
 

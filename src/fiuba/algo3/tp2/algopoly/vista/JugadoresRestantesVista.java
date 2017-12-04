@@ -36,9 +36,9 @@ public class JugadoresRestantesVista extends VBox {
 
     public void setContenido(){
 
-        Label jugadoresRestantes = new Label("Jugadores Restantes");
+        Label jugadoresRestantes = new Label("JUGADORES RESTANTES");
         jugadoresRestantes.setTextFill(Color.web("#0066CC"));
-        jugadoresRestantes.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
+        jugadoresRestantes.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
 
         this.getChildren().add(jugadoresRestantes);
 
@@ -47,7 +47,7 @@ public class JugadoresRestantesVista extends VBox {
         for (Jugador jugador : Juego.getInstance().getJugadores()) {
 
             HBox jugadorRestante = new HBox();
-            jugadorRestante.setSpacing(10);
+            jugadorRestante.setSpacing(5);
             jugadorRestante.setAlignment(Pos.CENTER);
 
             Label labelJugador = new Label(jugador.getNombreJugador());
@@ -60,7 +60,7 @@ public class JugadoresRestantesVista extends VBox {
 
                 imagenJugador = this.imagenJugador1;
                 labelJugador.setTextFill(Color.web("#CC0000"));
-                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 
             }
 
@@ -68,21 +68,21 @@ public class JugadoresRestantesVista extends VBox {
 
                 imagenJugador = this.imagenJugador2;
                 labelJugador.setTextFill(Color.web("#006600"));
-                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             }
 
             if (jugador.getNombreJugador().equals("Jugador 3")){
 
                 imagenJugador = this.imagenJugador3;
                 labelJugador.setTextFill(Color.web("#6600CC"));
-                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
+                labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 
             }
 
             Button botonJugador = new Button();
             botonJugador.setPrefSize(40,31);
             MenuButton botonPropiedades = new MenuButton("Propiedades");
-            botonPropiedades.setFont((Font.font("Verdana", FontWeight.BOLD, 15)));
+            botonPropiedades.setFont((Font.font("Verdana", FontWeight.BOLD, 10)));
             botonPropiedades.setStyle("-fx-base: #FFCCFF;");
             this.agregarPropiedadesDeAMenuPropiedades(jugador,botonPropiedades);
             BackgroundImage imagenFondo = new BackgroundImage(imagenJugador, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
@@ -96,7 +96,7 @@ public class JugadoresRestantesVista extends VBox {
 
             Label capital = new Label ("Capital: " + jugador.getCapital().getCantidad());
             capital.setTextFill(Color.web("#000000"));
-            capital.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+            capital.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 
 
             this.getChildren().add(labelJugador);
