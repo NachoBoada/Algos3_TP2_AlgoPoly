@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
 import fiuba.algo3.tp2.algopoly.vista.eventos.BotonAccionCasilleroEventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.effect.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -53,6 +54,9 @@ public class TableroVista extends GridPane {
         Encasillable unCasillero = tablero.obtenerCasilleroPorNombre(nombreCasillero);
         Button casillero = new Button();
         casillero.setPrefSize(140, 100);
+
+        InnerShadow efecto = new InnerShadow();
+        casillero.setEffect(efecto);
 
         InformacionCasilleroVista informacionCasillero = (InformacionCasilleroVista) panelDerecho.getChildren().get(0);
         BotonAccionCasilleroEventHandler botonAccionCasilleroEventHandler = new BotonAccionCasilleroEventHandler(unCasillero, informacionCasillero);

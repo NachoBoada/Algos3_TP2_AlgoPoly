@@ -30,7 +30,13 @@ public abstract class Compania extends Propiedad implements Encasillable {
     public void modificarPropietario(Jugador jugador) {
 
 
-        try{
+
+        this.estadoActual.venderA(jugador,this.precio,this);
+
+
+
+
+        /*try{
 
             estadoActual.getPropietario();
 
@@ -38,11 +44,12 @@ public abstract class Compania extends Propiedad implements Encasillable {
 
         }catch (SinPropietarioException e){
 
-            this.estadoActual = new CompaniaComprada(jugador, factorSimple, factorDoble);
-
             jugador.decrementarCapitalEn(this.precio);
 
-        }
+            this.estadoActual = new CompaniaComprada(jugador, factorSimple, factorDoble);
+
+
+        }*/
 
     }
 
@@ -97,5 +104,11 @@ public abstract class Compania extends Propiedad implements Encasillable {
     @Override
     public Jugador getPropietario() {
         return this.estadoActual.getPropietario();
+    }
+
+    public void comprada(Jugador jugador) {
+
+        this.estadoActual = new CompaniaComprada(jugador,factorSimple,factorDoble);
+
     }
 }

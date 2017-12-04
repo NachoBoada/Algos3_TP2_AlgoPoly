@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.algopoly.model.casillero.compania.estado;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.SinPropietarioException;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
@@ -13,6 +14,15 @@ public class CompaniaNoComprada implements EstadoCompania {
     @Override
     public Jugador getPropietario() {
         throw new SinPropietarioException();
+    }
+
+    @Override
+    public void venderA(Jugador jugador, Dinero precio, Compania compania) {
+
+        jugador.decrementarCapitalEn(precio);
+
+        compania.comprada(jugador);
+
     }
 
 

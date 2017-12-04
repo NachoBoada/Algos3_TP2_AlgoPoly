@@ -4,6 +4,8 @@ import fiuba.algo3.tp2.algopoly.model.CapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Dinero;
 import fiuba.algo3.tp2.algopoly.model.ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnBarrioYaCompradoException;
+import fiuba.algo3.tp2.algopoly.model.casillero.NoSePuedeComprarUnaCompaniaYaCompradaException;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Compania;
 import fiuba.algo3.tp2.algopoly.model.casillero.compania.Servicios;
 
@@ -50,6 +52,13 @@ public class CompaniaComprada implements EstadoCompania {
 
     public Jugador getPropietario() {
         return this.duenio;
+    }
+
+    @Override
+    public void venderA(Jugador jugador, Dinero precio, Compania compania) {
+
+        throw new NoSePuedeComprarUnaCompaniaYaCompradaException();
+
     }
 
 }

@@ -86,6 +86,12 @@ public class ContenedorPrincipal extends BorderPane {
         botonTirarDadosYMover.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonTirarDadosYMover.setStyle("-fx-base: #FF6666;");
 
+        if ( this.getJugadorTieneQueVender() ){
+
+            botonTirarDadosYMover.setDisable(true);
+
+        }
+
         Button botonComprarPropiedad = new Button("Comprar Propiedad");
         BotonComprarPropiedadEventHandler botonComprarPropiedadEventHandler = new BotonComprarPropiedadEventHandler(this.stage,this);
         botonComprarPropiedad.setOnAction(botonComprarPropiedadEventHandler);
@@ -284,8 +290,7 @@ public class ContenedorPrincipal extends BorderPane {
 
     public boolean getJugadorTieneQueVender(){
 
-        return jugadorTieneQueVender;
-
+        return this.jugadorTieneQueVender;
 
     }
 

@@ -77,12 +77,7 @@ public class Comprado implements EstadoBarrio {
 
     public void agregarConstruccion(Jugador jugador) {
 
-        if(jugador.getNombreJugador() == this.propietario.getNombreJugador()){
-
-            this.alquiler.cambiarProximoAlquiler();
-
-        }else { throw new JugadorDebeComprarElBarrioParaPoderConstruirException(); }
-
+        this.alquiler.cambiarProximoAlquiler();
 
     }
 

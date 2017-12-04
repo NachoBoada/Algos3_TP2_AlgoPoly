@@ -125,7 +125,7 @@ public class JugadorTest {
 
     }
 
-    @Test (expected = JugadorDebeComprarElBarrioParaPoderConstruirException.class)
+    @Test (expected = JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException.class)
     public void testJugadorQuiereConstruirUnaCasaEnUnBarrioDivididoQueNoComproEntoncesNoPuede(){
 
         Jugador jugador = new Jugador(new Dinero(100000),new Tablero(),"Jugador");

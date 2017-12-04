@@ -54,11 +54,13 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            this.informarCaidaEnPolicia(jugadorActual);
+            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Tren"));
 
             this.informarCaidaEnRetrocesoDinamico(jugadorActual);
 
             this.informarCaidaEnAvanceDinamico(jugadorActual);
+
+            this.informarCaidaEnPolicia(jugadorActual);
 
             this.informarCaidaEnQuini6(jugadorActual, capitalAntesDeMoverse);
 
@@ -95,6 +97,8 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             alertaJugadorDebeVenderPropiedades.setContentText("Tenes que vender propiedades para afrontar el gasto.");
             alertaJugadorDebeVenderPropiedades.showAndWait();
 
+
+
             if (jugadorActual.getPropiedades().isEmpty()) {
 
                 Juego.getInstance().jugadorPierdeElJuego(jugadorActual);
@@ -113,6 +117,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 //Juego.getInstance().turnoProximojugador();
 
                 this.contenedorPrincipal.jugadorNoComproPropiedad();
+
 
                 this.contenedorPrincipal.setPanelIzquierdo();
                 this.contenedorPrincipal.setPanelDerecho();
