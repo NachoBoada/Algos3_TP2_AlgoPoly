@@ -5,6 +5,7 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -116,37 +117,30 @@ public class ContenedorPrincipal extends BorderPane {
         botonIntercambiarPropiedades.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonIntercambiarPropiedades.setStyle("-fx-base: #99FF99;");
         botonIntercambiarPropiedades.setDisable(true);
-        habilitarBotonDeIntercambioDePropiedades(botonIntercambiarPropiedades);
+        habilitarBotonDeIntercambiarPropiedad(botonIntercambiarPropiedades);
 
         Button botonConstruirCasa = new Button("Construir casa");
         BotonConstruirCasaEventHandler botonConstruirCasaEventHandler = new BotonConstruirCasaEventHandler(this.stage,this);
         botonConstruirCasa.setOnAction(botonConstruirCasaEventHandler);
         botonConstruirCasa.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonConstruirCasa.setStyle("-fx-base: #FFCC99;");
-        botonConstruirCasa.setDisable(false);
+        botonConstruirCasa.setDisable(true);
+        habilitarBotonDeEdificarEnPropiedad(botonConstruirCasa);
 
         Button botonConstruirHotel = new Button("Construir hotel");
         BotonConstruirHotelEventHandler botonConstruirHotelEventHandler = new BotonConstruirHotelEventHandler(this.stage,this);
         botonConstruirHotel.setOnAction(botonConstruirHotelEventHandler);
         botonConstruirHotel.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonConstruirHotel.setStyle("-fx-base: #CCFFFF;");
-        botonConstruirHotel.setDisable(false);
+        botonConstruirHotel.setDisable(true);
+        habilitarBotonDeEdificarEnPropiedad(botonConstruirHotel);
+
 
         if (this.jugadorComproPropiedad){
-
-            botonConstruirCasa.setDisable(true);
             botonConstruirHotel.setDisable(true);
-            jugadorComproPropiedad = false;
-
-        }
-
-        try{
-            Juego.getInstance().getTablero().obtenerBarrioPorNombre(jugadorActual.casilleroActual().getNombre());
-
-        }catch(NullPointerException e){
-
             botonConstruirCasa.setDisable(true);
-            botonConstruirHotel.setDisable(true);
+            botonIntercambiarPropiedades.setDisable(true);
+            this.jugadorComproPropiedad = false;
         }
 
         Button botonPagarFianza = new Button("Pagar Fianza");
@@ -160,10 +154,8 @@ public class ContenedorPrincipal extends BorderPane {
             botonPagarFianza.setDisable(false);
         }
 
-
         accionesDeJugador.getChildren().addAll(acciones,botonTirarDadosYMover,botonComprarPropiedad,botonVenderPropiedad,botonIntercambiarPropiedades,botonConstruirCasa,botonConstruirHotel,botonPagarFianza);
 
-        //this.panelIzquierdo.setBackground(new Background (new BackgroundFill(Color.LIGHTBLUE,CornerRadii.EMPTY,Insets.EMPTY)));
         InformacionJugadorVista informacionJugadorVista= new InformacionJugadorVista();
         panelIzquierdo.getChildren().addAll(accionesDeJugador,informacionJugadorVista);
         this.setLeft(this.panelIzquierdo);
@@ -206,11 +198,6 @@ public class ContenedorPrincipal extends BorderPane {
         Image imagenCanvas = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/algopolyCentro.png");
         canvasImagen.getGraphicsContext2D().drawImage(imagenCanvas,0,0);
 
-        /*Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/lluvia.png");
-        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
-        this.setBackground(new Background(imagenDeFondo));*/
-
         Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles2.jpg");
         BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
@@ -246,7 +233,7 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
 
-    private void habilitarBotonDeIntercambioDePropiedades(Button botonIntercambiarPropiedades) {
+    private void habilitarBotonDeIntercambiarPropiedad(Button boton) {
 
         Juego juego = Juego.getInstance();
         Jugador jugadorActual = juego.getJugadorActual();
@@ -259,13 +246,38 @@ public class ContenedorPrincipal extends BorderPane {
 
             try {
                 propiedad = tablero.obtenerBarrioPorNombre(casilleroActual.getNombre());
+            }catch (NullPointerException e) {
 
-            }catch (NullPointerException e){
-                propiedad = tablero.obtenerCompaniaPorNombre(casilleroActual.getNombre());
+                try {
+                    propiedad = tablero.obtenerCompaniaPorNombre(casilleroActual.getNombre());
+                } catch (NullPointerException x) {return;}
             }
 
             if (jugadorActual.esPropietarioDe(propiedad)) {
-                botonIntercambiarPropiedades.setDisable(false);
+                boton.setDisable(false);
+            }
+        }
+
+    }
+
+    private void habilitarBotonDeEdificarEnPropiedad(Button boton) {
+
+        Juego juego = Juego.getInstance();
+        Jugador jugadorActual = juego.getJugadorActual();
+
+        if (jugadorActual.casilleroActual().esPropiedad()){
+
+            Tablero tablero = Juego.getInstance().getTablero();
+            Encasillable casilleroActual = juego.getJugadorActual().casilleroActual();
+            Propiedad propiedad;
+
+            try {
+
+                propiedad = tablero.obtenerBarrioPorNombre(casilleroActual.getNombre());
+            }catch (NullPointerException e){return;}
+
+            if (jugadorActual.esPropietarioDe(propiedad)) {
+                boton.setDisable(false);
             }
         }
     }

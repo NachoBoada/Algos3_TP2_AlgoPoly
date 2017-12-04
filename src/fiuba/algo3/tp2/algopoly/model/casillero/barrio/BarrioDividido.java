@@ -47,7 +47,6 @@ public abstract class BarrioDividido extends Barrio {
 
 
 	public void sumarHotel() {
-		cantidadCasas = 0;
 		cantidadHoteles = 1;	
 	}
 

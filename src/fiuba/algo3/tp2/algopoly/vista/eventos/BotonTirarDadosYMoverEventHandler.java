@@ -36,7 +36,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
     public void handle(ActionEvent event) {
 
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
-        TiroDeDados tiro = jugadorActual.tirarDadosParaTests(1,1);
+        TiroDeDados tiro = jugadorActual.tirarDados();
 
 
         Stage stageDados = new Stage();
@@ -52,9 +52,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            //jugadorActual.mover(tiro.resultado());
-
-            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Buenos Aires Norte"));
+            jugadorActual.mover(tiro.resultado());
 
             this.informarCaidaEnPolicia(jugadorActual);
 
