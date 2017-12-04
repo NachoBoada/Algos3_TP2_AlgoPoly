@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.BackgroundImage;
 import javafx.stage.Stage;
 
 import java.util.Optional;
@@ -38,7 +39,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageDados.setTitle("Tiro de Dados");
         ContenedorDados contenedorDados = new ContenedorDados(stageDados);
         contenedorDados.setContenido(tiro);
-        Scene escenaTiroDeDados = new Scene(contenedorDados, 375, 375);
+        Scene escenaTiroDeDados = new Scene(contenedorDados, 375, 200);
         stageDados.setScene(escenaTiroDeDados);
         stageDados.initOwner(this.stage);
         stageDados.showAndWait();
@@ -192,7 +193,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageProximoJugador.setTitle("Proximo jugador");
         ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador);
         contenedorProximoJugador.setContenido();
-        Scene escenaProximoJugador = new Scene(contenedorProximoJugador, 200, 200);
+        Scene escenaProximoJugador = new Scene(contenedorProximoJugador, 375, 200);
         stageProximoJugador.setScene(escenaProximoJugador);
         stageProximoJugador.initOwner(this.stage);
         stageProximoJugador.showAndWait();

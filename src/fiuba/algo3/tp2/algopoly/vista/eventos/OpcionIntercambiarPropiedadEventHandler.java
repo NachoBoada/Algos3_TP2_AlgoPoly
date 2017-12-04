@@ -41,6 +41,7 @@ public class OpcionIntercambiarPropiedadEventHandler implements EventHandler<Act
         alertaCompraRealizada.initOwner(stage);
         alertaCompraRealizada.setTitle("INTERCAMBIO");
         alertaCompraRealizada.setHeaderText("Las propiedades fueron intercambiadas con éxito");
+        alertaCompraRealizada.setContentText("Al finalizar el turno veras los cambios.");
         alertaCompraRealizada.showAndWait();
     }
 }

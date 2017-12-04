@@ -8,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -58,13 +61,19 @@ public class ContenedorDados extends BorderPane {
         Button botonAceptarYCerrarVentana = new Button("Aceptar");
         BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage);
         botonAceptarYCerrarVentana.setOnAction(botonAceptarTiroDadosEventHandler);
+        botonAceptarYCerrarVentana.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
+        botonAceptarYCerrarVentana.setStyle("-fx-base: #FF6666;");
 
         Label labelCantidadDeCasilleros = new Label();
         labelCantidadDeCasilleros.setText("Resultado: " + tiro.resultado());
+        labelCantidadDeCasilleros.setTextFill(Color.web("#FF6666"));
+        labelCantidadDeCasilleros.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
 
         if(tiro.esDuplicado() && Juego.getInstance().getJugadorActual().getContadorTirosDuplicados() == 2){
 
             Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero pero no podes tener dos turnos dobles seguidos!");
+            labelTiroDoble.setTextFill(Color.web("#FF6666"));
+            labelTiroDoble.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
             this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,labelTiroDoble,botonAceptarYCerrarVentana);
 
         }
@@ -74,7 +83,8 @@ public class ContenedorDados extends BorderPane {
 
 
             Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero y tenes turno doble!");
-
+            labelTiroDoble.setTextFill(Color.web("#FF6666"));
+            labelTiroDoble.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
             this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,labelTiroDoble,botonAceptarYCerrarVentana);
 
 
@@ -84,6 +94,11 @@ public class ContenedorDados extends BorderPane {
             this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,botonAceptarYCerrarVentana);
 
         }
+
+        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles.jpg");
+        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        this.setBackground(new Background(imagenDeFondo));
 
         dados.getChildren().addAll(dado1,dado2);
 

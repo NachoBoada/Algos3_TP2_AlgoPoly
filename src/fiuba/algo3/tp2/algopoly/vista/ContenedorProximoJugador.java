@@ -10,6 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -49,22 +52,33 @@ public class ContenedorProximoJugador extends BorderPane{
         Button botonAceptarYCerrarVentana = new Button("Aceptar");
         BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage);
         botonAceptarYCerrarVentana.setOnAction(botonAceptarTiroDadosEventHandler);
+        botonAceptarYCerrarVentana.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
+        botonAceptarYCerrarVentana.setStyle("-fx-base: #0066CC;");
 
-        Label labelProximo = new Label("Ahora juega");
+        Label labelProximo = new Label("AHORA JUEGA");
+        labelProximo.setTextFill(Color.web("#0066CC"));
+        labelProximo.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
 
         Label labelJugador = new Label(Juego.getInstance().getJugadorActual().getNombreJugador());
 
         Image imagenJugador = this.piezaJugador3;
+        labelJugador.setTextFill(Color.web("#6600CC"));
+        labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+
 
         if (jugadorActual.getNombreJugador().equals("Jugador 1")){
 
             imagenJugador = this.piezaJugador1;
+            labelJugador.setTextFill(Color.web("#CC0000"));
+            labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
 
         }
 
         if (jugadorActual.getNombreJugador().equals("Jugador 2")){
 
             imagenJugador = this.piezaJugador2;
+            labelJugador.setTextFill(Color.web("#006600"));
+            labelJugador.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
 
         }
 
@@ -78,6 +92,11 @@ public class ContenedorProximoJugador extends BorderPane{
         this.centro.getChildren().addAll(labelProximo,jugador,botonAceptarYCerrarVentana);
 
         this.setCenter(this.centro);
+
+        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles.jpg");
+        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        this.setBackground(new Background(imagenDeFondo));
 
     }
 }

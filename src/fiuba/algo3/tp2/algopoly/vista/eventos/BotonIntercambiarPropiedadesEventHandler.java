@@ -14,6 +14,8 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
@@ -49,6 +51,8 @@ public class BotonIntercambiarPropiedadesEventHandler implements EventHandler<Ac
 
                 MenuButton menuJugador = new MenuButton("Propiedades de \n" + jugador.getNombreJugador());
                 menuJugador.setTextAlignment(TextAlignment.CENTER);
+                menuJugador.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
+                menuJugador.setStyle("-fx-base: #99FF99;");
 
                 for (Propiedad propiedad : jugador.getPropiedades()) {
 
