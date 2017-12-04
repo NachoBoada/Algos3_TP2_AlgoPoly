@@ -168,9 +168,8 @@ public class ContenedorPrincipal extends BorderPane {
         panelIzquierdo.getChildren().addAll(accionesDeJugador,informacionJugadorVista);
         this.setLeft(this.panelIzquierdo);
 
-        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles.jpg");
-        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles2.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.panelIzquierdo.setBackground(new Background(imagenDeFondo));
 
     }
@@ -188,9 +187,8 @@ public class ContenedorPrincipal extends BorderPane {
         this.panelDerecho.getChildren().addAll(informacionCasilleroVista,jugadoresRestantesVista);
         this.setRight(this.panelDerecho);
 
-        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles.jpg");
-        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles2.jpg");
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         this.panelDerecho.setBackground(new Background(imagenDeFondo));
 
     }
@@ -208,10 +206,15 @@ public class ContenedorPrincipal extends BorderPane {
         Image imagenCanvas = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/algopolyCentro.png");
         canvasImagen.getGraphicsContext2D().drawImage(imagenCanvas,0,0);
 
-        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/lluvia.png");
+        /*Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/lluvia.png");
         BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
-        this.setBackground(new Background(imagenDeFondo));
+        this.setBackground(new Background(imagenDeFondo));*/
+
+        Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/fondo_paneles2.jpg");
+        BackgroundSize backgroundSize = new BackgroundSize(200, 200, true, true, true, false);
+        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT);
+        this.panelCentral.setBackground(new Background(imagenDeFondo));
 
 
         new JugadoresVista(gc);
