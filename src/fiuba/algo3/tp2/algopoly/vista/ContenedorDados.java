@@ -71,7 +71,8 @@ public class ContenedorDados extends BorderPane {
 
         if(tiro.esDuplicado() && Juego.getInstance().getJugadorActual().getContadorTirosDuplicados() == 2){
 
-            Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero pero no podes tener dos turnos dobles seguidos!");
+            Label labelTiroDoble = new Label("Ambos dados arrojaron el mismo numero pero \n" +
+                    "   no podes tener dos turnos dobles seguidos!");
             labelTiroDoble.setTextFill(Color.web("#FF6666"));
             labelTiroDoble.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
             this.centro.getChildren().addAll(dados,labelCantidadDeCasilleros,labelTiroDoble,botonAceptarYCerrarVentana);

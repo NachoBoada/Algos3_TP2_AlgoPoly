@@ -39,7 +39,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         stageDados.setTitle("Tiro de Dados");
         ContenedorDados contenedorDados = new ContenedorDados(stageDados);
         contenedorDados.setContenido(tiro);
-        Scene escenaTiroDeDados = new Scene(contenedorDados, 375, 200);
+        Scene escenaTiroDeDados = new Scene(contenedorDados, 450, 250);
         stageDados.setScene(escenaTiroDeDados);
         stageDados.initOwner(this.stage);
         stageDados.showAndWait();
