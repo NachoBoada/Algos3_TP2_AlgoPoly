@@ -47,6 +47,7 @@ public class JugadoresRestantesVista extends VBox {
         for (Jugador jugador : Juego.getInstance().getJugadores()) {
 
             HBox jugadorRestante = new HBox();
+            VBox infoJugador = new VBox();
             jugadorRestante.setSpacing(5);
             jugadorRestante.setAlignment(Pos.CENTER);
 
@@ -100,9 +101,10 @@ public class JugadoresRestantesVista extends VBox {
 
 
             this.getChildren().add(labelJugador);
-            jugadorRestante.getChildren().addAll(botonJugador,capital,botonPropiedades);
+            jugadorRestante.getChildren().addAll(botonJugador,capital);
+            infoJugador.getChildren().addAll(jugadorRestante, botonPropiedades);
 
-            this.getChildren().add(jugadorRestante);
+            this.getChildren().add(infoJugador);
 
             this.setSpacing(20);
 

@@ -8,6 +8,7 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruirException;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirHotelSiNoSeConstruyeElMaximoNumeroDeCasasException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePuedeConstruirUnHotelEnUnBarrioSimpleException;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
@@ -73,6 +74,13 @@ public class BotonConstruirHotelEventHandler implements EventHandler<ActionEvent
             alertaCapitalInsuficienteParaConstruirHotel.setHeaderText("No tenes dinero suficiente para construir el hotel.");
             alertaCapitalInsuficienteParaConstruirHotel.showAndWait();
 
+        }catch (NoSePermiteConstruirMasDeUnHotelEnBarrioDivididoException e) {
+
+            Alert alertaBarrioCompletoDeHoteles = new Alert(Alert.AlertType.WARNING);
+            alertaBarrioCompletoDeHoteles.initOwner(stage);
+            alertaBarrioCompletoDeHoteles.setTitle("ATENCION");
+            alertaBarrioCompletoDeHoteles.setHeaderText("Esta propiedad ya tiene capacidad maxima de hoteles");
+            alertaBarrioCompletoDeHoteles.showAndWait();
         }
 
 

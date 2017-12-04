@@ -68,15 +68,15 @@ public class ContenedorPrincipal extends BorderPane {
 
         Label acciones = new Label("ACCIONES DE JUGADOR");
         acciones.setTextFill(Color.web("#0066CC"));
-        acciones.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
+        acciones.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
 
         this.panelIzquierdo = new VBox();
         this.panelIzquierdo.setSpacing(100);
-        this.panelIzquierdo.setPadding(new Insets(15));
+        this.panelIzquierdo.setPadding(new Insets(10));
 
         VBox accionesDeJugador = new VBox();
         accionesDeJugador.setSpacing(10);
-        accionesDeJugador.setPadding(new Insets(15));
+        accionesDeJugador.setPadding(new Insets(10));
         accionesDeJugador.setAlignment(Pos.CENTER);
 
         Button botonTirarDadosYMover = new Button("Tirar Dados Y Mover");
@@ -206,7 +206,7 @@ public class ContenedorPrincipal extends BorderPane {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         Canvas canvasImagen = new Canvas(560,400);
-        Image imagenCanvas = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/Centro.png");
+        Image imagenCanvas = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/algopolyCentro.png");
         canvasImagen.getGraphicsContext2D().drawImage(imagenCanvas,0,0);
 
         Image imagen = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/lluvia.png");

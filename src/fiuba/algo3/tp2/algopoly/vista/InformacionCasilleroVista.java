@@ -19,7 +19,7 @@ public class InformacionCasilleroVista extends VBox {
         setSpacing(8);
         this.setAlignment(Pos.CENTER);
 
-        Label infoDeCasilleroSeleccionado = new Label("INFORMACION DE CASILLERO SELECCIONADO");
+        Label infoDeCasilleroSeleccionado = new Label("      INFORMACION DE\nCASILLERO SELECCIONADO");
         infoDeCasilleroSeleccionado.setTextFill(Color.web("#0066CC"));
         infoDeCasilleroSeleccionado.setFont(Font.font("Verdana", FontWeight.BOLD, 11));
         label= new Label( );

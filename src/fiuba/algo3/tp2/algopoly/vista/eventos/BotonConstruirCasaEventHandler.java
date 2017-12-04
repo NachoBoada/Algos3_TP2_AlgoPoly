@@ -8,6 +8,8 @@ import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorDebeComprarElBarrioParaPoderConstruirException;
 import fiuba.algo3.tp2.algopoly.model.casillero.JugadorNoPuedeConstruirCasaSiNoAdquiereLosDosBarriosException;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePermiteConstruirMasDeDosCasasEnBarrioDivididoException;
+import fiuba.algo3.tp2.algopoly.model.casillero.barrio.NoSePermiteConstruirMasDeUnaCasaEnBarrioSimpleException;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -63,6 +65,21 @@ public class BotonConstruirCasaEventHandler implements EventHandler<ActionEvent>
             alertaCapitalInsuficienteParaConstruirCasa.setHeaderText("No tenes dinero suficiente para construir una casa.");
             alertaCapitalInsuficienteParaConstruirCasa.showAndWait();
 
+        }catch (NoSePermiteConstruirMasDeUnaCasaEnBarrioSimpleException e) {
+
+            Alert alertaBarrioCompletoDeHoteles = new Alert(Alert.AlertType.WARNING);
+            alertaBarrioCompletoDeHoteles.initOwner(stage);
+            alertaBarrioCompletoDeHoteles.setTitle("ATENCION");
+            alertaBarrioCompletoDeHoteles.setHeaderText("Esta propiedad ya tiene capacidad maxima de casas");
+            alertaBarrioCompletoDeHoteles.showAndWait();
+        }catch (NoSePermiteConstruirMasDeDosCasasEnBarrioDivididoException e) {
+
+            Alert alertaBarrioCompletoDeHoteles = new Alert(Alert.AlertType.WARNING);
+            alertaBarrioCompletoDeHoteles.initOwner(stage);
+            alertaBarrioCompletoDeHoteles.setTitle("ATENCION");
+            alertaBarrioCompletoDeHoteles.setHeaderText("Esta propiedad ya tiene capacidad maxima de casas");
+            alertaBarrioCompletoDeHoteles.setContentText("Puede intentar construir un Hotel aqui");
+            alertaBarrioCompletoDeHoteles.showAndWait();
         }
 
         this.contenedorPrincipal.jugadorNoComproPropiedad();
