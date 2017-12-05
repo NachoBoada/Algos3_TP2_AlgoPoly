@@ -163,6 +163,5 @@ public class JuegoTest {
 
         Assert.assertEquals(juego.obtenerJugador("Jugador 2"),juego.getJugadorActual());
 
-
     }
 }

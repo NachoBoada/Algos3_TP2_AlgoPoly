@@ -3,7 +3,6 @@ package fiuba.algo3.tp2.algopoly.vista;
 import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
-import fiuba.algo3.tp2.algopoly.vista.eventos.OpcionVenderPropiedadEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

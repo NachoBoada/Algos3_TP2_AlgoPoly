@@ -1,8 +1,6 @@
 package fiuba.algo3.tp2.algopoly.vista.eventos;
 
 
-import fiuba.algo3.tp2.algopoly.model.Juego;
-import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;

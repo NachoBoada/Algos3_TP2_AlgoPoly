@@ -4,15 +4,12 @@ import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.BarrioDividido;
 import fiuba.algo3.tp2.algopoly.vista.eventos.BotonAccionCasilleroEventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.effect.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 
 public class TableroVista extends GridPane {
 

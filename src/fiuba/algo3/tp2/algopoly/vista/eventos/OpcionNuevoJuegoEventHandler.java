@@ -53,7 +53,7 @@ public class OpcionNuevoJuegoEventHandler implements EventHandler<ActionEvent> {
 
         Stage stageProximoJugador = new Stage();
         stageProximoJugador.setTitle("Proximo jugador");
-        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador);
+        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador,this.contenedorPrincipal);
         contenedorProximoJugador.setContenido();
         Scene escenaProximoJugador = new Scene(contenedorProximoJugador, 375, 200);
         stageProximoJugador.setScene(escenaProximoJugador);

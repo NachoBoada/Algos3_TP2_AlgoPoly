@@ -9,6 +9,8 @@ import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 
 public class Aplicacion extends Application {
 
+    private static final double capitalInicial = 25000;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -20,7 +22,7 @@ public class Aplicacion extends Application {
 
         stage.setTitle("ALGOPOLY");
 
-        double capitalInicialDeJugadores = 25000;
+        double capitalInicialDeJugadores = capitalInicial;
 
         Juego.getInstance().comenzarJuego(capitalInicialDeJugadores);
 

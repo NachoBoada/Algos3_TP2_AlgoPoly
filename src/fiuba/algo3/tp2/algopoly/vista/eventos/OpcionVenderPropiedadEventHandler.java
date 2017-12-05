@@ -4,8 +4,10 @@ import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
+import fiuba.algo3.tp2.algopoly.vista.ContenedorProximoJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -44,6 +46,7 @@ public class OpcionVenderPropiedadEventHandler implements EventHandler<ActionEve
             jugadorActual.caerEn(jugadorActual.casilleroActual());
             Juego.getInstance().turnoProximojugador();
             this.contenedorPrincipal.setJugadorTieneQueVender(false);
+            this.informarTurnoProximoJugador();
 
         }
 
@@ -66,6 +69,49 @@ public class OpcionVenderPropiedadEventHandler implements EventHandler<ActionEve
         alertaCompraRealizada.setHeaderText("Venta realizada!");
         alertaCompraRealizada.setContentText("Ahora tu capital es de: " + jugadorActual.getCapital().getCantidad());
         alertaCompraRealizada.showAndWait();
+
+    }
+
+    private void informarTurnoProximoJugador() {
+
+        this.contenedorPrincipal.deshabilitarTirarYMover();
+
+        Stage stageProximoJugador = new Stage();
+        stageProximoJugador.setTitle("Proximo jugador");
+        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador,this.contenedorPrincipal);
+        contenedorProximoJugador.setContenido();
+        Scene escenaProximoJugador = new Scene(contenedorProximoJugador, 375, 200);
+        stageProximoJugador.setScene(escenaProximoJugador);
+        stageProximoJugador.initOwner(this.stage);
+        stageProximoJugador.showAndWait();
+
+
+
+        if (Juego.getInstance().getJugadorActual().casilleroActual().getNombre().equals("Carcel")) {
+
+            this.informarSalidaDeLaCarcel();
+
+        }
+
+
+    }
+
+    private void informarSalidaDeLaCarcel() {
+
+        if (Juego.getInstance().getJugadorActual().getEstado().equals("Libre")) {
+
+            String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
+            Media festejo = new Media(pathSonidoFestejo);
+            MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
+            sonidoFestejo.setAutoPlay(true);
+
+            Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.WARNING);
+            alertaJugadorPresoNoSePuedeMover.initOwner(stage);
+            alertaJugadorPresoNoSePuedeMover.setTitle("ATENCION");
+            alertaJugadorPresoNoSePuedeMover.setHeaderText("Ya cumpliste tu condena, estas libre!");
+            alertaJugadorPresoNoSePuedeMover.showAndWait();
+
+        }
 
     }
 }

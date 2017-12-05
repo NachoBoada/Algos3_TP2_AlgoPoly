@@ -5,7 +5,6 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
-import fiuba.algo3.tp2.algopoly.model.casillero.barrio.Barrio;
 import fiuba.algo3.tp2.algopoly.vista.eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +12,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,20 +19,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import javax.xml.bind.annotation.XmlType;
 import java.nio.file.Paths;
 
 public class ContenedorPrincipal extends BorderPane {
 
-    BarraDeMenu barraDeMenu;
-    VBox panelIzquierdo;
-    VBox panelDerecho;
-    StackPane panelCentral;
-    Stage stage;
-    boolean jugadorComproPropiedad;
-    boolean jugadorTieneQueVender;
+    private BarraDeMenu barraDeMenu;
+    private VBox panelIzquierdo;
+    private VBox panelDerecho;
+    private StackPane panelCentral;
+    private Stage stage;
+    private boolean jugadorComproPropiedad;
+    private boolean jugadorTieneQueVender;
     private MediaPlayer musica;
+    private Button botonTirarYMover;
 
 
     public ContenedorPrincipal(Stage stage) {
@@ -85,6 +82,7 @@ public class ContenedorPrincipal extends BorderPane {
         botonTirarDadosYMover.setOnAction(botonTirarDadosYMoverEventHandler);
         botonTirarDadosYMover.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonTirarDadosYMover.setStyle("-fx-base: #FF6666;");
+        this.botonTirarYMover = botonTirarDadosYMover;
 
         if ( this.getJugadorTieneQueVender() ){
 
@@ -305,10 +303,6 @@ public class ContenedorPrincipal extends BorderPane {
 
     }
 
-    public void jugadorTieneQueVender() {
-
-        this.jugadorTieneQueVender = true;
-    }
 
     public void setJugadorTieneQueVender(boolean jugadorTieneQueVender) {
 
@@ -317,5 +311,17 @@ public class ContenedorPrincipal extends BorderPane {
 
     public void pararMusica() {
         this.musica.stop();
+    }
+
+    public void deshabilitarTirarYMover() {
+        
+        this.botonTirarYMover.setDisable(true);
+        
+    }
+
+    public void habilitarTirarYMover() {
+
+        this.botonTirarYMover.setDisable(false);
+
     }
 }

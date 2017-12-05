@@ -4,7 +4,6 @@ package fiuba.algo3.tp2.algopoly.vista.eventos;
 import fiuba.algo3.tp2.algopoly.vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.stage.Stage;
 import javafx.scene.control.MenuItem;
 
 

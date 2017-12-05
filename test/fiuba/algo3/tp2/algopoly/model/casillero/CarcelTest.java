@@ -1,5 +1,8 @@
-package fiuba.algo3.tp2.algopoly.model;
+package fiuba.algo3.tp2.algopoly.model.casillero;
 
+import fiuba.algo3.tp2.algopoly.model.Dinero;
+import fiuba.algo3.tp2.algopoly.model.Jugador;
+import fiuba.algo3.tp2.algopoly.model.Tablero;
 import fiuba.algo3.tp2.algopoly.model.casillero.Encasillable;
 import fiuba.algo3.tp2.algopoly.model.estado.NoSePuedePagarFianzaEnEsteTurnoException;
 import org.junit.Assert;

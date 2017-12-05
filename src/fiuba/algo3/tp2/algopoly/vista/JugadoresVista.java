@@ -4,7 +4,6 @@ import fiuba.algo3.tp2.algopoly.model.Juego;
 import fiuba.algo3.tp2.algopoly.model.Jugador;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.util.HashMap;
 import java.util.LinkedList;

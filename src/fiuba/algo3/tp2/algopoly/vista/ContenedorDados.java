@@ -17,14 +17,16 @@ import java.util.ArrayList;
 
 public class ContenedorDados extends BorderPane {
 
-    Stage stage;
-    VBox centro;
-    ArrayList<Image> imagenes;
+    private ContenedorPrincipal contenedorPrincipal;
+    private Stage stage;
+    private VBox centro;
+    private ArrayList<Image> imagenes;
 
 
-    public ContenedorDados(Stage stage){
+    public ContenedorDados(Stage stage,ContenedorPrincipal contenedorPrincipal){
 
         this.stage = stage;
+        this.contenedorPrincipal = contenedorPrincipal;
 
         this.imagenes = new ArrayList<Image>();
 
@@ -59,7 +61,7 @@ public class ContenedorDados extends BorderPane {
         dado2.setBackground(new Background(imagenDado2));
 
         Button botonAceptarYCerrarVentana = new Button("Aceptar");
-        BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage);
+        BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage,this.contenedorPrincipal);
         botonAceptarYCerrarVentana.setOnAction(botonAceptarTiroDadosEventHandler);
         botonAceptarYCerrarVentana.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonAceptarYCerrarVentana.setStyle("-fx-base: #FF6666;");

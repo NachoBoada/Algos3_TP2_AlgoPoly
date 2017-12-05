@@ -5,12 +5,10 @@ import fiuba.algo3.tp2.algopoly.model.Jugador;
 import fiuba.algo3.tp2.algopoly.model.casillero.Propiedad;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 
 public class InformacionJugadorVista extends VBox{
 

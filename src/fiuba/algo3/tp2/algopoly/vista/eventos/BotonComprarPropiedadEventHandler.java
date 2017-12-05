@@ -20,8 +20,8 @@ import java.nio.file.Paths;
 
 public class BotonComprarPropiedadEventHandler implements EventHandler<ActionEvent>{
 
-    ContenedorPrincipal contenedorPrincipal;
-    Stage stage;
+    private ContenedorPrincipal contenedorPrincipal;
+    private Stage stage;
 
     public BotonComprarPropiedadEventHandler(Stage stage, ContenedorPrincipal contenedorPrincipal){
 

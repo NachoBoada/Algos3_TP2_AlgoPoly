@@ -19,8 +19,8 @@ import java.nio.file.Paths;
 public class BotonPagarFianzaEventHandler implements EventHandler<ActionEvent>{
 
 
-    ContenedorPrincipal contenedorPrincipal;
-    Stage stage;
+    private ContenedorPrincipal contenedorPrincipal;
+    private Stage stage;
 
     public BotonPagarFianzaEventHandler(Stage stage, ContenedorPrincipal contenedorPrincipal){
 

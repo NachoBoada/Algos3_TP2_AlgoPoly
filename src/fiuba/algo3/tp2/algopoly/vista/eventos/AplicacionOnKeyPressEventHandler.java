@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 
 public class AplicacionOnKeyPressEventHandler implements EventHandler<KeyEvent>{
 
-    Stage stage;
-    BarraDeMenu barraDeMenu;
+    private Stage stage;
+    private BarraDeMenu barraDeMenu;
 
     public AplicacionOnKeyPressEventHandler(Stage stage, BarraDeMenu barraDeMenu) {
 

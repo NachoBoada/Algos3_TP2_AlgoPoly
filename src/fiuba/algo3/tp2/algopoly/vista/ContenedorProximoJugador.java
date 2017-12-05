@@ -7,7 +7,6 @@ import fiuba.algo3.tp2.algopoly.vista.eventos.BotonAceptarYCerrarVentanaEventHan
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -15,21 +14,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
-
 public class ContenedorProximoJugador extends BorderPane{
 
 
-    Stage stage;
-    VBox centro;
-    Image piezaJugador1;
-    Image piezaJugador2;
-    Image piezaJugador3;
+    private Stage stage;
+    private ContenedorPrincipal contenedorPrincipal;
+    private VBox centro;
+    private Image piezaJugador1;
+    private Image piezaJugador2;
+    private Image piezaJugador3;
 
-    public ContenedorProximoJugador(Stage stageProximoJugador) {
+    public ContenedorProximoJugador(Stage stageProximoJugador, ContenedorPrincipal contenedorPrincipal) {
 
         this.stage = stageProximoJugador;
+        this.contenedorPrincipal = contenedorPrincipal;
 
         this.piezaJugador1 = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/pieza_sombrero.png");
         this.piezaJugador2 = new Image("file:src/fiuba/algo3/tp2/algopoly/vista/imagenes/pieza_auto.png");
@@ -50,7 +48,7 @@ public class ContenedorProximoJugador extends BorderPane{
         jugador.setSpacing(20);
 
         Button botonAceptarYCerrarVentana = new Button("Aceptar");
-        BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage);
+        BotonAceptarYCerrarVentanaEventHandler botonAceptarTiroDadosEventHandler = new BotonAceptarYCerrarVentanaEventHandler(this.stage,this.contenedorPrincipal);
         botonAceptarYCerrarVentana.setOnAction(botonAceptarTiroDadosEventHandler);
         botonAceptarYCerrarVentana.setFont((Font.font("Verdana", FontWeight.BOLD, 12)));
         botonAceptarYCerrarVentana.setStyle("-fx-base: #0066CC;");

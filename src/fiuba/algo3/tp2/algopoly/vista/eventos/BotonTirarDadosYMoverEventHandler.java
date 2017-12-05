@@ -11,7 +11,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.BackgroundImage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -22,8 +21,8 @@ import java.util.Optional;
 
 public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEvent> {
 
-    ContenedorPrincipal contenedorPrincipal;
-    Stage stage;
+    private ContenedorPrincipal contenedorPrincipal;
+    private Stage stage;
 
     public BotonTirarDadosYMoverEventHandler(Stage stage, ContenedorPrincipal contenedorPrincipal) {
 
@@ -38,10 +37,11 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         Jugador jugadorActual = Juego.getInstance().getJugadorActual();
         TiroDeDados tiro = jugadorActual.tirarDados();
 
+        this.contenedorPrincipal.deshabilitarTirarYMover();
 
         Stage stageDados = new Stage();
         stageDados.setTitle("Tiro de Dados");
-        ContenedorDados contenedorDados = new ContenedorDados(stageDados);
+        ContenedorDados contenedorDados = new ContenedorDados(stageDados,this.contenedorPrincipal);
         contenedorDados.setContenido(tiro);
         Scene escenaTiroDeDados = new Scene(contenedorDados, 450, 250);
         stageDados.setScene(escenaTiroDeDados);
@@ -54,11 +54,11 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             jugadorActual.mover(tiro.resultado());
 
-            //jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Tren"));
-
             this.informarCaidaEnRetrocesoDinamico(jugadorActual);
 
             this.informarCaidaEnAvanceDinamico(jugadorActual);
+
+            this.informarCaidaEnSalida(jugadorActual);
 
             this.informarCaidaEnPolicia(jugadorActual);
 
@@ -97,6 +97,8 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             alertaJugadorDebeVenderPropiedades.setContentText("Tenes que vender propiedades para afrontar el gasto.");
             alertaJugadorDebeVenderPropiedades.showAndWait();
 
+            this.contenedorPrincipal.setJugadorTieneQueVender(true);
+
 
 
             if (jugadorActual.getPropiedades().isEmpty()) {
@@ -114,20 +116,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 alertaJugadorEliminado.setHeaderText(jugadorActual.getNombreJugador() + " perdiste porque no tenes dinero ni propiedades para afrontar el gasto!");
                 alertaJugadorEliminado.showAndWait();
 
-                //Juego.getInstance().turnoProximojugador();
-
-                this.contenedorPrincipal.jugadorNoComproPropiedad();
-
-
-                this.contenedorPrincipal.setPanelIzquierdo();
-                this.contenedorPrincipal.setPanelDerecho();
-                this.contenedorPrincipal.setCentro();
-
-                this.informarTurnoProximoJugador();
+                this.contenedorPrincipal.setJugadorTieneQueVender(false);
 
             }
-
-            this.contenedorPrincipal.jugadorTieneQueVender();
 
         }
 
@@ -138,11 +129,12 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
             MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
             sonidoFestejo.setAutoPlay(true);
 
-            Alert alertaJuegoFinalizado = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alertaJuegoFinalizado = new Alert(Alert.AlertType.INFORMATION);
             alertaJuegoFinalizado.initOwner(stage);
-            alertaJuegoFinalizado.setTitle("Fin de Juego!");
+            alertaJuegoFinalizado.setTitle("Fin del Juego!");
             String jugadorGanador = Juego.getInstance().obtenerNombreJugadorGanador();
-            alertaJuegoFinalizado.setHeaderText(jugadorGanador + " ha ganado el Juego \n Desea reiniciar el juego?");
+            alertaJuegoFinalizado.setHeaderText(jugadorGanador + " ha ganado el Juego!");
+            alertaJuegoFinalizado.setContentText("Presiona Aceptar para reiniciar o Cancelar para cerrar el juego.");
 
             Optional<ButtonType> result = alertaJuegoFinalizado.showAndWait();
             if (result.get() == ButtonType.OK) {
@@ -167,6 +159,20 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
         this.contenedorPrincipal.setCentro();
 
         this.informarTurnoProximoJugador();
+
+    }
+
+    private void informarCaidaEnSalida(Jugador jugadorActual) {
+
+        if (jugadorActual.casilleroActual().getNombre().equals("Salida")) {
+
+            Alert alertaJugadorCaeEnSalida = new Alert(Alert.AlertType.INFORMATION);
+            alertaJugadorCaeEnSalida.initOwner(stage);
+            alertaJugadorCaeEnSalida.setTitle("ATENCION");
+            alertaJugadorCaeEnSalida.setHeaderText("Caiste en Salida!");
+            alertaJugadorCaeEnSalida.showAndWait();
+
+        }
 
     }
 
@@ -198,20 +204,18 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
     private void informarTurnoProximoJugador() {
 
-        /*Alert alertaProximoJugador = new Alert(Alert.AlertType.INFORMATION);
-        alertaProximoJugador.initOwner(this.stage);
-        alertaProximoJugador.setTitle("ATENCION");
-        alertaProximoJugador.setHeaderText("Ahora juega: " + Juego.getInstance().getJugadorActual().getNombreJugador());
-        alertaProximoJugador.showAndWait();*/
+        this.contenedorPrincipal.deshabilitarTirarYMover();
 
         Stage stageProximoJugador = new Stage();
         stageProximoJugador.setTitle("Proximo jugador");
-        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador);
+        ContenedorProximoJugador contenedorProximoJugador = new ContenedorProximoJugador(stageProximoJugador,this.contenedorPrincipal);
         contenedorProximoJugador.setContenido();
         Scene escenaProximoJugador = new Scene(contenedorProximoJugador, 375, 200);
         stageProximoJugador.setScene(escenaProximoJugador);
         stageProximoJugador.initOwner(this.stage);
         stageProximoJugador.showAndWait();
+
+
 
         if (Juego.getInstance().getJugadorActual().casilleroActual().getNombre().equals("Carcel")) {
 

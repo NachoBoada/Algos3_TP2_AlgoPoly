@@ -23,8 +23,8 @@ import java.nio.file.Paths;
 
 public class BotonConstruirCasaEventHandler implements EventHandler<ActionEvent>{
 
-    ContenedorPrincipal contenedorPrincipal;
-    Stage stage;
+    private ContenedorPrincipal contenedorPrincipal;
+    private Stage stage;
 
     public BotonConstruirCasaEventHandler(Stage stage, ContenedorPrincipal contenedorPrincipal){
 

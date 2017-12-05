@@ -108,58 +108,63 @@ public class TerceraEntregaTest {
     }
 
     @Test
-    public void testUnJugadorPierdeElJuegoPorqueNoPuedeAfrontarUnGasto(){
+    public void testFinDeJuegoLuegoDeQueDosJugadoresNoPuedenAfrontarGasto(){
 
-        Juego.getInstance().comenzarJuego(20000);
-        Tablero tablero = Juego.getInstance().getTablero();
-        Jugador jugador1 = Juego.getInstance().obtenerJugador("Jugador 1");
-        Jugador jugador2 = Juego.getInstance().obtenerJugador("Jugador 2");
-        Jugador jugador3 = Juego.getInstance().obtenerJugador("Jugador 3");
+        Juego juego = Juego.getInstance();
+        juego.comenzarJuego(25000);
+        Tablero tablero = juego.getTablero();
+        Barrio buenosAiresNorte = tablero.obtenerBarrioPorNombre("Buenos Aires Norte");
 
-        jugador1.comprarPropiedad(tablero.obtenerBarrioPorNombre("Cordoba Norte"));
-        jugador2.comprarPropiedad(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador3.comprarPropiedad(tablero.obtenerBarrioPorNombre("Neuquen"));
+        TiroDeDados tiro = juego.getJugadorActual().tirarDadosParaTests(1,3);
+        juego.getJugadorActual().mover(tiro.resultado());
+        juego.turnoProximojugador();
+
+        tiro = juego.getJugadorActual().tirarDadosParaTests(1,3);
+        juego.getJugadorActual().mover(tiro.resultado());
+        juego.turnoProximojugador();
+
+        tiro = juego.getJugadorActual().tirarDadosParaTests(1,3);
+        juego.getJugadorActual().mover(tiro.resultado());
+        juego.turnoProximojugador();
+
+        juego.getJugadorActual().comprarPropiedad(buenosAiresNorte);
+        tiro = juego.getJugadorActual().tirarDadosParaTests(1,3);
+        juego.turnoProximojugador();
+
+        juego.getJugadorActual().decrementarCapitalEn(new Dinero(25000));
 
         try {
-
-            jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+            juego.getJugadorActual().caerEn(buenosAiresNorte);
 
         }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
 
-            if (jugador1.tienePropiedades()) {
+            if (juego.getJugadorActual().getPropiedades().isEmpty()){
 
-                jugador1.venderPropiedad(tablero.obtenerBarrioPorNombre("Cordoba Norte"));
-
-                jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+                juego.jugadorPierdeElJuego(juego.getJugadorActual());
 
             }
 
         }
 
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
-        jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+        juego.getJugadorActual().decrementarCapitalEn(new Dinero(25000));
 
         try {
-
-            jugador1.caerEn(tablero.obtenerBarrioPorNombre("Buenos Aires Sur"));
+            juego.getJugadorActual().caerEn(buenosAiresNorte);
 
         }catch (ElJugadorDebeVenderPropiedadesPorCapitalInsuficienteException e){
 
-            if (!jugador1.tienePropiedades()) {
+            if (juego.getJugadorActual().getPropiedades().isEmpty()){
 
-                Juego.getInstance().jugadorPierdeElJuego(jugador1);
+                juego.jugadorPierdeElJuego(juego.getJugadorActual());
 
             }
 
         }
 
-        Assert.assertEquals(1000 ,jugador1.getCapital().getCantidad(),DELTA);
+        Assert.assertEquals(true,juego.finalizado());
 
     }
+
+
 
 }
