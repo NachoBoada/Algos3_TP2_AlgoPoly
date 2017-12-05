@@ -39,6 +39,13 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
         this.contenedorPrincipal.deshabilitarTirarYMover();
 
+        String pathSonidoDados = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoDados.mp3").toAbsolutePath().toUri().toString();
+        Media dados = new Media(pathSonidoDados);
+        MediaPlayer sonidoDados = new MediaPlayer(dados);
+        Duration duracionInicio = new Duration(500);
+        sonidoDados.setStartTime(duracionInicio);
+        sonidoDados.setAutoPlay(true);
+
         Stage stageDados = new Stage();
         stageDados.setTitle("Tiro de Dados");
         ContenedorDados contenedorDados = new ContenedorDados(stageDados,this.contenedorPrincipal);
@@ -52,7 +59,9 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            jugadorActual.mover(tiro.resultado());
+            //jugadorActual.mover(tiro.resultado());
+
+            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Quini 6"));
 
             this.informarCaidaEnRetrocesoDinamico(jugadorActual);
 
@@ -368,15 +377,15 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 50000) {
 
-                String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
-                Media cajaRegistradora = new Media(pathCajaRegistradora);
-                MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
-                sonidoCaja.setAutoPlay(true);
 
-                String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
-                Media festejo = new Media(pathSonidoFestejo);
-                MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
-                sonidoFestejo.setAutoPlay(true);
+                String pathSonidoQuini6 = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoQuini6.mp3").toAbsolutePath().toUri().toString();
+                Media quini = new Media(pathSonidoQuini6);
+                MediaPlayer sonidoQuini = new MediaPlayer(quini);
+                Duration duracionInicio = new Duration(36500);
+                Duration duracionFin = new Duration(37800);
+                sonidoQuini.setStartTime(duracionInicio);
+                sonidoQuini.setStopTime(duracionFin);
+                sonidoQuini.setAutoPlay(true);
 
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
@@ -388,16 +397,15 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             if (jugadorActual.getCapital().getCantidad() == capitalAntesDeMoverse.getCantidad() + 30000) {
 
-                String pathCajaRegistradora = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoCajaRegistradora.mp3").toAbsolutePath().toUri().toString();
-                Media cajaRegistradora = new Media(pathCajaRegistradora);
-                MediaPlayer sonidoCaja = new MediaPlayer(cajaRegistradora);
-                sonidoCaja.setAutoPlay(true);
-
-                String pathSonidoFestejo = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoFestejo.mp3").toAbsolutePath().toUri().toString();
-                Media festejo = new Media(pathSonidoFestejo);
-                MediaPlayer sonidoFestejo = new MediaPlayer(festejo);
-                sonidoFestejo.setAutoPlay(true);
-
+                String pathSonidoQuini6 = Paths.get("src/fiuba/algo3/tp2/algopoly/vista/sonidos/sonidoQuini6.mp3").toAbsolutePath().toUri().toString();
+                Media quini = new Media(pathSonidoQuini6);
+                MediaPlayer sonidoQuini = new MediaPlayer(quini);
+                Duration duracionInicio = new Duration(36500);
+                Duration duracionFin = new Duration(37800);
+                sonidoQuini.setStartTime(duracionInicio);
+                sonidoQuini.setStopTime(duracionFin);
+                sonidoQuini.setAutoPlay(true);
+                
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
