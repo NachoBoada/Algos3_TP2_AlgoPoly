@@ -59,9 +59,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
 
             Dinero capitalAntesDeMoverse = new Dinero(jugadorActual.getCapital().getCantidad());
 
-            //jugadorActual.mover(tiro.resultado());
-
-            jugadorActual.caerEn(Juego.getInstance().getTablero().obtenerCasilleroPorNombre("Quini 6"));
+            jugadorActual.mover(tiro.resultado());
 
             this.informarCaidaEnRetrocesoDinamico(jugadorActual);
 
@@ -405,7 +403,7 @@ public class BotonTirarDadosYMoverEventHandler implements EventHandler<ActionEve
                 sonidoQuini.setStartTime(duracionInicio);
                 sonidoQuini.setStopTime(duracionFin);
                 sonidoQuini.setAutoPlay(true);
-                
+
                 Alert alertaJugadorPresoNoSePuedeMover = new Alert(Alert.AlertType.INFORMATION);
                 alertaJugadorPresoNoSePuedeMover.initOwner(stage);
                 alertaJugadorPresoNoSePuedeMover.setTitle("FELICITACIONES");
